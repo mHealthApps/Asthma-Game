@@ -1,0 +1,55 @@
+.asthma-navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #c50e23;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+}
+
+.home-nav {
+  color: white;
+}
+
+.headers {
+  text-align: center;
+  font-size: 50px;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  font-family: "Arial-bold", sans-serif;
+  font-size: 10vw;
+  @media only screen and (min-width: 900px) {
+    font-size: 80px;
+  }
+}
+
+.list-component {
+  padding: 10px;
+  border-bottom: 2px solid black;
+}
+
+.list-checkmark {
+  text-align: right;
+}
+
+.text-items {
+  font-size: 4.5vw;
+  @media only screen and (min-width: 900px) {
+    font-size: 40px;
+  }
+}
+
+.asthma-orange {
+  color: #fd7647;
+}
+
+.checkmark {
+  color: #e2e3e6;
+}
+
+.checkmark:hover {
+  color: rgba(169, 170, 172);
+}
