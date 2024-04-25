@@ -1,55 +1,99 @@
 .asthma-navbar {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 0.5fr 2fr 0.5fr;
   background-color: #c50e23;
   color: white;
   text-align: center;
-  font-size: 24px;
+  height: 14.7vh;
+  font-size: 3.4vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 40px;
+  }
 }
 
 .home-nav {
   color: white;
 }
 
+.headers-container {
+  padding: 0;
+}
+
 .headers {
   text-align: center;
-  font-size: 50px;
+  font-weight: normal;
+  font-size: 2vh;
+  margin: 0.6vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 30px;
+    margin: 9px;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 23px;
+    margin: 8px;
+  }
+}
+
+.asthma-header {
+  font-weight: bold;
+  font-size: 3vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 42px;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 34px;
+  }
 }
 
 .list-grid {
   display: grid;
   grid-template-columns: 1fr 100px;
-  font-family: "Arial-bold", sans-serif;
-  font-size: 10vw;
-  @media only screen and (min-width: 900px) {
-    font-size: 80px;
-  }
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .list-component {
   padding: 10px;
+  height: 14.2vh;
   border-bottom: 2px solid black;
+}
+
+.list-offset {
+  transform: translateY(2.2vh);
 }
 
 .list-checkmark {
   text-align: right;
+  font-size: 6vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 72px;
+  }
 }
 
 .text-items {
-  font-size: 4.5vw;
-  @media only screen and (min-width: 900px) {
-    font-size: 40px;
+  font-size: 3vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 36px;
   }
 }
 
 .asthma-orange {
   color: #fd7647;
+  margin-bottom: 4px;
+  font-size: 2.5vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 30px;
+  }
 }
 
 .checkmark {
+  transform: translateY(1.1vh);
+}
+
+.non-selected {
   color: #e2e3e6;
 }
 
-.checkmark:hover {
-  color: rgba(169, 170, 172);
+.selected {
+  color: #70c679;
 }
