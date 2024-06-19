@@ -1,7 +1,6 @@
 .asthma-navbar {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
-  background-color: #c50e23;
   color: white;
   text-align: center;
   height: 14.7vh;
@@ -9,6 +8,10 @@
   @media only screen and (min-height: 1200px) {
     font-size: 40px;
   }
+}
+
+.asthma-red {
+  background-color: #c50e23;
 }
 
 .home-nav {
@@ -96,4 +99,31 @@
 
 .selected {
   color: #70c679;
+}
+
+.cards-progress-bar {
+  background-color: #6d0712;
+  width: 1fr;
+  height: 3.0vh;
+}
+
+.cards-progress-tracker {
+  background-color: white;
+  height: 3.0vh;
+}
+
+.mid-text {
+  height: 17.3vh;
+  color: white;
+}
+
+.card-num-headers {
+  font-weight: normal;
+  font-size: 3.5vh;
+  @media only screen and (min-height: 1200px) {
+    font-size: 49px;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 40px;
+  }
 }
