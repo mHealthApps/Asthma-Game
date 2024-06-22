@@ -43,41 +43,84 @@ const MidText = ({ cardNum, totalCards }) => {
   );
 };
 
-const cards = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Lungs_diagram_detailed.svg/375px-Lungs_diagram_detailed.svg.png',
-]
-
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
-const to = (i) => ({
+const to = (i, del) => ({
   x: 0,
   y: i * -4,
   scale: 1,
   rot: 0,
-  delay: i * 100,
+  delay: (del === undefined) ? i * 100 : del,
+});
+
+const genericDestination = (i) => ({
+  x: (200 + window.innerWidth) * -1,
+  y: i * -4,
+  rot: -5,
+  delay: undefined,
+  config: { friction: 50, tension: 120 },
 });
 
 const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
 const trans = (r, s) =>
-  `perspective(1500px) rotateX(30deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
+  `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
-function Deck() {
+const StackedCards = ({ cards }) => {
+  const [cardNum, setCardNum] = useState(1);
+
+  // Deck functionality
   const [gone] = useState(() => new Set()) // The set flags all the cards that are flicked out
   const [props, api] = useSprings(cards.length, i => ({
     ...to(i),
     from: from(i),
   })) // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
+
+  // cardNum toggles
+  const toggleNext = () => {
+    if (cardNum <= cards.length) {
+      const index = cards.length - cardNum;
+      if (!gone.has(index)) {
+        gone.add(index);
+        api.start(i => {
+          if (i !== index) return
+          return genericDestination(i);
+        });
+      }
+      setCardNum(cardNum + 1);
+      if (gone.size === cards.length) {
+        setTimeout(() => {
+          gone.clear()
+          api.start(i => to(i))
+        }, 600)
+        setCardNum(1)
+      }
+    }
+  };
+  const togglePrev = () => {
+    if (cardNum > 1) {
+      setCardNum(cardNum - 1);
+      const index = cards.length - cardNum + 1;
+      gone.clear();
+      for (let i = cards.length - 1; i > index; i--) {
+        gone.add(i);
+      }
+      //console.log(gone);
+      api.start(i => {
+        if (i !== index) return
+        return to(i, 0)
+      });
+    }
+  };
+
   const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
     const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
     const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
-    if (!down && trigger) gone.add(index) // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
+    if (!down && trigger) {
+      gone.add(index);
+      toggleNext();
+    } // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
     api.start(i => {
       if (index !== i) return // We're only interested in changing spring-data for the current spring
       const isGone = gone.has(index)
@@ -92,57 +135,33 @@ function Deck() {
         config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
       }
     })
-    if (!down && gone.size === cards.length)
-      setTimeout(() => {
-        gone.clear()
-        api.start(i => to(i))
-      }, 600)
+
   })
-  // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
-  return (
-    <>
-      {props.map(({ x, y, rot, scale }, i) => (
-        <animated.div className="deck" key={i} style={{ x, y }}>
-          {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-          <animated.div
-            {...bind(i)}
-            style={{
-              transform: interpolate([rot, scale], trans),
-              backgroundImage: `url(${cards[i]})`,
-            }}
-          >
-
-          </animated.div>
-        </animated.div>
-      ))}
-    </>
-  )
-}
-
-const StackedCards = () => {
-  const [cardNum, setCardNum] = useState(1);
-  const totalCards = 7;
-
-  const toggleNext = () => {
-    if (cardNum < totalCards) {
-      setCardNum(cardNum + 1);
-    }
-  };
-  const togglePrev = () => {
-    if (cardNum > 1) {
-      setCardNum(cardNum - 1);
-    }
-  };
 
 
   return (
     <div className="stacked-cards-module">
-      <TopBar barWidth={`${(cardNum / totalCards) * 100}%`}/>
-      <MidText cardNum={cardNum} totalCards ={totalCards} onClick={toggleNext} />
+      <TopBar barWidth={`${(cardNum / cards.length) * 100}%`}/>
+      <MidText cardNum={cardNum} totalCards ={cards.length} onClick={toggleNext} />
       <Button onClick={togglePrev}>Previous</Button>
       <Button onClick={toggleNext}>Next</Button>
       <div className="deck-container asthma-red">
-        <Deck />
+        {props.map(({ x, y, rot, scale }, i) => (
+          <animated.div className="deck" key={i} style={{ x, y }}>
+            {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
+            <animated.div
+              {
+                ...((i === cards.length - cardNum) ? bind(i) : {})
+              }
+              style={{
+                transform: interpolate([rot, scale], trans),
+                backgroundImage: `url(${cards[i]})`,
+              }}
+            >
+              <h1>{i}</h1>
+            </animated.div>
+          </animated.div>
+        ))}
       </div>
     </div>
   );
