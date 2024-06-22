@@ -5,7 +5,7 @@ import React from 'react';
 
 const DemoStacked = () => (
   <div className="asthma-red">
-    <StackedCards/>
+    <StackedCards />
   </div>
 );
 
