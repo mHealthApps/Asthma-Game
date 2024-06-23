@@ -46,7 +46,7 @@ const MidText = ({ cardNum, totalCards }) => {
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i, del) => ({
   x: 0,
-  y: i * -4,
+  y: 20 + i * -5,
   scale: 1,
   rot: 0,
   delay: (del === undefined) ? i * 100 : del,
@@ -124,8 +124,8 @@ const StackedCards = ({ cards }) => {
     api.start(i => {
       if (index !== i) return // We're only interested in changing spring-data for the current spring
       const isGone = gone.has(index)
-      const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0 // When a card is gone it flys out left or right, otherwise goes back to zero
-      const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0) // How much the card tilts, flicking it harder makes it rotate faster
+      const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0 // When a card is gone it flies out left or right, otherwise goes back to zero
+      const rot = mx / 100 + (isGone ? dir * 2 * velocity : down ? 0 : -mx / 100) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.1 : 1 // Active cards lift up a bit
       return {
         x,
@@ -143,8 +143,6 @@ const StackedCards = ({ cards }) => {
     <div className="stacked-cards-module">
       <TopBar barWidth={`${(cardNum / cards.length) * 100}%`}/>
       <MidText cardNum={cardNum} totalCards ={cards.length} onClick={toggleNext} />
-      <Button onClick={togglePrev}>Previous</Button>
-      <Button onClick={toggleNext}>Next</Button>
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
@@ -155,13 +153,21 @@ const StackedCards = ({ cards }) => {
               }
               style={{
                 transform: interpolate([rot, scale], trans),
-                backgroundImage: `url(${cards[i]})`,
+                backgroundImage: `url(${cards[cards.length - i - 1]})`,
               }}
             >
               <h1>{i}</h1>
             </animated.div>
           </animated.div>
         ))}
+      </div>
+      <div className="buttons-stacked">
+        <div className="grid-item">
+          <Button className="stacked-button"  onClick={togglePrev}>Previous</Button>
+        </div>
+        <div className="grid-item grid-right">
+          <Button className="stacked-button" onClick={toggleNext}>Next</Button>
+        </div>
       </div>
     </div>
   );
