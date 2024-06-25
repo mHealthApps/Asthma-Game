@@ -142,28 +142,30 @@ const StackedCards = ({ cards }) => {
   return (
     <div className="stacked-cards-module">
       <TopBar barWidth={`${(cardNum / cards.length) * 100}%`}/>
-      <MidText cardNum={cardNum} totalCards ={cards.length} onClick={toggleNext} />
+      <MidText cardNum={cardNum} totalCards={cards.length} onClick={toggleNext}/>
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
             {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-            <animated.div
+            <animated.div className="card"
               {
                 ...((i === cards.length - cardNum) ? bind(i) : {})
               }
               style={{
                 transform: interpolate([rot, scale], trans),
-                backgroundImage: `url(${cards[cards.length - i - 1]})`,
               }}
             >
-              <h1>{i}</h1>
+              {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                <img alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} /> : ''
+              }
+              <p>{cards[cards.length - i - 1].text}</p>
             </animated.div>
           </animated.div>
         ))}
       </div>
       <div className="buttons-stacked">
         <div className="grid-item">
-          <Button className="stacked-button"  onClick={togglePrev}>Previous</Button>
+          <Button className="stacked-button" onClick={togglePrev}>Previous</Button>
         </div>
         <div className="grid-item grid-right">
           <Button className="stacked-button" onClick={toggleNext}>Next</Button>
