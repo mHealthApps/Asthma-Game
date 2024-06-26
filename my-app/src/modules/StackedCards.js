@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -42,6 +42,40 @@ const MidText = ({ cardNum, totalCards }) => {
     </div>
   );
 };
+
+const ResponsiveText = ({ text }) => {
+  const containerRef = useRef(null);
+  const textRef = useRef(null);
+
+  const adjustCardFontSize = () => {
+    const container = containerRef.current;
+    const text = textRef.current;
+    let fontSize = 2.2;
+    text.style.fontSize = fontSize + 'vh';
+
+    while (text.scrollHeight > container.clientHeight) {
+      fontSize -= 0.1;
+      text.style.fontSize = fontSize + 'vh';
+    }
+  }
+
+  useEffect(() => {
+    adjustCardFontSize();
+    window.addEventListener('resize', adjustCardFontSize);
+    return () => window.removeEventListener('resize',adjustCardFontSize);
+  }, [])
+
+  return (
+    <div ref={containerRef}
+      style={{
+        height: '23vh',
+        overflow: 'hidden',
+      }}
+    >
+      <div ref={textRef} className="card-text">{text}</div>
+    </div>
+  );
+}
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i, del) => ({
@@ -138,7 +172,6 @@ const StackedCards = ({ cards }) => {
 
   })
 
-
   return (
     <div className="stacked-cards-module">
       <TopBar barWidth={`${(cardNum / cards.length) * 100}%`}/>
@@ -158,7 +191,7 @@ const StackedCards = ({ cards }) => {
               {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                 <img alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} /> : ''
               }
-              <p>{cards[cards.length - i - 1].text}</p>
+              <ResponsiveText text={cards[cards.length - i - 1].text} />
             </animated.div>
           </animated.div>
         ))}
