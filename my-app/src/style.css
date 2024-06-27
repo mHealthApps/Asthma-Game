@@ -147,7 +147,7 @@
   touch-action: none;
 }
 
-.deck > div {
+.card {
   background-color: white;
   background-size: auto 85%;
   background-repeat: no-repeat;
@@ -157,7 +157,7 @@
   height: 55vh;
   will-change: transform;
   border-radius: 3px;
-  box-shadow: 0 12px 100px -10px rgba(50, 50, 73, 0.4), 0 10px 10px -10px rgba(50, 50, 73, 0.3);
+  box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
   padding: 2vh;
   justify-content: center;
   text-align: center;
@@ -177,10 +177,24 @@
   z-index: 100;
 }
 
+.content-bottom {
+  flex-direction: column;
+  justify-content: flex-end;
+  object-fit: contain;
+}
+
+
 .stacked-button {
   background-color: #f2ba50;
   border-color: #86380f;
   transition: 0.3s;
+  font-size: calc(7px + 1.5vh);
+  height: 6vh;
+  margin-top: 0.5vh;
+}
+
+.nothing {
+  font-size: calc(7px + 1.5vh);
 }
 
 .stacked-button:hover {
