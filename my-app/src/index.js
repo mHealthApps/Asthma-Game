@@ -6,12 +6,13 @@ import ListPage from "./pages/ListPage";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/" element={<></>} />
-        <Route path="./my-app/list-page" element={<ListPage />} />
-      </Routes>
-    </Router>
+      // <Router>
+      //   <Routes>
+      //     <Route exact path="/" element={<></>} />
+      //     <Route path="/list-page" element={<ListPage />} />
+      //   </Routes>
+      // </Router>
+      <p>Hello, World!</p>
   );
 }
 
