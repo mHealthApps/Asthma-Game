@@ -12,7 +12,7 @@ const TopMenu = () => (
   <Navbar className="asthma-navbar asthma-red">
     <Container className="grid-item">
       <Nav>
-        <Nav.Link href="/"><HouseFill className="home-nav"/></Nav.Link>
+        <Nav.Link href="/Asthma-WebApp"><HouseFill className="home-nav"/></Nav.Link>
       </Nav>
     </Container>
     <div className="grid-item">
