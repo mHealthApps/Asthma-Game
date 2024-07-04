@@ -8,6 +8,19 @@ import { Button, Col } from 'react-bootstrap';
 import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import '../style.css';
+import lungs from '../assets/images/lungs-diagram.png';
+import lungsWide from '../assets/images/lungs-wide.jpg';
+import largeImage from '../assets/images/large-image-red.png';
+import newRatio from '../assets/images/new-ratio-image.png';
+
+
+const images = {
+  lungs,
+  lungsWide,
+  largeImage,
+  newRatio,
+}
+
 
 
 const TopBar = ({ barWidth }) => {
@@ -189,8 +202,9 @@ const StackedCards = ({ cards }) => {
               }}
             >
               {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                <img alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} /> : ''
+                <img alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} /> : ''
               }
+              <h2>{cards[cards.length - i - 1].src}</h2>
               <ResponsiveText text={cards[cards.length - i - 1].text} />
             </animated.div>
           </animated.div>

@@ -164,7 +164,7 @@
 }
 
 .card > img {
-  object-fit: scale-down;
+  object-fit: contain;
   height: 30vh;
   max-width: 38vh;
 }
