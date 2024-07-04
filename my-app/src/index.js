@@ -7,9 +7,9 @@ import DemoStacked from './pages/DemoStacked';
 
 function App() {
   return (
-    <HashRouter>
+    <HashRouter basename="/">
       <Routes>
-        <Route exact path="/" element={<></>} />
+        <Route exact path="/" element={<ListPage />} />
         <Route path="/list-page" element={<ListPage />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
       </Routes>
