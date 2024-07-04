@@ -152,8 +152,8 @@
   background-size: auto 85%;
   background-repeat: no-repeat;
   background-position: center center;
-  width: 40vh;
-  max-width: 95vw;
+  /*width: 40vh;*/
+  max-width: 60vw;
   height: 55vh;
   will-change: transform;
   border-radius: 3px;
