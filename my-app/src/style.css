@@ -173,7 +173,7 @@
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
   height: 10vh;
-  padding: 2vh 1.5vh 0 2vh;
+  /*padding: 2vh 1.5vh 0 2vh;*/
   z-index: 100;
 }
 
@@ -189,8 +189,10 @@
   border-color: #86380f;
   transition: 0.3s;
   font-size: calc(7px + 1.5vh);
-  height: 6vh;
+  /*height: 6vh;*/
   margin-top: 0.5vh;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .nothing {
