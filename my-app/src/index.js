@@ -1,27 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ListPage from "./pages/ListPage";
+import DemoStacked from './pages/DemoStacked';
 
-
-function Home() {
-    return (
-        <div>
-            <p>Hello, World!</p>
-            <Link to="/list-page">Go to List Page</Link>
-        </div>
-    );
-}
 
 function App() {
-    return (
-        <Router>
-            <Routes>
-                <Route exact path="/" element={<Home />} />
-                <Route path="/list-page" element={<ListPage />} />
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<></>} />
+        <Route path="/list-page" element={<ListPage />} />
+        <Route path="/stacked-demo" element={<DemoStacked />} />
+      </Routes>
+    </Router>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
