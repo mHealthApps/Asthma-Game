@@ -10,8 +10,8 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<></>} />
-        <Route path="/list-page" element={<ListPage />} />
-        <Route path="/stacked-demo" element={<DemoStacked />} />
+        <Route path="/Asthma-WebApp/list-page" element={<ListPage />} />
+        <Route path="/Asthma-WebApp/stacked-demo" element={<DemoStacked />} />
       </Routes>
     </Router>
   );
