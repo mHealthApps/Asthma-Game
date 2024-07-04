@@ -65,6 +65,10 @@
   transform: translateY(2.2vh);
 }
 
+.grid-right {
+  text-align: right;
+}
+
 .list-checkmark {
   text-align: right;
   font-size: 6vh;
@@ -104,26 +108,109 @@
 .cards-progress-bar {
   background-color: #6d0712;
   width: 1fr;
-  height: 3.0vh;
+  height: 2.0vh;
 }
 
 .cards-progress-tracker {
   background-color: white;
-  height: 3.0vh;
+  height: 2.0vh;
 }
 
 .mid-text {
-  height: 17.3vh;
+  height: 9vh;
+  margin-top: -2vh;
   color: white;
+  z-index: 20;
+  max-font-size: 3.4vh;
 }
 
 .card-num-headers {
   font-weight: normal;
   font-size: 3.5vh;
-  @media only screen and (min-height: 1200px) {
-    font-size: 49px;
-  }
-  @media only screen and (min-width: 1200px) {
-    font-size: 40px;
-  }
 }
+
+.deck-container {
+  display: flex;
+  align-items: center;
+  height: 67.7vh;
+  justify-content: center;
+}
+
+.deck {
+  position: absolute;
+  width: 100vw;
+  height: 55vh;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+}
+
+.card {
+  background-color: white;
+  background-size: auto 85%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 40vh;
+  max-width: 95vw;
+  height: 55vh;
+  will-change: transform;
+  border-radius: 3px;
+  box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
+  padding: 2vh;
+  justify-content: center;
+  text-align: center;
+}
+
+.card > img {
+  object-fit: contain;
+  height: 30vh;
+  max-width: 38vh;
+}
+
+.buttons-stacked {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  height: 10vh;
+  padding: 2vh 1.5vh 0 2vh;
+  z-index: 100;
+}
+
+.content-bottom {
+  flex-direction: column;
+  justify-content: flex-end;
+  object-fit: contain;
+}
+
+
+.stacked-button {
+  background-color: #f2ba50;
+  border-color: #86380f;
+  transition: 0.3s;
+  font-size: calc(7px + 1.5vh);
+  height: 6vh;
+  margin-top: 0.5vh;
+}
+
+.nothing {
+  font-size: calc(7px + 1.5vh);
+}
+
+.stacked-button:hover {
+  background-color: #ffdca0;
+  border-color: black;
+  color: black;
+}
+
+.stacked-button:active {
+  background-color: white !important;
+  border-color: white !important;
+  color: black !important;
+  transition: 0.05s;
+}
+
+body, html {
+  overflow: hidden;
+}
+
