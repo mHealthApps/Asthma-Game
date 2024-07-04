@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route exact path="/" element={<></>} />
-        <Route path="/list-page" element={<ListPage />} />
+        <Route path="./my-app/list-page" element={<ListPage />} />
       </Routes>
     </Router>
   );
