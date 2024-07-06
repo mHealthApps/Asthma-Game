@@ -115,6 +115,7 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 const StackedCards = ({ cards }) => {
+  const [orientation, setOrientation] = useState('portrait');
   const [cardNum, setCardNum] = useState(1);
 
   // Deck functionality
@@ -200,24 +201,43 @@ const StackedCards = ({ cards }) => {
               }
               style={{
                 transform: interpolate([rot, scale], trans),
-                gridTemplateColumns: (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+                display: (orientation === 'landscape') ? 'grid' : 'flex',
+                gridTemplateColumns: (orientation === 'landscape') ? (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr' : '',
               }}
             >
-              <div className="grid-item">
-                  {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+              {(orientation === 'landscape') ?
+              <>
+                <div className="grid-item outline">
+                    {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                    <div className="vertical-center">
+                      <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} />
+                    </div> : ''
+                    }
+                </div>
+                <div className="grid-item outline" />
+                <div className="grid-item outline">
+                  {(cards[cards.length - i - 1].text !== '') ?
                   <div className="vertical-center">
-                    <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height="50vh" />
                   </div> : ''
                   }
-              </div>
-              <div className="grid-item" />
-              <div className="grid-item">
-                {(cards[cards.length - i - 1].text !== '') ?
-                <div className="vertical-center">
-                  <ResponsiveText text={cards[cards.length - i - 1].text} height="50vh" />
-                </div> : ''
-                }
-              </div>
+                </div>
+              </> :
+              <>
+                <div className="card-width">
+                  {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                  <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
+                    height: (cards[cards.length - i - 1].text !== '') ? '30vh' : '50vh'
+                  }}/> : ''
+                  }
+                  {(cards[cards.length - i - 1].text !== '') ?
+                  <div className="grid-item">
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? '20vh' : '50vh'} />
+                  </div> : ''
+                  }
+                </div>
+              </>
+              }
             </animated.div>
           </animated.div>
         ))}
