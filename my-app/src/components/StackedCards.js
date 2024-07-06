@@ -56,7 +56,7 @@ const MidText = ({ cardNum, totalCards }) => {
   );
 };
 
-const ResponsiveText = ({ text }) => {
+const ResponsiveText = ({ text, height }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
@@ -81,11 +81,12 @@ const ResponsiveText = ({ text }) => {
   return (
     <div ref={containerRef}
       style={{
-        height: '23vh',
+        width: '100%',
+        height: height,
         overflow: 'hidden',
       }}
     >
-      <div ref={textRef} className="card-text">{text}</div>
+      <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>{text}</div>
     </div>
   );
 }
@@ -193,19 +194,30 @@ const StackedCards = ({ cards }) => {
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
             {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-            <animated.div className="card"
+            <animated.div className="content-card"
               {
                 ...((i === cards.length - cardNum) ? bind(i) : {})
               }
               style={{
                 transform: interpolate([rot, scale], trans),
+                gridTemplateColumns: (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
               }}
             >
-              {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                <img alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} /> : ''
-              }
-              <h2>{cards[cards.length - i - 1].src}</h2>
-              <ResponsiveText text={cards[cards.length - i - 1].text} />
+              <div className="grid-item">
+                  {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                  <div className="vertical-center">
+                    <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} />
+                  </div> : ''
+                  }
+              </div>
+              <div className="grid-item" />
+              <div className="grid-item">
+                {(cards[cards.length - i - 1].text !== '') ?
+                <div className="vertical-center">
+                  <ResponsiveText text={cards[cards.length - i - 1].text} height="50vh" />
+                </div> : ''
+                }
+              </div>
             </animated.div>
           </animated.div>
         ))}

@@ -1,3 +1,16 @@
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.grid-item {
+  position: relative;
+}
+
 .asthma-navbar {
   display: grid;
   grid-template-columns: 0.5fr 2fr 0.5fr;
@@ -147,7 +160,8 @@
   touch-action: none;
 }
 
-.card {
+.content-card {
+  display: grid;
   background-color: white;
   background-size: auto 85%;
   background-repeat: no-repeat;
@@ -159,14 +173,16 @@
   border-radius: 3px;
   box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
   padding: 2vh;
-  justify-content: center;
-  text-align: center;
+  /*justify-content: center;
+  text-align: center;*/
 }
 
-.card > img {
+.card-image {
+  /*height: 30vh;*/
   object-fit: contain;
-  height: 30vh;
-  max-width: 38vh;
+  width: 100%;
+  max-height: 100%;
+  /*max-width: 38vh;*/
 }
 
 .buttons-stacked {
@@ -191,8 +207,8 @@
   font-size: calc(7px + 1.5vh);
   /*height: 6vh;*/
   margin-top: 0.5vh;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .nothing {
@@ -210,6 +226,10 @@
   border-color: white !important;
   color: black !important;
   transition: 0.05s;
+}
+
+.outline {
+  border: 5px black solid;
 }
 
 body, html {
