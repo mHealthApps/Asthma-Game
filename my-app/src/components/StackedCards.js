@@ -208,6 +208,7 @@ const StackedCards = ({ cards }) => {
                 transform: interpolate([rot, scale], trans),
                 display: (orientation === 'landscape') ? 'grid' : 'flex',
                 gridTemplateColumns: (orientation === 'landscape') ? (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr' : '',
+                flexDirection: 'row'
               }}
             >
               {(orientation === 'landscape') ?
@@ -215,7 +216,10 @@ const StackedCards = ({ cards }) => {
                 <div className="grid-item">
                     {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                     <div className="vertical-center">
-                      <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} />
+                      <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
+                        width: '100%',
+                        maxHeight: '50vh',
+                      }}/>
                     </div> : ''
                     }
                 </div>
@@ -232,7 +236,9 @@ const StackedCards = ({ cards }) => {
                 <div className="card-width">
                   {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                   <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
-                    height: (cards[cards.length - i - 1].text !== '') ? '30vh' : '50vh'
+                    height: (cards[cards.length - i - 1].text !== '') ? '30vh' : '50vh',
+                    width: '100%',
+                    maxHeight: '100%',
                   }}/> : ''
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
