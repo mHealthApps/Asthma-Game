@@ -27,7 +27,7 @@ const demoCards = [
   {
     image: 'lungs',
     alt: 'lungs',
-    text: 'Testinghavingareallylongwordthatjustgoesonandon. second-word',
+    text: 'Short sentence',
   },
   {
     image: 'lungsWide',

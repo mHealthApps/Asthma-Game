@@ -115,7 +115,7 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 const StackedCards = ({ cards }) => {
-  const [orientation, setOrientation] = useState('portrait');
+  const [orientation, setOrientation] = useState('landscape');
   const [cardNum, setCardNum] = useState(1);
 
   // Deck functionality
@@ -144,6 +144,11 @@ const StackedCards = ({ cards }) => {
           api.start(i => to(i))
         }, 600)
         setCardNum(1)
+        if (orientation === 'landscape') {
+          setOrientation('portrait');
+        } else {
+          setOrientation('landscape');
+        }
       }
     }
   };
@@ -207,15 +212,15 @@ const StackedCards = ({ cards }) => {
             >
               {(orientation === 'landscape') ?
               <>
-                <div className="grid-item outline">
+                <div className="grid-item">
                     {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                     <div className="vertical-center">
                       <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} />
                     </div> : ''
                     }
                 </div>
-                <div className="grid-item outline" />
-                <div className="grid-item outline">
+                <div className="grid-item" />
+                <div className="grid-item">
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="vertical-center">
                     <ResponsiveText text={cards[cards.length - i - 1].text} height="50vh" />
