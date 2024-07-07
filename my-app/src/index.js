@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ListPage from "./pages/ListPage";
@@ -6,18 +6,16 @@ import DemoStacked from './pages/DemoStacked';
 
 
 function App() {
-  /* This styling variable is setup so that the elements fit in screen even for mobile devices where screen inner height is not 100vh */
-  let vh = 1;
-
-  const setVerticalScaling = () => {
-    vh = window.innerHeight * 0.01;
+  const setVerticalScaling = useCallback(() => {
+    const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
+  }, []);
+
   useEffect(() => {
     setVerticalScaling();
     window.addEventListener('resize', setVerticalScaling);
     return () => window.removeEventListener('resize',setVerticalScaling);
-  }, [])
+  }, [setVerticalScaling])
 
   return (
     <HashRouter>
