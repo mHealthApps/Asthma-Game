@@ -65,11 +65,11 @@ const ResponsiveText = ({ text, height }) => {
     const container = containerRef.current;
     const text = textRef.current;
     let fontSize = 2.2;
-    text.style.fontSize = fontSize + 'vh';
+    text.style.fontSize = `${(window.innerHeight * fontSize * 0.01)}px`;
 
     while (text.scrollHeight > container.clientHeight) {
       fontSize -= 0.1;
-      text.style.fontSize = fontSize + 'vh';
+      text.style.fontSize = `${(window.innerHeight * fontSize * 0.01)}px`;
     }
   }
 
@@ -237,7 +237,7 @@ const StackedCards = ({ cards }) => {
                     <div className="vertical-center">
                       <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
                         width: '100%',
-                        maxHeight: '50vh',
+                        maxHeight: `${(window.innerHeight * 0.5)}px`,
                       }}/>
                     </div> : ''
                     }
@@ -246,7 +246,7 @@ const StackedCards = ({ cards }) => {
                 <div className="grid-item">
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="vertical-center">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height="50vh" />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={`${(window.innerHeight * 0.5)}px`} />
                   </div> : ''
                   }
                 </div>
@@ -255,14 +255,15 @@ const StackedCards = ({ cards }) => {
                 <div className="card-width">
                   {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                   <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
-                    height: (cards[cards.length - i - 1].text !== '') ? '30vh' : '50vh',
+                    height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
+                   : `${(window.innerHeight * 0.5)}px`,
                     width: '100%',
                     maxHeight: '100%',
                   }}/> : ''
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="grid-item">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? '20vh' : '50vh'} />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} />
                   </div> : ''
                   }
                 </div>
