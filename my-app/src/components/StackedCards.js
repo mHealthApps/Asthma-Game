@@ -115,7 +115,24 @@ const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
 const StackedCards = ({ cards }) => {
-  const [orientation, setOrientation] = useState('landscape');
+  /* Handling screen orientation */
+  const [orientation, setOrientation] = useState('portrait');
+  const adjustOrientationFormat = () => {
+    const type = window.screen.orientation.type;
+    const angle = window.screen.orientation.angle;
+    console.log(`ScreenOrientation change: ${type}, ${angle} degrees.`);
+    if (type.startsWith('portrait')) {
+      setOrientation('portrait');
+    } else {
+      setOrientation('landscape');
+    }
+  }
+  useEffect(() => {
+    adjustOrientationFormat();
+    window.screen.orientation.addEventListener('change', adjustOrientationFormat);
+    return () => window.screen.orientation.removeEventListener('change',adjustOrientationFormat);
+  }, [])
+
   const [cardNum, setCardNum] = useState(1);
 
   // Deck functionality
@@ -144,11 +161,11 @@ const StackedCards = ({ cards }) => {
           api.start(i => to(i))
         }, 600)
         setCardNum(1)
-        if (orientation === 'landscape') {
+        /*if (orientation === 'landscape') {
           setOrientation('portrait');
         } else {
           setOrientation('landscape');
-        }
+        }*/
       }
     }
   };
@@ -168,6 +185,7 @@ const StackedCards = ({ cards }) => {
     }
   };
 
+  // Sets up the animations for dragging and removing cards
   const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
     const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
     const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
