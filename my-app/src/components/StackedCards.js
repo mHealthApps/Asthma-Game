@@ -61,6 +61,7 @@ const ResponsiveText = ({ text, height }) => {
   const textRef = useRef(null);
 
   const adjustCardFontSize = () => {
+    console.log(`window.innerHeight: ${window.innerHeight}`);
     const container = containerRef.current;
     const text = textRef.current;
     let fontSize = 2.2;

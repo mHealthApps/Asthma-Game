@@ -1,3 +1,7 @@
+:root {
+  --vh: 1vh;
+}
+
 .vertical-center {
   margin: 0;
   position: absolute;
@@ -16,8 +20,8 @@
   grid-template-columns: 0.5fr 2fr 0.5fr;
   color: white;
   text-align: center;
-  height: 14.7vh;
-  font-size: 3.4vh;
+  height: calc(var(--vh, 1vh) * 14.7);
+  font-size: calc(var(--vh, 1vh) * 3.4);
   @media only screen and (min-height: 1200px) {
     font-size: 40px;
   }
@@ -38,8 +42,8 @@
 .headers {
   text-align: center;
   font-weight: normal;
-  font-size: 2vh;
-  margin: 0.6vh;
+  font-size: calc(var(--vh, 1vh) * 2.0);
+  margin: calc(var(--vh, 1vh) * 0.6);
   @media only screen and (min-height: 1200px) {
     font-size: 30px;
     margin: 9px;
@@ -52,7 +56,7 @@
 
 .asthma-header {
   font-weight: bold;
-  font-size: 3vh;
+  font-size: calc(var(--vh, 1vh) * 3.0);
   @media only screen and (min-height: 1200px) {
     font-size: 42px;
   }
@@ -63,19 +67,19 @@
 
 .list-grid {
   display: grid;
-  grid-template-columns: 1fr 100px;
+  grid-template-columns: 1fr 30vw;
   font-family: sans-serif;
   font-weight: bold;
 }
 
 .list-component {
   padding: 10px;
-  height: 14.2vh;
+  height: calc(var(--vh, 1vh) * 14.2);
   border-bottom: 2px solid black;
 }
 
 .list-offset {
-  transform: translateY(2.2vh);
+  transform: translateY(calc(var(--vh, 1vh) * 2.2));
 }
 
 .grid-right {
@@ -84,14 +88,14 @@
 
 .list-checkmark {
   text-align: right;
-  font-size: 6vh;
+  font-size: calc(var(--vh, 1vh) * 6.0);
   @media only screen and (min-height: 1200px) {
     font-size: 72px;
   }
 }
 
 .text-items {
-  font-size: 3vh;
+  font-size: calc(var(--vh, 1vh) * 3.0);
   @media only screen and (min-height: 1200px) {
     font-size: 36px;
   }
@@ -100,14 +104,14 @@
 .asthma-orange {
   color: #fd7647;
   margin-bottom: 4px;
-  font-size: 2.5vh;
+  font-size: calc(var(--vh, 1vh) * 2.5);
   @media only screen and (min-height: 1200px) {
     font-size: 30px;
   }
 }
 
 .checkmark {
-  transform: translateY(1.1vh);
+  transform: translateY(calc(var(--vh, 1vh) * 1.1));
 }
 
 .non-selected {
@@ -121,38 +125,38 @@
 .cards-progress-bar {
   background-color: #6d0712;
   width: 1fr;
-  height: 2.0vh;
+  height: calc(var(--vh, 1vh) * 2.0);
 }
 
 .cards-progress-tracker {
   background-color: white;
-  height: 2.0vh;
+  height: calc(var(--vh, 1vh) * 2.0);
 }
 
 .mid-text {
-  height: 9vh;
-  margin-top: -2vh;
+  height: calc(var(--vh, 1vh) * 9.0);
+  margin-top: calc(var(--vh, 1vh) * (-2.0));
   color: white;
   z-index: 20;
-  max-font-size: 3.4vh;
+  max-font-size: calc(var(--vh, 1vh) * 3.4);
 }
 
 .card-num-headers {
   font-weight: normal;
-  font-size: 3.5vh;
+  font-size: calc(var(--vh, 1vh) * 3.5);
 }
 
 .deck-container {
   display: flex;
   align-items: center;
-  height: 67.7vh;
+  height: calc(var(--vh, 1vh) * 67.7);
   justify-content: center;
 }
 
 .deck {
   position: absolute;
   width: 100vw;
-  height: 55vh;
+  height: calc(var(--vh, 1vh) * 55.0);
   will-change: transform;
   display: flex;
   align-items: center;
@@ -167,11 +171,11 @@
   background-position: center center;
   width: 60vw;
   max-width: 95vw;
-  height: 55vh;
+  height: calc(var(--vh, 1vh) * 55.0);
   will-change: transform;
   border-radius: 3px;
   box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
-  padding: 2vh;
+  padding: calc(var(--vh, 1vh) * 2.0);
   /*justify-content: center;
   text-align: center;*/
 }
@@ -192,7 +196,7 @@
 .buttons-stacked {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  height: 10vh;
+  height: calc(var(--vh, 1vh) * 10.6);
   /*padding: 2vh 1.5vh 0 2vh;*/
   z-index: 100;
 }
@@ -208,15 +212,15 @@
   background-color: #f2ba50;
   border-color: #86380f;
   transition: 0.3s;
-  font-size: calc(7px + 1.5vh);
+  font-size: calc(7px + calc(var(--vh, 1vh) * 1.5));
   /*height: 6vh;*/
-  margin-top: 0.5vh;
+  margin-top: calc(var(--vh, 1vh) * 0.5);
   padding-top: 0;
   padding-bottom: 0;
 }
 
 .nothing {
-  font-size: calc(7px + 1.5vh);
+  font-size: calc(7px + calc(var(--vh, 1vh) * 1.5));
 }
 
 .stacked-button:hover {
@@ -238,5 +242,6 @@
 
 body, html {
   overflow: hidden;
+  overflow-y: auto;
 }
 
