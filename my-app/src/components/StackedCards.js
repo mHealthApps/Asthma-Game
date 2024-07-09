@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -56,28 +56,28 @@ const MidText = ({ cardNum, totalCards }) => {
   );
 };
 
-const ResponsiveText = ({ text, height }) => {
+const ResponsiveText = ({ text, height, initialSize }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
-  const adjustCardFontSize = () => {
+  const adjustCardFontSize = useCallback(() => {
     console.log(`window.innerHeight: ${window.innerHeight}`);
     const container = containerRef.current;
     const text = textRef.current;
-    let fontSize = 2.2;
-    text.style.fontSize = `${(window.innerHeight * fontSize * 0.01)}px`;
+    let fontSize = initialSize;
+    text.style.fontSize = `${fontSize}px`;
 
     while (text.scrollHeight > container.clientHeight) {
       fontSize -= 0.1;
-      text.style.fontSize = `${(window.innerHeight * fontSize * 0.01)}px`;
+      text.style.fontSize = `${fontSize}px`;
     }
-  }
+  }, [initialSize])
 
   useEffect(() => {
     adjustCardFontSize();
     window.addEventListener('resize', adjustCardFontSize);
     return () => window.removeEventListener('resize',adjustCardFontSize);
-  }, [])
+  }, [adjustCardFontSize])
 
   return (
     <div ref={containerRef}
@@ -246,7 +246,7 @@ const StackedCards = ({ cards }) => {
                 <div className="grid-item">
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="vertical-center">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={`${(window.innerHeight * 0.5)}px`} />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={`${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} />
                   </div> : ''
                   }
                 </div>
@@ -263,7 +263,7 @@ const StackedCards = ({ cards }) => {
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="grid-item">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} />
                   </div> : ''
                   }
                 </div>
