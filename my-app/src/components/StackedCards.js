@@ -188,16 +188,20 @@ const StackedCards = ({ cards }) => {
 
   // Sets up the animations for dragging and removing cards
   const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
-    const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out
     const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
+    const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out or toggle previous card
     if (!down && trigger) {
-      gone.add(index);
-      toggleNext();
+      if (dir < 0) {
+        gone.add(index);
+        toggleNext();
+      } else {
+        togglePrev();
+      }
     } // If button/finger's up and trigger velocity is reached, we flag the card ready to fly out
     api.start(i => {
       if (index !== i) return // We're only interested in changing spring-data for the current spring
       const isGone = gone.has(index)
-      const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0 // When a card is gone it flies out left or right, otherwise goes back to zero
+      const x = isGone ? Math.max(200 + window.innerWidth, 200 + window.innerHeight) * dir : (down && mx < 0) ? mx : 0 // When a card is gone it flies out left or right, otherwise goes back to zero
       const rot = mx / 100 + (isGone ? dir * 2 * velocity : down ? 0 : -mx / 100) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.1 : 1 // Active cards lift up a bit
       return {
