@@ -86,6 +86,10 @@
   text-align: right;
 }
 
+.grid-left {
+  text-align: left;
+}
+
 .list-checkmark {
   text-align: right;
   font-size: calc(var(--vh, 1vh) * 6.0);
@@ -149,7 +153,7 @@
 .deck-container {
   display: flex;
   align-items: center;
-  height: calc(var(--vh, 1vh) * 67.7);
+  height: calc(var(--vh, 1vh) * 78.3);
   justify-content: center;
 }
 
@@ -193,47 +197,65 @@
   /*max-width: 38vh;*/
 }
 
-.buttons-stacked {
+.stacked-button-container {
+  position: absolute;
+  width: 100vw;
+  top: calc(var(--vh, 1vh) * 50.0);
+  left: 50vw;
+  transform: translate(-50%, 0%);
+  align-items: center;
+  justify-content: center;
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
   height: calc(var(--vh, 1vh) * 10.6);
   /*padding: 2vh 1.5vh 0 2vh;*/
   z-index: 100;
+  grid-template-columns: 0.15fr 0.7fr 0.15fr;
+  @media only screen and (max-width: 500px) {
+    grid-template-columns: 0.2fr 0.6fr 0.2fr;
+  }
 }
 
-.content-bottom {
-  flex-direction: column;
-  justify-content: flex-end;
-  object-fit: contain;
+.stacked-button-container-landscape {
+  transform: translate(-50%, -10%);
+  height: calc(var(--vh, 1vh) * 15.0);
 }
-
 
 .stacked-button {
-  background-color: #f2ba50;
-  border-color: #86380f;
+  pointer-events: auto;
+  border: 1px transparent solid;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: rgba(155, 155, 155, 0.6);
   transition: 0.3s;
-  font-size: calc(7px + calc(var(--vh, 1vh) * 1.5));
-  /*height: 6vh;*/
-  margin-top: calc(var(--vh, 1vh) * 0.5);
+  /*font-size: calc(7px + calc(var(--vh, 1vh) * 3.0));*/
   padding-top: 0;
   padding-bottom: 0;
+  text-align: center;
+  width: calc(var(--vh, 1vh) * 8.0);
+  height: calc(var(--vh, 1vh) * 8.0);
+  max-width: 14vw;
+  max-height: 14vw;
+  margin: 0;
 }
 
-.nothing {
-  font-size: calc(7px + calc(var(--vh, 1vh) * 1.5));
+.stacked-button-landscape {
+  width: calc(var(--vh, 1vh) * 13.0);
+  height: calc(var(--vh, 1vh) * 13.0);
 }
 
 .stacked-button:hover {
-  background-color: #ffdca0;
-  border-color: black;
-  color: black;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(150, 150, 150, 0.9);
 }
 
 .stacked-button:active {
-  background-color: white !important;
-  border-color: white !important;
-  color: black !important;
+  background-color: rgba(150, 150, 150, 0.8) !important;
+  color: white !important;
   transition: 0.05s;
+}
+
+.click-through {
+  pointer-events: none;
 }
 
 .outline {

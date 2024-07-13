@@ -3,8 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { HouseFill } from 'react-bootstrap-icons';
-import { Button, Col } from 'react-bootstrap';
+import { ArrowLeftCircleFill, ArrowRightCircleFill, HouseFill } from 'react-bootstrap-icons';
+import { Col } from 'react-bootstrap';
 import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import '../style.css';
@@ -277,12 +277,15 @@ const StackedCards = ({ cards }) => {
           </animated.div>
         ))}
       </div>
-      <div className="buttons-stacked">
-        <div className="grid-item">
-          <Button className="stacked-button" onClick={togglePrev}>Previous</Button>
-        </div>
+      <div className={`stacked-button-container click-through stacked-button-container-${orientation}`}>
         <div className="grid-item grid-right">
-          <Button className="stacked-button" onClick={toggleNext}>Next</Button>
+          <ArrowLeftCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={togglePrev} />
+        </div>
+        <div className="grid-item click-through">
+
+        </div>
+        <div className="grid-item grid-left">
+          <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={toggleNext} />
         </div>
       </div>
     </div>
