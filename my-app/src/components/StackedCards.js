@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { ArrowLeftCircleFill, ArrowRightCircleFill, HouseFill } from 'react-bootstrap-icons';
+import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
 import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import '../style.css';
+import TopBar from "./TopBar";
 import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
@@ -20,30 +18,6 @@ const images = {
   largeImage,
   newRatio,
 }
-
-
-
-const TopBar = ({ barWidth }) => {
-  return (
-    <Navbar className="asthma-navbar" style={{ backgroundColor: "transparent" }}>
-      <Container className="grid-item">
-        <Nav>
-          <Nav.Link href="/Asthma-WebApp"><HouseFill className="home-nav"/></Nav.Link>
-        </Nav>
-      </Container>
-      <div className="grid-item">
-        <div className="cards-progress-bar justify-content-center">
-          <div className={"cards-progress-tracker"} style={{
-            width: barWidth,
-          }}
-          >
-
-          </div>
-        </div>
-      </div>
-    </Navbar>
-  );
-};
 
 const MidText = ({ cardNum, totalCards }) => {
   return (

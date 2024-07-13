@@ -2,29 +2,10 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import PropTypes from 'prop-types';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import { HouseFill, CheckCircleFill } from 'react-bootstrap-icons';
+import { CheckCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
+import TopBar from '../components/TopBar'
 
-const TopMenu = () => (
-  <Navbar className="asthma-navbar asthma-red">
-    <Container className="grid-item">
-      <Nav>
-        <Nav.Link href="/Asthma-WebApp"><HouseFill className="home-nav"/></Nav.Link>
-      </Nav>
-    </Container>
-    <div className="grid-item">
-      <Nav className="justify-content-center headers-container">
-        <Col>
-          <h3 className="headers">Health Condition</h3>
-          <h2 className="headers asthma-header"> ASTHMA</h2>
-        </Col>
-      </Nav>
-    </div>
-  </Navbar>
-);
 
 const ListItem = ({ item }) => {
   const [style, setStyle] = useState("checkmark non-selected list-offset");
@@ -68,10 +49,12 @@ const ListGrid = () => (
 );
 
 const ListPage = () => (
-  <>
-    <TopMenu />
+  <div className="list-module">
+    <div className="asthma-red">
+      <TopBar barWidth=''/>
+    </div>
     <ListGrid />
-  </>
+  </div>
 );
 
 export default ListPage;

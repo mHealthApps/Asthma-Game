@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ListPage from "./pages/ListPage";
 import DemoStacked from './pages/DemoStacked';
+import DemoQuiz from './pages/DemoQuiz';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/" element={<DemoStacked />} />
         <Route path="/list-page" element={<ListPage />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
+        <Route path="/quiz-demo" element={<DemoQuiz />} />
       </Routes>
     </HashRouter>
   );
