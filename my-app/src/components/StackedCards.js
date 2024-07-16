@@ -10,6 +10,7 @@ import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
+import useOrientation from '../hooks/useOrientation';
 
 
 const images = {
@@ -91,22 +92,7 @@ const trans = (r, s) =>
 
 const StackedCards = ({ cards }) => {
   /* Handling screen orientation */
-  const [orientation, setOrientation] = useState('portrait');
-  const adjustOrientationFormat = () => {
-    const type = window.screen.orientation.type;
-    const angle = window.screen.orientation.angle;
-    console.log(`ScreenOrientation change: ${type}, ${angle} degrees.`);
-    if (type.startsWith('portrait')) {
-      setOrientation('portrait');
-    } else {
-      setOrientation('landscape');
-    }
-  }
-  useEffect(() => {
-    adjustOrientationFormat();
-    window.screen.orientation.addEventListener('change', adjustOrientationFormat);
-    return () => window.screen.orientation.removeEventListener('change',adjustOrientationFormat);
-  }, [])
+  const orientation = useOrientation();
 
   const [cardNum, setCardNum] = useState(1);
 
