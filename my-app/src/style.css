@@ -13,6 +13,9 @@
 
 .grid-item {
   position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .asthma-navbar {
@@ -168,7 +171,7 @@
   touch-action: none;
 }
 
-.content-card {
+.stacked-card {
   background-color: white;
   /*background-size: auto 85%;*/
   /*background-repeat: no-repeat;*/
@@ -189,12 +192,21 @@
   max-width: 95vw;
 }
 
+/*.card-image {*/
+/*  !*height: 30vh;*!*/
+/*  object-fit: contain;*/
+/*  width: 100%;*/
+/*  max-height: 100%;*/
+/*  !*max-width: 38vh;*!*/
+/*}*/
+
 .card-image {
-  /*height: 30vh;*/
   object-fit: contain;
   width: 100%;
-  max-height: 100%;
-  /*max-width: 38vh;*/
+  height: 100%;
+  /*width: auto;*/
+  /*height: auto;*/
+  /*display: block;*/
 }
 
 .stacked-button-container {
@@ -276,15 +288,73 @@
   width: 100vw;
   height: calc(var(--vh, 1vh)* 73.3);
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   justify-content: center;
   padding: 0;
 }
 
 .quiz-card-inner-container {
-  height: calc(var(--vh, 1vh) * 73.3);
-  width: 60vw;
+  height: calc(var(--vh, 1vh) * 68.0);
+  width: 80vw;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-card {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr 1fr;
+  background-color: white;
+  width: 60vw;
+  height: calc(var(--vh, 1vh) * 20.0);
+  transition: 0.3s;
+  border-radius: 3px;
+  box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
+  padding: calc(var(--vh, 1vh) * 2.0);
+  margin: calc(var(--vh, 1vh) * 2.0) 0 calc(var(--vh, 1vh) * 2.0) 0;
+  overflow: hidden;
+}
+
+.quiz-card:hover {
+  cursor: pointer;
+  width: 72vw;
+  height: calc(var(--vh, 1vh) * 24.0);
+  margin: 0;
+}
+
+.answer-popup-container {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+}
+
+.answer-popup {
+  background-color: white;
+  color: rgb(50, 50, 50);
+  width: calc(var(--vh, 1vh) * 25.0);
+  height: calc(var(--vh, 1vh) * 25.0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 3px;
+  box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
+  padding: calc(var(--vh, 1vh) * 2.0);
+}
+
+.answer-popup-icon {
+  margin-bottom: calc(var(--vh, 1vh) * 2.0);
+  width: calc(var(--vh, 1vh) * 8.0);
+  height: calc(var(--vh, 1vh) * 8.0);
 }
 
 .outline {

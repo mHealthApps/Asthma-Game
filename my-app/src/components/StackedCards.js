@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
@@ -11,6 +11,7 @@ import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
 import useOrientation from '../hooks/useOrientation';
+import ResponsiveText from './ResponsiveText';
 
 
 const images = {
@@ -30,42 +31,6 @@ const MidText = ({ cardNum, totalCards }) => {
     </div>
   );
 };
-
-const ResponsiveText = ({ text, height, initialSize }) => {
-  const containerRef = useRef(null);
-  const textRef = useRef(null);
-
-  const adjustCardFontSize = useCallback(() => {
-    console.log(`window.innerHeight: ${window.innerHeight}`);
-    const container = containerRef.current;
-    const text = textRef.current;
-    let fontSize = initialSize;
-    text.style.fontSize = `${fontSize}px`;
-
-    while (text.scrollHeight > container.clientHeight) {
-      fontSize -= 0.1;
-      text.style.fontSize = `${fontSize}px`;
-    }
-  }, [initialSize])
-
-  useEffect(() => {
-    adjustCardFontSize();
-    window.addEventListener('resize', adjustCardFontSize);
-    return () => window.removeEventListener('resize',adjustCardFontSize);
-  }, [adjustCardFontSize])
-
-  return (
-    <div ref={containerRef}
-      style={{
-        width: '100%',
-        height: height,
-        overflow: 'hidden',
-      }}
-    >
-      <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>{text}</div>
-    </div>
-  );
-}
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i, del) => ({
@@ -183,7 +148,7 @@ const StackedCards = ({ cards }) => {
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
             {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
-            <animated.div className="content-card"
+            <animated.div className="stacked-card"
               {
                 ...((i === cards.length - cardNum) ? bind(i) : {})
               }

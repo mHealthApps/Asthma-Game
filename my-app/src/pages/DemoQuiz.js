@@ -11,11 +11,13 @@ const demoQuizInfo = {
   options: [
     {
       text: 'No need to use blue reliever puffer more than 2 times a week (except for exercise)',
-      image: 'none',
+      image: 'newRatio',
+      alt: 'template',
     },
     {
       text: 'Very hard to breathe and talk. Lot more coughing, maybe with lots of spit',
-      image: 'none',
+      image: 'newRatio',
+      alt: 'template',
     },
   ],
   answer: 0,

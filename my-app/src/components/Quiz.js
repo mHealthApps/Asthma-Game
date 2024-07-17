@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
 import useOrientation from '../hooks/useOrientation';
 import { Col } from 'react-bootstrap';
+import ResponsiveText from './ResponsiveText';
+import newRatio from '../assets/images/new-ratio-image.png';
+import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
 
+const images = {
+  newRatio,
+}
 
 const QuestionText = ({ text, name }) => {
   return (
@@ -17,26 +23,82 @@ const QuestionText = ({ text, name }) => {
   );
 };
 
-const QuestionCards = ({ options, answer, orientation }) => {
-  return (
-    <div className="quiz-card-outer-container outline">
-      <div className="quiz-card-inner-container outline">
+const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => {
+  //const handleAnswer =
 
+  return (
+    <div className="quiz-card-outer-container">
+      <div className="quiz-card-inner-container">
+        {options.map(({ text, image, alt }, i) => (
+          <div className="quiz-card" key={i} onClick={() => {
+            if (i === answer) {
+              correct();
+            } else {
+              incorrect();
+            }
+          }}>
+            <div className="grid-item click-through">
+              <div className="vertical-center click-through">
+                <img className="card-image click-through" alt={alt} src={images[image]}/>
+              </div>
+            </div>
+            <div className="grid-item click-through"/>
+            <div className="grid-item click-through">
+              <ResponsiveText text={text} height='100%' initialSize={window.innerWidth * 0.02}/>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
+const AnswerPopup = ({ result, reset }) => {
+
+  return (
+    <div className="answer-popup-container" onClick={reset}>
+      <div className="answer-popup click-through">
+        {(result === 'correct') ?
+          <div className="answer-popup-content">
+            <CheckCircleFill className="answer-popup-icon" />
+            <h2>Correct!</h2>
+          </div> :
+          <div className="answer-popup-content">
+            <XCircleFill className="answer-popup-icon" />
+            <h2>Try again</h2>
+          </div>
+        }
+      </div>
+    </div>
+  );
+}
+
 const Quiz = ({ quiz }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
+  const [answerQuestion, setAnswerQuestion] = useState('none');
+
+  const correct = () => {
+    setAnswerQuestion('correct');
+  }
+  const incorrect = () => {
+    setAnswerQuestion('incorrect');
+  }
+
+  const reset = () => {
+    setAnswerQuestion('none');
+  }
 
   return (
     <div className="quiz-module">
-      <TopBar barWidth='100%' />
-      <QuestionText name={quiz.name} text={quiz.text} />
+      <TopBar barWidth='100%'/>
+      <QuestionText name={quiz.name} text={quiz.text}/>
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect}/> :
+        ''
+      }
+      {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?
+        <AnswerPopup result={answerQuestion} reset={reset} /> :
         ''
       }
     </div>
