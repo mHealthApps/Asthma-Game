@@ -24,7 +24,7 @@ const QuestionText = ({ text, name }) => {
 };
 
 const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => {
-  //const handleAnswer =
+  console.log(orientation);
 
   return (
     <div className="quiz-card-outer-container">
