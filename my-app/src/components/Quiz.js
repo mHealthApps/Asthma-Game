@@ -6,10 +6,12 @@ import useOrientation from '../hooks/useOrientation';
 import { Col } from 'react-bootstrap';
 import ResponsiveText from './ResponsiveText';
 import newRatio from '../assets/images/new-ratio-image.png';
+import lungsWide from '../assets/images/lungs-wide.jpg';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
 
 const images = {
   newRatio,
+  lungsWide,
 }
 
 const QuestionText = ({ text, name }) => {
@@ -38,7 +40,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => 
             }
           }}>
             <div className="grid-item click-through">
-              <div className="vertical-center click-through">
+              <div className="vertical-center-items click-through">
                 <img className="card-image click-through" alt={alt} src={images[image]}/>
               </div>
             </div>

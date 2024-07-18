@@ -9,6 +9,13 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 100%;
+  /*height: 100%;*/
+}
+
+.vertical-center-items {
+  align-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .grid-item {

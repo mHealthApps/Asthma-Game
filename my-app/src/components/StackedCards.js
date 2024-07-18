@@ -163,7 +163,7 @@ const StackedCards = ({ cards }) => {
               <>
                 <div className="grid-item">
                     {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                    <div className="vertical-center">
+                    <div className="vertical-center-items">
                       <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
                         width: '100%',
                         maxHeight: `${(window.innerHeight * 0.5)}px`,

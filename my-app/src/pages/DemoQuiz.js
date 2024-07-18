@@ -16,7 +16,7 @@ const demoQuizInfo = {
     },
     {
       text: 'Very hard to breathe and talk. Lot more coughing, maybe with lots of spit',
-      image: 'newRatio',
+      image: 'lungsWide',
       alt: 'template',
     },
   ],
