@@ -42,7 +42,7 @@ const to = (i, del) => ({
 });
 
 const genericDestination = (i) => ({
-  x: (200 + window.innerWidth) * -1,
+  x: Math.max(200 + window.innerWidth, 200 + window.innerHeight) * -1,
   y: i * -4,
   rot: -5,
   delay: undefined,
