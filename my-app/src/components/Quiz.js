@@ -26,7 +26,7 @@ const QuestionText = ({ text, name }) => {
 };
 
 const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => {
-  console.log(orientation);
+  //console.log(orientation);
 
   return (
     <div className="quiz-card-outer-container">
@@ -46,7 +46,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => 
             </div>
             <div className="grid-item click-through"/>
             <div className="grid-item click-through">
-              <ResponsiveText text={text} height='100%' initialSize={window.innerWidth * 0.02}/>
+              <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? window.innerWidth * 0.02 : window.innerHeight * 0.022}/>
             </div>
           </div>
         ))}
@@ -55,18 +55,27 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => 
   );
 };
 
-const AnswerPopup = ({ result, reset }) => {
+const AnswerPopup = ({ result, reset, orientation }) => {
 
   return (
     <div className="answer-popup-container" onClick={reset}>
-      <div className="answer-popup click-through">
+      <div className="answer-popup click-through" style={{
+        width: (orientation === 'landscape') ? window.innerWidth * 0.18 : window.innerHeight * 0.2,
+        height: (orientation === 'landscape') ? window.innerWidth * 0.18 : window.innerHeight * 0.2,
+      }}>
         {(result === 'correct') ?
           <div className="answer-popup-content">
-            <CheckCircleFill className="answer-popup-icon" />
+            <CheckCircleFill className="answer-popup-icon" style={{
+              width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+              height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+            }}/>
             <h2>Correct!</h2>
           </div> :
           <div className="answer-popup-content">
-            <XCircleFill className="answer-popup-icon" />
+            <XCircleFill className="answer-popup-icon" style={{
+              width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+              height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+            }}/>
             <h2>Try again</h2>
           </div>
         }
@@ -100,7 +109,7 @@ const Quiz = ({ quiz }) => {
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?
-        <AnswerPopup result={answerQuestion} reset={reset} /> :
+        <AnswerPopup result={answerQuestion} reset={reset} orientation={orientation} /> :
         ''
       }
     </div>
