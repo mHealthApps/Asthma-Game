@@ -68,6 +68,8 @@ const AnswerPopup = ({ result, reset, orientation }) => {
             <CheckCircleFill className="answer-popup-icon" style={{
               width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
               height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+              maxWidth: '225px',
+              maxHeight: '225px',
             }}/>
             <h2>Correct!</h2>
           </div> :
@@ -75,6 +77,8 @@ const AnswerPopup = ({ result, reset, orientation }) => {
             <XCircleFill className="answer-popup-icon" style={{
               width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
               height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
+              maxWidth: '225px',
+              maxHeight: '225px',
             }}/>
             <h2>Try again</h2>
           </div>

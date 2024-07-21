@@ -321,7 +321,6 @@
   box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
   padding: calc(var(--vh, 1vh) * 2.0);
   margin: calc(var(--vh, 1vh) * 2.0) 0 calc(var(--vh, 1vh) * 2.0) 0;
-  overflow: hidden;
 }
 
 .quiz-card:hover {
