@@ -60,25 +60,21 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   return (
     <div className="answer-popup-container" onClick={reset}>
       <div className="answer-popup click-through" style={{
-        width: (orientation === 'landscape') ? window.innerWidth * 0.18 : window.innerHeight * 0.2,
-        height: (orientation === 'landscape') ? window.innerWidth * 0.18 : window.innerHeight * 0.2,
+        width: (orientation === 'landscape') ? (window.innerWidth * 0.18 < 225) ? window.innerWidth * 0.18 : '225px' : (window.innerHeight * 0.2 < 225) ? window.innerHeight * 0.2 : '225px',
+        height: (orientation === 'landscape') ? (window.innerWidth * 0.18 < 225) ? window.innerWidth * 0.18 : '225px' : (window.innerHeight * 0.2 < 225) ? window.innerHeight * 0.2 : '225px',
       }}>
         {(result === 'correct') ?
           <div className="answer-popup-content">
             <CheckCircleFill className="answer-popup-icon" style={{
-              width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
-              height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
-              maxWidth: '225px',
-              maxHeight: '225px',
+              width: (orientation === 'landscape') ? (window.innerWidth * 0.05 < 75) ? window.innerWidth * 0.05 : '75px' : (window.innerHeight * 0.06 < 75) ? window.innerHeight * 0.06 : '75px',
+              height: (orientation === 'landscape') ? (window.innerWidth * 0.05 < 75) ? window.innerWidth * 0.05 : '75px' : (window.innerHeight * 0.06 < 75) ? window.innerHeight * 0.06 : '75px',
             }}/>
             <h2>Correct!</h2>
           </div> :
           <div className="answer-popup-content">
             <XCircleFill className="answer-popup-icon" style={{
-              width: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
-              height: (orientation === 'landscape') ? window.innerWidth * 0.05 : window.innerHeight * 0.06,
-              maxWidth: '225px',
-              maxHeight: '225px',
+              width: (orientation === 'landscape') ? (window.innerWidth * 0.05 < 75) ? window.innerWidth * 0.05 : '75px' : (window.innerHeight * 0.06 < 75) ? window.innerHeight * 0.06 : '75px',
+              height: (orientation === 'landscape') ? (window.innerWidth * 0.05 < 75) ? window.innerWidth * 0.05 : '75px' : (window.innerHeight * 0.06 < 75) ? window.innerHeight * 0.06 : '75px',
             }}/>
             <h2>Try again</h2>
           </div>
