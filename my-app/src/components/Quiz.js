@@ -66,15 +66,15 @@ const AnswerPopup = ({ result, reset, orientation }) => {
         {(result === 'correct') ?
           <div className="answer-popup-content">
             <CheckCircleFill className="answer-popup-icon" style={{
-              width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerWidth * 0.05, 75)}px`,
-              height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerWidth * 0.05, 75)}px`,
+              width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerHeight * 0.06, 75)}px`,
+              height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerHeight * 0.06, 75)}px`,
             }}/>
             <h2>Correct!</h2>
           </div> :
           <div className="answer-popup-content">
             <XCircleFill className="answer-popup-icon" style={{
-              width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerWidth * 0.05, 75)}px`,
-              height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerWidth * 0.05, 75)}px`,
+              width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerHeight * 0.06, 75)}px`,
+              height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.05, 75)}px` : `${Math.min(window.innerHeight * 0.06, 75)}px`,
             }}/>
             <h2>Try again</h2>
           </div>
