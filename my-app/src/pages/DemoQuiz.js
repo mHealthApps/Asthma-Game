@@ -24,7 +24,7 @@ const demoQuizInfo = {
 }
 const DemoQuiz = () => (
   <div className="asthma-red">
-    <Quiz quiz={demoQuizInfo} />
+    <Quiz quiz={demoQuizInfo} uponCompletion='none'/>
   </div>
 );
 

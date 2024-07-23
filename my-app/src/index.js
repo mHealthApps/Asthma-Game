@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import ListPage from "./pages/ListPage";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
+import TheLungs from './pages/TheLungs';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/list-page" element={<ListPage />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
+        <Route path="/the-lungs" element={<TheLungs />} />
       </Routes>
     </HashRouter>
   );

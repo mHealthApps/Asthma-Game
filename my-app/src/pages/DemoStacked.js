@@ -43,7 +43,7 @@ const demoCards = [
 
 const DemoStacked = () => (
   <div className="asthma-red">
-    <StackedCards cards={demoCards}/>
+    <StackedCards cards={demoCards} uponCompletion={'none'} />
   </div>
 );
 

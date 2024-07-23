@@ -6,11 +6,13 @@ import useOrientation from '../hooks/useOrientation';
 import { Col } from 'react-bootstrap';
 import ResponsiveText from './ResponsiveText';
 import newRatio from '../assets/images/new-ratio-image.png';
+import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
 
 const images = {
   newRatio,
+  lungs,
   lungsWide,
 }
 
@@ -84,7 +86,7 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   );
 }
 
-const Quiz = ({ quiz }) => {
+const Quiz = ({ quiz, uponCompletion }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
   const [answerQuestion, setAnswerQuestion] = useState('none');
@@ -97,7 +99,11 @@ const Quiz = ({ quiz }) => {
   }
 
   const reset = () => {
-    setAnswerQuestion('none');
+    if (uponCompletion !== 'none' && answerQuestion === 'correct') {
+      uponCompletion();
+    } else {
+      setAnswerQuestion('none');
+    }
   }
 
   return (

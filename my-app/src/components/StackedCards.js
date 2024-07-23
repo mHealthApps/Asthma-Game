@@ -55,7 +55,7 @@ const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
-const StackedCards = ({ cards }) => {
+const StackedCards = ({ cards, uponCompletion }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
 
@@ -82,16 +82,15 @@ const StackedCards = ({ cards }) => {
       }
       setCardNum(cardNum + 1);
       if (gone.size === cards.length) {
-        setTimeout(() => {
-          gone.clear()
-          api.start(i => to(i))
-        }, 600)
-        setCardNum(1)
-        /*if (orientation === 'landscape') {
-          setOrientation('portrait');
+        if (uponCompletion === 'none') {
+          setTimeout(() => {
+            gone.clear()
+            api.start(i => to(i))
+          }, 600)
+          setCardNum(1)
         } else {
-          setOrientation('landscape');
-        }*/
+          uponCompletion();
+        }
       }
     }
   };
