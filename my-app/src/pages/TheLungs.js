@@ -69,9 +69,9 @@ const TheLungs = () => {
   const nextScene = () => {
     setScene(scene + 1);
   }
-  const prevScene = () => {
+  /*const prevScene = () => {
     setScene(scene - 1);
-  }
+  }*/
 
   const renderScene = () => {
     switch (scene) {
