@@ -21,12 +21,17 @@ const images = {
   newRatio,
 }
 
-const MidText = ({ cardNum, totalCards }) => {
+const MidText = ({ cardNum, title, totalCards }) => {
   return (
     <div className="justify-content-center mid-text">
       <Col>
         <h2 className="headers asthma-header"> ASTHMA</h2>
-        <h2 className="headers card-num-headers">Card {cardNum} of {totalCards}</h2>
+        <h2 className="headers card-num-headers">
+          {(cardNum > 0) ?
+            `Card ${cardNum} of ${totalCards}` :
+            title
+          }
+        </h2>
       </Col>
     </div>
   );
@@ -55,7 +60,7 @@ const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
-const StackedCards = ({ cards, uponCompletion }) => {
+const StackedCards = ({ cards, title, uponCompletion }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
 
@@ -144,8 +149,8 @@ const StackedCards = ({ cards, uponCompletion }) => {
 
   return (
     <div className="stacked-cards-module">
-      <TopBar barWidth={`${(cardNum / cards.length) * 100}%`}/>
-      <MidText cardNum={cardNum} totalCards={cards.length} onClick={toggleNext}/>
+      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} />
+      <MidText cardNum={cardNum - 1} totalCards={cards.length - 1} title={title} onClick={toggleNext} />
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>

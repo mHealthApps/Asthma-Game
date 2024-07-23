@@ -7,6 +7,11 @@ import Quiz from '../components/Quiz';
 
 const lungsCards = [
   {
+    image: 'lungs',
+    alt: 'lungs',
+    text: 'You will learn:\n* What your lungs do\n* How your lungs work',
+  },
+  {
     image: 'newRatio',
     alt: 'template',
     text: '* You have two lungs\n* They sit in your chest\n*They have an important job in your body',
@@ -76,7 +81,7 @@ const TheLungs = () => {
   const renderScene = () => {
     switch (scene) {
       case 0:
-        return <StackedCards cards={lungsCards} uponCompletion={nextScene} />
+        return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
         return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} />
       case 2:

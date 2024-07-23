@@ -145,6 +145,7 @@
 .cards-progress-tracker {
   background-color: white;
   height: calc(var(--vh, 1vh) * 2.0);
+  transition: 0.2s;
 }
 
 .mid-text {
