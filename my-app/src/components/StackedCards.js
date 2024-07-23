@@ -80,7 +80,6 @@ const StackedCards = ({ cards, uponCompletion }) => {
           return genericDestination(i);
         });
       }
-      setCardNum(cardNum + 1);
       if (gone.size === cards.length) {
         if (uponCompletion === 'none') {
           setTimeout(() => {
@@ -89,8 +88,12 @@ const StackedCards = ({ cards, uponCompletion }) => {
           }, 600)
           setCardNum(1)
         } else {
-          uponCompletion();
+          setTimeout(() => {
+            uponCompletion();
+          }, 500)
         }
+      } else {
+        setCardNum(cardNum + 1);
       }
     }
   };
