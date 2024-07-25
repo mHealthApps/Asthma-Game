@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
@@ -98,20 +98,31 @@ const Quiz = ({ quiz, uponCompletion }) => {
     setAnswerQuestion('incorrect');
   }
 
-  const reset = () => {
+  const reset = useCallback(() => {
     if (uponCompletion !== 'none' && answerQuestion === 'correct') {
       uponCompletion();
     } else {
       setAnswerQuestion('none');
     }
-  }
+    console.log('quiz reset');
+  }, [answerQuestion, uponCompletion]);
+
+  useEffect(() => {
+    if (answerQuestion !== 'none') {
+      const timer = setTimeout(() => {
+        reset();
+      }, 1500);
+
+      return () => clearTimeout(timer);
+    }
+  }, [answerQuestion, reset]);
 
   return (
     <div className="quiz-module">
       <TopBar barWidth='100%'/>
       <QuestionText name={quiz.name} text={quiz.text}/>
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect}/> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?
