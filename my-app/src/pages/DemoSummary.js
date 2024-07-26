@@ -9,7 +9,7 @@ const DemoSummary = () => {
 
   return (
     <div className="asthma-red">
-      <Summary />
+      <Summary image="lungsWide" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." />
     </div>
   );
 }

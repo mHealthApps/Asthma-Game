@@ -388,11 +388,23 @@
 }
 
 .summary-explanation-container {
+  justify-content: flex-start;
   height: calc(var(--vh, 1vh) * 28.0);
+  color: white;
+  text-align: center;
+  font-size: calc(var(--vh, 1vh) * 2.5);
+  font-weight: normal;
 }
 
 .summary-button-container {
   height: calc(var(--vh, 1vh) * 8.0);
+}
+
+.summary-image {
+  object-fit: cover;
+  height: calc(var(--vh, 1vh) * 28.0);
+  width: calc(var(--vh, 1vh) * 28.0);
+  border-radius: 50%;
 }
 
 .outline {

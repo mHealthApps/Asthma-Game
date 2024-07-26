@@ -3,6 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
 import { Col } from 'react-bootstrap';
+import lungs from '../assets/images/lungs-diagram.png';
+import lungsWide from '../assets/images/lungs-wide.jpg';
+import largeImage from '../assets/images/large-image-red.png';
+import newRatio from '../assets/images/new-ratio-image.png';
+
+const images = {
+  lungs,
+  lungsWide,
+  largeImage,
+  newRatio,
+}
 
 const SummaryText = () => {
   return (
@@ -15,10 +26,10 @@ const SummaryText = () => {
   );
 };
 
-const SummaryImage = ({ image }) => {
+const SummaryImage = ({ image, alt }) => {
   return (
     <div className="summary-inner-container summary-image-container outline">
-
+      <img className="summary-image" alt={alt} src={image} />
     </div>
   );
 }
@@ -26,7 +37,7 @@ const SummaryImage = ({ image }) => {
 const SummaryExplanation = ({ text }) => {
   return (
     <div className="summary-inner-container summary-explanation-container outline">
-
+      {text}
     </div>
   );
 }
@@ -39,7 +50,7 @@ const SummaryButton = () => {
   );
 }
 
-const Summary = () => {
+const Summary = ({ image, alt, explanation}) => {
 
 
   return (
@@ -47,8 +58,8 @@ const Summary = () => {
       <TopBar barWidth='100%'/>
       <SummaryText/>
       <div className="summary-outer-container outline">
-        <SummaryImage image='none'/>
-        <SummaryExplanation text="none" />
+        <SummaryImage image={images[image]} alt={alt} />
+        <SummaryExplanation text={explanation} />
         <SummaryButton />
       </div>
     </div>
