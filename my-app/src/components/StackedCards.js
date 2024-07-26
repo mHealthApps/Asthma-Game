@@ -10,6 +10,9 @@ import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
+import templatePeople from '../assets/images/template-people.jpg';
+import templateTrain from '../assets/images/template-train.jpg';
+import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import ResponsiveText from './ResponsiveText';
 
@@ -19,6 +22,9 @@ const images = {
   lungsWide,
   largeImage,
   newRatio,
+  templatePeople,
+  templateTrain,
+  templateLungs,
 }
 
 const MidText = ({ cardNum, title, totalCards }) => {
