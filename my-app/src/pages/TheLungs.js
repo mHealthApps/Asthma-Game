@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import StackedCards from '../components/StackedCards';
 import Quiz from '../components/Quiz';
+import Summary from '../components/Summary';
 
 
 const lungsCards = [
@@ -85,7 +86,7 @@ const TheLungs = () => {
       case 1:
         return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} />
       case 2:
-        return <div>Placeholder: summary page</div>
+        return <Summary />
       default:
         return <div>Error: rendering failed</div>
     }

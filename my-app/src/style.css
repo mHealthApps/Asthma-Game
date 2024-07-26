@@ -364,6 +364,37 @@
   height: calc(var(--vh, 1vh) * 8.0);
 }
 
+.summary-outer-container {
+  width: 100vw;
+  height: calc(var(--vh, 1vh)* 73.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  padding: 0;
+}
+
+.summary-inner-container {
+  width: 80vw;
+  margin: 0 0 calc(var(--vh, 1vh) * 1.0) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.summary-image-container {
+  height: calc(var(--vh, 1vh) * 28.0);
+}
+
+.summary-explanation-container {
+  height: calc(var(--vh, 1vh) * 28.0);
+}
+
+.summary-button-container {
+  height: calc(var(--vh, 1vh) * 8.0);
+}
+
 .outline {
   border: 5px black solid;
 }
