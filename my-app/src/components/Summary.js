@@ -7,6 +7,7 @@ import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
+import { useNavigate } from 'react-router-dom';
 
 const images = {
   lungs,
@@ -28,7 +29,7 @@ const SummaryText = () => {
 
 const SummaryImage = ({ image, alt }) => {
   return (
-    <div className="summary-inner-container summary-image-container outline">
+    <div className="summary-inner-container summary-image-container">
       <img className="summary-image" alt={alt} src={image} />
     </div>
   );
@@ -36,31 +37,37 @@ const SummaryImage = ({ image, alt }) => {
 
 const SummaryExplanation = ({ text }) => {
   return (
-    <div className="summary-inner-container summary-explanation-container outline">
+    <div className="summary-inner-container summary-explanation-container">
       {text}
     </div>
   );
 }
 
-const SummaryButton = () => {
-  return (
-    <div className="summary-inner-container summary-button-container outline">
+const SummaryButton = ({ buttonLink }) => {
+  const navigate = useNavigate();
 
+  const route = () => {
+    navigate(buttonLink);
+  }
+
+  return (
+    <div className="summary-inner-container summary-button-container">
+      <button className='summary-button' onClick={route} >Complete Section</button>
     </div>
   );
 }
 
-const Summary = ({ image, alt, explanation}) => {
+const Summary = ({ image, alt, explanation, buttonLink }) => {
 
 
   return (
     <div className='summary-module'>
       <TopBar barWidth='100%'/>
       <SummaryText/>
-      <div className="summary-outer-container outline">
+      <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt} />
         <SummaryExplanation text={explanation} />
-        <SummaryButton />
+        <SummaryButton  buttonLink={buttonLink} />
       </div>
     </div>
   );
