@@ -3,11 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
 import { Col } from 'react-bootstrap';
+import LinkButton from './LinkButton';
 import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
-import { useNavigate } from 'react-router-dom';
+
 
 const images = {
   lungs,
@@ -43,20 +44,6 @@ const SummaryExplanation = ({ text }) => {
   );
 }
 
-const SummaryButton = ({ buttonLink }) => {
-  const navigate = useNavigate();
-
-  const route = () => {
-    navigate(buttonLink);
-  }
-
-  return (
-    <div className="summary-inner-container summary-button-container">
-      <button className='summary-button' onClick={route} >Complete Section</button>
-    </div>
-  );
-}
-
 const Summary = ({ image, alt, explanation, buttonLink }) => {
 
 
@@ -65,9 +52,11 @@ const Summary = ({ image, alt, explanation, buttonLink }) => {
       <TopBar barWidth='100%'/>
       <SummaryText/>
       <div className='summary-outer-container'>
-        <SummaryImage image={images[image]} alt={alt} />
-        <SummaryExplanation text={explanation} />
-        <SummaryButton  buttonLink={buttonLink} />
+        <SummaryImage image={images[image]} alt={alt}/>
+        <SummaryExplanation text={explanation}/>
+        <div className="summary-inner-container summary-button-container">
+          <LinkButton buttonLink={buttonLink}/>
+        </div>
       </div>
     </div>
   );

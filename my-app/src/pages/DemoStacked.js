@@ -15,9 +15,9 @@ const demoCards = [
     text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
   },
   {
-    image: 'templateLungs',
-    alt: 'templateLungs',
-    text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
+    image: 'templateTrain',
+    alt: 'templateTrain',
+    text: '',
   },
   {
     image: 'templatePeople',
@@ -30,9 +30,9 @@ const demoCards = [
     text: '',
   },
   {
-    image: 'templateTrain',
-    alt: 'templateTrain',
-    text: '',
+    image: 'templateLungs',
+    alt: 'templateLungs',
+    text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
   },
 ]
 
