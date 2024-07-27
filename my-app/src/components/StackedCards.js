@@ -176,31 +176,49 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
               }
               style={{
                 transform: interpolate([rot, scale], trans),
-                display: (orientation === 'landscape') ? 'grid' : 'flex',
-                gridTemplateColumns: (orientation === 'landscape') ? (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr' : '',
-                flexDirection: 'row'
+                // display: (orientation === 'landscape') ? 'grid' : 'flex',
+                // gridTemplateColumns: (orientation === 'landscape') ? (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr' : '',
+                // flexDirection: 'row'
+                display: 'flex',
+                gridTemplateColumns: '',
+                flexDirection: (orientation === 'landscape') ? 'column' : 'row',
+                justifyContent: (orientation === 'landscape') ? 'center' : 'auto',
               }}
             >
               {(orientation === 'landscape') ?
               <>
-                <div className="grid-item">
-                    {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                    <div className="vertical-center-items">
-                      <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
-                        width: '100%',
-                        maxHeight: `${(window.innerHeight * 0.5)}px`,
-                      }}/>
+                <div className='landscape-grid' style={{
+                  display: 'grid',
+                  gridTemplateColumns: (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+                  width: '100%',
+                  height: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                }}>
+                  <div className="grid-item">
+                      {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                      <div className="vertical-center-items">
+                        <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
+                          width: '100%',
+                          maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                        }}/>
+                      </div> : ''
+                      }
+                  </div>
+                  <div className="grid-item" />
+                  <div className="grid-item">
+                    {(cards[cards.length - i - 1].text !== '') ?
+                    <div className="vertical-center">
+                      <ResponsiveText text={cards[cards.length - i - 1].text} height={(i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} />
                     </div> : ''
                     }
+                  </div>
                 </div>
-                <div className="grid-item" />
-                <div className="grid-item">
-                  {(cards[cards.length - i - 1].text !== '') ?
-                  <div className="vertical-center">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={`${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} />
+                {(i === 0) ?
+                  <div className="grid-item final-card-button-container" style={{
+                    height: `${(window.innerHeight * 0.11)}px`
+                  }}>
+                    <LinkButton text={`Let's test your knowledge`} uponClick={toggleNext} stylingClass='final-card-button'/>
                   </div> : ''
-                  }
-                </div>
+                }
               </> :
               <>
                 <div className="card-width">
