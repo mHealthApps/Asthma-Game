@@ -102,13 +102,19 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
         } else {
           setTimeout(() => {
             uponCompletion();
-          }, 500)
+          }, 0)
         }
       } else {
         setCardNum(cardNum + 1);
       }
     }
   };
+
+  const buttonNext = () => {
+    if (cards.length - cardNum !== 0) {
+      toggleNext();
+    }
+  }
   const togglePrev = () => {
     if (cardNum > 1) {
       setCardNum(cardNum - 1);
@@ -131,8 +137,10 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
     const trigger = velocity > 0.2 // If you flick hard enough it should trigger the card to fly out or toggle previous card
     if (!down && trigger) {
       if (dir < 0) {
-        gone.add(index);
-        toggleNext();
+        if (index !== 0) {
+          gone.add(index);
+          toggleNext();
+        }
       } else {
         togglePrev();
       }
@@ -140,8 +148,8 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
     api.start(i => {
       if (index !== i) return // We're only interested in changing spring-data for the current spring
       const isGone = gone.has(index)
-      const x = isGone ? Math.max(200 + window.innerWidth, 200 + window.innerHeight) * dir : (down && mx < 0) ? mx : 0 // When a card is gone it flies out left or right, otherwise goes back to zero
-      const rot = mx / 100 + (isGone ? dir * 2 * velocity : down ? 0 : -mx / 100) // How much the card tilts, flicking it harder makes it rotate faster
+      const x = isGone ? Math.max(200 + window.innerWidth, 200 + window.innerHeight) * dir : (down && mx < 0 && i !== 0) ? mx : 0 // When a card is gone it flies out left or right, otherwise goes back to zero
+      const rot = (i === 0 && mx < 0) ? 0 : mx / 100 + (isGone ? dir * 2 * velocity : down ? 0 : -mx / 100) // How much the card tilts, flicking it harder makes it rotate faster
       const scale = down ? 1.1 : 1 // Active cards lift up a bit
       return {
         x,
@@ -231,7 +239,7 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
 
         </div>
         <div className="grid-item grid-left">
-          <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={toggleNext} />
+          <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={buttonNext} />
         </div>
       </div>
     </div>
