@@ -54,8 +54,8 @@ const Summary = ({ image, alt, explanation, buttonLink }) => {
       <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt}/>
         <SummaryExplanation text={explanation}/>
-        <div className="summary-inner-container summary-button-container">
-          <LinkButton buttonLink={buttonLink}/>
+        <div className='summary-inner-container summary-button-container'>
+          <LinkButton text='Complete Section' buttonLink={buttonLink} stylingClass='summary-button' uponClick='none' />
         </div>
       </div>
     </div>

@@ -4,15 +4,20 @@ import '../style.css';
 import { useNavigate } from 'react-router-dom';
 
 
-const LinkButton = ({ buttonLink }) => {
+const LinkButton = ({ text, buttonLink, stylingClass, uponClick }) => {
   const navigate = useNavigate();
 
-  const route = () => {
-    navigate(buttonLink);
+
+  const handleClick = () => {
+    if (uponClick === 'none') {
+      navigate(buttonLink);
+    } else {
+      uponClick();
+    }
   }
 
   return (
-    <button className='summary-button' onClick={route}>Complete Section</button>
+    <button className={`link-button ${stylingClass}`} onClick={handleClick}>{text}</button>
   );
 }
 

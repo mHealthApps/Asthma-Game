@@ -15,6 +15,7 @@ import templateTrain from '../assets/images/template-train.jpg';
 import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import ResponsiveText from './ResponsiveText';
+import LinkButton from './LinkButton';
 
 
 const images = {
@@ -174,7 +175,7 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
             >
               {(orientation === 'landscape') ?
               <>
-                <div className="grid-item outline">
+                <div className="grid-item">
                     {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                     <div className="vertical-center-items">
                       <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
@@ -184,8 +185,8 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
                     </div> : ''
                     }
                 </div>
-                <div className="grid-item outline" />
-                <div className="grid-item outline">
+                <div className="grid-item" />
+                <div className="grid-item">
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="vertical-center">
                     <ResponsiveText text={cards[cards.length - i - 1].text} height={`${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} />
@@ -194,7 +195,7 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
                 </div>
               </> :
               <>
-                <div className="card-width outline">
+                <div className="card-width">
                   {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                   <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
                     height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
@@ -204,13 +205,15 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
                   }}/> : ''
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
-                  <div className="grid-item outline">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.1)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} />
+                  <div className="grid-item">
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} />
                   </div> : ''
                   }
                   {(i === 0) ?
-                  <div>
-
+                  <div className="grid-item final-card-button-container" style={{
+                    height: `${(window.innerHeight * 0.06)}px`
+                  }}>
+                    <LinkButton text={`Let's test your knowledge`} uponClick={toggleNext} stylingClass='final-card-button'/>
                   </div> : ''
                   }
                 </div>
