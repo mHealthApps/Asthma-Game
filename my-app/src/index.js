@@ -8,6 +8,7 @@ import DemoSummary from './pages/DemoSummary';
 import TheLungs from './pages/TheLungs';
 
 
+
 function App() {
   const setVerticalScaling = useCallback(() => {
     const vh = window.innerHeight * 0.01;
