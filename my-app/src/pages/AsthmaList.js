@@ -5,7 +5,32 @@ import TopBar from '../components/TopBar'
 import ListGrid from '../components/ListGrid';
 
 
-const items = ['The Lungs', 'About Asthma', 'Treatment', 'Management', 'First Aid Emergency', 'Keeping a healthy lifestyle'];
+const items = [
+  {
+    text: 'The Lungs',
+    link: '/the-lungs',
+  },
+  {
+    text: 'About Asthma',
+    link: '/',
+  },
+  {
+    text: 'Treatment',
+    link: '/',
+  },
+  {
+    text: 'Management',
+    link: '/',
+  },
+  {
+    text: 'First Aid Emergency',
+    link: '/',
+  },
+  {
+    text: 'Keeping a healthy lifestyle',
+    link: '/',
+  },
+];
 
 const AsthmaList = () => (
   <div className="list-module">
