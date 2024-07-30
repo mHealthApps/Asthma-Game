@@ -86,7 +86,7 @@ const TheLungs = () => {
       case 1:
         return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} />
       case 2:
-        return <Summary image="lungsWide" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/list-page"/>
+        return <Summary image="lungsWide" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

@@ -5,7 +5,7 @@ import { Col } from 'react-bootstrap';
 import { CheckCircleFill } from 'react-bootstrap-icons';
 import PropTypes from 'prop-types';
 
-const ListItem = ({ item }) => {
+const ListItem = ({ item, conditionTitle }) => {
   const [style, setStyle] = useState("checkmark non-selected list-offset");
 
   const toggleSelected = () => {
@@ -20,7 +20,7 @@ const ListItem = ({ item }) => {
     <>
       <div className="list-text list-component">
         <Col className="list-offset">
-          <h3 className="asthma-orange text-items">ASTHMA</h3>
+          <h3 className="asthma-orange text-items">{conditionTitle}</h3>
           <h3 className="text-items">{item}</h3>
         </Col>
       </div>
@@ -33,12 +33,12 @@ const ListItem = ({ item }) => {
 
 ListItem.propTypes = PropTypes.string.isRequired;
 
-const ListGrid = ({ items }) => (
+const ListGrid = ({ items, conditionTitle }) => (
   <div className="list-grid">
     {
       items.map((item, index) => {
         console.log (item + "\n");
-        return (<ListItem key={index} item={item} />);
+        return (<ListItem key={index} item={item} conditionTitle={conditionTitle} />);
       })
     }
   </div>

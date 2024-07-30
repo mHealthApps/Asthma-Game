@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import { HouseFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
 
-const TopBar = ({ barWidth }) => {
+const TopBar = ({ barWidth, conditionTitle }) => {
   return (
     <Navbar className="asthma-navbar" style={{ backgroundColor: "transparent" }}>
       <Container className="grid-item">
@@ -20,7 +20,7 @@ const TopBar = ({ barWidth }) => {
           <Nav className="justify-content-center headers-container">
             <Col>
               <h3 className="headers">Health Condition</h3>
-              <h2 className="headers asthma-header"> ASTHMA</h2>
+              <h2 className="headers asthma-header">{conditionTitle}</h2>
             </Col>
           </Nav> :
 

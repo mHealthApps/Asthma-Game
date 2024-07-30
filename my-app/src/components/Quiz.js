@@ -86,7 +86,7 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   );
 }
 
-const Quiz = ({ quiz, uponCompletion }) => {
+const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
   const [answerQuestion, setAnswerQuestion] = useState('none');
@@ -119,8 +119,8 @@ const Quiz = ({ quiz, uponCompletion }) => {
 
   return (
     <div className="quiz-module">
-      <TopBar barWidth='100%'/>
-      <QuestionText name={quiz.name} text={quiz.text}/>
+      <TopBar barWidth='100%' title={conditionTitle} />
+      <QuestionText name={quiz.name} text={quiz.text} />
       {(quiz.type === 'two-options') ?
         <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} /> :
         ''

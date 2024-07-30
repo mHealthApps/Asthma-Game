@@ -44,12 +44,12 @@ const SummaryExplanation = ({ text }) => {
   );
 }
 
-const Summary = ({ image, alt, explanation, buttonLink }) => {
+const Summary = ({ image, alt, explanation, buttonLink, conditionTitle }) => {
 
 
   return (
     <div className='summary-module'>
-      <TopBar barWidth='100%'/>
+      <TopBar barWidth='100%' conditionTitle={conditionTitle} />
       <SummaryText/>
       <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt}/>

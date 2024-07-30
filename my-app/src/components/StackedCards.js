@@ -67,7 +67,7 @@ const from = (_i) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 const trans = (r, s) =>
   `perspective(1500px) rotateX(0deg) rotateY(${r / 10}deg) rotateZ(${r}deg) scale(${s})`;
 
-const StackedCards = ({ cards, title, uponCompletion }) => {
+const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
 
@@ -164,7 +164,7 @@ const StackedCards = ({ cards, title, uponCompletion }) => {
 
   return (
     <div className="stacked-cards-module">
-      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} />
+      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} />
       <MidText cardNum={cardNum - 1} totalCards={cards.length - 1} title={title} onClick={toggleNext} />
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (

@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
-import ListPage from "./pages/ListPage";
+import AsthmaList from "./pages/AsthmaList";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
 import DemoSummary from './pages/DemoSummary';
@@ -24,8 +24,8 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route exact path="/" element={<ListPage />} />
-        <Route path="/list-page" element={<ListPage />} />
+        <Route exact path="/" element={<AsthmaList />} />
+        <Route path="/asthma-list" element={<AsthmaList />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
         <Route path="/summary-demo" element={<DemoSummary />} />
