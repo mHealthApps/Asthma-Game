@@ -8,42 +8,42 @@ import Summary from '../components/Summary';
 
 const lungsCards = [
   {
-    image: 'lungs',
+    image: 'templatePeople',
     alt: 'lungs',
     text: 'You will learn:\n* What your lungs do\n* How your lungs work',
   },
   {
-    image: 'newRatio',
+    image: 'templateTrain',
     alt: 'template',
     text: '* You have two lungs\n* They sit in your chest\n*They have an important job in your body',
   },
   {
-    image: 'lungs',
+    image: 'templateLungs',
     alt: 'lungs',
     text: 'When we breathe in, air enters our body as oxygen. The air is breathed in through our mouth or nose and travels down into our lungs through our windpipe.',
   },
   {
-    image: 'lungs',
+    image: 'templatePeople',
     alt: 'lungs',
     text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
   },
   {
-    image: 'lungsWide',
+    image: 'templateTrain',
     alt: 'wide lungs',
     text: 'The smaller air tubes inside the lungs look like the branches of an upside down tree. At the end of the small air tubes or branches, are lots of tiny air sacs called alveoli.',
   },
   {
-    image: 'lungsWide',
+    image: 'templateLungs',
     alt: 'wideLungs',
     text: 'The air sacs (alveoli) have an important job of giving the good air (oxygen) to our blood and taking the used air (carbon dioxide) out.',
   },
   {
-    image: 'lungs',
+    image: 'templatePeople',
     alt: 'lungs',
     text: 'We breathe in good air called oxygen and we breathe out used air called carbon dioxide',
   },
   {
-    image: 'lungs',
+    image: 'templateTrain',
     alt: 'lungs',
     text: 'Oxygen gives our body energy to work properly.',
   },
@@ -56,12 +56,12 @@ const lungsQuiz = {
   options: [
     {
       text: 'Yes',
-      image: 'lungs',
+      image: 'templatePeople',
       alt: 'lungs',
     },
     {
       text: 'No',
-      image: 'newRatio',
+      image: 'templateTrain',
       alt: 'template',
     },
   ],
@@ -86,7 +86,7 @@ const TheLungs = () => {
       case 1:
         return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} />
       case 2:
-        return <Summary image="lungsWide" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list"/>
+        return <Summary image="templateLungs" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

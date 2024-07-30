@@ -8,6 +8,7 @@ import lungs from '../assets/images/lungs-diagram.png';
 import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
+import templateLungs from '../assets/images/lungs-640.jpg';
 
 
 const images = {
@@ -15,6 +16,7 @@ const images = {
   lungsWide,
   largeImage,
   newRatio,
+  templateLungs,
 }
 
 const SummaryText = () => {
