@@ -24,7 +24,7 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route exact path="/" element={<DemoStacked />} />
+        <Route exact path="/" element={<ListPage />} />
         <Route path="/list-page" element={<ListPage />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
