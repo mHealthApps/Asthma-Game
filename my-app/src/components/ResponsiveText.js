@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import React, { useCallback, useEffect, useRef } from 'react';
+import BulletPointText from './BulletPointText';
 
 const ResponsiveText = ({ text, height, initialSize }) => {
   const containerRef = useRef(null);
@@ -33,7 +34,9 @@ const ResponsiveText = ({ text, height, initialSize }) => {
            overflow: 'hidden',
          }}
     >
-      <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>{text}</div>
+      <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>
+        <BulletPointText text={text} />
+      </div>
     </div>
   );
 }
