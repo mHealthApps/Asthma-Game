@@ -214,7 +214,8 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                 </div>
                 {(i === 0) ?
                   <div className="grid-item final-card-button-container" style={{
-                    height: `${(window.innerHeight * 0.11)}px`
+                    height: `${(window.innerHeight * 0.11)}px`,
+                    fontSize: `${(window.innerHeight * 0.032)}px`,
                   }}>
                     <LinkButton text={`Let's test your knowledge`} uponClick={toggleNext} stylingClass='final-card-button'/>
                   </div> : ''
@@ -237,7 +238,8 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   }
                   {(i === 0) ?
                   <div className="grid-item final-card-button-container" style={{
-                    height: `${(window.innerHeight * 0.06)}px`
+                    height: `${(window.innerHeight * 0.06)}px`,
+                    fontSize: `${(window.innerHeight * 0.017)}px`,
                   }}>
                     <LinkButton text={`Let's test your knowledge`} uponClick={toggleNext} stylingClass='final-card-button'/>
                   </div> : ''
