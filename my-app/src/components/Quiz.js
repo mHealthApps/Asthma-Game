@@ -125,7 +125,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
 
   return (
     <div className="quiz-module">
-      <TopBar barWidth='100%' title={conditionTitle} />
+      <TopBar barWidth='100%' title={conditionTitle} orientation={orientation} />
       <QuestionText name={quiz.name} text={quiz.text} />
       {(quiz.type === 'two-options') ?
         <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} /> :

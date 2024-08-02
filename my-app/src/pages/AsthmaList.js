@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from '../components/TopBar'
 import ListGrid from '../components/ListGrid';
+import useOrientation from '../hooks/useOrientation';
 
 
 const items = [
@@ -32,13 +33,17 @@ const items = [
   },
 ];
 
-const AsthmaList = () => (
-  <div className="list-module">
-    <div className="asthma-red">
-      <TopBar barWidth='' conditionTitle='ASTHMA' />
+const AsthmaList = () => {
+  const orientation = useOrientation();
+
+  return (
+    <div className="list-module">
+      <div className="asthma-red">
+        <TopBar barWidth='' conditionTitle='ASTHMA' orientation={orientation} />
+      </div>
+      <ListGrid items={items} conditionTitle='ASTHMA'/>
     </div>
-    <ListGrid items={items} conditionTitle='ASTHMA' />
-  </div>
-);
+  );
+};
 
 export default AsthmaList;

@@ -45,6 +45,14 @@
   color: white;
 }
 
+.home-nav-portrait {
+  font-size: 100%;
+}
+
+.home-nav-landscape {
+  font-size: 140%;
+}
+
 .headers-container {
   padding: 0;
 }

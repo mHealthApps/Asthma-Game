@@ -7,12 +7,12 @@ import Nav from 'react-bootstrap/Nav';
 import { HouseFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
 
-const TopBar = ({ barWidth, conditionTitle }) => {
+const TopBar = ({ barWidth, conditionTitle, orientation }) => {
   return (
     <Navbar className="asthma-navbar" style={{ backgroundColor: "transparent" }}>
       <Container className="grid-item">
         <Nav>
-          <Nav.Link href="/Asthma-WebApp"><HouseFill className="home-nav"/></Nav.Link>
+          <Nav.Link href="/Asthma-WebApp"><HouseFill className={`home-nav home-nav-${orientation}`} /></Nav.Link>
         </Nav>
       </Container>
       <div className="grid-item">

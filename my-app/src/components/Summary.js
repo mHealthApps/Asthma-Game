@@ -9,6 +9,7 @@ import lungsWide from '../assets/images/lungs-wide.jpg';
 import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
 import templateLungs from '../assets/images/lungs-640.jpg';
+import useOrientation from '../hooks/useOrientation';
 
 
 const images = {
@@ -47,11 +48,11 @@ const SummaryExplanation = ({ text }) => {
 }
 
 const Summary = ({ image, alt, explanation, buttonLink, conditionTitle }) => {
-
+  const orientation = useOrientation();
 
   return (
     <div className='summary-module'>
-      <TopBar barWidth='100%' conditionTitle={conditionTitle} />
+      <TopBar barWidth='100%' conditionTitle={conditionTitle} orientation={orientation} />
       <SummaryText/>
       <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt}/>
