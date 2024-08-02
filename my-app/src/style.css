@@ -286,6 +286,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: calc(var(--vh, 1vh) * 1.7);
 }
 
 .click-through {
@@ -412,6 +413,7 @@
 
 .summary-button-container {
   height: calc(var(--vh, 1vh) * 8.0);
+  font-size: calc(var(--vh, 1vh)* 2.5);
 }
 
 .summary-image {
@@ -445,17 +447,14 @@
 .final-card-button {
   color: white;
   background-color: rgb(250, 75, 10);
-  font-size: 60%;
 }
 
 .final-card-button:hover {
   background-color: rgb(250, 75, 10);
-  font-size: 66.7%;
 }
 
 .final-card-button:active {
   background-color: rgb(250, 75, 10);
-  font-size: 66.7%;
 }
 
 .summary-button {
