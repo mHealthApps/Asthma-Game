@@ -42,7 +42,11 @@ const BulletPointText = ({ text }) => {
     return (
       <ul>
         {subList.map((line, i) => (
-          <li key={i}>{line.slice(1, line.length)}</li>
+          <li key={i} style={{
+            textAlign: 'left',
+          }}>
+            {line.slice(1, line.length)}
+          </li>
         ))}
       </ul>
     )
