@@ -39,9 +39,11 @@ const SummaryImage = ({ image, alt }) => {
   );
 }
 
-const SummaryExplanation = ({ text }) => {
+const SummaryExplanation = ({ text, orientation }) => {
   return (
-    <div className="summary-inner-container summary-explanation-container">
+    <div className="summary-inner-container summary-explanation-container" style={{
+      fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.028 : 0.025))}px`
+    }}>
       {text}
     </div>
   );
@@ -56,8 +58,10 @@ const Summary = ({ image, alt, explanation, buttonLink, conditionTitle }) => {
       <SummaryText/>
       <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt}/>
-        <SummaryExplanation text={explanation}/>
-        <div className='summary-inner-container summary-button-container'>
+        <SummaryExplanation text={explanation} orientation={orientation} />
+        <div className='summary-inner-container summary-button-container' style={{
+          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
+        }}>
           <LinkButton text='Complete Section' buttonLink={buttonLink} stylingClass='summary-button' uponClick='none' />
         </div>
       </div>

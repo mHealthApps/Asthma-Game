@@ -414,7 +414,7 @@
   height: calc(var(--vh, 1vh) * 28.0);
   color: white;
   text-align: center;
-  font-size: calc(var(--vh, 1vh) * 2.5);
+  /*font-size: calc(var(--vh, 1vh) * 2.5);*/
   font-weight: normal;
 }
 
