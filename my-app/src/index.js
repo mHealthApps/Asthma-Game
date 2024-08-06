@@ -1,11 +1,16 @@
 import React, { useCallback, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
-import AsthmaList from "./pages/AsthmaList";
+import AsthmaList from "./pages/static/AsthmaList";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
 import DemoSummary from './pages/DemoSummary';
-import TheLungs from './pages/TheLungs';
+import TheLungs from './pages/interactive/TheLungs';
+import AboutAsthma from './pages/interactive/AboutAsthma';
+import AsthmaTreatment from './pages/interactive/AsthmaTreatment';
+import AsthmaManagement from './pages/interactive/AsthmaManagement';
+import FirstAid from './pages/interactive/FirstAid';
+import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 
 
 
@@ -30,6 +35,11 @@ function App() {
         <Route path="/quiz-demo" element={<DemoQuiz />} />
         <Route path="/summary-demo" element={<DemoSummary />} />
         <Route path="/the-lungs" element={<TheLungs />} />
+        <Route path="/about-asthma" element={<AboutAsthma />} />
+        <Route path="/asthma-treatment" element={<AsthmaTreatment />} />
+        <Route path="/asthma-management" element={<AsthmaManagement />} />
+        <Route path="/first-aid" element={<FirstAid />} />
+        <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
       </Routes>
     </HashRouter>
   );

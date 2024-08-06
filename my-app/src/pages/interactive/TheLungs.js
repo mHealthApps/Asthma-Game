@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../style.css';
-import StackedCards from '../components/StackedCards';
-import Quiz from '../components/Quiz';
-import Summary from '../components/Summary';
+import '../../style.css';
+import StackedCards from '../../components/StackedCards';
+import Quiz from '../../components/Quiz';
+import Summary from '../../components/Summary';
 
 
 const lungsCards = [
@@ -75,9 +75,6 @@ const TheLungs = () => {
   const nextScene = () => {
     setScene(scene + 1);
   }
-  /*const prevScene = () => {
-    setScene(scene - 1);
-  }*/
 
   const renderScene = () => {
     switch (scene) {

@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../style.css';
-import TopBar from '../components/TopBar'
-import ListGrid from '../components/ListGrid';
-import useOrientation from '../hooks/useOrientation';
+import '../../style.css';
+import TopBar from '../../components/TopBar'
+import ListGrid from '../../components/ListGrid';
+import useOrientation from '../../hooks/useOrientation';
 
 
 const items = [
@@ -13,23 +13,23 @@ const items = [
   },
   {
     text: 'About Asthma',
-    link: '/',
+    link: '/about-asthma',
   },
   {
     text: 'Treatment',
-    link: '/',
+    link: '/asthma-treatment',
   },
   {
     text: 'Management',
-    link: '/',
+    link: '/asthma-management',
   },
   {
     text: 'First Aid Emergency',
-    link: '/',
+    link: '/first-aid',
   },
   {
     text: 'Keeping a healthy lifestyle',
-    link: '/',
+    link: '/healthy-lifestyle',
   },
 ];
 

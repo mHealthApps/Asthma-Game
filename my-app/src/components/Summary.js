@@ -10,6 +10,7 @@ import largeImage from '../assets/images/large-image-red.png';
 import newRatio from '../assets/images/new-ratio-image.png';
 import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
+import BulletPointText from './BulletPointText';
 
 
 const images = {
@@ -44,7 +45,7 @@ const SummaryExplanation = ({ text, orientation }) => {
     <div className="summary-inner-container summary-explanation-container" style={{
       fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.028 : 0.025))}px`
     }}>
-      {text}
+      <BulletPointText text={text} />
     </div>
   );
 }
