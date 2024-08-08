@@ -66,6 +66,7 @@ const lungsQuiz = {
     },
   ],
   answer: 0,
+  index: 0,
 }
 
 
@@ -81,7 +82,7 @@ const TheLungs = () => {
       case 0:
         return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} />
+        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
         return <Summary image="templateLungs" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list"/>
       default:

@@ -33,8 +33,26 @@ const QuestionText = ({ text, name }) => {
   );
 };
 
-const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => {
+const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle }) => {
   //console.log(orientation);
+
+  const updateStorage = () => {
+    if (conditionTitle !== undefined) {
+      console.log(`conditionTitle: ${conditionTitle}`);
+      const key = conditionTitle.toLowerCase() + 'List';
+      let completedLists = localStorage.getItem(key);
+      console.log(`completedList: ${completedLists}`);
+      if (completedLists === null) {
+        console.log('error: no storage detected');
+      } else {
+        completedLists = completedLists.substring(0, storageIndex) + '1' + completedLists.substring(storageIndex + 1, completedLists.length);
+        console.log(`new storage data: ${completedLists}`)
+        localStorage.setItem(key, completedLists);
+      }
+    } else {
+      console.log('conditionTitle failure');
+    }
+  }
 
   return (
     <div className="quiz-card-outer-container">
@@ -43,6 +61,9 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect }) => 
           <div className="quiz-card" key={i} onClick={() => {
             if (i === answer) {
               correct();
+              if (storageIndex !== 'none') {
+                updateStorage(conditionTitle, storageIndex);
+              }
             } else {
               incorrect();
             }
@@ -128,7 +149,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
       <TopBar barWidth='100%' title={conditionTitle} orientation={orientation} />
       <QuestionText name={quiz.name} text={quiz.text} />
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?

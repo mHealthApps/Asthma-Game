@@ -71,6 +71,7 @@ const aboutAsthmaQuiz = {
     },
   ],
   answer: 0,
+  index: 1,
 }
 
 
@@ -86,7 +87,7 @@ const AboutAsthma = () => {
       case 0:
         return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} />
+        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
       default:

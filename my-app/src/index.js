@@ -12,9 +12,27 @@ import AsthmaManagement from './pages/interactive/AsthmaManagement';
 import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 
+const storageData = [
+  {
+    key: 'asthmaList',
+    defaultValue: '000000',
+  },
+];
+
 
 
 function App() {
+  // Initializing localStorage if it does not exist
+  useEffect(() => {
+    for (let i = 0; i < storageData.length; i ++) {
+      let storageStatus = localStorage.getItem(storageData[i].key);
+
+      if (storageStatus === null) {
+        localStorage.setItem(storageData[i].key, storageData[i].defaultValue);
+      }
+    }
+  }, []);
+
   const setVerticalScaling = useCallback(() => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);

@@ -71,6 +71,7 @@ const aboutAsthmaQuiz = {
     },
   ],
   answer: 0,
+  index: 3,
 }
 
 
@@ -86,7 +87,7 @@ const AsthmaManagement = () => {
       case 0:
         return <StackedCards cards={aboutAsthmaCards} title="Management" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} />
+        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
       default:

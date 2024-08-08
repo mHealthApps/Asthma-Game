@@ -61,6 +61,7 @@ const aboutAsthmaQuiz = {
     },
   ],
   answer: 0,
+  index: 4,
 }
 
 
@@ -76,7 +77,7 @@ const FirstAid = () => {
       case 0:
         return <StackedCards cards={aboutAsthmaCards} title="First Aid Emergency" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} />
+        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
       default:

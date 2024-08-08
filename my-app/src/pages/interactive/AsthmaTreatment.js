@@ -71,6 +71,7 @@ const aboutAsthmaQuiz = {
     },
   ],
   answer: 0,
+  index: 2,
 }
 
 
@@ -86,7 +87,7 @@ const AsthmaTreatment = () => {
       case 0:
         return <StackedCards cards={aboutAsthmaCards} title="Treatment of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} />
+        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
       default:
