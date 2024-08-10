@@ -59,7 +59,7 @@ const ListGrid = ({ items, conditionTitle }) => {
       }
       setCompletedLists(tempCompletedLists);
     }
-  }, [conditionTitle, items.length]);
+  }, [conditionTitle, items.length, setDefaultCompleted]);
 
   useEffect(() => {
     console.log(completedLists);
