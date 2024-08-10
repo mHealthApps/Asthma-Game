@@ -24,10 +24,12 @@ const storageData = [
 function App() {
   // Initializing localStorage if it does not exist
   useEffect(() => {
+    // If reset is true localStorage data will be reset
+    const reset = false;
     for (let i = 0; i < storageData.length; i ++) {
       let storageStatus = localStorage.getItem(storageData[i].key);
 
-      if (storageStatus === null) {
+      if (storageStatus === null || reset) {
         localStorage.setItem(storageData[i].key, storageData[i].defaultValue);
       }
     }
