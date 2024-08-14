@@ -87,8 +87,8 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
 const AnswerPopup = ({ result, reset, orientation }) => {
 
   return (
-    <div className="answer-popup-container" onClick={reset}>
-      <div className="answer-popup click-through" style={{
+    <div className="popup-container" onClick={reset}>
+      <div className="popup click-through" style={{
         width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.18, 225)}px` : `${Math.min(window.innerHeight * 0.2, 225)}px`,
         height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.18, 225)}px` : `${Math.min(window.innerHeight * 0.2, 225)}px`,
       }}>

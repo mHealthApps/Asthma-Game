@@ -30,6 +30,7 @@ function App() {
       let storageStatus = localStorage.getItem(storageData[i].key);
 
       if (storageStatus === null || reset) {
+        console.log(`reset ${storageData[i].key}`);
         localStorage.setItem(storageData[i].key, storageData[i].defaultValue);
       }
     }

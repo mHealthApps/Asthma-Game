@@ -353,7 +353,7 @@
   margin: 0;
 }
 
-.answer-popup-container {
+.popup-container {
   top: 0;
   left: 0;
   position: fixed;
@@ -366,7 +366,7 @@
   z-index: 1000;
 }
 
-.answer-popup {
+.popup {
   background-color: white;
   color: rgb(50, 50, 50);
   width: calc(var(--vh, 1vh) * 25.0);

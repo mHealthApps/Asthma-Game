@@ -41,7 +41,7 @@ const AsthmaList = () => {
       <div className="asthma-red">
         <TopBar barWidth='' conditionTitle='ASTHMA' orientation={orientation} />
       </div>
-      <ListGrid items={items} conditionTitle='ASTHMA'/>
+      <ListGrid items={items} conditionTitle='ASTHMA' orientation={orientation} />
     </div>
   );
 };
