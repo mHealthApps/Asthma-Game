@@ -455,6 +455,19 @@
   font-size: 111%;
 }
 
+.reset-button {
+  color: white;
+  background-color: rgb(20, 150, 220);
+}
+
+.reset-button:hover {
+  background-color: rgb(30, 225, 255);
+}
+
+.reset-button:active {
+  background-color: rgb(30, 225, 255);
+}
+
 .final-card-button {
   color: white;
   background-color: rgb(250, 75, 10);
