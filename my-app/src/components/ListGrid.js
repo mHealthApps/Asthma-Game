@@ -4,6 +4,7 @@ import '../style.css';
 import { Col } from 'react-bootstrap';
 import { CheckCircleFill } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
+import LinkButton from './LinkButton';
 
 const ListItem = ({ index, item, conditionTitle, completed, setRequestReset }) => {
   const [style, setStyle] = useState("checkmark non-selected");
@@ -36,15 +37,35 @@ const ListItem = ({ index, item, conditionTitle, completed, setRequestReset }) =
   );
 };
 
-const ResetPopup = ({ cancelRequest, orientation, requestReset }) => {
+const ResetPopup = ({ cancelRequest, link, orientation, requestReset, conditionTitle }) => {
+  const resetDeck = () => {
+    if (conditionTitle !== undefined) {
+      console.log(`conditionTitle: ${conditionTitle}`);
+      const key = conditionTitle.toLowerCase() + 'List';
+      let completedLists = window.localStorage.getItem(key);
+      console.log(`completedList: ${completedLists}`);
+      if (completedLists === null) {
+        console.log('error: no storage detected');
+      } else {
+        completedLists = completedLists.substring(0, requestReset) + '0' + completedLists.substring(requestReset + 1, completedLists.length);
+        console.log(`new storage data: ${completedLists}`)
+        localStorage.setItem(key, completedLists);
+      }
+    } else {
+      console.log('conditionTitle failure');
+    }
+  }
 
   return (
     <div className="popup-container" onClick={cancelRequest}>
-      <div className="popup click-through" style={{
+      <div className="popup reset-popup" style={{
         width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.3, 450)}px` : `${Math.min(window.innerHeight * 0.4, 450)}px`,
         height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.375, 562)}px` : `${Math.min(window.innerHeight * 0.5, 562)}px`,
       }}>
-        {`Requesting reset of deck #${requestReset}`}
+        <h3>You have completed this activity. What would you like to do?</h3>
+        <LinkButton text='Review' buttonLink={link} stylingClass='reset-button' uponClick='none' />
+        <LinkButton text='Restart' buttonLink={link} stylingClass='reset-button' uponClick={resetDeck} />
+        <LinkButton text='Cancel' stylingClass='reset-button' uponClick={cancelRequest} />
       </div>
     </div>
   );
@@ -100,7 +121,7 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
         })
       }
       {(requestReset > -1) ?
-        <ResetPopup cancelRequest={cancelRequest} orientation={orientation} requestReset={requestReset} /> :
+        <ResetPopup cancelRequest={cancelRequest} link={items[requestReset].link} orientation={orientation} requestReset={requestReset} conditionTitle={conditionTitle} /> :
         ''
       }
     </div>

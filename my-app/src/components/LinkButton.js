@@ -13,6 +13,9 @@ const LinkButton = ({ text, buttonLink, stylingClass, uponClick }) => {
       navigate(buttonLink);
     } else {
       uponClick();
+      if (buttonLink !== undefined) {
+        navigate(buttonLink);
+      }
     }
   }
 

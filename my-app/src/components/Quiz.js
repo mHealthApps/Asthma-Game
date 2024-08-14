@@ -40,14 +40,14 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
     if (conditionTitle !== undefined) {
       console.log(`conditionTitle: ${conditionTitle}`);
       const key = conditionTitle.toLowerCase() + 'List';
-      let completedLists = window.localStorage.getItem(key);
+      let completedLists = localStorage.getItem(key);
       console.log(`completedList: ${completedLists}`);
       if (completedLists === null) {
         console.log('error: no storage detected');
       } else {
         completedLists = completedLists.substring(0, storageIndex) + '1' + completedLists.substring(storageIndex + 1, completedLists.length);
         console.log(`new storage data: ${completedLists}`)
-        window.localStorage.setItem(key, completedLists);
+        localStorage.setItem(key, completedLists);
       }
     } else {
       console.log('conditionTitle failure');
