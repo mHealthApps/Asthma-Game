@@ -62,10 +62,26 @@ const ResetPopup = ({ cancelRequest, link, orientation, requestReset, conditionT
         width: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.3, 450)}px` : `${Math.min(window.innerHeight * 0.4, 450)}px`,
         height: (orientation === 'landscape') ? `${Math.min(window.innerWidth * 0.375, 562)}px` : `${Math.min(window.innerHeight * 0.5, 562)}px`,
       }}>
-        <h3>You have completed this activity. What would you like to do?</h3>
-        <LinkButton text='Review' buttonLink={link} stylingClass='reset-button' uponClick='none' />
-        <LinkButton text='Restart' buttonLink={link} stylingClass='reset-button' uponClick={resetDeck} />
-        <LinkButton text='Cancel' stylingClass='reset-button' uponClick={cancelRequest} />
+        <div className='reset-text-container'>
+          <h3 className='reset-text' style={{
+            fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.026 : 0.019))}px`,
+          }}>You have completed this activity. What would you like to do?</h3>
+        </div>
+        <div className='reset-button-container' style={{
+          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
+        }}>
+          <LinkButton text='Review' buttonLink={link} stylingClass='reset-button' uponClick='none' />
+        </div>
+        <div className='reset-button-container' style={{
+          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
+        }}>
+          <LinkButton text='Restart' buttonLink={link} stylingClass='reset-button' uponClick={resetDeck} />
+        </div>
+        <div className='reset-button-container' style={{
+          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
+        }}>
+          <LinkButton text='Cancel' stylingClass='cancel-button' uponClick={cancelRequest} />
+        </div>
       </div>
     </div>
   );
