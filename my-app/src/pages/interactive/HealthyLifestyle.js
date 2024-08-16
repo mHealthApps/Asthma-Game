@@ -6,43 +6,63 @@ import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 
 
-const aboutAsthmaCards = [
+const healthyLifestyleCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'You will learn:\n*How to keep your child’s lungs healthy\n*Keeping your child well',
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: 'Filler text for Asthma cards',
+    text: '*Take your child for regular check-ups with your doctor or health clinic\n*Keep up to date with vaccinations and yearly flu shot',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Give the blue reliever inhaler when your child has short breath\n*Give your child the preventer inhaler every day as ordered by your doctor',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Breast feed your baby\n*Give your child plenty of good food\n*Encourage your child to run and play\n*Keep your child away from smoke such as cigarette, campfire smoke, bbq',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Anyone can have asthma at any age\n*If your child has asthma, it can be well controlled by following your child’s Asthma Action Plan\n*Talk story with your health care provider',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Filler text for Asthma cards',
+    text: '',
   },
 ]
 
-const aboutAsthmaQuiz = {
+const healthyLifestyleQuizOne = {
   type: 'two-options',
-  name: 'THIS OR THAT',
-  text: `Is oxygen important for our body?`,
+  name: 'YES OR NO',
+  text: `Will this keep your lungs Healthy?`,
+  options: [
+    {
+      text: 'Yes',
+      image: 'templatePeople',
+      alt: 'lungs',
+    },
+    {
+      text: 'No',
+      image: 'templateTrain',
+      alt: 'template',
+    },
+  ],
+  answer: 1,
+  index: 'none',
+}
+
+const healthyLifestyleQuizTwo = {
+  type: 'two-options',
+  name: 'YES OR NO',
+  text: `Will this keep your lungs Healthy?`,
   options: [
     {
       text: 'Yes',
@@ -70,10 +90,12 @@ const HealthyLifestyle = () => {
   const renderScene = () => {
     switch (scene) {
       case 0:
-        return <StackedCards cards={aboutAsthmaCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
+        return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
+        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+      case 3:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>

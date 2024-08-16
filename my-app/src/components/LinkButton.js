@@ -9,7 +9,7 @@ const LinkButton = ({ text, buttonLink, stylingClass, uponClick }) => {
 
 
   const handleClick = () => {
-    if (uponClick === 'none') {
+    if (uponClick === 'none' || uponClick === undefined) {
       navigate(buttonLink);
     } else {
       uponClick();

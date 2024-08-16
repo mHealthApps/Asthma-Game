@@ -15,7 +15,7 @@ const lungsCards = [
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '* You have two lungs\n* They sit in your chest\n*They have an important job in your body',
+    text: '*You have two lungs\n*They sit in your chest\n*They have an important job in your body',
   },
   {
     image: 'templateLungs',
@@ -84,7 +84,7 @@ const TheLungs = () => {
       case 1:
         return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list"/>
+        return <Summary image="templateLungs" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
       default:
         return <div>Error: rendering failed</div>
     }

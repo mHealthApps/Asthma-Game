@@ -10,67 +10,77 @@ const aboutAsthmaCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'You will learn:\n*What is asthma?\n*What happens in an asthma attack?\n*Signs and symptoms of asthma',
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: 'Filler text for Asthma cards',
+    text: '*Asthma is a chronic lung sickness\n*People with asthma have sensitive airways.\n*Different triggers can cause you to have an asthma attack.',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Anyone can get asthma\n*We don’t know what causes asthma\n*It is often in families with allergies.\n*It can’t be cured but it can be looked after.',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Normal breathing tube is clear and open for easy breathing',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Hard for air to be breathed in and out through the narrowed tube',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Short breath and get tired easily\n*Wheezing sound when they breathe\n*Feeling tight in the chest/hard to breathe\n*And find it hard to talk',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Animal hair (dogs and cats)\n*Some cleaning products and strong smells\n*Cold night air or weather changes.\n*VOG',
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Pollen from trees, plants and flower\n*Too much takeaway food\n*Cigarette smoke / campfire / BBQ smoke / smoke from fireworks and firecrackers',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Dust mites in bedding\n*Cockroach drippings\n*Active play or sports\n*Colds and chest infection',
   },
 ]
 
 const aboutAsthmaQuiz = {
   type: 'two-options',
-  name: 'THIS OR THAT',
-  text: `Is oxygen important for our body?`,
+  name: 'YES OR NO',
+  text: `What is asthma?`,
   options: [
     {
-      text: 'Yes',
+      text: 'Kidney Condition',
       image: 'templatePeople',
       alt: 'lungs',
     },
     {
-      text: 'No',
+      text: 'Brain Condition',
+      image: 'templateTrain',
+      alt: 'template',
+    },
+    {
+      text: 'Heart Condition',
+      image: 'templatePeople',
+      alt: 'lungs',
+    },
+    {
+      text: 'Lung Condition',
       image: 'templateTrain',
       alt: 'template',
     },
   ],
-  answer: 0,
+  answer: 3,
   index: 1,
 }
 

@@ -127,6 +127,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
 
   const reset = useCallback(() => {
     if (uponCompletion !== 'none' && answerQuestion === 'correct') {
+      setAnswerQuestion('none');
       uponCompletion();
     } else {
       setAnswerQuestion('none');

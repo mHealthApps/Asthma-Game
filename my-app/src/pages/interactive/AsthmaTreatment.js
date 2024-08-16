@@ -6,66 +6,111 @@ import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 
 
-const aboutAsthmaCards = [
+const treatmentCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'You will learn:\n*How asthma is treated\n*How asthma medications work\n*Different types of inhalers used',
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: 'Filler text for Asthma cards',
+    text: '*It is important to take your child for regular check-ups with your doctor or health clinic\n*The Doctor will write an “Asthma Action Plan”',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: `*An ‘Asthma Action Plan’ helps you to know what to do every day, and when your child’s asthma is becoming worse\n*The Doctor may give medication for your child’s asthma`,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'Relievers\n*Work fast\n*Help short breath, cough, and wheeze\n*Always carry your blue inhaler and spacer with you',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'Preventers\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes.',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Filler text for Asthma cards',
+    text: 'Preventers\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'Combination medications\n(Two medicines mixed together)\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes',
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: 'Filler text for Asthma cards',
+    text: 'Combination medications\n(Two medicines mixed together)\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Filler text for Asthma cards',
+    text: '*Inhalers need to be used with a spacer so medicines get into the breathing tubes',
+  },
+  {
+    image: 'templatePeople',
+    alt: 'lungs',
+    text: 'Video Placeholder',
   },
 ]
 
-const aboutAsthmaQuiz = {
+const treatmentQuizOne = {
   type: 'two-options',
-  name: 'THIS OR THAT',
-  text: `Is oxygen important for our body?`,
+  name: 'TRUE OR FALSE',
+  text: `Reliever is fast acting`,
   options: [
     {
-      text: 'Yes',
+      text: 'True',
       image: 'templatePeople',
       alt: 'lungs',
     },
     {
-      text: 'No',
+      text: 'False',
+      image: 'templateTrain',
+      alt: 'template',
+    },
+  ],
+  answer: 0,
+  index: 'none',
+}
+
+const treatmentQuizTwo = {
+  type: 'two-options',
+  name: 'TRUE OR FALSE',
+  text: `Preventer is taken every day`,
+  options: [
+    {
+      text: 'True',
+      image: 'templatePeople',
+      alt: 'lungs',
+    },
+    {
+      text: 'False',
+      image: 'templateTrain',
+      alt: 'template',
+    },
+  ],
+  answer: 0,
+  index: 'none',
+}
+
+const treatmentQuizThree = {
+  type: 'two-options',
+  name: 'TRUE OR FALSE',
+  text: `Combination is best taken over a long time`,
+  options: [
+    {
+      text: 'True',
+      image: 'templatePeople',
+      alt: 'lungs',
+    },
+    {
+      text: 'False',
       image: 'templateTrain',
       alt: 'template',
     },
@@ -85,10 +130,14 @@ const AsthmaTreatment = () => {
   const renderScene = () => {
     switch (scene) {
       case 0:
-        return <StackedCards cards={aboutAsthmaCards} title="Treatment of asthma" uponCompletion={nextScene} />
+        return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
+        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+      case 3:
+        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+      case 4:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
