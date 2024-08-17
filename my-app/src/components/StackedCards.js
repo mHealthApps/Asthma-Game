@@ -226,7 +226,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                   <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
                     height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
-                   : `${(window.innerHeight * 0.5)}px`,
+                   : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
                     width: '100%',
                     maxHeight: '100%',
                   }}/> : ''
