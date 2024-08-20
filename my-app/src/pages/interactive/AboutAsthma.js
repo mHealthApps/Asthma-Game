@@ -16,41 +16,49 @@ const aboutAsthmaCards = [
     image: 'templateTrain',
     alt: 'template',
     text: '*Asthma is a chronic lung sickness\n*People with asthma have sensitive airways.\n*Different triggers can cause you to have an asthma attack.',
+    header: 'WHAT IS ASTHMA?',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: '*Anyone can get asthma\n*We don’t know what causes asthma\n*It is often in families with allergies.\n*It can’t be cured but it can be looked after.',
+    header: 'WHAT CAUSES ASTHMA?',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*Normal breathing tube is clear and open for easy breathing',
+    header: 'A NORMAL BREATHING TUBE',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: '*Hard for air to be breathed in and out through the narrowed tube',
+    header: 'ASTHMA BREATHING TUBE',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '*Short breath and get tired easily\n*Wheezing sound when they breathe\n*Feeling tight in the chest/hard to breathe\n*And find it hard to talk',
+    header: 'SIGNS AND SYMPTOMS OF ASTHMA',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*Animal hair (dogs and cats)\n*Some cleaning products and strong smells\n*Cold night air or weather changes.\n*VOG',
+    header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
     text: '*Pollen from trees, plants and flower\n*Too much takeaway food\n*Cigarette smoke / campfire / BBQ smoke / smoke from fireworks and firecrackers',
+    header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '*Dust mites in bedding\n*Cockroach drippings\n*Active play or sports\n*Colds and chest infection',
+    header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
   },
 ]
 

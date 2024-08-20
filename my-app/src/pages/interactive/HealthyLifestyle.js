@@ -16,26 +16,31 @@ const healthyLifestyleCards = [
     image: 'templateTrain',
     alt: 'template',
     text: '*Take your child for regular check-ups with your doctor or health clinic\n*Keep up to date with vaccinations and yearly flu shot',
+    header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: '*Give the blue reliever inhaler when your child has short breath\n*Give your child the preventer inhaler every day as ordered by your doctor',
+    header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*Breast feed your baby\n*Give your child plenty of good food\n*Encourage your child to run and play\n*Keep your child away from smoke such as cigarette, campfire smoke, bbq',
+    header: `KEEPING YOUR CHILD WELL`,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: '*Anyone can have asthma at any age\n*If your child has asthma, it can be well controlled by following your child’s Asthma Action Plan\n*Talk story with your health care provider',
+    header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '',
+    header: `KEEPING A HEALTHY LIFESTYLE`,
   },
 ]
 

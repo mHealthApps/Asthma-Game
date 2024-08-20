@@ -16,41 +16,49 @@ const managementCards = [
     image: 'templateTrain',
     alt: 'template',
     text: 'When he / she\n*Has lots of short breaths\n*Has lots of coughing or wheezing\n*Finds it hard to run and play\n*Wakes up at night with asthma',
+    header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: '*If he / she needs to use the blue inhaler more than 2 times a week (except for exercise)\n*If he / she misses school because of asthma\n*For regular check-ups',
+    header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*If he / she doesn’t need the blue inhaler more than 2 times a week (except for exercise)\n*If he / she isn’t waking up coughing or wheezing',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: '*If he / she finds it hard to breathe\n*If he /she uses more of the blue reliever inhaler to help with asthma\n*If he / she has lots of coughing',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '*If he / she may have some wheeze\n*If he / she may find it a little harder to talk or cry',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*Call ambulance 9-1-1 OR go straight to the hospital / emergency department\n*If he / she finds it very hard to breathe\n*If he / she has more coughing ',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
     text: '*If he / she has sucking in at the neck and chest or have blue lips\n*If he / she is using a lot more of the blue reliever inhaler\n*If he / she may have a loud wheeze\n*If he / she finds it hard to talk or cry',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '',
+    header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
   },
 ]
 

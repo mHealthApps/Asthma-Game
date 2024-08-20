@@ -16,46 +16,55 @@ const treatmentCards = [
     image: 'templateTrain',
     alt: 'template',
     text: '*It is important to take your child for regular check-ups with your doctor or health clinic\n*The Doctor will write an “Asthma Action Plan”',
+    header: 'TREATMENT OF ASTHMA',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: `*An ‘Asthma Action Plan’ helps you to know what to do every day, and when your child’s asthma is becoming worse\n*The Doctor may give medication for your child’s asthma`,
+    header: 'HOW DO WE TREAT ASTHMA?',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: 'Relievers\n*Work fast\n*Help short breath, cough, and wheeze\n*Always carry your blue inhaler and spacer with you',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: 'Preventers\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes.',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: 'Preventers\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: 'Combination medications\n(Two medicines mixed together)\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
     text: 'Combination medications\n(Two medicines mixed together)\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '*Inhalers need to be used with a spacer so medicines get into the breathing tubes',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: 'Video Placeholder',
+    header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
 ]
 

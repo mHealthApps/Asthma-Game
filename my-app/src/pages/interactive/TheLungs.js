@@ -16,36 +16,43 @@ const lungsCards = [
     image: 'templateTrain',
     alt: 'template',
     text: '*You have two lungs\n*They sit in your chest\n*They have an important job in your body',
+    header: 'THE LUNGS',
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: 'When we breathe in, air enters our body as oxygen. The air is breathed in through our mouth or nose and travels down into our lungs through our windpipe.',
+    header: 'THE LUNGS',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
+    header: 'THE LUNGS',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: 'The smaller air tubes inside the lungs look like the branches of an upside down tree. At the end of the small air tubes or branches, are lots of tiny air sacs called alveoli.',
+    header: 'THE LUNGS',
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: 'The air sacs (alveoli) have an important job of giving the good air (oxygen) to our blood and taking the used air (carbon dioxide) out.',
+    header: 'THE LUNGS',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: 'We breathe in good air called oxygen and we breathe out used air called carbon dioxide',
+    header: 'THE LUNGS',
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
     text: 'Oxygen gives our body energy to work properly.',
+    header: 'THE LUNGS',
   },
 ]
 

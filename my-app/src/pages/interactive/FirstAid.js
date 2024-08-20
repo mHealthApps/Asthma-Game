@@ -16,36 +16,40 @@ const firstAidCards = [
     image: 'templateTrain',
     alt: 'template',
     text: '*Sit your child up\n*Stay calm\n*Do not leave your child',
+    header: 'FIRST AID EMERGENCY: STEP 1',
 
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
     text: '*Shake the blue inhaler\n*Put 1 puff into the spacer\n*Get the child to take 4 breaths from the spacer\nREPEAT THE STEPS 4 TIMES.\n REMEMBER, SHAKE..2 PUFF..4 BREATHS',
+    header: 'FIRST AID EMERGENCY: STEP 2',
 
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '*Wait 4 minutes\n*If no improvement, repeat Step 2',
-
+    header: 'FIRST AID EMERGENCY: STEP 3',
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
     text: '*If not getting better, call 9-1-1 and ask for an ambulance\n*Tell the 9-1-1 operator or the clinic that “someone is having an asthma attack”',
+    header: 'FIRST AID EMERGENCY: STEP 4',
 
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
     text: '*They will tell you what to do\n*Keep giving 4 separate puffs or the blue inhaler every 4 minutes until help arrives',
-
+    header: 'FIRST AID EMERGENCY: STEP 4',
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
     text: '',
+    header: 'FIRST AID EMERGENCY',
   },
 ]
 
