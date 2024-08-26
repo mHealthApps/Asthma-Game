@@ -75,7 +75,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
             </div>
             <div className="grid-item click-through"/>
             <div className="grid-item click-through">
-              <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? window.innerWidth * 0.02 : window.innerHeight * 0.022}/>
+              <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? window.innerWidth * 0.02 : window.innerHeight * 0.022} center={true} />
             </div>
           </div>
         ))}

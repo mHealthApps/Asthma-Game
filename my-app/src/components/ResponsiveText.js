@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import React, { useCallback, useEffect, useRef } from 'react';
 
-const ResponsiveText = ({ text, height, initialSize }) => {
+const ResponsiveText = ({ text, height, initialSize, center }) => {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
@@ -33,7 +33,7 @@ const ResponsiveText = ({ text, height, initialSize }) => {
            overflow: 'hidden',
          }}
     >
-      <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>
+      <div ref={textRef} className={center ? 'vertical-center' : ''} style={{textAlign: 'center'}}>
         {/*<BulletPointText text={text} />*/}
         {text}
       </div>
