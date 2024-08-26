@@ -86,7 +86,7 @@ const treatmentCards = [
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
       <div className='card-header-small'>
-        <h3>Combination medications</h3>
+        <h3 className='card-sub-header-small'>Combination medications</h3>
         <div className='card-header-tiny'>(Two medicines mixed together)</div>
       </div>
       <ul>
@@ -101,7 +101,7 @@ const treatmentCards = [
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
       <div className='card-header-small'>
-        <h3>Combination medications</h3>
+        <h3 className='card-sub-header-small'>Combination medications</h3>
         <div className='card-header-tiny'>(Two medicines mixed together)</div>
       </div>
       <ul>

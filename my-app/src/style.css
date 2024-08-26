@@ -233,6 +233,10 @@
   margin-bottom: calc(var(--vh, 1vh) * 1.0);
 }
 
+.card-sub-header-small {
+  font-size: 120%;
+}
+
 .card-header-tiny {
   font-size: 60%;
   margin-top: calc(var(--vh, 1vh) * -1.5);
