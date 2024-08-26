@@ -40,11 +40,13 @@ const firstAidCards = [
         <li className='grid-left'>Shake the blue inhaler</li>
         <li className='grid-left'>Put 1 puff into the spacer</li>
         <li className='grid-left'>Get the child to take 4 breaths from the spacer</li>
-        <b>
-          <div>REPEAT THE STEPS 4 TIMES.</div>
-          <div><div className='asthma-orange'>REMEMBER, SHAKE..2 PUFF..4 BREATHS</div></div>
-        </b>
       </ul>
+      <b>
+        <div>REPEAT THE STEPS 4 TIMES.</div>
+        <div>
+          <div className='asthma-orange'>REMEMBER, SHAKE..2 PUFF..4 BREATHS</div>
+        </div>
+      </b>
     </div>,
   },
   {
