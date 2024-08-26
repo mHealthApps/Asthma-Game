@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import React, { useCallback, useEffect, useRef } from 'react';
-import BulletPointText from './BulletPointText';
 
 const ResponsiveText = ({ text, height, initialSize }) => {
   const containerRef = useRef(null);
