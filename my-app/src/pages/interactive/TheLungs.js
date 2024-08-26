@@ -10,49 +10,74 @@ const lungsCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n* What your lungs do\n* How your lungs work',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>What your lungs do</li>
+        <li className='grid-left'>How your lungs work</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '*You have two lungs\n*They sit in your chest\n*They have an important job in your body',
     header: 'THE LUNGS',
+    text: <div>
+      <ul>
+        <li className='grid-left'>You have two lungs</li>
+        <li className='grid-left'>They sit in your chest</li>
+        <li className='grid-left'>They have an important job in your body</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: 'When we breathe in, air enters our body as oxygen. The air is breathed in through our mouth or nose and travels down into our lungs through our windpipe.',
     header: 'THE LUNGS',
+    text: <div>
+      When we breathe in, air enters our body as oxygen. The air is breathed in through our mouth or nose and travels down into our lungs through our windpipe.
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.',
     header: 'THE LUNGS',
+    text: <div>
+      The windpipe divides into two smaller air tubes. One air tube goes into the left lung and one into the right lung. The air tubes then branch out into smaller air tubes.
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: 'The smaller air tubes inside the lungs look like the branches of an upside down tree. At the end of the small air tubes or branches, are lots of tiny air sacs called alveoli.',
     header: 'THE LUNGS',
+    text: <div>
+      The smaller air tubes inside the lungs look like the branches of an upside down tree. At the end of the small air tubes or branches, are lots of tiny air sacs called alveoli.
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'The air sacs (alveoli) have an important job of giving the good air (oxygen) to our blood and taking the used air (carbon dioxide) out.',
     header: 'THE LUNGS',
+    text: <div>
+      The air sacs (alveoli) have an important job of giving the good air <div className='asthma-blue'>(oxygen)</div> to our blood and taking the used air <div className='asthma-orange'>(carbon dioxide)</div> out.
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'We breathe in good air called oxygen and we breathe out used air called carbon dioxide',
     header: 'THE LUNGS',
+    text: <div>
+      We breathe in good air called <div className='asthma-blue'>oxygen</div> and we breathe out used air called <div className='asthma-orange'>carbon dioxide</div>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: 'Oxygen gives our body energy to work properly.',
     header: 'THE LUNGS',
+    text: <div>
+      <div className='asthma-blue'>Oxygen</div> gives our body energy to work properly.
+    </div>,
   },
 ]
 

@@ -27,7 +27,7 @@ const ListItem = ({ index, item, conditionTitle, completed, setRequestReset }) =
   return (
     <div className="list-row" onClick={handleClick} >
       <Col className="list-text">
-          <h3 className="asthma-orange text-items">{conditionTitle}</h3>
+          <h3 className="asthma-orange-header text-items">{conditionTitle}</h3>
           <h3 className="text-items">{item.text}</h3>
       </Col>
       <div className="list-checkmark">

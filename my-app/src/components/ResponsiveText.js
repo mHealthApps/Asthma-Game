@@ -35,7 +35,8 @@ const ResponsiveText = ({ text, height, initialSize }) => {
          }}
     >
       <div ref={textRef} className="vertical-center" style={{textAlign: 'center'}}>
-        <BulletPointText text={text} />
+        {/*<BulletPointText text={text} />*/}
+        {text}
       </div>
     </div>
   );

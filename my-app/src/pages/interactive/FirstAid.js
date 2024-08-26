@@ -10,40 +10,75 @@ const firstAidCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n*The four steps in an asthma emergency (asthma attack)\n*What to do when asthma does not get better',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>The four steps in an asthma emergency (asthma attack)</li>
+        <li className='grid-left'>What to do when asthma does not get better</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '*Sit your child up\n*Stay calm\n*Do not leave your child',
     header: 'FIRST AID EMERGENCY: STEP 1',
-
+    text: <div>
+      <ul>
+        <li className='grid-left'>Sit your child up</li>
+        <li className='grid-left'>Stay calm</li>
+        <li className='grid-left'>Do not leave your child</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: '*Shake the blue inhaler\n*Put 1 puff into the spacer\n*Get the child to take 4 breaths from the spacer\nREPEAT THE STEPS 4 TIMES.\n REMEMBER, SHAKE..2 PUFF..4 BREATHS',
     header: 'FIRST AID EMERGENCY: STEP 2',
-
+    text: <div>
+      <ul>
+        <li className='grid-left'>Shake the blue inhaler</li>
+        <li className='grid-left'>Put 1 puff into the spacer</li>
+        <li className='grid-left'>Get the child to take 4 breaths from the spacer</li>
+        <b>
+          <div>REPEAT THE STEPS 4 TIMES.</div>
+          <div><div className='asthma-orange'>REMEMBER, SHAKE..2 PUFF..4 BREATHS</div></div>
+        </b>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*Wait 4 minutes\n*If no improvement, repeat Step 2',
     header: 'FIRST AID EMERGENCY: STEP 3',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Wait 4 minutes</li>
+        <li className='grid-left'>If no improvement, repeat Step 2</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: '*If not getting better, call 9-1-1 and ask for an ambulance\n*Tell the 9-1-1 operator or the clinic that “someone is having an asthma attack”',
     header: 'FIRST AID EMERGENCY: STEP 4',
-
+    text: <div>
+      <ul>
+        <li className='grid-left'>If not getting better, call 9-1-1 and ask for an ambulance</li>
+        <li className='grid-left'>Tell the 9-1-1 operator or the clinic that “someone is having an asthma attack”</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: '*They will tell you what to do\n*Keep giving 4 separate puffs or the blue inhaler every 4 minutes until help arrives',
     header: 'FIRST AID EMERGENCY: STEP 4',
+    text: <div>
+      <ul>
+        <li className='grid-left'>They will tell you what to do</li>
+        <li className='grid-left'>Keep giving 4 separate puffs or the blue inhaler every 4 minutes until help arrives</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',

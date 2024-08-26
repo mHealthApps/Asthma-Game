@@ -10,31 +10,61 @@ const healthyLifestyleCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n*How to keep your child’s lungs healthy\n*Keeping your child well',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>How to keep your child’s lungs healthy</li>
+        <li className='grid-left'>Keeping your child well</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '*Take your child for regular check-ups with your doctor or health clinic\n*Keep up to date with vaccinations and yearly flu shot',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>Take your child for regular check-ups with your doctor or health clinic</li>
+        <li className='grid-left'>Keep up to date with vaccinations and yearly flu shot</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: '*Give the blue reliever inhaler when your child has short breath\n*Give your child the preventer inhaler every day as ordered by your doctor',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>Give the blue reliever inhaler when your child has short breath</li>
+        <li className='grid-left'>Give your child the preventer inhaler every day as ordered by your doctor</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*Breast feed your baby\n*Give your child plenty of good food\n*Encourage your child to run and play\n*Keep your child away from smoke such as cigarette, campfire smoke, bbq',
     header: `KEEPING YOUR CHILD WELL`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>Breast feed your baby</li>
+        <li className='grid-left'>Give your child plenty of good food</li>
+        <li className='grid-left'>Encourage your child to run and play</li>
+        <li className='grid-left'>Keep your child away from smoke such as cigarette, campfire smoke, bbq</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: '*Anyone can have asthma at any age\n*If your child has asthma, it can be well controlled by following your child’s Asthma Action Plan\n*Talk story with your health care provider',
     header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>Anyone can have asthma at any age</li>
+        <li className='grid-left'>If your child has asthma, it can be well controlled by following your child’s Asthma Action Plan</li>
+        <li className='grid-left'>Talk story with your health care provider</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',

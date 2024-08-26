@@ -10,49 +10,99 @@ const managementCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n*When to take your child to the doctor\n*How bad is your child’s asthma?',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>When to take your child to the doctor</li>
+        <li className='grid-left'>How bad is your child’s asthma?</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: 'When he / she\n*Has lots of short breaths\n*Has lots of coughing or wheezing\n*Finds it hard to run and play\n*Wakes up at night with asthma',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
+    text: <div>
+      <h3 className='card-header-small'>When he / she</h3>
+      <ul>
+        <li className='grid-left'>Has lots of short breaths</li>
+        <li className='grid-left'>Has lots of coughing or wheezing</li>
+        <li className='grid-left'>Finds it hard to run and play</li>
+        <li className='grid-left'>Wakes up at night with asthma</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: '*If he / she needs to use the blue inhaler more than 2 times a week (except for exercise)\n*If he / she misses school because of asthma\n*For regular check-ups',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
+    text: <div>
+      <ul>
+        <li className='grid-left'>If he / she needs to use the blue inhaler more than 2 times a week (except for exercise)</li>
+        <li className='grid-left'>If he / she misses school because of asthma</li>
+        <li className='grid-left'>For regular check-ups</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*If he / she doesn’t need the blue inhaler more than 2 times a week (except for exercise)\n*If he / she isn’t waking up coughing or wheezing',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>If he / she doesn’t need the blue inhaler more than 2 times a week (except for exercise)</li>
+        <li className='grid-left'>If he / she isn’t waking up coughing or wheezing</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: '*If he / she finds it hard to breathe\n*If he /she uses more of the blue reliever inhaler to help with asthma\n*If he / she has lots of coughing',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>If he / she finds it hard to breathe</li>
+        <li className='grid-left'>If he /she uses more of the blue reliever inhaler to help with asthma</li>
+        <li className='grid-left'>If he / she has lots of coughing</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: '*If he / she may have some wheeze\n*If he / she may find it a little harder to talk or cry',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
+    text: <div>
+      <ul>
+        <li className='grid-left'>If he / she may have some wheeze</li>
+        <li className='grid-left'>If he / she may find it a little harder to talk or cry</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*Call ambulance 9-1-1 OR go straight to the hospital / emergency department\n*If he / she finds it very hard to breathe\n*If he / she has more coughing ',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
+    text: <div>
+      <ul>
+        <li className='grid-left'><b>Call ambulance 9-1-1 OR go straight to the hospital / emergency department</b></li>
+        <li className='grid-left'>If he / she finds it very hard to breathe</li>
+        <li className='grid-left'>If he / she has more coughing</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: '*If he / she has sucking in at the neck and chest or have blue lips\n*If he / she is using a lot more of the blue reliever inhaler\n*If he / she may have a loud wheeze\n*If he / she finds it hard to talk or cry',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
+    text: <div>
+      <ul>
+        <li className='grid-left'><b>If he / she has sucking in at the neck and chest or have blue lips</b></li>
+        <li className='grid-left'>If he / she is using a lot more of the blue reliever inhaler</li>
+        <li className='grid-left'>If he / she may have a loud wheeze</li>
+        <li className='grid-left'>If he / she finds it hard to talk or cry</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',

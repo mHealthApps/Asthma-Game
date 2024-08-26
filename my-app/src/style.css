@@ -132,13 +132,23 @@
   }
 }
 
-.asthma-orange {
+.asthma-orange-header {
   color: #fd7647;
   margin-bottom: 4px;
   font-size: calc(var(--vh, 1vh) * 2.5);
   @media only screen and (min-height: 1200px) {
     font-size: 30px;
   }
+}
+
+.asthma-orange {
+  color: #fd7647;
+  display: inline;
+}
+
+.asthma-blue {
+  color: #47b4fd;
+  display: inline;
 }
 
 .non-selected {
@@ -211,6 +221,21 @@
 .card-width {
   width: 60vw;
   max-width: 95vw;
+}
+
+.card-header {
+  font-size: 150%;
+  margin-bottom: calc(var(--vh, 1vh) * 2.0);
+}
+
+.card-header-small {
+  font-size: 120%;
+  margin-bottom: calc(var(--vh, 1vh) * 1.0);
+}
+
+.card-header-tiny {
+  font-size: 60%;
+  margin-top: calc(var(--vh, 1vh) * -1.5);
 }
 
 /*.card-image {*/

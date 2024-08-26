@@ -10,55 +10,116 @@ const treatmentCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n*How asthma is treated\n*How asthma medications work\n*Different types of inhalers used',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>How asthma is treated</li>
+        <li className='grid-left'>How asthma medications work</li>
+        <li className='grid-left'>Different types of inhalers used</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '*It is important to take your child for regular check-ups with your doctor or health clinic\n*The Doctor will write an “Asthma Action Plan”',
     header: 'TREATMENT OF ASTHMA',
+    text: <div>
+      <ul>
+        <li className='grid-left'>It is important to take your child for regular check-ups with your doctor or health clinic</li>
+        <li className='grid-left'>The Doctor will write an “Asthma Action Plan”</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: `*An ‘Asthma Action Plan’ helps you to know what to do every day, and when your child’s asthma is becoming worse\n*The Doctor may give medication for your child’s asthma`,
     header: 'HOW DO WE TREAT ASTHMA?',
+    text: <div>
+      <ul>
+        <li className='grid-left'>An ‘Asthma Action Plan’ helps you to know what to do every day, and when your child’s asthma is becoming worse</li>
+        <li className='grid-left'>The Doctor may give medication for your child’s asthma</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Relievers\n*Work fast\n*Help short breath, cough, and wheeze\n*Always carry your blue inhaler and spacer with you',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <h3 className='card-header-small'>Relievers</h3>
+      <ul>
+        <li className='grid-left'>Work fast</li>
+        <li className='grid-left'>Help short breath, cough, and wheeze</li>
+        <li className='grid-left'>Always carry your blue inhaler and spacer with you</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: 'Preventers\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes.',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <h3 className='card-header-small'>Preventers</h3>
+      <ul>
+        <li className='grid-left'>Makes breathing tubes less sensitive</li>
+        <li className='grid-left'>Reduces swelling in breathing tubes.</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: 'Preventers\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <h3 className='card-header-small'>Preventers</h3>
+      <ul>
+        <li className='grid-left'>Needs to be taken every day</li>
+        <li className='grid-left'>Works best when taken for a long time</li>
+        <li className='grid-left'>Rinse, gargle, and spit after taking the inhaler</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'Combination medications\n(Two medicines mixed together)\n*Makes breathing tubes less sensitive\n*Reduces swelling in breathing tubes',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <div className='card-header-small'>
+        <h3>Combination medications</h3>
+        <div className='card-header-tiny'>(Two medicines mixed together)</div>
+      </div>
+      <ul>
+        <li className='grid-left'>Makes breathing tubes less sensitive</li>
+        <li className='grid-left'>Reduces swelling in breathing tubes</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: 'Combination medications\n(Two medicines mixed together)\n*Needs to be taken every day\n*Works best when taken for a long time\n*Rinse, gargle, and spit after taking the inhaler',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <div className='card-header-small'>
+        <h3>Combination medications</h3>
+        <div className='card-header-tiny'>(Two medicines mixed together)</div>
+      </div>
+      <ul>
+        <li className='grid-left'>Needs to be taken every day</li>
+        <li className='grid-left'>Works best when taken for a long time</li>
+        <li className='grid-left'>Rinse, gargle, and spit after taking the inhaler</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: '*Inhalers need to be used with a spacer so medicines get into the breathing tubes',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Inhalers need to be used with a spacer so medicines get into the breathing tubes</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',

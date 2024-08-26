@@ -10,55 +10,111 @@ const aboutAsthmaCards = [
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: 'You will learn:\n*What is asthma?\n*What happens in an asthma attack?\n*Signs and symptoms of asthma',
+    text: <div>
+      <h3 className='card-header grid-left'>You will learn:</h3>
+      <ul>
+        <li className='grid-left'>What is asthma?</li>
+        <li className='grid-left'>What happens in an asthma attack?</li>
+        <li className='grid-left'>Signs and symptoms of asthma</li>
+      </ul>
+      <hr/>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'template',
-    text: '*Asthma is a chronic lung sickness\n*People with asthma have sensitive airways.\n*Different triggers can cause you to have an asthma attack.',
     header: 'WHAT IS ASTHMA?',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Asthma is a chronic lung sickness</li>
+        <li className='grid-left'>People with asthma have sensitive airways.</li>
+        <li className='grid-left'>Different triggers can cause you to have an asthma attack.</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'lungs',
-    text: '*Anyone can get asthma\n*We don’t know what causes asthma\n*It is often in families with allergies.\n*It can’t be cured but it can be looked after.',
     header: 'WHAT CAUSES ASTHMA?',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Anyone can get asthma</li>
+        <li className='grid-left'>We don’t know what causes asthma</li>
+        <li className='grid-left'>It is often in families with allergies.</li>
+        <li className='grid-left'>It can’t be cured but it can be looked after.</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*Normal breathing tube is clear and open for easy breathing',
     header: 'A NORMAL BREATHING TUBE',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Normal breathing tube is clear and open for easy breathing</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'wide lungs',
-    text: '*Hard for air to be breathed in and out through the narrowed tube',
     header: 'ASTHMA BREATHING TUBE',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Hard for air to be breathed in and out through the narrowed tube</li>
+      </ul>
+    </div>
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: '*Short breath and get tired easily\n*Wheezing sound when they breathe\n*Feeling tight in the chest/hard to breathe\n*And find it hard to talk',
     header: 'SIGNS AND SYMPTOMS OF ASTHMA',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Short breath and get tired easily</li>
+        <li className='grid-left'>Wheezing sound when they breathe</li>
+        <li className='grid-left'>Feeling tight in the chest/hard to breathe</li>
+        <li className='grid-left'>And find it hard to talk</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templatePeople',
     alt: 'lungs',
-    text: '*Animal hair (dogs and cats)\n*Some cleaning products and strong smells\n*Cold night air or weather changes.\n*VOG',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Animal hair (dogs and cats)</li>
+        <li className='grid-left'>Some cleaning products and strong smells</li>
+        <li className='grid-left'>Cold night air or weather changes.</li>
+        <li className='grid-left'>VOG</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateTrain',
     alt: 'lungs',
-    text: '*Pollen from trees, plants and flower\n*Too much takeaway food\n*Cigarette smoke / campfire / BBQ smoke / smoke from fireworks and firecrackers',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Pollen from trees, plants and flower</li>
+        <li className='grid-left'>Too much takeaway food</li>
+        <li className='grid-left'>Cigarette smoke / campfire / BBQ smoke / smoke from fireworks and firecrackers</li>
+      </ul>
+    </div>,
   },
   {
     image: 'templateLungs',
     alt: 'wideLungs',
-    text: '*Dust mites in bedding\n*Cockroach drippings\n*Active play or sports\n*Colds and chest infection',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
+    text: <div>
+      <ul>
+        <li className='grid-left'>Dust mites in bedding</li>
+        <li className='grid-left'>Cockroach drippings</li>
+        <li className='grid-left'>Active play or sports</li>
+        <li className='grid-left'>Colds and chest infection</li>
+      </ul>
+    </div>,
   },
 ]
 
