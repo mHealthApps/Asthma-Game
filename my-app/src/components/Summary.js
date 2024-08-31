@@ -34,7 +34,7 @@ const SummaryText = () => {
 
 const SummaryImage = ({ image, alt }) => {
   return (
-    <div className="summary-inner-container summary-image-container">
+    <div className="inner-container image-container">
       <img className="summary-image" alt={alt} src={image} />
     </div>
   );
@@ -42,7 +42,7 @@ const SummaryImage = ({ image, alt }) => {
 
 const SummaryExplanation = ({ text, orientation }) => {
   return (
-    <div className="summary-inner-container summary-explanation-container" style={{
+    <div className="inner-container summary-explanation-container" style={{
       fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.028 : 0.025))}px`
     }}>
       <BulletPointText text={text} />
@@ -60,7 +60,7 @@ const Summary = ({ image, alt, explanation, buttonLink, conditionTitle }) => {
       <div className='summary-outer-container'>
         <SummaryImage image={images[image]} alt={alt}/>
         <SummaryExplanation text={explanation} orientation={orientation} />
-        <div className='summary-inner-container summary-button-container' style={{
+        <div className='inner-container summary-button-container' style={{
           fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
         }}>
           <LinkButton text='Complete Section' buttonLink={buttonLink} stylingClass='summary-button' uponClick='none' />

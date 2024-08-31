@@ -33,7 +33,17 @@ const QuestionText = ({ text, name }) => {
   );
 };
 
-const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle }) => {
+const QuizImage = ({ image, alt }) => {
+  return (
+    <div className="quiz-image-outer-container">
+      <div className="inner-container image-container">
+        <img className="quiz-image" alt={alt} src={images[image]} />
+      </div>
+    </div>
+  );
+}
+
+const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle, containerHeight }) => {
   //console.log(orientation);
 
   const updateStorage = () => {
@@ -55,7 +65,9 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
   }
 
   return (
-    <div className="quiz-card-outer-container">
+    <div className="quiz-card-outer-container" style={{
+      height: containerHeight,
+    }}>
       <div className="quiz-card-inner-container">
         {options.map(({ text, image, alt }, i) => (
           <div className="quiz-card" key={i} onClick={() => {
@@ -113,7 +125,7 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   );
 }
 
-const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
+const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
   const [answerQuestion, setAnswerQuestion] = useState('none');
@@ -149,8 +161,11 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle }) => {
     <div className="quiz-module">
       <TopBar barWidth='100%' title={conditionTitle} orientation={orientation} />
       <QuestionText name={quiz.name} text={quiz.text} />
+      {(image !== undefined) ?
+        <QuizImage image={image} alt={alt} /> : ''
+      }
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.483} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?
