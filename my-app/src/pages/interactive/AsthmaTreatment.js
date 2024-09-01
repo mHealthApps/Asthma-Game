@@ -136,13 +136,11 @@ const treatmentQuizOne = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
@@ -156,13 +154,11 @@ const treatmentQuizTwo = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
@@ -176,13 +172,11 @@ const treatmentQuizThree = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
@@ -202,11 +196,11 @@ const AsthmaTreatment = () => {
       case 0:
         return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='reliever' />
       case 2:
-        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='preventer'/>
       case 3:
-        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='combination' />
       case 4:
         return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
       default:
