@@ -97,13 +97,11 @@ const firstAidQuizOne = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 1,
@@ -117,13 +115,11 @@ const firstAidQuizTwo = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
@@ -137,13 +133,11 @@ const firstAidQuizThree = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
@@ -157,13 +151,11 @@ const firstAidQuizFour = {
   options: [
     {
       text: 'True',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'False',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 1,
