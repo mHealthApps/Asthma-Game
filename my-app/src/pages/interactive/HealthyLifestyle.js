@@ -81,13 +81,11 @@ const healthyLifestyleQuizOne = {
   options: [
     {
       text: 'Yes',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'No',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 1,
@@ -101,13 +99,11 @@ const healthyLifestyleQuizTwo = {
   options: [
     {
       text: 'Yes',
-      image: 'templatePeople',
-      alt: 'lungs',
+      image: '',
     },
     {
       text: 'No',
-      image: 'templateTrain',
-      alt: 'template',
+      image: '',
     },
   ],
   answer: 0,
