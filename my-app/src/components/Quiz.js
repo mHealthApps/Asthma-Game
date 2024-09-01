@@ -70,28 +70,32 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
     }}>
       <div className="quiz-card-inner-container">
         {options.map(({ text, image, alt }, i) => (
-          <div className="quiz-card" key={i} onClick={() => {
-            if (i === answer) {
-              correct();
-              if (storageIndex !== 'none') {
-                updateStorage(conditionTitle, storageIndex);
-              }
-            } else {
-              incorrect();
-            }
-          }} style={{
-            gridTemplateColumns: (image !== '') ? (text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+          <div className="quiz-card-dividing-container" style={{
+            height: `${80 / options.length}%`,
           }}>
-            <div className="grid-item click-through">
-              {(image !== '') ?
-              <div className="vertical-center-items click-through">
-                <img className="card-image click-through" alt={alt} src={images[image]}/>
-              </div> : ''
+            <div className="quiz-card" key={i} onClick={() => {
+              if (i === answer) {
+                correct();
+                if (storageIndex !== 'none') {
+                  updateStorage(conditionTitle, storageIndex);
+                }
+              } else {
+                incorrect();
               }
-            </div>
-            <div className="grid-item click-through"/>
-            <div className="grid-item click-through">
-              <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? (image !== '') ? window.innerWidth * 0.02 : window.innerWidth * 0.06 : (image !== '') ? window.innerHeight * 0.022 : window.innerHeight * 0.066} center={true} />
+            }} style={{
+              gridTemplateColumns: (image !== '') ? (text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+            }}>
+              <div className="grid-item click-through">
+                {(image !== '') ?
+                <div className="vertical-center-items click-through">
+                  <img className="card-image click-through" alt={alt} src={images[image]}/>
+                </div> : ''
+                }
+              </div>
+              <div className="grid-item click-through"/>
+              <div className="grid-item click-through">
+                <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? (image !== '') ? window.innerWidth * 0.02 : window.innerWidth * 0.06 : (image !== '') ? window.innerHeight * 0.022 : window.innerHeight * 0.066} center={true} />
+              </div>
             </div>
           </div>
         ))}
