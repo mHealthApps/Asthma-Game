@@ -11,7 +11,7 @@ const IntroCardFooter = () => {
         <div className='grid-right'>1 Activity</div>
       </div>
     </>
-  )
+  );
 };
 
 export default IntroCardFooter;
