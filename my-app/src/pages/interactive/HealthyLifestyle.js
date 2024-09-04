@@ -4,6 +4,7 @@ import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
+import IntroCardFooter from '../../components/IntroCardFooter';
 
 
 const healthyLifestyleCards = [
@@ -16,7 +17,7 @@ const healthyLifestyleCards = [
         <li className='grid-left'>How to keep your child’s lungs healthy</li>
         <li className='grid-left'>Keeping your child well</li>
       </ul>
-      <hr/>
+      <IntroCardFooter />
     </div>,
   },
   {

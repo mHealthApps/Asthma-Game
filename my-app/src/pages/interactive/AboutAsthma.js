@@ -4,6 +4,7 @@ import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
+import IntroCardFooter from '../../components/IntroCardFooter';
 
 
 const aboutAsthmaCards = [
@@ -17,7 +18,7 @@ const aboutAsthmaCards = [
         <li className='grid-left'>What happens in an asthma attack?</li>
         <li className='grid-left'>Signs and symptoms of asthma</li>
       </ul>
-      <hr/>
+      <IntroCardFooter />
     </div>,
   },
   {

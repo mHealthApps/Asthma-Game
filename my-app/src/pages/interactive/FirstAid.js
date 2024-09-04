@@ -4,6 +4,7 @@ import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
+import IntroCardFooter from '../../components/IntroCardFooter';
 
 
 const firstAidCards = [
@@ -16,7 +17,7 @@ const firstAidCards = [
         <li className='grid-left'>The four steps in an asthma emergency (asthma attack)</li>
         <li className='grid-left'>What to do when asthma does not get better</li>
       </ul>
-      <hr/>
+      <IntroCardFooter />
     </div>,
   },
   {

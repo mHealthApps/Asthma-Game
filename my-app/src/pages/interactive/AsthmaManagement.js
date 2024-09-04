@@ -4,6 +4,7 @@ import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
+import IntroCardFooter from '../../components/IntroCardFooter';
 
 
 const managementCards = [
@@ -16,7 +17,7 @@ const managementCards = [
         <li className='grid-left'>When to take your child to the doctor</li>
         <li className='grid-left'>How bad is your child’s asthma?</li>
       </ul>
-      <hr/>
+      <IntroCardFooter />
     </div>,
   },
   {
