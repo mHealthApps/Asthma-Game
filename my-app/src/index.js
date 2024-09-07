@@ -12,6 +12,7 @@ import AsthmaTreatment from './pages/interactive/AsthmaTreatment';
 import AsthmaManagement from './pages/interactive/AsthmaManagement';
 import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
+import CongratulationsPage from './pages/static/CongratulationsPage';
 
 const storageData = [
   {
@@ -63,6 +64,7 @@ function App() {
         <Route path="/asthma-management" element={<AsthmaManagement />} />
         <Route path="/first-aid" element={<FirstAid />} />
         <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
+        <Route path="/congratulations" element={<CongratulationsPage />} />
       </Routes>
     </HashRouter>
   );

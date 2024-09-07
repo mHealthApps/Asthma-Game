@@ -17,11 +17,11 @@ const ListItem = ({ index, item, conditionTitle, completed, setRequestReset }) =
 
   const handleClick = () => {
     if (completed === '1') {
-      // console.log(`requesting reset of deck ${index}`);
-      // setRequestReset(index);
+      console.log(`requesting reset of deck ${index}`);
+      setRequestReset(index);
       // Developer shortcut to make all decks completed
-      const key = conditionTitle.toLowerCase() + 'List';
-      localStorage.setItem(key, '111111');
+      // const key = conditionTitle.toLowerCase() + 'List';
+      // localStorage.setItem(key, '111111');
     } else {
       navigate(item.link);
     }
@@ -44,7 +44,7 @@ const ResetPopup = ({ cancelRequest, link, orientation, requestReset, conditionT
   const resetDeck = () => {
     if (conditionTitle !== undefined) {
       console.log(`conditionTitle: ${conditionTitle}`);
-      const key = conditionTitle.toLowerCase() + 'List';
+      let key = conditionTitle.toLowerCase() + 'List';
       let completedLists = window.localStorage.getItem(key);
       console.log(`completedList: ${completedLists}`);
       if (completedLists === null) {
@@ -53,6 +53,8 @@ const ResetPopup = ({ cancelRequest, link, orientation, requestReset, conditionT
         completedLists = completedLists.substring(0, requestReset) + '0' + completedLists.substring(requestReset + 1, completedLists.length);
         console.log(`new storage data: ${completedLists}`)
         localStorage.setItem(key, completedLists);
+        key = conditionTitle.toLowerCase() + 'Congrats';
+        localStorage.setItem(key, 'false');
       }
     } else {
       console.log('conditionTitle failure');
@@ -120,7 +122,7 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
 
   useEffect(() => {
     console.log('useEffect called')
-    const key = conditionTitle.toLowerCase() + 'List';
+    let key = conditionTitle.toLowerCase() + 'List';
     let tempCompletedLists = localStorage.getItem(key);
     console.log(`accessed completed list: ${tempCompletedLists}`);
     if (tempCompletedLists === null) {
@@ -133,10 +135,20 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
       //   tempCompletedLists = setDefaultCompleted();
       //   localStorage.setItem(key, tempCompletedLists);
       // }
+      setCompletedLists(tempCompletedLists);
+      // Checks if all decks have been completed and the user has not seen the congratulations page yet, and then navigates them there if so
       if (checkIfCompleted(tempCompletedLists)) {
-        navigate('/congratulations-demo');
+        key = conditionTitle.toLowerCase() + 'Congrats';
+        const completed = localStorage.getItem(key);
+        console.log(`congrats has been visited: ${completed}`);
+        if (completed === null || completed !== 'true') {
+          setTimeout(() => {
+            navigate('/congratulations');
+          }, 0)
+        }
       } else {
-        setCompletedLists(tempCompletedLists);
+        key = conditionTitle.toLowerCase() + 'Congrats';
+        localStorage.setItem(key, 'false');
       }
     }
   }, [conditionTitle, items.length, setDefaultCompleted, navigate]);

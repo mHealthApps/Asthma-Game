@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import TopBar from '../../components/TopBar'
 import ListGrid from '../../components/ListGrid';
 import useOrientation from '../../hooks/useOrientation';
-import { useNavigate } from 'react-router-dom';
 
 
 const items = [
@@ -34,9 +33,8 @@ const items = [
   },
 ];
 
-const AsthmaList = (list) => {
+const AsthmaList = () => {
   const orientation = useOrientation();
-  const navigate = useNavigate();
 
   return (
     <div className="list-module">

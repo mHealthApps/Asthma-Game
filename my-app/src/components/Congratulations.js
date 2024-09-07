@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import LinkButton from './LinkButton';
@@ -45,6 +45,11 @@ const CongratulationsExplanation = ({ conditionTitle, orientation }) => {
 
 const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
   const orientation = useOrientation();
+
+  useEffect(() => {
+    const key = conditionTitle.toLowerCase() + 'Congrats';
+    localStorage.setItem(key, 'true');
+  }, [conditionTitle])
 
   return (
     <div className='congratulations-module'>
