@@ -17,8 +17,11 @@ const ListItem = ({ index, item, conditionTitle, completed, setRequestReset }) =
 
   const handleClick = () => {
     if (completed === '1') {
-      console.log(`requesting reset of deck ${index}`);
-      setRequestReset(index);
+      // console.log(`requesting reset of deck ${index}`);
+      // setRequestReset(index);
+      // Developer shortcut to make all decks completed
+      const key = conditionTitle.toLowerCase() + 'List';
+      localStorage.setItem(key, '111111');
     } else {
       navigate(item.link);
     }
@@ -103,6 +106,18 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
     setRequestReset(-1);
   }
 
+  const checkIfCompleted = (list) => {
+    for (let i = 0; i < list.length; i++) {
+      console.log(list.charAt(i));
+      if (list.charAt(i) !== '1') {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     console.log('useEffect called')
     const key = conditionTitle.toLowerCase() + 'List';
@@ -118,9 +133,13 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
       //   tempCompletedLists = setDefaultCompleted();
       //   localStorage.setItem(key, tempCompletedLists);
       // }
-      setCompletedLists(tempCompletedLists);
+      if (checkIfCompleted(tempCompletedLists)) {
+        navigate('/congratulations-demo');
+      } else {
+        setCompletedLists(tempCompletedLists);
+      }
     }
-  }, [conditionTitle, items.length, setDefaultCompleted]);
+  }, [conditionTitle, items.length, setDefaultCompleted, navigate]);
 
   useEffect(() => {
     console.log('Testing for completedLists triggers: ' + completedLists);
