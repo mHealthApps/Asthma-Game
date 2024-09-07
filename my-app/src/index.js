@@ -5,6 +5,7 @@ import AsthmaList from "./pages/static/AsthmaList";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
 import DemoSummary from './pages/DemoSummary';
+import DemoCongratulations from './pages/DemoCongratulations';
 import TheLungs from './pages/interactive/TheLungs';
 import AboutAsthma from './pages/interactive/AboutAsthma';
 import AsthmaTreatment from './pages/interactive/AsthmaTreatment';
@@ -55,6 +56,7 @@ function App() {
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
         <Route path="/summary-demo" element={<DemoSummary />} />
+        <Route path="/congratulations-demo" element={<DemoCongratulations />} />
         <Route path="/the-lungs" element={<TheLungs />} />
         <Route path="/about-asthma" element={<AboutAsthma />} />
         <Route path="/asthma-treatment" element={<AsthmaTreatment />} />
