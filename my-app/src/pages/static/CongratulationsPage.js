@@ -9,7 +9,7 @@ const CongratulationsPage = () => {
 
   return (
     <div className="asthma-red">
-      <Congratulations image='/images/lungs-640.jpg' alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" />
+      <Congratulations image='templateLungs' alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" />
     </div>
   );
 }

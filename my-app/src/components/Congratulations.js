@@ -56,7 +56,6 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
   useEffect(() => {
     setTimeout(() => {
       setNumPieces(0);
-      console.log(images);
     }, 3000)
   }, [])
 
@@ -65,7 +64,7 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
       <Confetti numberOfPieces={numPieces} width={window.innerWidth} height={window.innerHeight}/>
       <div className='congratulations-outer-container'>
         <div className='inner-container congratulations-image-container'>
-          <CongratulationsImage image={image} alt={alt}/>
+          <CongratulationsImage image={images[image]} alt={alt}/>
         </div>
         <CongratulationsExplanation conditionTitle={conditionTitle} orientation={orientation}/>
         <div className='inner-container summary-button-container' style={{
