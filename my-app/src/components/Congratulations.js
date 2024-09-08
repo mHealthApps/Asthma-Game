@@ -64,7 +64,7 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
       <Confetti numberOfPieces={numPieces} width={window.innerWidth} height={window.innerHeight}/>
       <div className='congratulations-outer-container'>
         <div className='inner-container congratulations-image-container'>
-          <CongratulationsImage image={images[image]} alt={alt}/>
+          <CongratulationsImage image={image} alt={alt}/>
         </div>
         <CongratulationsExplanation conditionTitle={conditionTitle} orientation={orientation}/>
         <div className='inner-container summary-button-container' style={{
