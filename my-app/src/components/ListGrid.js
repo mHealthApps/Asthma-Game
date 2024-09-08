@@ -103,6 +103,7 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
 
   const [completedLists, setCompletedLists] = useState(setDefaultCompleted());
   const [requestReset, setRequestReset] = useState(-1);
+  // const [firstEffectCompleted, setFirstEffectCompleted] = useState(false);
 
   const cancelRequest = () => {
     setRequestReset(-1);
@@ -149,15 +150,18 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
       } else {
         key = conditionTitle.toLowerCase() + 'Congrats';
         localStorage.setItem(key, 'false');
+        // setFirstEffectCompleted(true);
       }
     }
   }, [conditionTitle, items.length, setDefaultCompleted, navigate]);
 
-  useEffect(() => {
-    console.log('Testing for completedLists triggers: ' + completedLists);
-    const key = conditionTitle.toLowerCase() + 'List';
-    localStorage.setItem(key, completedLists);
-  }, [conditionTitle, completedLists])
+  // useEffect(() => {
+  //   if (firstEffectCompleted) {
+  //     console.log('Testing for completedLists triggers: ' + completedLists);
+  //     const key = conditionTitle.toLowerCase() + 'List';
+  //     localStorage.setItem(key, completedLists);
+  //   }
+  // }, [conditionTitle, completedLists, firstEffectCompleted])
 
   return (
     <div className="list-grid">
