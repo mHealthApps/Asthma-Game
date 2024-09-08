@@ -56,6 +56,7 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
   useEffect(() => {
     setTimeout(() => {
       setNumPieces(0);
+      console.log(images);
     }, 3000)
   }, [])
 
