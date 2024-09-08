@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import LinkButton from './LinkButton';
@@ -9,6 +9,7 @@ import newRatio from '../assets/images/new-ratio-image.png';
 import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import { Share } from 'react-bootstrap-icons';
+import  Confetti  from 'react-confetti';
 
 
 const images = {
@@ -45,14 +46,22 @@ const CongratulationsExplanation = ({ conditionTitle, orientation }) => {
 
 const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
   const orientation = useOrientation();
+  const [numPieces, setNumPieces] = useState(150);
 
   useEffect(() => {
     const key = conditionTitle.toLowerCase() + 'Congrats';
     localStorage.setItem(key, 'true');
   }, [conditionTitle])
 
+  useEffect(() => {
+    setTimeout(() => {
+      setNumPieces(0);
+    }, 3000)
+  }, [])
+
   return (
     <div className='congratulations-module'>
+      <Confetti numberOfPieces={numPieces} width={window.innerWidth} height={window.innerHeight}/>
       <div className='congratulations-outer-container'>
         <div className='inner-container congratulations-image-container'>
           <CongratulationsImage image={images[image]} alt={alt}/>
