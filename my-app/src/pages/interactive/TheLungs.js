@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const lungsCards = [
   {
-    image: 'templatePeople',
+    image: templateLungs,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -21,7 +24,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: 'THE LUNGS',
     text: <div>
@@ -33,7 +36,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -41,7 +44,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -49,7 +52,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -57,7 +60,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: 'THE LUNGS',
     text: <div>
@@ -65,7 +68,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -73,7 +76,7 @@ const lungsCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -113,9 +116,9 @@ const TheLungs = () => {
       case 0:
         return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateLungs' alt='lungs' />
+        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateLungs} alt='lungs' />
       case 2:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
+        return <Summary image={templateLungs} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
       default:
         return <div>Error: rendering failed</div>
     }

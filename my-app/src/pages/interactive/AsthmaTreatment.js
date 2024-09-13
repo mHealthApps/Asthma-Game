@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const treatmentCards = [
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -22,7 +25,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: 'TREATMENT OF ASTHMA',
     text: <div>
@@ -33,7 +36,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: 'HOW DO WE TREAT ASTHMA?',
     text: <div>
@@ -44,7 +47,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -57,7 +60,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -69,7 +72,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -82,7 +85,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -97,7 +100,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -113,7 +116,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -123,7 +126,7 @@ const treatmentCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: 'Video Placeholder',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -197,13 +200,13 @@ const AsthmaTreatment = () => {
       case 0:
         return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='reliever' />
+        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='reliever' />
       case 2:
-        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='preventer'/>
+        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='preventer'/>
       case 3:
-        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='combination' />
+        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='combination' />
       case 4:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
+        return <Summary image={templateLungs} alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

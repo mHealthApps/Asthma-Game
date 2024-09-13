@@ -4,22 +4,9 @@ import '../style.css';
 import TopBar from './TopBar';
 import { Col } from 'react-bootstrap';
 import LinkButton from './LinkButton';
-import lungs from '../assets/images/lungs-diagram.png';
-import lungsWide from '../assets/images/lungs-wide.jpg';
-import largeImage from '../assets/images/large-image-red.png';
-import newRatio from '../assets/images/new-ratio-image.png';
-import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import BulletPointText from './BulletPointText';
 
-
-const images = {
-  lungs,
-  lungsWide,
-  largeImage,
-  newRatio,
-  templateLungs,
-}
 
 const SummaryText = () => {
   return (
@@ -58,7 +45,7 @@ const Summary = ({ image, alt, explanation, buttonLink, conditionTitle }) => {
       <TopBar barWidth='100%' conditionTitle={conditionTitle} orientation={orientation} />
       <SummaryText/>
       <div className='summary-outer-container'>
-        <SummaryImage image={images[image]} alt={alt}/>
+        <SummaryImage image={image} alt={alt}/>
         <SummaryExplanation text={explanation} orientation={orientation} />
         <div className='inner-container summary-button-container' style={{
           fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,

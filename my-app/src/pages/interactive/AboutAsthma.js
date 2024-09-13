@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const aboutAsthmaCards = [
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -22,7 +25,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: 'WHAT IS ASTHMA?',
     text: <div>
@@ -34,7 +37,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: 'WHAT CAUSES ASTHMA?',
     text: <div>
@@ -47,7 +50,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'A NORMAL BREATHING TUBE',
     text: <div>
@@ -57,7 +60,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: 'ASTHMA BREATHING TUBE',
     text: <div>
@@ -67,7 +70,7 @@ const aboutAsthmaCards = [
     </div>
   },
   {
-    image: 'templateLungs',
+    image: templateTrain,
     alt: 'wideLungs',
     header: 'SIGNS AND SYMPTOMS OF ASTHMA',
     text: <div>
@@ -80,7 +83,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -93,7 +96,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -105,7 +108,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -126,22 +129,22 @@ const aboutAsthmaQuiz = {
   options: [
     {
       text: 'Kidney Condition',
-      image: 'templatePeople',
+      image: templatePeople,
       alt: 'lungs',
     },
     {
       text: 'Brain Condition',
-      image: 'templateTrain',
+      image: templateTrain,
       alt: 'template',
     },
     {
       text: 'Heart Condition',
-      image: 'templatePeople',
+      image: templatePeople,
       alt: 'lungs',
     },
     {
       text: 'Lung Condition',
-      image: 'templateTrain',
+      image: templateTrain,
       alt: 'template',
     },
   ],
@@ -164,7 +167,7 @@ const AboutAsthma = () => {
       case 1:
         return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
+        return <Summary image={templateLungs} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

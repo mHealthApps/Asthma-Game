@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const managementCards = [
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -21,7 +24,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
@@ -35,7 +38,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
@@ -47,7 +50,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -58,7 +61,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -70,7 +73,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -81,7 +84,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -93,7 +96,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -106,7 +109,7 @@ const managementCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     text: '',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -120,12 +123,12 @@ const managementQuizOne = {
   options: [
     {
       text: 'May have loud wheeze. They may have sucking in at the next and chest and blue lips',
-      image: 'templatePeople',
+      image: templatePeople,
       alt: 'lungs',
     },
     {
       text: 'Not waking up coughing or wheezing',
-      image: 'templateTrain',
+      image: templateTrain,
       alt: 'template',
     },
   ],
@@ -140,12 +143,12 @@ const managementQuizTwo = {
   options: [
     {
       text: 'No need to use the blue reliever inhaler more than 2 times a week (except for exercise)',
-      image: 'templatePeople',
+      image: templatePeople,
       alt: 'lungs',
     },
     {
       text: 'Very hard to breathe and talk. Lot more coughing, maybe with lots of spit',
-      image: 'templateTrain',
+      image: templateTrain,
       alt: 'template',
     },
   ],
@@ -170,7 +173,7 @@ const AsthmaManagement = () => {
       case 2:
         return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 3:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
+        return <Summary image={templateLungs} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

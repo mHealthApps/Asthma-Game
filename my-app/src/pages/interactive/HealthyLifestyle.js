@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const healthyLifestyleCards = [
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -21,7 +24,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
     text: <div>
@@ -32,7 +35,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
     text: <div>
@@ -43,7 +46,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD WELL`,
     text: <div>
@@ -56,7 +59,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
     text: <div>
@@ -68,7 +71,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     text: '',
     header: `KEEPING A HEALTHY LIFESTYLE`,
@@ -124,11 +127,11 @@ const HealthyLifestyle = () => {
       case 0:
         return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templatePeople' alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templatePeople} alt='lungs' />
       case 2:
-        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image='templateTrain' alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='lungs' />
       case 3:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
+        return <Summary image={templateLungs} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

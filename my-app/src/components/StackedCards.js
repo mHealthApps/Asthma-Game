@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
@@ -6,27 +6,10 @@ import { useSprings, animated, to as interpolate } from '@react-spring/web'
 import { useDrag } from 'react-use-gesture'
 import '../style.css';
 import TopBar from "./TopBar";
-import lungs from '../assets/images/lungs-diagram.png';
-import lungsWide from '../assets/images/lungs-wide.jpg';
-import largeImage from '../assets/images/large-image-red.png';
-import newRatio from '../assets/images/new-ratio-image.png';
-import templatePeople from '../assets/images/template-people.jpg';
-import templateTrain from '../assets/images/template-train.jpg';
-import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import ResponsiveText from './ResponsiveText';
 import LinkButton from './LinkButton';
 
-
-const images = {
-  lungs,
-  lungsWide,
-  largeImage,
-  newRatio,
-  templatePeople,
-  templateTrain,
-  templateLungs,
-}
 
 const MidText = ({ cardNum, title, totalCards, header }) => {
   return (
@@ -115,6 +98,11 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
     }
   };
 
+  useEffect(() => {
+    console.log(`image reference: ${cards[0].image}`);
+    console.log(`image text: ${cards[1].image}`);
+  })
+
   const buttonNext = () => {
     if (cards.length - cardNum !== 0) {
       toggleNext();
@@ -201,7 +189,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   <div className="grid-item">
                       {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                       <div className="vertical-center-items">
-                        <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
+                        <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
                           width: '100%',
                           maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
                         }}/>
@@ -229,7 +217,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
               <>
                 <div className="card-width">
                   {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                  <img className="card-image" alt={cards[cards.length - i - 1].alt} src={images[cards[cards.length - i - 1].image]} style={{
+                  <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
                     height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
                    : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
                     width: '100%',

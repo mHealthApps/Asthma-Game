@@ -5,11 +5,14 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
+import templateLungs from '../../assets/images/lungs-640.jpg';
+import templateTrain from '../../assets/images/template-train.jpg';
+import templatePeople from '../../assets/images/template-people.jpg';
 
 
 const firstAidCards = [
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -21,7 +24,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'template',
     header: 'FIRST AID EMERGENCY: STEP 1',
     text: <div>
@@ -33,7 +36,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 2',
     text: <div>
@@ -51,7 +54,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 3',
     text: <div>
@@ -62,7 +65,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templateTrain',
+    image: templateTrain,
     alt: 'wide lungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
     text: <div>
@@ -73,7 +76,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templateLungs',
+    image: templateLungs,
     alt: 'wideLungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
     text: <div>
@@ -84,7 +87,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    image: 'templatePeople',
+    image: templatePeople,
     alt: 'lungs',
     text: '',
     header: 'FIRST AID EMERGENCY',
@@ -184,7 +187,7 @@ const FirstAid = () => {
       case 4:
         return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 5:
-        return <Summary image="templateLungs" alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
+        return <Summary image={templateLungs} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

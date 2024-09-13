@@ -5,22 +5,8 @@ import TopBar from './TopBar';
 import useOrientation from '../hooks/useOrientation';
 import { Col } from 'react-bootstrap';
 import ResponsiveText from './ResponsiveText';
-import newRatio from '../assets/images/new-ratio-image.png';
-import lungs from '../assets/images/lungs-diagram.png';
-import lungsWide from '../assets/images/lungs-wide.jpg';
-import templatePeople from '../assets/images/template-people.jpg';
-import templateTrain from '../assets/images/template-train.jpg';
-import templateLungs from '../assets/images/lungs-640.jpg';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
 
-const images = {
-  newRatio,
-  lungs,
-  lungsWide,
-  templatePeople,
-  templateTrain,
-  templateLungs,
-}
 
 const QuestionText = ({ text, name }) => {
   return (
@@ -37,7 +23,7 @@ const QuizImage = ({ image, alt }) => {
   return (
     <div className="quiz-image-outer-container">
       <div className="inner-container image-container">
-        <img className="quiz-image" alt={alt} src={images[image]} />
+        <img className="quiz-image" alt={alt} src={image} />
       </div>
     </div>
   );
@@ -88,7 +74,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
               <div className="grid-item click-through">
                 {(image !== '') ?
                 <div className="vertical-center-items click-through">
-                  <img className="card-image click-through" alt={alt} src={images[image]}/>
+                  <img className="card-image click-through" alt={alt} src={image}/>
                 </div> : ''
                 }
               </div>
