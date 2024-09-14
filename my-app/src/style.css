@@ -397,8 +397,8 @@
   display: grid;
   grid-template-columns: 1fr 0.1fr 1fr;
   background-color: white;
-  width: 60vw;
-  height: 70%;
+  width: 72vw;
+  height: 84%;
   transition: 0.3s;
   border-radius: 3px;
   box-shadow: 0 12px 100px -10px rgba(73, 50, 50, 0.4), 0 10px 10px -10px rgba(73, 50, 50, 0.3);
@@ -408,8 +408,8 @@
 
 .quiz-card:hover {
   cursor: pointer;
-  width: 72vw;
-  height: 84%;
+  width: 80vw;
+  height: 93%;
   /*margin: 0;*/
 }
 
