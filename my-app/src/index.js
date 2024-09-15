@@ -23,11 +23,15 @@ const storageData = [
 ];
 
 // Initializing Google analytics
-if (!window.location.href.includes('localhost')) {
-  console.log('Google analytics initialized');
-  ReactGA.initialize('');
-} else {
-  console.log('no analytics initialization due to localhost');
+try {
+  if (!window.location.href.includes('localhost')) {
+    console.log('Google analytics initialized');
+    ReactGA.initialize('');
+  } else {
+    console.log('no analytics initialization due to localhost');
+  }
+} catch (error) {
+  console.error('Google analytics failed: ', error.message);
 }
 
 function App() {
