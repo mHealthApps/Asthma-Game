@@ -26,7 +26,7 @@ const storageData = [
 try {
   if (!window.location.href.includes('localhost')) {
     console.log('Google analytics initialized');
-    ReactGA.initialize('');
+    ReactGA.initialize('G-60FCT87DHZ');
   } else {
     console.log('no analytics initialization due to localhost');
   }
