@@ -13,6 +13,7 @@ import AsthmaManagement from './pages/interactive/AsthmaManagement';
 import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 import CongratulationsPage from './pages/static/CongratulationsPage';
+import ReactGA from 'react-ga4';
 
 const storageData = [
   {
@@ -21,9 +22,18 @@ const storageData = [
   },
 ];
 
-
+// Initializing Google analytics
+if (!window.location.href.includes('localhost')) {
+  console.log('Google analytics initialized');
+  ReactGA.initialize('');
+} else {
+  console.log('no analytics initialization due to localhost');
+}
 
 function App() {
+  // Initializing and tracking GA data
+  // useGaTracker();
+
   // Initializing localStorage if it does not exist
   useEffect(() => {
     // If reset is true localStorage data will be reset
