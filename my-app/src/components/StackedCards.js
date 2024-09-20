@@ -69,6 +69,19 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   })) // Create a bunch of springs using the helpers above
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
 
+  // Audio functionality
+  const playSound = (sound) => {
+    sound.play();
+  };
+  useEffect(() => {
+    if (cards[cardNum - 1].audio !== undefined) {
+      setTimeout(() => {
+        const sound = new Audio(cards[cardNum - 1].audio);
+        playSound(sound);
+      }, 300);
+    }
+  }, [cardNum, cards]);
+
   // cardNum toggles
   const toggleNext = () => {
     if (cardNum <= cards.length) {

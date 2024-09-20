@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const healthyLifestyleCards = [
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: <div>
@@ -24,6 +26,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
@@ -35,6 +38,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
@@ -46,6 +50,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD WELL`,
@@ -59,6 +64,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
@@ -71,6 +77,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     text: '',

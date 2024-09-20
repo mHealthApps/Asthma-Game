@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const treatmentCards = [
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: <div>
@@ -25,6 +27,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: 'TREATMENT OF ASTHMA',
@@ -36,6 +39,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: 'HOW DO WE TREAT ASTHMA?',
@@ -47,6 +51,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -60,6 +65,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -72,6 +78,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -85,6 +92,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -100,6 +108,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -116,6 +125,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -126,6 +136,7 @@ const treatmentCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: 'Video Placeholder',

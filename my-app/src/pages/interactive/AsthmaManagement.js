@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const managementCards = [
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: <div>
@@ -24,6 +26,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
@@ -38,6 +41,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
@@ -50,6 +54,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -61,6 +66,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -73,6 +79,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -84,6 +91,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -96,6 +104,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -109,6 +118,7 @@ const managementCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     text: '',

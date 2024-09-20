@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const aboutAsthmaCards = [
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: <div>
@@ -25,6 +27,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: 'WHAT IS ASTHMA?',
@@ -37,6 +40,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: 'WHAT CAUSES ASTHMA?',
@@ -50,6 +54,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'A NORMAL BREATHING TUBE',
@@ -60,6 +65,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: 'ASTHMA BREATHING TUBE',
@@ -70,6 +76,7 @@ const aboutAsthmaCards = [
     </div>
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wideLungs',
     header: 'SIGNS AND SYMPTOMS OF ASTHMA',
@@ -83,6 +90,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
@@ -96,6 +104,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
@@ -108,6 +117,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',

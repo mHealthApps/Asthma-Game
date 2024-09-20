@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const lungsCards = [
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     text: <div>
@@ -22,8 +24,10 @@ const lungsCards = [
       </ul>
       <IntroCardFooter />
     </div>,
+
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: 'THE LUNGS',
@@ -36,6 +40,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: 'THE LUNGS',
@@ -44,6 +49,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'THE LUNGS',
@@ -52,6 +58,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: 'THE LUNGS',
@@ -60,6 +67,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: 'THE LUNGS',
@@ -68,6 +76,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'THE LUNGS',
@@ -76,6 +85,7 @@ const lungsCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'lungs',
     header: 'THE LUNGS',

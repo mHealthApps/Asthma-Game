@@ -8,10 +8,12 @@ import IntroCardFooter from '../../components/IntroCardFooter';
 import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
+import templateBeep from '../../assets/audio/template-beep.mp3';
 
 
 const firstAidCards = [
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: <div>
@@ -24,6 +26,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'template',
     header: 'FIRST AID EMERGENCY: STEP 1',
@@ -36,6 +39,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 2',
@@ -54,6 +58,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 3',
@@ -65,6 +70,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateTrain,
     alt: 'wide lungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
@@ -76,6 +82,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templateLungs,
     alt: 'wideLungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
@@ -87,6 +94,7 @@ const firstAidCards = [
     </div>,
   },
   {
+    audio: templateBeep,
     image: templatePeople,
     alt: 'lungs',
     text: '',
