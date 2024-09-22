@@ -9,11 +9,12 @@ import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
+import templateConversation from '../../assets/audio/template-conversation.mp3';
 
 
 const lungsCards = [
   {
-    audio: templateBeep,
+    audio: templateConversation,
     image: templateLungs,
     alt: 'lungs',
     text: <div>

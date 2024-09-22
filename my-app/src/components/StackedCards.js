@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
@@ -31,6 +31,8 @@ const MidText = ({ cardNum, title, totalCards, header }) => {
     </div>
   );
 };
+
+
 
 // These two are just helpers, they curate spring data, values that are later being interpolated into css
 const to = (i, del) => ({
@@ -70,21 +72,62 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
 
   // Audio functionality
-  const playSound = (sound) => {
-    sound.play();
-  };
+  const audioRefs = useRef(cards.map(() => new Audio()));
+  const [initAudio, setInitAudio] = useState(false);
+
+  // Populating audioRefs with proper sources and playing first sound
   useEffect(() => {
-    if (cards[cardNum - 1].audio !== undefined) {
-      setTimeout(() => {
-        const sound = new Audio(cards[cardNum - 1].audio);
-        playSound(sound);
-      }, 300);
+    if (!initAudio) {
+      for (let i = 0; i < audioRefs.current.length; i++) {
+        audioRefs.current[i].src = cards[i].audio;
+        console.log(`card #${i} audio src: ${audioRefs.current[i].src}`);
+      }
+      setInitAudio(true);
+      playAudio(0);
     }
-  }, [cardNum, cards]);
+  }, [cards, initAudio]);
+  const playAudio = (index) => {
+    console.log(`play card #${index} audio`);
+    if (audioRefs.current[index]) {
+      audioRefs.current[index].play();
+    }
+  };
+  const pauseAudio = (index) => {
+    console.log(`pause card #${index} audio`);
+    if (audioRefs.current[index]) {
+      audioRefs.current[index].pause();
+    }
+    // currentAudio.current.pause();
+  };
+
+
+
+  // useEffect(() => {
+  //   audioPlayingRef.current = audioPlaying;
+  // }, [audioPlaying]);
+  //
+  // useEffect(() => {
+  //   if (audioPlayingRef.current.length === cards.length) {
+  //     const updatedAudioPlaying= [...audioPlayingRef.current];
+  //     for (let i = 0; i < updatedAudioPlaying.length; i++) {
+  //       // stopSound(cardsSounds[i]);
+  //       if (updatedAudioPlaying[i] !== Sound.status.PAUSED && updatedAudioPlaying[cardNum - 1] !== i) {
+  //         console.log(`Pause card #${i} audio`);
+  //         // updatedAudioPlaying[i] = Sound.status.PAUSED;
+  //       }
+  //     }
+  //     if (updatedAudioPlaying[cardNum - 1] !== undefined) {
+  //       updatedAudioPlaying[cardNum - 1] = Sound.status.PLAYING;
+  //       setAudioPlaying(updatedAudioPlaying);
+  //       console.log(`audioPlaying: ${updatedAudioPlaying}`);
+  //     }
+  //   }
+  // }, [cardNum, cards]);
 
   // cardNum toggles
   const toggleNext = () => {
     if (cardNum <= cards.length) {
+      pauseAudio(cardNum - 1);
       const index = cards.length - cardNum;
       if (!gone.has(index)) {
         gone.add(index);
@@ -106,15 +149,16 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
           }, 0)
         }
       } else {
+        playAudio(cardNum);
         setCardNum(cardNum + 1);
       }
     }
   };
 
-  useEffect(() => {
-    console.log(`image reference: ${cards[0].image}`);
-    console.log(`image text: ${cards[1].image}`);
-  })
+  // useEffect(() => {
+  //   console.log(`image reference: ${cards[0].image}`);
+  //   console.log(`image text: ${cards[1].image}`);
+  // })
 
   const buttonNext = () => {
     if (cards.length - cardNum !== 0) {
@@ -123,6 +167,8 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   }
   const togglePrev = () => {
     if (cardNum > 1) {
+      pauseAudio(cardNum - 1);
+      playAudio(cardNum - 2);
       setCardNum(cardNum - 1);
       const index = cards.length - cardNum + 1;
       gone.clear();
@@ -268,6 +314,13 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
           <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={buttonNext} />
         </div>
       </div>
+
+      {/*<div className='audio-module'>*/}
+      {/*  {cards.map((card, i) => (*/}
+      {/*    (i < 2) ?*/}
+      {/*      <Sound key={i} url={card.audio} playStatus={Sound.status.PLAYING} /> : ''*/}
+      {/*  ))}*/}
+      {/*</div>*/}
     </div>
   );
 };
