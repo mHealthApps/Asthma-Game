@@ -15,6 +15,9 @@ import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 import CongratulationsPage from './pages/static/CongratulationsPage';
 import ReactGA from 'react-ga4';
+import Glossary from './pages/static/Glossary';
+import AboutUs from './pages/static/AboutUs';
+import Resources from './pages/static/Resources';
 
 const storageData = [
   {
@@ -69,6 +72,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<AsthmaList />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/glossary" element={<Glossary />} />
+        <Route path="/resources" element={<Resources />} />
+        <Route path="/about-us" element={<AboutUs />} />
         <Route path="/asthma-list" element={<AsthmaList />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
