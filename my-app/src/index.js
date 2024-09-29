@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
+import Home from './pages/static/Home';
 import AsthmaList from "./pages/static/AsthmaList";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
@@ -67,6 +68,7 @@ function App() {
     <HashRouter>
       <Routes>
         <Route exact path="/" element={<AsthmaList />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/asthma-list" element={<AsthmaList />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
