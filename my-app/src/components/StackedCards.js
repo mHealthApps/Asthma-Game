@@ -259,7 +259,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   <div className="grid-item">
                     {(cards[cards.length - i - 1].text !== '') ?
                     <div className="vertical-center">
-                      <ResponsiveText text={cards[cards.length - i - 1].text} height={(i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} center={false} />
+                      <ResponsiveText text={cards[cards.length - i - 1].text} height={(i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} center={true} />
                     </div> : ''
                     }
                   </div>
@@ -285,7 +285,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
                   <div className="grid-item">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={false} />
+                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={true} />
                   </div> : ''
                   }
                   {(i === 0) ?
