@@ -43,9 +43,9 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
       </div>
       {(pauseCurrent !== undefined || replayCurrent !== undefined) ?
         <Container className="grid-item">
-          <Nav>
+          <Nav className='grid-right audio-control-container'>
             <div onClick={handlePauseClick}><PauseCircle className={`nav-icon nav-icon-${orientation}`}/></div>
-            <div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation}`} style={{ transform: 'scaleY(-1)' }}/></div>
+            <div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation} replay-icon`} style={{ transform: 'scaleY(-1)' }}/></div>
           </Nav>
         </Container> : ''
       }

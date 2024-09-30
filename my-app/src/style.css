@@ -100,6 +100,15 @@
   font-size: 140%;
 }
 
+.replay-icon {
+  margin-left: 10%;
+}
+
+.audio-control-container {
+  width: 100%;
+  justify-content: center;
+}
+
 .headers-container {
   padding: 0;
 }
