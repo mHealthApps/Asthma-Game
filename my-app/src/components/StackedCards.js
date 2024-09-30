@@ -100,7 +100,16 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
     // currentAudio.current.pause();
   };
 
+  const pauseCurrent = () => {
+    console.log(`user requests pause card #${cardNum} audio`);
+    pauseAudio(cardNum - 1);
+  }
 
+  const replayCurrent = () => {
+    console.log(`user requests reset card #${cardNum} audio`);
+    audioRefs.current[cardNum - 1].currentTime = 0;
+    audioRefs.current[cardNum - 1].play();
+  }
 
   // useEffect(() => {
   //   audioPlayingRef.current = audioPlaying;
@@ -216,7 +225,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
 
   return (
     <div className="stacked-cards-module">
-      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} />
+      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} pauseCurrent={pauseCurrent} replayCurrent={replayCurrent} />
       <MidText cardNum={cardNum - 1} totalCards={cards.length - 1} title={title} onClick={toggleNext} header={cards[cardNum - 1].header} />
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (

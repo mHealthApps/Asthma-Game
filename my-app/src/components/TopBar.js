@@ -4,15 +4,25 @@ import '../style.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import { HouseFill } from 'react-bootstrap-icons';
+import { ArrowRepeat, HouseFill, PauseCircle } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
 
-const TopBar = ({ barWidth, conditionTitle, orientation }) => {
+const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent }) => {
+  const handlePauseClick = () => {
+    console.log('pause click');
+    pauseCurrent();
+  }
+
+  const handleReplayClick = () => {
+    console.log('replay click');
+    replayCurrent();
+  }
+
   return (
     <Navbar className="asthma-navbar" style={{ backgroundColor: "transparent" }}>
       <Container className="grid-item">
         <Nav>
-          <Nav.Link href="/Asthma-WebApp"><HouseFill className={`home-nav home-nav-${orientation}`} /></Nav.Link>
+          <Nav.Link href="/Asthma-WebApp"><HouseFill className={`nav-icon nav-icon-${orientation}`} /></Nav.Link>
         </Nav>
       </Container>
       <div className="grid-item">
@@ -31,6 +41,15 @@ const TopBar = ({ barWidth, conditionTitle, orientation }) => {
           </div>
         }
       </div>
+      {(pauseCurrent !== undefined || replayCurrent !== undefined) ?
+        <Container className="grid-item">
+          <Nav>
+            <div onClick={handlePauseClick}><PauseCircle className={`nav-icon nav-icon-${orientation}`}/></div>
+            <div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation}`} style={{ transform: 'scaleY(-1)' }}/></div>
+          </Nav>
+        </Container> : ''
+      }
+
     </Navbar>
   );
 };
