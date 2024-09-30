@@ -70,7 +70,7 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route exact path="/" element={<AsthmaList />} />
+        <Route exact path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/glossary" element={<Glossary />} />
         <Route path="/resources" element={<Resources />} />

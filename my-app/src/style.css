@@ -29,7 +29,7 @@
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100.0);
   padding-top: calc(var(--vh, 1vh) * 25.0);
-  background-image: url('./assets/images/template-red-background.jpg');
+  background-image: url('./assets/images/lungs-640.jpg');
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -52,13 +52,20 @@
 }
 
 .home-link-item {
-  height: calc(var(--vh, 1vh) * 14.0);
+  height: calc(var(--vh, 1vh) * 7.0);
+  margin-bottom: calc(var(--vh, 1vh) * 7.0);
   margin-left: 20%;
   width: 50%;
   color: white;
   font-size: calc(var(--vh, 1vh)* 4.0);
   display: grid;
+  align-content: center;
   grid-template-columns: calc(var(--vh, 1vh)* 8.0) 1fr;
+}
+
+.home-link-item:hover {
+  font-size: calc(var(--vh, 1vh)* 5.0);
+  cursor: pointer;
 }
 
 .home-link-text {
