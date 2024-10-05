@@ -29,10 +29,10 @@
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100.0);
   padding-top: calc(var(--vh, 1vh) * 25.0);
-  background-image: url('./assets/images/lungs-640.jpg');
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  /*background-image: url('./assets/images/lungs-640.jpg');*/
+  /*background-size: 100% 100%;*/
+  /*background-position: center;*/
+  /*background-repeat: no-repeat;*/
 }
 
 .home-header {
