@@ -101,6 +101,9 @@
 }
 
 .replay-icon {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0;
   margin-left: 10%;
 }
 

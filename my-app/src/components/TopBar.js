@@ -4,7 +4,8 @@ import '../style.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import { ArrowRepeat, HouseFill, PauseCircle } from 'react-bootstrap-icons';
+import { HouseFill, PauseCircle } from 'react-bootstrap-icons';
+import ArrowReplay from '../assets/images/arrow-replay.svg';
 import { Col } from 'react-bootstrap';
 
 const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent }) => {
@@ -45,7 +46,8 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
         <Container className="grid-item">
           <Nav className='grid-right audio-control-container'>
             <div onClick={handlePauseClick}><PauseCircle className={`nav-icon nav-icon-${orientation}`}/></div>
-            <div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation} replay-icon`} style={{ transform: 'scaleY(-1)' }}/></div>
+            <div onClick={handleReplayClick}><img src={ArrowReplay} className={`nav-icon nav-icon-${orientation} replay-icon`} style={{width: '1.2em', height: '1.2em'}} alt='replay icon'/></div>
+            {/*<div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation} replay-icon`} style={{ transform: 'scaleY(-1)' }}/></div>*/}
           </Nav>
         </Container> : ''
       }
