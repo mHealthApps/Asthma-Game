@@ -7,7 +7,7 @@ import React from 'react';
 const SoundChoice = () => {
   return (
     <div className="asthma-red">
-      <ToggleSound buttonLink='/asthma-list' />
+      <ToggleSound storageKey='soundOff' buttonLink='/asthma-list' />
     </div>
   );
 }

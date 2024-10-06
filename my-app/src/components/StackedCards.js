@@ -72,32 +72,47 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   // Create a gesture, we're interested in down-state, delta (current-pos - click-pos), direction and velocity
 
   // Audio functionality
+  const [soundOff, setSoundOff] = useState(0);
   const audioRefs = useRef(cards.map(() => new Audio()));
   const [initAudio, setInitAudio] = useState(false);
 
-  // Populating audioRefs with proper sources and playing first sound
   useEffect(() => {
+    let tempSoundOff = localStorage.getItem('soundOff');
+    if (tempSoundOff !== null) {
+      console.log(`reading in sound choice: ${tempSoundOff}`)
+      setSoundOff(Number(tempSoundOff));
+    }
+    // Populating audioRefs with proper sources and playing first sound
     if (!initAudio) {
       for (let i = 0; i < audioRefs.current.length; i++) {
         audioRefs.current[i].src = cards[i].audio;
         console.log(`card #${i} audio src: ${audioRefs.current[i].src}`);
       }
       setInitAudio(true);
-      playAudio(0);
+      if (tempSoundOff === null || Number(tempSoundOff) === 0) {
+        playAudio(0);
+      }
     }
   }, [cards, initAudio]);
+
   const playAudio = (index) => {
-    console.log(`play card #${index} audio`);
-    if (audioRefs.current[index]) {
-      audioRefs.current[index].play();
+    if (soundOff === 0) {
+      console.log(`play card #${index} audio`);
+      if (audioRefs.current[index]) {
+        audioRefs.current[index].play();
+      }
+    } else {
+      console.log('sound disabled');
     }
   };
   const pauseAudio = (index) => {
-    console.log(`pause card #${index} audio`);
-    if (audioRefs.current[index]) {
-      audioRefs.current[index].pause();
+    if (soundOff === 0) {
+      console.log(`pause card #${index} audio`);
+      if (audioRefs.current[index]) {
+        audioRefs.current[index].pause();
+      }
+      // currentAudio.current.pause();
     }
-    // currentAudio.current.pause();
   };
 
   const pauseCurrent = () => {

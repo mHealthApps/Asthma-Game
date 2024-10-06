@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
@@ -23,6 +23,15 @@ const SoundButton = ({ index, text, soundOff, setSoundOff }) => {
 const SoundCard = ({ storageKey, buttonLink }) => {
   const [soundOff, setSoundOff] = useState(0);
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    let tempSoundOff = localStorage.getItem(storageKey);
+    if (tempSoundOff !== null) {
+      console.log(`reading in previous sound choice: ${tempSoundOff}`)
+      setSoundOff(Number(tempSoundOff));
+    }
+  }, [storageKey])
+
 
   const continueClick = () => {
     updateStorage();
@@ -30,7 +39,8 @@ const SoundCard = ({ storageKey, buttonLink }) => {
   }
 
   const updateStorage = () => {
-    console.log(`save users choice of soundOff: ${soundOff}`);
+    console.log(`save users choice of soundOff: ${soundOff} with key: ${storageKey}`);
+    localStorage.setItem(storageKey, soundOff.toString());
   }
 
   return (
