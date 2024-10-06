@@ -1,12 +1,18 @@
 import React, { useCallback, useEffect } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
+import ReactGA from 'react-ga4';
 import Home from './pages/static/Home';
+import Glossary from './pages/static/Glossary';
+import AboutUs from './pages/static/AboutUs';
+import Resources from './pages/static/Resources';
+import SoundChoice from './pages/interactive/SoundChoice';
 import AsthmaList from "./pages/static/AsthmaList";
 import DemoStacked from './pages/DemoStacked';
 import DemoQuiz from './pages/DemoQuiz';
 import DemoSummary from './pages/DemoSummary';
 import DemoCongratulations from './pages/DemoCongratulations';
+import DemoSound from './pages/DemoSound';
 import TheLungs from './pages/interactive/TheLungs';
 import AboutAsthma from './pages/interactive/AboutAsthma';
 import AsthmaTreatment from './pages/interactive/AsthmaTreatment';
@@ -14,10 +20,7 @@ import AsthmaManagement from './pages/interactive/AsthmaManagement';
 import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 import CongratulationsPage from './pages/static/CongratulationsPage';
-import ReactGA from 'react-ga4';
-import Glossary from './pages/static/Glossary';
-import AboutUs from './pages/static/AboutUs';
-import Resources from './pages/static/Resources';
+
 
 const storageData = [
   {
@@ -75,11 +78,13 @@ function App() {
         <Route path="/glossary" element={<Glossary />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/sound-choice" element={<SoundChoice />} />
         <Route path="/asthma-list" element={<AsthmaList />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
         <Route path="/summary-demo" element={<DemoSummary />} />
         <Route path="/congratulations-demo" element={<DemoCongratulations />} />
+        <Route path="/sound-demo" element={<DemoSound />} />
         <Route path="/the-lungs" element={<TheLungs />} />
         <Route path="/about-asthma" element={<AboutAsthma />} />
         <Route path="/asthma-treatment" element={<AsthmaTreatment />} />

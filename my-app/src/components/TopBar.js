@@ -8,7 +8,7 @@ import { HouseFill, PauseCircle } from 'react-bootstrap-icons';
 import ArrowReplay from '../assets/images/arrow-replay.svg';
 import { Col } from 'react-bootstrap';
 
-const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent }) => {
+const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent, onlyHome }) => {
   const handlePauseClick = () => {
     console.log('pause click');
     pauseCurrent();
@@ -27,7 +27,7 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
         </Nav>
       </Container>
       <div className="grid-item">
-        {(barWidth === '' || barWidth === 'none') ?
+        {(onlyHome === undefined || !onlyHome) ? (barWidth === '' || barWidth === 'none') ?
           <Nav className="justify-content-center headers-container">
             <Col>
               <h3 className="headers">Health Condition</h3>
@@ -39,7 +39,9 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
             <div className={"cards-progress-tracker"} style={{
               width: barWidth,
             }} />
-          </div>
+          </div> :
+
+          ''
         }
       </div>
       {(pauseCurrent !== undefined || replayCurrent !== undefined) ?

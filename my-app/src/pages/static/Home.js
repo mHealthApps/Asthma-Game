@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const linkItems = [
   {
     text: 'Cards',
-    link: '/asthma-list',
+    link: '/sound-choice',
     icon: <Lungs />
   },
   {
@@ -62,8 +62,6 @@ const HomeLinks = ({ items }) => {
 
 
 const Home = () => {
-
-
   return (
     <div className="home-module asthma-red">
       <div className='home-header'>
