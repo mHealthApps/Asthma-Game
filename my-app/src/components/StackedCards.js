@@ -76,25 +76,6 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   const audioRefs = useRef(cards.map(() => new Audio()));
   const [initAudio, setInitAudio] = useState(false);
 
-  useEffect(() => {
-    let tempSoundOff = localStorage.getItem('soundOff');
-    if (tempSoundOff !== null) {
-      console.log(`reading in sound choice: ${tempSoundOff}`)
-      setSoundOff(Number(tempSoundOff));
-    }
-    // Populating audioRefs with proper sources and playing first sound
-    if (!initAudio) {
-      for (let i = 0; i < audioRefs.current.length; i++) {
-        audioRefs.current[i].src = cards[i].audio;
-        console.log(`card #${i} audio src: ${audioRefs.current[i].src}`);
-      }
-      setInitAudio(true);
-      if (tempSoundOff === null || Number(tempSoundOff) === 0) {
-        playAudio(0);
-      }
-    }
-  }, [cards, initAudio]);
-
   const playAudio = (index) => {
     if (soundOff === 0) {
       console.log(`play card #${index} audio`);
@@ -125,6 +106,25 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
     audioRefs.current[cardNum - 1].currentTime = 0;
     audioRefs.current[cardNum - 1].play();
   }
+
+  useEffect(() => {
+    let tempSoundOff = localStorage.getItem('soundOff');
+    if (tempSoundOff !== null) {
+      console.log(`reading in sound choice: ${tempSoundOff}`)
+      setSoundOff(Number(tempSoundOff));
+    }
+    // Populating audioRefs with proper sources and playing first sound
+    if (!initAudio) {
+      for (let i = 0; i < audioRefs.current.length; i++) {
+        audioRefs.current[i].src = cards[i].audio;
+        console.log(`card #${i} audio src: ${audioRefs.current[i].src}`);
+      }
+      setInitAudio(true);
+      if (tempSoundOff === null || Number(tempSoundOff) === 0) {
+        playAudio(0);
+      }
+    }
+  }, [cards, initAudio, playAudio]);
 
   // useEffect(() => {
   //   audioPlayingRef.current = audioPlaying;
