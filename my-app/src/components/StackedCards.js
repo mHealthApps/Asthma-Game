@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ArrowLeftCircleFill, ArrowRightCircleFill } from 'react-bootstrap-icons';
 import { Col } from 'react-bootstrap';
@@ -76,7 +76,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   const audioRefs = useRef(cards.map(() => new Audio()));
   const [initAudio, setInitAudio] = useState(false);
 
-  const playAudio = (index) => {
+  const playAudio = useCallback((index) => {
     if (soundOff === 0) {
       console.log(`play card #${index} audio`);
       if (audioRefs.current[index]) {
@@ -85,7 +85,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
     } else {
       console.log('sound disabled');
     }
-  };
+  }, [soundOff]);
   const pauseAudio = (index) => {
     if (soundOff === 0) {
       console.log(`pause card #${index} audio`);
