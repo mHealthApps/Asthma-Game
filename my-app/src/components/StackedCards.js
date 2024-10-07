@@ -240,7 +240,10 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
 
   return (
     <div className="stacked-cards-module">
-      <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} pauseCurrent={pauseCurrent} replayCurrent={replayCurrent} />
+      {(soundOff === 0) ?
+        <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} pauseCurrent={pauseCurrent} replayCurrent={replayCurrent} /> :
+        <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} />
+      }
       <MidText cardNum={cardNum - 1} totalCards={cards.length - 1} title={title} onClick={toggleNext} header={cards[cardNum - 1].header} />
       <div className="deck-container asthma-red">
         {props.map(({ x, y, rot, scale }, i) => (
