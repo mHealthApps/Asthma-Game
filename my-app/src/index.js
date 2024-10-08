@@ -43,7 +43,6 @@ try {
 
 function App() {
   // Initializing and tracking GA data
-  // useGaTracker();
 
   // Initializing localStorage if it does not exist
   useEffect(() => {

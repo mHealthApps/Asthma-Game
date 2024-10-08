@@ -3,9 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import TopBar from '../../components/TopBar';
 import useOrientation from '../../hooks/useOrientation';
+import useSendPageview from '../../hooks/useSendPageview';
 
 
 const Resources = () => {
+  // GA Resources pageview
+  useSendPageview();
+
   const orientation = useOrientation();
 
   return (

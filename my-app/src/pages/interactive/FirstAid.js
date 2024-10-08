@@ -9,6 +9,7 @@ import templateLungs from '../../assets/images/lungs-640.jpg';
 import templateTrain from '../../assets/images/template-train.jpg';
 import templatePeople from '../../assets/images/template-people.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
+import useSendPageview from '../../hooks/useSendPageview';
 
 
 const firstAidCards = [
@@ -176,6 +177,9 @@ const firstAidQuizFour = {
 
 
 const FirstAid = () => {
+  // GA FirstAid pageview
+  useSendPageview();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {

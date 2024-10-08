@@ -2,10 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import React from 'react';
 import Congratulations from '../../components/Congratulations';
+import useSendPageview from '../../hooks/useSendPageview';
 
 
 const CongratulationsPage = () => {
-
+  // GA CongratsPage pageview
+  useSendPageview();
 
   return (
     <div className="asthma-red">

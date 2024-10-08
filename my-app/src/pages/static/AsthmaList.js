@@ -4,6 +4,7 @@ import '../../style.css';
 import TopBar from '../../components/TopBar'
 import ListGrid from '../../components/ListGrid';
 import useOrientation from '../../hooks/useOrientation';
+import useSendPageview from '../../hooks/useSendPageview';
 
 
 const items = [
@@ -34,6 +35,9 @@ const items = [
 ];
 
 const AsthmaList = () => {
+  // GA Glossary pageview
+  useSendPageview();
+
   const orientation = useOrientation();
 
   return (
