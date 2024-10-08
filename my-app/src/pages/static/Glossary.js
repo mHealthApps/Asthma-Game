@@ -10,7 +10,7 @@ const Glossary = () => {
 
   return (
     <div className="glossary-module asthma-red">
-      <TopBar barWidth='' conditionTitle='' orientation={orientation} />
+      <TopBar oneLine='Glossary' orientation={orientation} />
       No info for glossary for now
     </div>
   );

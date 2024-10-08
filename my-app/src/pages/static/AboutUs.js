@@ -11,7 +11,7 @@ const AboutUs = () => {
 
   return (
     <div className="about-us-module asthma-red">
-      <TopBar barWidth='' conditionTitle='' orientation={orientation} />
+      <TopBar oneLine='About Us' orientation={orientation} />
       No info for about us page for now
     </div>
   );

@@ -10,7 +10,7 @@ const Resources = () => {
 
   return (
     <div className="resources-module asthma-red">
-      <TopBar barWidth='' conditionTitle='' orientation={orientation} />
+      <TopBar oneLine='Resources' orientation={orientation} />
       No info for resources for now
     </div>
   );

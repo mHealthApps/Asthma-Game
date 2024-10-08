@@ -71,7 +71,7 @@ const ToggleSound = ({ storageKey, buttonLink }) => {
 
   return (
     <div className='toggle-sound-module'>
-      <TopBar onlyHome={true} orientation={orientation} />
+      <TopBar oneLine='' orientation={orientation} />
       <SoundCard storageKey={storageKey} buttonLink={buttonLink} />
     </div>
   );
