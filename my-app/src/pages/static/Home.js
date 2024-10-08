@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import { Lungs, CardList, Book, InfoCircle } from 'react-bootstrap-icons';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useSendPageview from '../../hooks/useSendPageview';
 
 const linkItems = [
