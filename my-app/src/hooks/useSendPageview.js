@@ -8,7 +8,7 @@ const useSendPageview = (title) => {
   useEffect(() => {
     console.log(`location: ${location.pathname + location.search}`);
     console.log(`title: ${title}`);
-    if (typeof window.ga === 'function') {
+    if (ReactGA.ga()) {
       console.log('sending pageview analytics');
       ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search, title: title });
     } else {
