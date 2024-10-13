@@ -34,6 +34,7 @@ try {
   if (!window.location.href.includes('localhost')) {
     console.log('Google analytics initialized');
     ReactGA.initialize('G-60FCT87DHZ');
+    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' });
   } else {
     console.log('no analytics initialization due to localhost');
   }
