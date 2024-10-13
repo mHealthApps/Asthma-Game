@@ -166,7 +166,7 @@ const aboutAsthmaQuiz = {
 
 const AboutAsthma = () => {
   // GA AboutAsthma pageview
-  useSendPageview();
+  useSendPageview('Content: About Asthma');
 
   const [scene, setScene] = useState(0);
 

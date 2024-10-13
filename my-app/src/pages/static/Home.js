@@ -64,7 +64,7 @@ const HomeLinks = ({ items }) => {
 
 const Home = () => {
   // GA Home pageview
-  useSendPageview();
+  useSendPageview('Home Page');
 
   return (
     <div className="home-module asthma-red">

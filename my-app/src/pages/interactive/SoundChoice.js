@@ -7,7 +7,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 
 const SoundChoice = () => {
   // GA SoundChoice pageview
-  useSendPageview();
+  useSendPageview('Sound Choice Page');
 
   return (
     <div className="asthma-red">

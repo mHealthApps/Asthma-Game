@@ -36,7 +36,7 @@ const items = [
 
 const AsthmaList = () => {
   // GA Glossary pageview
-  useSendPageview();
+  useSendPageview('Asthma Content List');
 
   const orientation = useOrientation();
 

@@ -125,7 +125,7 @@ const healthyLifestyleQuizTwo = {
 
 const HealthyLifestyle = () => {
   // GA Lifestyle pageview
-  useSendPageview();
+  useSendPageview('Content: Keeping a Healthy Lifestyle');
 
   const [scene, setScene] = useState(0);
 

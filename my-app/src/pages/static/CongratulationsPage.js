@@ -7,7 +7,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 
 const CongratulationsPage = () => {
   // GA CongratsPage pageview
-  useSendPageview();
+  useSendPageview('Congratulations Page');
 
   return (
     <div className="asthma-red">

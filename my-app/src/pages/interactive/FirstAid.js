@@ -178,7 +178,7 @@ const firstAidQuizFour = {
 
 const FirstAid = () => {
   // GA FirstAid pageview
-  useSendPageview();
+  useSendPageview('Content: First Aid Emergency');
 
   const [scene, setScene] = useState(0);
 

@@ -8,7 +8,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 
 const AboutUs = () => {
   // GA Glossary pageview
-  useSendPageview();
+  useSendPageview('About Us Page');
 
   const orientation = useOrientation();
 

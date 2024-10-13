@@ -8,7 +8,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 
 const Resources = () => {
   // GA Resources pageview
-  useSendPageview();
+  useSendPageview('Resources Page');
 
   const orientation = useOrientation();
 

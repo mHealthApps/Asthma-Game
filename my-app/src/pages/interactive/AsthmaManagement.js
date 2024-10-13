@@ -170,7 +170,7 @@ const managementQuizTwo = {
 
 const AsthmaManagement = () => {
   // GA Management pageview
-  useSendPageview();
+  useSendPageview('Content: Asthma Management');
 
   const [scene, setScene] = useState(0);
 

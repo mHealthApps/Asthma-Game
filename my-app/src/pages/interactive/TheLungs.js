@@ -118,7 +118,7 @@ const lungsQuiz = {
 
 const TheLungs = () => {
   // GA Lungs pageview
-  useSendPageview();
+  useSendPageview('Content: The Lungs');
 
   const [scene, setScene] = useState(0);
 
