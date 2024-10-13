@@ -10,7 +10,7 @@ const useSendPageview = (title) => {
     console.log(`title: ${title}`);
     if (ReactGA.ga()) {
       console.log('sending pageview analytics');
-      ReactGA.send({ hitType: 'pageview', page: location.pathname + location.search, title: title });
+      ReactGA.send({ hitType: 'pageview', page: '/glossary', title: 'Glossary Page' });
     } else {
       console.log('analytics disabled');
     }
