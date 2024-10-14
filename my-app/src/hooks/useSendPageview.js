@@ -6,16 +6,22 @@ import ReactGA from 'react-ga4';
 const useSendPageview = (title) => {
   const location = useLocation();
   useEffect(() => {
-    console.log(`location: ${location.pathname + location.search}`);
+    console.log(`location: ${(location.pathname + location.search + location.hash)}`);
     console.log(`title: ${title}`);
     if (ReactGA.ga()) {
       console.log('sending pageview analytics');
-      ReactGA.send({ hitType: "pageview", page: location.pathname + location.search, title: title });
+      // ReactGA.send({ hitType: 'pageview', page: (location.pathname + location.search), title: title });
+      ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources' });
+      // window.gtag('event', 'page_view', {
+      //   page_path: location.pathname + location.search + location.hash,
+      //   page_search: location.search,
+      //   page_hash: location.hash,
+      // });
     } else {
       console.log('analytics disabled');
     }
     // useSendPageview(location);
-  }, [location.pathname, location.search, title]);
+  }, [location, title]);
 
 }
 
