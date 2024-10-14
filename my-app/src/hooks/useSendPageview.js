@@ -11,7 +11,9 @@ const useSendPageview = (title) => {
     if (ReactGA.ga()) {
       console.log('sending pageview analytics');
       // ReactGA.send({ hitType: 'pageview', page: (location.pathname + location.search), title: title });
-      ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources' });
+
+      // ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources' });
+
       // window.gtag('event', 'page_view', {
       //   page_path: location.pathname + location.search + location.hash,
       //   page_search: location.search,
