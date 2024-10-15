@@ -5,9 +5,12 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import Lungs_Anatomy_25 from '../../assets/images/25_Lungs_Anatomy.jpg';
+import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
+import Lungs_Text_1_26 from '../../assets/images/26_Lungs_Text 1.jpg';
+import Lungs_Text_2_27 from '../../assets/images/27_Lungs_Text 2.jpg';
+import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
+import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import templateConversation from '../../assets/audio/template-conversation.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
@@ -16,7 +19,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const lungsCards = [
   {
     audio: templateConversation,
-    image: templateLungs,
+    image: Lungs_Anatomy_25,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -30,7 +33,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: WhiteShirt_Girl_Lungs_10,
     alt: 'template',
     header: 'THE LUNGS',
     text: <div>
@@ -43,7 +46,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Lungs_Text_1_26,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -52,7 +55,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Lungs_Text_2_27,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -61,7 +64,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Lung_Tree_31,
     alt: 'wide lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -70,7 +73,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Lung_Tree_31,
     alt: 'wideLungs',
     header: 'THE LUNGS',
     text: <div>
@@ -79,7 +82,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Lungs_Oxygen_28,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -88,7 +91,7 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Lungs_Oxygen_28,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -131,9 +134,9 @@ const TheLungs = () => {
       case 0:
         return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateLungs} alt='lungs' />
+        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Lungs_Oxygen_28} alt='lungs' />
       case 2:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
+        return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
       default:
         return <div>Error: rendering failed</div>
     }
