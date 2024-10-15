@@ -39,7 +39,7 @@ try {
         send_page_view: false
       }
     });
-    ReactGA.send({ hitType: 'page_view', page: '/', title: 'Home Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' });
   } else {
     console.log('no analytics initialization due to localhost');
   }
