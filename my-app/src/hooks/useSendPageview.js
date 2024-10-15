@@ -10,7 +10,7 @@ const useSendPageview = (title) => {
     console.log(`title: ${title}`);
     if (ReactGA.ga()) {
       console.log('sending pageview analytics');
-      ReactGA.send({ hitType: 'pageview', page: (location.pathname + location.search), title: title });
+      ReactGA.send({ hitType: 'page_view', page: (location.pathname + location.search), title: title });
 
       // ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources' });
 
