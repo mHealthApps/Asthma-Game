@@ -5,9 +5,17 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending.jpg';
+import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
+import WhiteShirt_Lungs_Tube_11 from '../../assets/images/11_WhiteShirt_Girl_Lungs_Tube.jpg';
+import Dog_Weather_Cleaning_24 from '../../assets/images/24_Dog_Weather_Cleaning.jpg';
+import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
+import TealShirt_Girl_Sports_Mites_18 from '../../assets/images/18_TealShirt_Girl_Sports_Mites.jpg';
+import Brain_13 from '../../assets/images/13_Brain.jpg';
+import Heart_14 from '../../assets/images/14_Heart.jpg';
+import Kidney_15 from '../../assets/images/15_Kidney.jpg';
+import Lung_32 from '../../assets/images/32_Lung.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
 
@@ -15,7 +23,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const aboutAsthmaCards = [
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: OrgShirt_Girl_Bending_2,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -29,7 +37,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: WhiteShirt_Girl_Lungs_10,
     alt: 'template',
     header: 'WHAT IS ASTHMA?',
     text: <div>
@@ -42,7 +50,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     header: 'WHAT CAUSES ASTHMA?',
     text: <div>
@@ -56,7 +64,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: WhiteShirt_Lungs_Tube_11,
     alt: 'lungs',
     header: 'A NORMAL BREATHING TUBE',
     text: <div>
@@ -67,7 +75,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: WhiteShirt_Lungs_Tube_11,
     alt: 'wide lungs',
     header: 'ASTHMA BREATHING TUBE',
     text: <div>
@@ -78,7 +86,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: OrgShirt_Girl_Bending_2,
     alt: 'wideLungs',
     header: 'SIGNS AND SYMPTOMS OF ASTHMA',
     text: <div>
@@ -92,7 +100,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Dog_Weather_Cleaning_24,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -106,7 +114,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Smoker_FastFood_Vog_Pollen_7,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -119,7 +127,7 @@ const aboutAsthmaCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: TealShirt_Girl_Sports_Mites_18,
     alt: 'wideLungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
@@ -140,22 +148,22 @@ const aboutAsthmaQuiz = {
   options: [
     {
       text: 'Kidney Condition',
-      image: templatePeople,
+      image: Kidney_15,
       alt: 'lungs',
     },
     {
       text: 'Brain Condition',
-      image: templateTrain,
+      image: Brain_13,
       alt: 'template',
     },
     {
       text: 'Heart Condition',
-      image: templatePeople,
+      image: Heart_14,
       alt: 'lungs',
     },
     {
       text: 'Lung Condition',
-      image: templateTrain,
+      image: Lung_32,
       alt: 'template',
     },
   ],
@@ -181,7 +189,7 @@ const AboutAsthma = () => {
       case 1:
         return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
+        return <Summary image={Lung_32} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }
