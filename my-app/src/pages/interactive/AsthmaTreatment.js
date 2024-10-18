@@ -5,9 +5,13 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import All_Inhalers_23 from '../../assets/images/23_All Inhalers.jpg';
+import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
+import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
+import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler.jpg';
+import Red_Inhaler_20 from '../../assets/images/20_Red Inhaler.jpg';
+import Purple_Inhaler_22 from '../../assets/images/22_Purple Inhaler.jpg';
+import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
 
@@ -15,7 +19,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const treatmentCards = [
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: All_Inhalers_23,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -29,7 +33,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Toddler_Doctor_17,
     alt: 'template',
     header: 'TREATMENT OF ASTHMA',
     text: <div>
@@ -41,7 +45,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Asthma_Action_Plan_33,
     alt: 'lungs',
     header: 'HOW DO WE TREAT ASTHMA?',
     text: <div>
@@ -53,7 +57,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Blue_Inhaler_21,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -67,7 +71,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Red_Inhaler_20,
     alt: 'wide lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -80,7 +84,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Red_Inhaler_20,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -94,7 +98,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Purple_Inhaler_22,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -110,7 +114,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Purple_Inhaler_22,
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -127,7 +131,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Spacer_19,
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
@@ -138,7 +142,7 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Spacer_19,
     alt: 'lungs',
     text: 'Video Placeholder',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
@@ -215,13 +219,13 @@ const AsthmaTreatment = () => {
       case 0:
         return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='reliever' />
+        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Blue_Inhaler_21} alt='reliever' />
       case 2:
-        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='preventer'/>
+        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Red_Inhaler_20} alt='preventer'/>
       case 3:
-        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='combination' />
+        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Purple_Inhaler_22} alt='combination' />
       case 4:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
+        return <Summary image={All_Inhalers_23} alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

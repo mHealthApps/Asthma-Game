@@ -2,23 +2,9 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import LinkButton from './LinkButton';
-import lungs from '../assets/images/lungs-diagram.png';
-import lungsWide from '../assets/images/lungs-wide.jpg';
-import largeImage from '../assets/images/large-image-red.png';
-import newRatio from '../assets/images/new-ratio-image.png';
-import templateLungs from '../assets/images/lungs-640.jpg';
 import useOrientation from '../hooks/useOrientation';
 import { Share } from 'react-bootstrap-icons';
 import  Confetti  from 'react-confetti';
-
-
-const images = {
-  lungs,
-  lungsWide,
-  largeImage,
-  newRatio,
-  templateLungs,
-}
 
 
 const CongratulationsImage = ({ image, alt }) => {
@@ -64,7 +50,7 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
       <Confetti numberOfPieces={numPieces} width={window.innerWidth} height={window.innerHeight}/>
       <div className='congratulations-outer-container'>
         <div className='inner-container congratulations-image-container'>
-          <CongratulationsImage image={images[image]} alt={alt}/>
+          <CongratulationsImage image={image} alt={alt}/>
         </div>
         <CongratulationsExplanation conditionTitle={conditionTitle} orientation={orientation}/>
         <div className='inner-container summary-button-container' style={{

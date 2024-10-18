@@ -5,9 +5,13 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
+import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending.jpg';
+import Paper_Good_38 from '../../assets/images/38_Paper_Good.jpg';
+import Paper_Meh_39 from '../../assets/images/39_Paper_Meh.jpg';
+import Paper_Bad_40 from '../../assets/images/40_Paper_Bad.jpg';
+import Toddler_16 from '../../assets/images/16_Toddler.jpg';
+import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
 
@@ -15,7 +19,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const managementCards = [
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -28,7 +32,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: OrgShirt_Girl_Bending_2,
     alt: 'template',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
@@ -43,7 +47,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
@@ -56,7 +60,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Paper_Good_38,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -68,7 +72,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Paper_Meh_39,
     alt: 'wide lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -81,7 +85,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Paper_Meh_39,
     alt: 'wideLungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -93,7 +97,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Paper_Bad_40,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -106,7 +110,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Paper_Bad_40,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
@@ -120,7 +124,7 @@ const managementCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Toddler_16,
     alt: 'wideLungs',
     text: '',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -134,12 +138,12 @@ const managementQuizOne = {
   options: [
     {
       text: 'May have loud wheeze. They may have sucking in at the next and chest and blue lips',
-      image: templatePeople,
+      image: Blue_Inhaler_21,
       alt: 'lungs',
     },
     {
       text: 'Not waking up coughing or wheezing',
-      image: templateTrain,
+      image: OrgShirt_Girl_Bending_2,
       alt: 'template',
     },
   ],
@@ -154,12 +158,12 @@ const managementQuizTwo = {
   options: [
     {
       text: 'No need to use the blue reliever inhaler more than 2 times a week (except for exercise)',
-      image: templatePeople,
+      image: Blue_Inhaler_21,
       alt: 'lungs',
     },
     {
       text: 'Very hard to breathe and talk. Lot more coughing, maybe with lots of spit',
-      image: templateTrain,
+      image: OrgShirt_Girl_Bending_2,
       alt: 'template',
     },
   ],
@@ -187,7 +191,7 @@ const AsthmaManagement = () => {
       case 2:
         return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 3:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
+        return <Summary image={TealShirt_Girl_Coughing_4} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

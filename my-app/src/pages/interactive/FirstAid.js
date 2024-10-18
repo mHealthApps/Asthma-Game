@@ -5,9 +5,12 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
+import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
+import BlueShirt_Boy_Spacer_3 from '../../assets/images/3_BlueShirt_Boy_Spacer.jpg';
+import Clock_35 from '../../assets/images/35_Clock.jpg';
+import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
+import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
 
@@ -15,7 +18,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const firstAidCards = [
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -28,7 +31,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: OrgShirt_Girl_Sitting_5,
     alt: 'template',
     header: 'FIRST AID EMERGENCY: STEP 1',
     text: <div>
@@ -41,7 +44,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: BlueShirt_Boy_Spacer_3,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 2',
     text: <div>
@@ -60,7 +63,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Clock_35,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 3',
     text: <div>
@@ -72,7 +75,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Ambulance_36,
     alt: 'wide lungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
     text: <div>
@@ -84,7 +87,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: Ambulance_36,
     alt: 'wideLungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
     text: <div>
@@ -96,7 +99,7 @@ const firstAidCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: OrgShirt_Girl_Sitting_5,
     alt: 'lungs',
     text: '',
     header: 'FIRST AID EMERGENCY',
@@ -199,7 +202,7 @@ const FirstAid = () => {
       case 4:
         return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 5:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
+        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }

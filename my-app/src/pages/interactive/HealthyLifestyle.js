@@ -5,9 +5,13 @@ import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
-import templateLungs from '../../assets/images/lungs-640.jpg';
-import templateTrain from '../../assets/images/template-train.jpg';
-import templatePeople from '../../assets/images/template-people.jpg';
+import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
+import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
+import All_Inhalers_23 from '../../assets/images/23_All Inhalers.jpg';
+import Fruits_34 from '../../assets/images/34_Fruits.jpg';
+import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
+import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
+import WhiteShirt_Girl_Toddler_9 from '../../assets/images/9_WhiteShirt_Girl_Toddler.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
 
@@ -15,7 +19,7 @@ import useSendPageview from '../../hooks/useSendPageview';
 const healthyLifestyleCards = [
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: OrgShirt_Girl_Sitting_5,
     alt: 'lungs',
     text: <div>
       <h3 className='card-header grid-left'>You will learn:</h3>
@@ -28,7 +32,7 @@ const healthyLifestyleCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Toddler_Doctor_17,
     alt: 'template',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
     text: <div>
@@ -40,7 +44,7 @@ const healthyLifestyleCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: All_Inhalers_23,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
     text: <div>
@@ -52,7 +56,7 @@ const healthyLifestyleCards = [
   },
   {
     audio: templateBeep,
-    image: templatePeople,
+    image: Fruits_34,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD WELL`,
     text: <div>
@@ -66,7 +70,7 @@ const healthyLifestyleCards = [
   },
   {
     audio: templateBeep,
-    image: templateTrain,
+    image: Asthma_Action_Plan_33,
     alt: 'wide lungs',
     header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
     text: <div>
@@ -79,7 +83,7 @@ const healthyLifestyleCards = [
   },
   {
     audio: templateBeep,
-    image: templateLungs,
+    image: OrgShirt_Girl_Sitting_2Smokers_6,
     alt: 'wideLungs',
     text: '',
     header: `KEEPING A HEALTHY LIFESTYLE`,
@@ -138,11 +142,11 @@ const HealthyLifestyle = () => {
       case 0:
         return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templatePeople} alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' />
       case 2:
-        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={templateTrain} alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' />
       case 3:
-        return <Summary image={templateLungs} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
+        return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
       default:
         return <div>Error: rendering failed</div>
     }
