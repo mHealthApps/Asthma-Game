@@ -245,7 +245,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
         <TopBar barWidth={`${((cardNum - 1) / (cards.length - 1)) * 100}%`} conditionTitle={conditionTitle} orientation={orientation} />
       }
       <MidText cardNum={cardNum - 1} totalCards={cards.length - 1} title={title} onClick={toggleNext} header={cards[cardNum - 1].header} />
-      <div className="deck-container asthma-red">
+      <div className="deck-container">
         {props.map(({ x, y, rot, scale }, i) => (
           <animated.div className="deck" key={i} style={{ x, y }}>
             {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}

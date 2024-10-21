@@ -196,7 +196,7 @@ const AboutAsthma = () => {
   }
 
   return (
-    <div className="asthma-red">
+    <div className="asthma-background">
       { renderScene() }
     </div>
   );

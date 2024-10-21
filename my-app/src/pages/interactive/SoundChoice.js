@@ -10,7 +10,7 @@ const SoundChoice = () => {
   useSendPageview('Sound Choice Page');
 
   return (
-    <div className="asthma-red">
+    <div className="sound-module asthma-background">
       <ToggleSound storageKey='soundOff' buttonLink='/asthma-list' />
     </div>
   );

@@ -11,7 +11,7 @@ const CongratulationsPage = () => {
   useSendPageview('Congratulations Page');
 
   return (
-    <div className="asthma-red">
+    <div className="asthma-background">
       <Congratulations image={Lungs_Anatomy_25} alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" />
     </div>
   );

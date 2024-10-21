@@ -25,6 +25,18 @@
   max-height: 100%;
 }
 
+.asthma-red {
+  background-color: #c50e23;
+}
+
+.asthma-background {
+  background-image: url('./assets/images/1_Background.jpg');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  /*min-height: calc(var(--vh, 1vh) * 100.0);*/
+}
+
 .home-module {
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100.0);
@@ -82,10 +94,6 @@
   @media only screen and (min-height: 1200px) {
     font-size: 40px;
   }
-}
-
-.asthma-red {
-  background-color: #c50e23;
 }
 
 .nav-icon {
