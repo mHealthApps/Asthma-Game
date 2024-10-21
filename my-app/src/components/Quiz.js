@@ -19,11 +19,14 @@ const QuestionText = ({ text, name }) => {
   );
 };
 
-const QuizImage = ({ image, alt }) => {
+const QuizMedia = ({ image, alt, animation }) => {
   return (
-    <div className="quiz-image-outer-container">
-      <div className="inner-container image-container">
-        <img className="quiz-image" alt={alt} src={image} />
+    <div className="quiz-media-outer-container">
+      <div className="inner-container media-container">
+        {(animation !== undefined) ?
+          <video className="quiz-media" src={animation} autoPlay loop muted playsInline /> :
+          <img className="quiz-media" alt={alt} src={image}/>
+        }
       </div>
     </div>
   );
@@ -119,7 +122,7 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   );
 }
 
-const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt }) => {
+const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
   const [answerQuestion, setAnswerQuestion] = useState('none');
@@ -155,11 +158,11 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt }) => {
     <div className="quiz-module">
       <TopBar barWidth='100%' title={conditionTitle} orientation={orientation} />
       <QuestionText name={quiz.name} text={quiz.text} />
-      {(image !== undefined) ?
-        <QuizImage image={image} alt={alt} /> : ''
+      {(image !== undefined || animation !== undefined) ?
+        <QuizMedia image={image} alt={alt} animation={animation} /> : ''
       }
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.483} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined && animation === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.483} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?

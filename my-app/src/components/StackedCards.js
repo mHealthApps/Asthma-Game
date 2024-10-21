@@ -275,17 +275,23 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                   <div className="grid-item">
                       {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                       <div className="vertical-center-items">
-                        <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
-                          width: '100%',
-                          maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
-                        }}/>
+                        {(cards[cards.length - i - 1].animation !== undefined) ?
+                          <video className="card-animation" src={cards[cards.length - i - 1].animation} autoPlay loop muted playsInline style={{
+                            width: '100%',
+                            maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                          }}/> :
+                          <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
+                            width: '100%',
+                            maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                          }}/>
+                        }
                       </div> : ''
                       }
                   </div>
-                  <div className="grid-item" />
+                  <div className="grid-item"/>
                   <div className="grid-item">
                     {(cards[cards.length - i - 1].text !== '') ?
-                    <div className="vertical-center">
+                      <div className="vertical-center">
                       <ResponsiveText text={cards[cards.length - i - 1].text} height={(i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerWidth * 0.02} center={true} />
                     </div> : ''
                     }
@@ -302,17 +308,25 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
               </> :
               <>
                 <div className="card-width">
-                  {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
-                  <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
-                    height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
-                   : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
-                    width: '100%',
-                    maxHeight: '100%',
-                  }}/> : ''
+                  {(cards[cards.length - i - 1].animation !== undefined) ?
+                    <video className="card-animation" src={cards[cards.length - i - 1].animation} autoPlay loop muted playsInline style={{
+                      height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
+                        : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
+                      width: '100%',
+                      maxHeight: '100%',
+                    }}/> :
+                    (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                      <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
+                        height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
+                          : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
+                        width: '100%',
+                        maxHeight: '100%',
+                      }}/> : ''
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
-                  <div className="grid-item">
-                    <ResponsiveText text={cards[cards.length - i - 1].text} height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={true} />
+                    <div className="grid-item">
+                    <ResponsiveText text={cards[cards.length - i - 1].text}
+                  height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={true} />
                   </div> : ''
                   }
                   {(i === 0) ?

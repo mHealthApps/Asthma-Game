@@ -11,6 +11,8 @@ import Lungs_Text_1_26 from '../../assets/images/26_Lungs_Text 1.jpg';
 import Lungs_Text_2_27 from '../../assets/images/27_Lungs_Text 2.jpg';
 import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
 import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
+import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Animation.mp4';
+import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import templateConversation from '../../assets/audio/template-conversation.mp3';
 import useSendPageview from '../../hooks/useSendPageview';
@@ -82,7 +84,8 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: Lungs_Oxygen_28,
+    image: 'animation',
+    animation: Lungs_Oxygen_Animation_29,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -91,7 +94,8 @@ const lungsCards = [
   },
   {
     audio: templateBeep,
-    image: Lungs_Oxygen_28,
+    image: 'animation',
+    animation: Lungs_Oxygen_Animation_30,
     alt: 'lungs',
     header: 'THE LUNGS',
     text: <div>
@@ -134,7 +138,7 @@ const TheLungs = () => {
       case 0:
         return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Lungs_Oxygen_28} alt='lungs' />
+        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' animation={Lungs_Oxygen_Animation_30} alt='lungs' />
       case 2:
         return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
       default:

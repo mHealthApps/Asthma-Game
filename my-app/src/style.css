@@ -436,7 +436,7 @@
   font-size: calc(var(--vh, 1vh) * 3.5);
 }
 
-.quiz-image-outer-container {
+.quiz-media-outer-container {
   width: 100vw;
   height: calc(var(--vh, 1vh)* 24.0);
   display: flex;
@@ -445,7 +445,7 @@
   padding: 0;
 }
 
-.quiz-image {
+.quiz-media {
   object-fit: cover;
   height: calc(var(--vh, 1vh) * 24.0);
   width: calc(var(--vh, 1vh) * 24.0);
@@ -570,7 +570,7 @@
   height: calc(var(--vh, 1vh)* 35.0);
 }
 
-.image-container {
+.media-container {
   height: calc(var(--vh, 1vh) * 28.0);
 }
 

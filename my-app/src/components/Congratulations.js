@@ -9,7 +9,7 @@ import  Confetti  from 'react-confetti';
 
 const CongratulationsImage = ({ image, alt }) => {
   return (
-    <div className="inner-container image-container">
+    <div className="inner-container media-container">
       <img className="summary-image" alt={alt} src={image} />
     </div>
   );
