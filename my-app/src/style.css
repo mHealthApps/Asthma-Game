@@ -40,11 +40,21 @@
 .home-module {
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100.0);
-  padding-top: calc(var(--vh, 1vh) * 25.0);
+  padding-top: calc(var(--vh, 1vh) * 15.0);
+  display: flex;
+  justify-content: center;
   /*background-image: url('./assets/images/lungs-640.jpg');*/
   /*background-size: 100% 100%;*/
   /*background-position: center;*/
   /*background-repeat: no-repeat;*/
+}
+
+.home-gray-container {
+  background-color: rgba(50, 50, 50, 0.35);
+  width: 80vw;
+  height: calc(var(--vh, 1vh) * 80.0);
+  padding-top: calc(var(--vh, 1vh) * 7.0);
+  border-radius: 5px;
 }
 
 .home-header {
@@ -55,6 +65,7 @@
 }
 
 .home-links-container {
+  margin-left: -10vw;
   height: calc(var(--vh, 1vh) * 65.0);
   width: 100vw;
   display: flex;

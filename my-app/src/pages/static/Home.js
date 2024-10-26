@@ -67,11 +67,13 @@ const Home = () => {
   useSendPageview('Home Page');
 
   return (
-    <div className="home-module asthma-background">
-      <div className='home-header'>
-        <h1>LUNG HEALTH FOR KIDS</h1>
+    <div className="asthma-background home-module">
+      <div className='home-gray-container'>
+        <div className='home-header'>
+          <h1>LUNG HEALTH FOR KIDS</h1>
+        </div>
+        <HomeLinks items={linkItems} />
       </div>
-      <HomeLinks items={linkItems} />
     </div>
   );
 };
