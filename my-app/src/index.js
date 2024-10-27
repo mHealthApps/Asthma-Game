@@ -36,7 +36,7 @@ try {
     // ReactGA.initialize('G-60FCT87DHZ');
     ReactGA.initialize("G-60FCT87DHZ", {
       gtagOptions: {
-        send_page_view: false
+        send_page_view: true
       }
     });
     ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' });
