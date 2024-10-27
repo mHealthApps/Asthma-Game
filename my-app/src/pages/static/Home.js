@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import { Lungs, CardList, Book, InfoCircle } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 const linkItems = [
   {
@@ -64,7 +64,10 @@ const HomeLinks = ({ items }) => {
 
 const Home = () => {
   // GA Home pageview
-  useSendPageview('Home Page');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' });
+  }, [])
+  // useSendPageview('Home Page');
 
   return (
     <div className="asthma-background home-module">

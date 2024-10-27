@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import TopBar from '../../components/TopBar';
 import useOrientation from '../../hooks/useOrientation';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const Resources = () => {
   // GA Resources pageview
-  useSendPageview('Resources Page');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources Page' });
+  }, [])
+  // useSendPageview('Resources Page');
 
   const orientation = useOrientation();
 

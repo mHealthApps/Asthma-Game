@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
@@ -13,7 +13,7 @@ import Paper_Bad_40 from '../../assets/images/40_Paper_Bad.jpg';
 import Toddler_16 from '../../assets/images/16_Toddler.jpg';
 import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const managementCards = [
@@ -174,7 +174,10 @@ const managementQuizTwo = {
 
 const AsthmaManagement = () => {
   // GA Management pageview
-  useSendPageview('Content: Asthma Management');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-management', title: 'Content: Asthma Management' });
+  }, [])
+  // useSendPageview('Content: Asthma Management');
 
   const [scene, setScene] = useState(0);
 

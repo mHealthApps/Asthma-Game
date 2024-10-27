@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import TopBar from '../../components/TopBar'
 import ListGrid from '../../components/ListGrid';
 import useOrientation from '../../hooks/useOrientation';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const items = [
@@ -36,7 +36,10 @@ const items = [
 
 const AsthmaList = () => {
   // GA Glossary pageview
-  useSendPageview('Asthma Content List');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-list', title: 'Asthma Content List' });
+  }, [])
+  // useSendPageview('Asthma Content List');
 
   const orientation = useOrientation();
 

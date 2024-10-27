@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
@@ -12,7 +12,7 @@ import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const firstAidCards = [
@@ -181,7 +181,10 @@ const firstAidQuizFour = {
 
 const FirstAid = () => {
   // GA FirstAid pageview
-  useSendPageview('Content: First Aid Emergency');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/first-aid', title: 'Content: First Aid Emergency' });
+  }, [])
+  // useSendPageview('Content: First Aid Emergency');
 
   const [scene, setScene] = useState(0);
 

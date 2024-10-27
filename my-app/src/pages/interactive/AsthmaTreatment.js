@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
@@ -13,7 +13,7 @@ import Red_Inhaler_20 from '../../assets/images/20_Red Inhaler.jpg';
 import Purple_Inhaler_22 from '../../assets/images/22_Purple Inhaler.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const treatmentCards = [
@@ -206,7 +206,10 @@ const treatmentQuizThree = {
 
 const AsthmaTreatment = () => {
   // GA Treatment pageview
-  useSendPageview('Content: Asthma Treatment');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-treatment', title: 'Content: Asthma Treatment' });
+  }, [])
+  // useSendPageview('Content: Asthma Treatment');
 
   const [scene, setScene] = useState(0);
 

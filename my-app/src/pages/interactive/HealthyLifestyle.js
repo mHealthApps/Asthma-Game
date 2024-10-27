@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
@@ -13,7 +13,7 @@ import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg
 import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
 import WhiteShirt_Girl_Toddler_9 from '../../assets/images/9_WhiteShirt_Girl_Toddler.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const healthyLifestyleCards = [
@@ -129,7 +129,10 @@ const healthyLifestyleQuizTwo = {
 
 const HealthyLifestyle = () => {
   // GA Lifestyle pageview
-  useSendPageview('Content: Keeping a Healthy Lifestyle');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/healthy-lifestyle', title: 'Content: Keeping a Healthy Lifestyle' });
+  }, [])
+  // useSendPageview('Content: Keeping a Healthy Lifestyle');
 
   const [scene, setScene] = useState(0);
 

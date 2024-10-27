@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
@@ -15,7 +15,7 @@ import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Anim
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import templateConversation from '../../assets/audio/template-conversation.mp3';
-import useSendPageview from '../../hooks/useSendPageview';
+import ReactGA from 'react-ga4';
 
 
 const lungsCards = [
@@ -125,7 +125,10 @@ const lungsQuiz = {
 
 const TheLungs = () => {
   // GA Lungs pageview
-  useSendPageview('Content: The Lungs');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/the-lungs', title: 'Content: The Lungs' });
+  }, [])
+  // useSendPageview('Content: The Lungs');
 
   const [scene, setScene] = useState(0);
 

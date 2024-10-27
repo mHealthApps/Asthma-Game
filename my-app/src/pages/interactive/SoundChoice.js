@@ -1,13 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import ToggleSound from '../../components/ToggleSound';
-import React from 'react';
-import useSendPageview from '../../hooks/useSendPageview';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga4';
 
 
 const SoundChoice = () => {
   // GA SoundChoice pageview
-  useSendPageview('Sound Choice Page');
+  useEffect(() => {
+    ReactGA.send({ hitType: 'pageview', page: '/sound-choice', title: 'Sound Choice Page' });
+  }, [])
+  // useSendPageview('Sound Choice Page');
 
   return (
     <div className="sound-module asthma-background">
