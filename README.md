@@ -15,6 +15,6 @@ Update npm
 To run React app:
 1. Clone repository to GitHub Desktop
 2. cd into the repository in the command line
-3. cd into my-app directory
+3. cd into asthma-app directory
 4. run 'npm install'
 5. run 'npm start' to run a developer build of the app at http://localhost:3000/
