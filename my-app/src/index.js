@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga4';
@@ -48,7 +48,8 @@ try {
 }
 
 function App() {
-  // Initializing and tracking GA data
+  // verticalHeight state to trigger re-render
+  const [verticalHeight, setVerticalHeight] = useState(window.innerHeight * 0.01);
 
   // Initializing localStorage if it does not exist
   useEffect(() => {
@@ -67,6 +68,7 @@ function App() {
   const setVerticalScaling = useCallback(() => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    setVerticalHeight(vh);
   }, []);
 
   useEffect(() => {
@@ -74,6 +76,10 @@ function App() {
     window.addEventListener('resize', setVerticalScaling);
     return () => window.removeEventListener('resize',setVerticalScaling);
   }, [setVerticalScaling])
+
+  useEffect(() => {
+    console.log(`re-render triggered. --vh: ${verticalHeight}`);
+  }, [verticalHeight])
 
   return (
     <HashRouter>
