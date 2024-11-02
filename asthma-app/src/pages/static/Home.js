@@ -71,11 +71,12 @@ const Home = () => {
 
   return (
     <div className="asthma-background home-module">
+      <div className='home-header'>
+        <h1>LUNG HEALTH</h1>
+        <h1 className='kids-font'>FOR KIDS</h1>
+      </div>
       <div className='home-gray-container'>
-        <div className='home-header'>
-          <h1>LUNG HEALTH FOR KIDS</h1>
-        </div>
-        <HomeLinks items={linkItems} />
+        <HomeLinks items={linkItems}/>
       </div>
     </div>
   );

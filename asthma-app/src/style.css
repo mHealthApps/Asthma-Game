@@ -40,33 +40,41 @@
 .home-module {
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100.0);
-  padding-top: calc(var(--vh, 1vh) * 15.0);
+  padding-top: calc(var(--vh, 1vh) * 10.0);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  /*align-content: center;*/
+  align-items: center;
   /*background-image: url('./assets/images/lungs-640.jpg');*/
   /*background-size: 100% 100%;*/
   /*background-position: center;*/
   /*background-repeat: no-repeat;*/
 }
 
+.home-header {
+  height: calc(var(--vh, 1vh) * 20.0);
+  align-content: center;
+  text-align: center;
+  color: #6d0712;
+}
+
+.kids-font {
+  font-family:  "Kristen ITC", serif;
+  color: #fd7647;
+  text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.8);
+}
+
 .home-gray-container {
   background-color: rgba(50, 50, 50, 0.35);
   width: 80vw;
-  height: calc(var(--vh, 1vh) * 80.0);
-  padding-top: calc(var(--vh, 1vh) * 7.0);
+  height: calc(var(--vh, 1vh) * 65.0);
+  padding-top: calc(var(--vh, 1vh) * 5.0);
   border-radius: 5px;
-}
-
-.home-header {
-  height: calc(var(--vh, 1vh) * 10.0);
-  align-content: center;
-  text-align: center;
-  color: white;
 }
 
 .home-links-container {
   margin-left: -10vw;
-  height: calc(var(--vh, 1vh) * 65.0);
+  height: calc(var(--vh, 1vh) * 60.0);
   width: 100vw;
   display: flex;
   flex-direction: column;
