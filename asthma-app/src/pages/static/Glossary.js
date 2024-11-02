@@ -9,7 +9,7 @@ import ReactGA from 'react-ga4';
 const Glossary = () => {
   // GA Glossary pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/glossary', title: 'Glossary Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/glossary', title: 'Page: Glossary' });
   }, [])
   // useSendPageview('Glossary Page');
 

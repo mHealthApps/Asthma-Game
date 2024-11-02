@@ -65,7 +65,7 @@ const HomeLinks = ({ items }) => {
 const Home = () => {
   // GA Home pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Home Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/', title: 'Page: Home' });
   }, [])
   // useSendPageview('Home Page');
 

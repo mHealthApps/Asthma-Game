@@ -182,7 +182,7 @@ const firstAidQuizFour = {
 const FirstAid = () => {
   // GA FirstAid pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/first-aid', title: 'Content: First Aid Emergency' });
+    ReactGA.send({ hitType: 'pageview', page: '/first-aid', title: 'Cards: First Aid Emergency' });
   }, [])
   // useSendPageview('Content: First Aid Emergency');
 

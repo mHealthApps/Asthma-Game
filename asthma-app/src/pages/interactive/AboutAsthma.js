@@ -176,7 +176,7 @@ const aboutAsthmaQuiz = {
 const AboutAsthma = () => {
   // GA AboutAsthma pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/about-asthma', title: 'Content: About Asthma' });
+    ReactGA.send({ hitType: 'pageview', page: '/about-asthma', title: 'Cards: About Asthma' });
   }, [])
   // useSendPageview('Content: About Asthma');
 

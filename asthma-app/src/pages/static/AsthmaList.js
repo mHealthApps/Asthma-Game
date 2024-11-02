@@ -37,7 +37,7 @@ const items = [
 const AsthmaList = () => {
   // GA Glossary pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/asthma-list', title: 'Asthma Content List' });
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-list', title: 'Page: Asthma List' });
   }, [])
   // useSendPageview('Asthma Content List');
 

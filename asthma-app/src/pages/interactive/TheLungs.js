@@ -126,7 +126,7 @@ const lungsQuiz = {
 const TheLungs = () => {
   // GA Lungs pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/the-lungs', title: 'Content: The Lungs' });
+    ReactGA.send({ hitType: 'pageview', page: '/the-lungs', title: 'Cards: The Lungs' });
   }, [])
   // useSendPageview('Content: The Lungs');
 

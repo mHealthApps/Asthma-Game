@@ -130,7 +130,7 @@ const healthyLifestyleQuizTwo = {
 const HealthyLifestyle = () => {
   // GA Lifestyle pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/healthy-lifestyle', title: 'Content: Keeping a Healthy Lifestyle' });
+    ReactGA.send({ hitType: 'pageview', page: '/healthy-lifestyle', title: 'Cards: Keeping a Healthy Lifestyle' });
   }, [])
   // useSendPageview('Content: Keeping a Healthy Lifestyle');
 

@@ -175,7 +175,7 @@ const managementQuizTwo = {
 const AsthmaManagement = () => {
   // GA Management pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/asthma-management', title: 'Content: Asthma Management' });
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-management', title: 'Cards: Asthma Management' });
   }, [])
   // useSendPageview('Content: Asthma Management');
 

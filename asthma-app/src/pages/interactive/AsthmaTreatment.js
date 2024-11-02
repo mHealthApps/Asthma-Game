@@ -207,7 +207,7 @@ const treatmentQuizThree = {
 const AsthmaTreatment = () => {
   // GA Treatment pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/asthma-treatment', title: 'Content: Asthma Treatment' });
+    ReactGA.send({ hitType: 'pageview', page: '/asthma-treatment', title: 'Cards: Asthma Treatment' });
   }, [])
   // useSendPageview('Content: Asthma Treatment');
 

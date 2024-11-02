@@ -8,7 +8,7 @@ import ReactGA from 'react-ga4';
 const SoundChoice = () => {
   // GA SoundChoice pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/sound-choice', title: 'Sound Choice Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/sound-choice', title: 'Page: Sound Choice' });
   }, [])
   // useSendPageview('Sound Choice Page');
 

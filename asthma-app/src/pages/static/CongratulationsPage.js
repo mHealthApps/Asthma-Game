@@ -9,7 +9,7 @@ import ReactGA from 'react-ga4';
 const CongratulationsPage = () => {
   // GA CongratsPage pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/congratulations', title: 'Congratulations Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/congratulations', title: 'Page: Congratulations' });
   }, [])
   // useSendPageview('Congratulations Page');
 

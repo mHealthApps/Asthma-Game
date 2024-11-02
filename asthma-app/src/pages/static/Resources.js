@@ -9,7 +9,7 @@ import ReactGA from 'react-ga4';
 const Resources = () => {
   // GA Resources pageview
   useEffect(() => {
-    ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Resources Page' });
+    ReactGA.send({ hitType: 'pageview', page: '/resources', title: 'Page: Resources' });
   }, [])
   // useSendPageview('Resources Page');
 
