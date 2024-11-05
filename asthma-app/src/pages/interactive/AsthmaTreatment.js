@@ -142,9 +142,10 @@ const treatmentCards = [
   },
   {
     audio: templateBeep,
-    image: Spacer_19,
+    image: '',
+    video: 'https://www.youtube.com/embed/u31qwQUeGuM?si=I-hCQvF4DvIkFf2K',
+    text: '',
     alt: 'lungs',
-    text: 'Video Placeholder',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
   },
 ]

@@ -268,22 +268,26 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
               <>
                 <div className='landscape-grid' style={{
                   display: 'grid',
-                  gridTemplateColumns: (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+                  gridTemplateColumns: ((cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') || cards[cards.length - i - 1].video !== undefined) ? (cards[cards.length - i - 1].text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
                   width: '100%',
                   height: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
                 }}>
                   <div className="grid-item">
-                      {(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
+                      {((cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') || cards[cards.length - i - 1].video !== undefined) ?
                       <div className="vertical-center-items">
                         {(cards[cards.length - i - 1].animation !== undefined) ?
                           <video className="card-animation" src={cards[cards.length - i - 1].animation} autoPlay loop muted playsInline style={{
                             width: '100%',
-                            maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
                           }}/> :
-                          <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
-                            width: '100%',
-                            maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
-                          }}/>
+                          (cards[cards.length - i - 1].video !== undefined) ?
+                            <iframe className="card-video" src={cards[cards.length - i - 1].video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
+                              width: '100%',
+                              height: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                            }}/> :
+                            <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
+                              width: '100%',
+                              maxHeight: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
+                            }}/>
                         }
                       </div> : ''
                       }
@@ -313,21 +317,31 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                       height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
                         : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
                       width: '100%',
-                      maxHeight: '100%',
+                      maxHeight: '80%',
                     }}/> :
                     (cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ?
                       <img className="card-image" alt={cards[cards.length - i - 1].alt} src={cards[cards.length - i - 1].image} style={{
                         height: (cards[cards.length - i - 1].text !== '') ? `${(window.innerHeight * 0.3)}px`
                           : (i === 0) ? `${(window.innerHeight * 0.43)}px` : `${(window.innerHeight * 0.5)}px`,
                         width: '100%',
-                        maxHeight: '100%',
-                      }}/> : ''
+                        maxHeight: '80%',
+                      }}/> :
+                      (cards[cards.length - i - 1].video !== undefined) ?
+                        <div className='card-video-container' style={{
+                          width: '100%',
+                          height: '82%',
+                        }}>
+                        <iframe className="card-video" src={cards[cards.length - i - 1].video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
+                          width: '100%',
+                          height: `${(window.innerWidth * 0.304)}px`,
+                          maxHeight: '100%',
+                        }}/></div> : ''
                   }
                   {(cards[cards.length - i - 1].text !== '') ?
                     <div className="grid-item">
-                    <ResponsiveText text={cards[cards.length - i - 1].text}
-                  height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={true} />
-                  </div> : ''
+                      <ResponsiveText text={cards[cards.length - i - 1].text}
+                    height={(cards[cards.length - i - 1].image !== 'none' && cards[cards.length - i - 1].image !== '') ? (i === 0) ? `${(window.innerHeight * 0.13)}px` : `${(window.innerHeight * 0.2)}px` : (i === 0) ? `${(window.innerHeight * 0.44)}px` : `${(window.innerHeight * 0.5)}px`} initialSize={window.innerHeight * 0.022} center={true} />
+                    </div> : ''
                   }
                   {(i === 0) ?
                   <div className="grid-item final-card-button-container" style={{
