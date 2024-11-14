@@ -4,6 +4,7 @@ import '../../style.css';
 import { Lungs, CardList, Book, InfoCircle } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import ReactGA from 'react-ga4';
+import useOrientation from '../../hooks/useOrientation';
 
 const linkItems = [
   {
@@ -69,11 +70,13 @@ const Home = () => {
   }, [])
   // useSendPageview('Home Page');
 
+  const orientation = useOrientation();
+
   return (
     <div className="asthma-background home-module">
-      <div className='home-header'>
-        <h1>LUNG HEALTH</h1>
-        <h1 className='kids-font'>FOR KIDS</h1>
+      <div className='home-header-container'>
+        <h1 className={`home-headers-${orientation}`}>LUNG HEALTH</h1>
+        <h1 className={`kids-font home-headers-${orientation}`}>FOR KIDS</h1>
       </div>
       <div className='home-gray-container'>
         <HomeLinks items={linkItems}/>

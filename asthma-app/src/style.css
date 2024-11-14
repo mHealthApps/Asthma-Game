@@ -51,11 +51,15 @@
   /*background-repeat: no-repeat;*/
 }
 
-.home-header {
+.home-header-container {
   height: calc(var(--vh, 1vh) * 20.0);
   align-content: center;
   text-align: center;
   color: #6d0712;
+}
+
+.home-headers-landscape {
+  font-size: calc(var(--vh, 1vh) * 4.5);
 }
 
 .kids-font {
