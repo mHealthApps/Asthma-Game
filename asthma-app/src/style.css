@@ -63,7 +63,10 @@
 }
 
 .kids-font {
-  font-family:  "Kristen ITC", serif;
+  /*font-family:  "Kristen ITC", serif;*/
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
   color: #fd7647;
   text-shadow: 2px 2px 2px rgba(50, 50, 50, 0.8);
 }
