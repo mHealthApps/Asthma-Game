@@ -4,6 +4,7 @@ import '../../style.css';
 import TopBar from '../../components/TopBar';
 import useOrientation from '../../hooks/useOrientation';
 import ReactGA from 'react-ga4';
+import ResponsiveText from '../../components/ResponsiveText';
 
 
 const Glossary = () => {
@@ -16,9 +17,16 @@ const Glossary = () => {
   const orientation = useOrientation();
 
   return (
-    <div className="glossary-module asthma-red">
-      <TopBar oneLine='Glossary' orientation={orientation} />
-      No info for glossary for now
+    <div className="asthma-background menu-module">
+      <div className="asthma-red menu-navbar">
+        <TopBar oneLine='Glossary' orientation={orientation}/>
+      </div>
+      <div className='home-gray-container padding-5'>
+        <p style={{
+          fontSize: window.innerHeight * 0.022,
+        }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
     </div>
   );
 };

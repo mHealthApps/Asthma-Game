@@ -16,9 +16,17 @@ const Resources = () => {
   const orientation = useOrientation();
 
   return (
-    <div className="resources-module asthma-red">
-      <TopBar oneLine='Resources' orientation={orientation} />
-      No info for resources for now
+    <div className="asthma-background menu-module">
+      <div className="asthma-red menu-navbar">
+        <TopBar oneLine='Resources' orientation={orientation}/>
+      </div>
+      <div className='home-gray-container padding-5'>
+        <p style={{
+          fontSize: window.innerHeight * 0.022,
+        }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
     </div>
   );
 };
