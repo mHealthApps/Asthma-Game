@@ -4,7 +4,6 @@ import '../../style.css';
 import TopBar from '../../components/TopBar';
 import useOrientation from '../../hooks/useOrientation';
 import ReactGA from 'react-ga4';
-import ResponsiveText from '../../components/ResponsiveText';
 
 
 const Glossary = () => {
