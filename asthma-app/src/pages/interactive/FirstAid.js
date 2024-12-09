@@ -7,7 +7,7 @@ import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
 import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
-import BlueShirt_Boy_Spacer_3 from '../../assets/images/3_BlueShirt_Boy_Spacer.jpg';
+import BlueShirt_Boy_Spacer_3 from '../../assets/images/3_BlueShirt_Boy_Spacer_v2.jpg';
 import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';

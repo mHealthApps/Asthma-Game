@@ -7,7 +7,7 @@ import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
 import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
-import All_Inhalers_23 from '../../assets/images/23_All Inhalers.jpg';
+import All_Inhalers_23 from '../../assets/images/23_All Inhalers_v2.jpg';
 import Fruits_34 from '../../assets/images/34_Fruits.jpg';
 import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
 import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';

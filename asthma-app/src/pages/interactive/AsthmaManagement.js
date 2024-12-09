@@ -11,7 +11,7 @@ import Paper_Good_38 from '../../assets/images/38_Paper_Good.jpg';
 import Paper_Meh_39 from '../../assets/images/39_Paper_Meh.jpg';
 import Paper_Bad_40 from '../../assets/images/40_Paper_Bad.jpg';
 import Toddler_16 from '../../assets/images/16_Toddler.jpg';
-import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler.jpg';
+import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler_v2.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import ReactGA from 'react-ga4';
 
