@@ -23,8 +23,9 @@ const AboutUs = () => {
       <div className='home-gray-container padding-5'>
         <p style={{
           fontSize: window.innerHeight * 0.022,
-        }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        }}>Originally developed by a team of Australian lung researcher at Menzies University to improve lung health knowledge among
+          Aboriginal and Torres Strait Island communities, Dr. Palakiko worked with Dr. Gabrielle McCallum to adapt the original Lung
+          Health Tool to Hawaii and the greater Pacific.
         </p>
       </div>
     </div>
