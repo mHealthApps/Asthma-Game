@@ -8,7 +8,7 @@ import useOrientation from '../../hooks/useOrientation';
 
 const linkItems = [
   {
-    text: 'Cards',
+    text: 'Health Information',
     link: '/sound-choice',
     icon: <Lungs />
   },
@@ -37,7 +37,7 @@ const LinkItem = ( {item} ) => {
   }
 
   return (
-    <div className='home-link-item' onClick={handleClick}>
+    <div className='home-link-item kids-font' onClick={handleClick}>
       <div className='home-link-icon'>
         {item.icon}
       </div>
@@ -75,10 +75,10 @@ const Home = () => {
   return (
     <div className="asthma-background menu-module home-module">
       <div className='home-header-container'>
-        <h1 className={`home-headers-${orientation}`}>LUNG HEALTH</h1>
+        <h1 className={`home-headers-${orientation}`}>Asthma</h1>
         <h1 className={`kids-font home-headers-${orientation}`}>FOR KIDS</h1>
       </div>
-      <div className='home-gray-container'>
+      <div className='home-gray-container transparent-container'>
         <HomeLinks items={linkItems}/>
       </div>
     </div>
