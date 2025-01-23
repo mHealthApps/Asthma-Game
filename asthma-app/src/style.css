@@ -315,7 +315,7 @@
 .mid-text {
   height: calc(var(--vh, 1vh) * 9.0);
   margin-top: calc(var(--vh, 1vh) * (-2.0));
-  color: #6d0712;
+  color: #834522;
   z-index: 20;
   max-font-size: calc(var(--vh, 1vh) * 3.4);
 }

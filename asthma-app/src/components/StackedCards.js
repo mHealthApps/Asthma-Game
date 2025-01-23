@@ -21,7 +21,7 @@ const MidText = ({ cardNum, title, totalCards, header }) => {
             'ASTHMA'
           }
         </h2>
-        <h2 className="headers card-num-headers">
+        <h2 className="headers card-num-headers kids-font">
           {(cardNum > 0) ?
             `Card ${cardNum} of ${totalCards}` :
             title
