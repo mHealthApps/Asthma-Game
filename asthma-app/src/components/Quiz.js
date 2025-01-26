@@ -32,7 +32,7 @@ const QuizMedia = ({ image, alt, animation }) => {
   );
 }
 
-const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle, containerHeight }) => {
+const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle, containerHeight, cardColor }) => {
   //console.log(orientation);
 
   const updateStorage = () => {
@@ -73,6 +73,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
               }
             }} style={{
               gridTemplateColumns: (image !== '') ? (text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+              backgroundColor: cardColor,
             }}>
               <div className="grid-item click-through">
                 {(image !== '') ?
@@ -162,7 +163,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation }) =
         <QuizMedia image={image} alt={alt} animation={animation} /> : ''
       }
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined && animation === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.483} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined && animation === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.383} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?
