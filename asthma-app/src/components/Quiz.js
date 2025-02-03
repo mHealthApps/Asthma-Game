@@ -163,7 +163,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation }) =
         <QuizMedia image={image} alt={alt} animation={animation} /> : ''
       }
       {(quiz.type === 'two-options') ?
-        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined && animation === undefined) ? window.innerHeight * 0.733 : window.innerHeight * 0.383} /> :
+        <QuestionCards options={quiz.options} answer={quiz.answer} orientation={orientation} correct={correct} incorrect={incorrect} reset={reset} storageIndex={quiz.index} conditionTitle={conditionTitle} containerHeight={(image === undefined && animation === undefined) ? window.innerHeight * 0.703 : window.innerHeight * 0.353} /> :
         ''
       }
       {(answerQuestion === 'correct' || answerQuestion === 'incorrect') ?

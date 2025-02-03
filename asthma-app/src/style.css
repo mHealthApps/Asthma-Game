@@ -482,7 +482,7 @@
 }
 
 .quiz-headers {
-  height: calc(var(--vh, 1vh) * 14.0);
+  height: calc(var(--vh, 1vh) * 18.0);
   margin-top: calc(var(--vh, 1vh) * (-2.0));
   color: #834522;
   z-index: 20;
