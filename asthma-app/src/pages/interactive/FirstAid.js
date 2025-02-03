@@ -11,6 +11,7 @@ import BlueShirt_Boy_Spacer_3 from '../../assets/images/3_BlueShirt_Boy_Spacer_v
 import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
+import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import ReactGA from 'react-ga4';
 
@@ -197,13 +198,13 @@ const FirstAid = () => {
       case 0:
         return <StackedCards cards={firstAidCards} title="First Aid Emergency" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} />
       case 2:
-        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} />
       case 3:
-        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} />
       case 4:
-        return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} />
       case 5:
         return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
       default:
