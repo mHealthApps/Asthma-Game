@@ -360,13 +360,17 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
       </div>
       <div className={`stacked-button-container click-through stacked-button-container-${orientation}`}>
         <div className="grid-item grid-right">
-          <ArrowLeftCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={togglePrev} />
+          {(cardNum !== 1) ?
+            <ArrowLeftCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={togglePrev} /> : ''
+          }
         </div>
         <div className="grid-item click-through">
 
         </div>
         <div className="grid-item grid-left">
-          <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={buttonNext} />
+          {(cardNum !== cards.length) ?
+            <ArrowRightCircleFill className={`stacked-button stacked-button-${orientation}`} onClick={buttonNext} /> : ''
+          }
         </div>
       </div>
 
