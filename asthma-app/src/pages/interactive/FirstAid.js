@@ -196,7 +196,7 @@ const FirstAid = () => {
   const renderScene = () => {
     switch (scene) {
       case 0:
-        return <StackedCards cards={firstAidCards} title="First Aid Emergency" uponCompletion={nextScene} />
+        return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
       case 1:
         return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} />
       case 2:

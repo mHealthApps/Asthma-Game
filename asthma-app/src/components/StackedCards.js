@@ -15,13 +15,12 @@ const MidText = ({ cardNum, title, totalCards, header }) => {
   return (
     <div className="justify-content-center mid-text">
       <Col>
+        {(cardNum > 0) ?
         <h2 className="headers asthma-header">
-          {(cardNum > 0) ?
-            header :
-            'ASTHMA'
-          }
-        </h2>
-        <h2 className="headers card-num-headers kids-font">
+          {header}
+        </h2> : ''
+        }
+        <h2 className={`headers ${(cardNum > 0) ? 'card-num-headers': 'asthma-header asthma-header-large'}`}>
           {(cardNum > 0) ?
             `Card ${cardNum} of ${totalCards}` :
             title

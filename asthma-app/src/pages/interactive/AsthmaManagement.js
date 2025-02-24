@@ -137,7 +137,7 @@ const managementQuizOne = {
   text: `How do I know my child’s asthma is under control?` ,
   options: [
     {
-      text: 'May have loud wheeze. They may have sucking in at the next and chest and blue lips',
+      text: 'May have loud wheeze. They may have sucking in at the neck and chest and blue lips',
       image: Blue_Inhaler_21,
       alt: 'lungs',
     },
@@ -188,7 +188,7 @@ const AsthmaManagement = () => {
   const renderScene = () => {
     switch (scene) {
       case 0:
-        return <StackedCards cards={managementCards} title="Management" uponCompletion={nextScene} />
+        return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
       case 1:
         return <Quiz quiz={managementQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
       case 2:

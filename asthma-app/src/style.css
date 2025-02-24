@@ -209,6 +209,10 @@
   }
 }
 
+.asthma-header-large {
+  font-size: calc(var(--vh, 1vh) * 4.5);
+}
+
 .sound-card {
   display: flex;
   flex-direction: column;
