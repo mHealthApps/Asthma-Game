@@ -144,7 +144,7 @@ const aboutAsthmaCards = [
 
 const aboutAsthmaQuiz = {
   type: 'two-options',
-  name: 'YES OR NO',
+  name: 'Select correct option',
   text: `What is asthma?`,
   options: [
     {

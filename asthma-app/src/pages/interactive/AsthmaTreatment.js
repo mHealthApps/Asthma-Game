@@ -152,8 +152,8 @@ const treatmentCards = [
 
 const treatmentQuizOne = {
   type: 'two-options',
-  name: 'TRUE OR FALSE',
-  text: `Reliever is fast acting`,
+  name: 'Do you know your inhalers?',
+  text: <>The reliever inhaler is fast acting<br/>True or False</>,
   options: [
     {
       text: 'True',
@@ -170,8 +170,8 @@ const treatmentQuizOne = {
 
 const treatmentQuizTwo = {
   type: 'two-options',
-  name: 'TRUE OR FALSE',
-  text: `Preventer is taken every day`,
+  name: 'Do you know your inhalers?',
+  text: <>The preventer inhaler is taken every day<br/>True or False</>,
   options: [
     {
       text: 'True',
@@ -188,8 +188,8 @@ const treatmentQuizTwo = {
 
 const treatmentQuizThree = {
   type: 'two-options',
-  name: 'TRUE OR FALSE',
-  text: `Combination is best taken over a long time`,
+  name: 'Do you know your inhalers?',
+  text: <>The combination inhaler is taken best over time<br/>True or False</>,
   options: [
     {
       text: 'True',
