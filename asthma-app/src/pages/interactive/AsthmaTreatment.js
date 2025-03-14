@@ -14,6 +14,7 @@ import Purple_Inhaler_22 from '../../assets/images/22_Purple Inhaler.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import templateBeep from '../../assets/audio/template-beep.mp3';
 import ReactGA from 'react-ga4';
+import { Link } from 'react-router-dom';
 
 
 const treatmentCards = [
@@ -50,7 +51,7 @@ const treatmentCards = [
     header: 'HOW DO WE TREAT ASTHMA?',
     text: <div>
       <ul>
-        <li className='grid-left'>An ‘Asthma Action Plan’ helps you to know what to do every day, and when your child’s asthma is becoming worse</li>
+        <li className='grid-left'>An <Link to='/resources'>‘Asthma Action Plan’</Link> helps you to know what to do every day, and when your child’s asthma is becoming worse</li>
         <li className='grid-left'>The Doctor may give medication for your child’s asthma</li>
       </ul>
     </div>,
