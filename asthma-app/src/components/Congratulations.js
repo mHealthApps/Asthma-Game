@@ -61,6 +61,7 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle, userName }) =
         <div className='inner-container summary-button-container' style={{
           fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
           fontWeight: 'bold',
+          marginTop: window.innerHeight * 0.125,
         }}>
           <LinkButton text='Finish' buttonLink={buttonLink} stylingClass='summary-button' uponClick='none'/>
         </div>

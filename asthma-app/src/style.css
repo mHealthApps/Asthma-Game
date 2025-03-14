@@ -699,8 +699,6 @@
 }
 
 .summary-button-container {
-  /* Remove next line of styling if you add the other button back in */
-  margin-top: calc(var(--vh, 1vh) * 10.25);
   height: calc(var(--vh, 1vh) * 8.0);
   font-size: calc(var(--vh, 1vh)* 2.5);
   margin-bottom: calc(var(--vh, 1vh) * 2.5)
