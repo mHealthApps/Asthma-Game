@@ -6,7 +6,7 @@ import Lungs_Anatomy_25 from '../../assets/images/25_Lungs_Anatomy.jpg';
 import ReactGA from 'react-ga4';
 
 
-const CongratulationsPage = () => {
+const CongratulationsPage = ({ userName }) => {
   // GA CongratsPage pageview
   useEffect(() => {
     ReactGA.send({ hitType: 'pageview', page: '/congratulations', title: 'Page: Congratulations' });
@@ -15,7 +15,7 @@ const CongratulationsPage = () => {
 
   return (
     <div className="asthma-background">
-      <Congratulations image={Lungs_Anatomy_25} alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" />
+      <Congratulations image={Lungs_Anatomy_25} alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" userName={userName} />
     </div>
   );
 }

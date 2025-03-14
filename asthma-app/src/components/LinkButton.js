@@ -8,7 +8,8 @@ const LinkButton = ({ text, buttonLink, stylingClass, uponClick }) => {
   const navigate = useNavigate();
 
 
-  const handleClick = () => {
+  const handleClick = (e) => {
+    e.stopPropagation();
     if (uponClick === 'none' || uponClick === undefined) {
       navigate(buttonLink);
     } else {
@@ -20,7 +21,7 @@ const LinkButton = ({ text, buttonLink, stylingClass, uponClick }) => {
   }
 
   return (
-    <button className={`link-button ${stylingClass}`} onClick={handleClick}>{text}</button>
+    <button className={`link-button ${stylingClass}`} onClick={(e) => {handleClick(e)}}>{text}</button>
   );
 }
 

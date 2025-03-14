@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
-import { Col } from 'react-bootstrap';
+import { Button, Col, Form } from 'react-bootstrap';
 import { CheckCircleFill } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import LinkButton from './LinkButton';
@@ -92,7 +92,80 @@ const ResetPopup = ({ cancelRequest, link, orientation, requestReset, conditionT
   );
 }
 
-const ListGrid = ({ items, conditionTitle, orientation }) => {
+const CertificatePopup = ({ orientation, activateNamePopup, closePopup }) => {
+  return (
+    <div className="popup-container click-through" style={{
+      backgroundColor: 'transparent',
+    }}>
+      <div className="popup certificate-popup" onClick={activateNamePopup} >
+        <div className='certificate-popup-text-container'>
+          <h3 className='reset-text' style={{
+            fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.026 : 0.019))}px`,
+          }}>You have completed all modules</h3>
+          <h3 className='reset-text' style={{
+            fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.026 : 0.019))}px`,
+            color: 'rgb(20, 150, 220)',
+          }}>Click here to access certificate of completion</h3>
+        </div>
+        <div className='certificate-popup-button-container' style={{
+          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
+        }}>
+          <LinkButton text='Close Popup' stylingClass='reset-button' uponClick={closePopup} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const UserNamePopup = ({ orientation, setUserName }) => {
+  const [inputValue, setInputValue] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleNameSubmission = (e) => {
+    e.preventDefault();
+    setUserName(inputValue);
+    console.log('navigate to certificate');
+    setTimeout(() => {
+      navigate('/congratulations');
+    }, 0)
+  }
+
+  return (
+    <div className="popup-container">
+      <div className="popup username-popup">
+        <div className='username-popup-text-container'>
+          <h3 className='reset-text' style={{
+            fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.026 : 0.019))}px`,
+          }}>Please enter your name for the certificate:</h3>
+        </div>
+        <Form onSubmit={handleNameSubmission} className='username-form-container'>
+          <div className='username-input-container'>
+            <Form.Group controlId="formBasicText">
+              <Form.Control
+                type="text"
+                placeholder="Type something..."
+                value={inputValue}
+                onChange={handleChange}
+              />
+            </Form.Group>
+          </div>
+          <div className='reset-button-container' style={{
+            fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.035 : 0.025))}px`,
+          }}>
+            <Button type='submit'>Submit Name</Button>
+          </div>
+        </Form>
+      </div>
+    </div>
+  );
+}
+
+const ListGrid = ({ items, conditionTitle, orientation, setUserName }) => {
   const setDefaultCompleted = useCallback(() => {
     let defaultCompleted = '';
     for (let i = 0; i < items.length; i++) {
@@ -103,10 +176,21 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
 
   const [completedLists, setCompletedLists] = useState(setDefaultCompleted());
   const [requestReset, setRequestReset] = useState(-1);
+  const [certificatePopup, setCertificatePopup] = useState(-1);
+  const [requestName, setRequestName] = useState(-1);
   // const [firstEffectCompleted, setFirstEffectCompleted] = useState(false);
 
   const cancelRequest = () => {
     setRequestReset(-1);
+  }
+
+  const activateNamePopup = () => {
+    setCertificatePopup(-1);
+    setRequestName(0);
+  }
+
+  const closePopup = () => {
+    setCertificatePopup(-1);
   }
 
   const checkIfCompleted = (list) => {
@@ -142,9 +226,10 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
         key = conditionTitle.toLowerCase() + 'Congrats';
         const completed = localStorage.getItem(key);
         console.log(`congrats has been visited: ${completed}`);
+        setCertificatePopup(0);
         if (completed === null || completed !== 'true') {
           setTimeout(() => {
-            navigate('/congratulations');
+            // navigate('/congratulations');
           }, 0)
         }
       } else {
@@ -174,6 +259,12 @@ const ListGrid = ({ items, conditionTitle, orientation }) => {
       {(requestReset > -1) ?
         <ResetPopup cancelRequest={cancelRequest} link={items[requestReset].link} orientation={orientation} requestReset={requestReset} conditionTitle={conditionTitle} /> :
         ''
+      }
+      {(certificatePopup > -1 && requestReset < 0 && requestName < 0) ?
+        <CertificatePopup orientation={orientation} activateNamePopup={activateNamePopup} closePopup={closePopup} /> : ''
+      }
+      {(requestName > -1) ?
+        <UserNamePopup orientation={orientation} setUserName={setUserName} /> : ''
       }
     </div>
   );

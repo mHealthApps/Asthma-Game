@@ -608,6 +608,51 @@
   flex-direction: column;
 }
 
+.certificate-popup {
+  flex-direction: column;
+  margin-top: calc(var(--vh, 1vh)* 60.0);
+  width: 80%;
+  height: calc(var(--vh, 1vh)* 25.0);
+  pointer-events: auto;
+}
+
+.certificate-popup:hover {
+  cursor: pointer;
+}
+
+.certificate-popup-text-container {
+  height: 70%;
+  align-content: center;
+}
+
+.certificate-popup-button-container {
+  height: 30%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.username-popup {
+  flex-direction: column;
+  width: 80%;
+  height: calc(var(--vh, 1vh)* 40.0);
+  pointer-events: auto;
+}
+
+.username-popup-text-container {
+  height: 20%;
+}
+
+.username-form-container {
+  height: 60%;
+}
+
+.username-input-container {
+  height: 40%;
+}
+
 .summary-outer-container {
   width: 100vw;
   height: calc(var(--vh, 1vh)* 100.0);
@@ -654,6 +699,8 @@
 }
 
 .summary-button-container {
+  /* Remove next line of styling if you add the other button back in */
+  margin-top: calc(var(--vh, 1vh) * 10.25);
   height: calc(var(--vh, 1vh) * 8.0);
   font-size: calc(var(--vh, 1vh)* 2.5);
   margin-bottom: calc(var(--vh, 1vh) * 2.5)

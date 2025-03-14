@@ -34,7 +34,7 @@ const items = [
   },
 ];
 
-const AsthmaList = () => {
+const AsthmaList = ({ setUserName }) => {
   // GA Glossary pageview
   useEffect(() => {
     ReactGA.send({ hitType: 'pageview', page: '/asthma-list', title: 'Page: Asthma List' });
@@ -48,7 +48,7 @@ const AsthmaList = () => {
       <div className="asthma-red">
         <TopBar barWidth='' conditionTitle='ASTHMA' orientation={orientation} />
       </div>
-      <ListGrid items={items} conditionTitle='ASTHMA' orientation={orientation} />
+      <ListGrid items={items} conditionTitle='ASTHMA' orientation={orientation} setUserName={setUserName} />
     </div>
   );
 };

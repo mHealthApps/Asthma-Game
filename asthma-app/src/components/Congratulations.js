@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import LinkButton from './LinkButton';
 import useOrientation from '../hooks/useOrientation';
-import { Share } from 'react-bootstrap-icons';
+// import { Share } from 'react-bootstrap-icons';
 import  Confetti  from 'react-confetti';
 
 
@@ -15,22 +15,22 @@ const CongratulationsImage = ({ image, alt }) => {
   );
 }
 
-const CongratulationsExplanation = ({ conditionTitle, orientation }) => {
+const CongratulationsExplanation = ({ conditionTitle, orientation, userName }) => {
   return (
     <div className="inner-container summary-explanation-container" style={{
       fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.028 : 0.025))}px`
     }}>
       <h2 style={{
-        fontSize: '250%',
+        fontSize: '200%',
       }}>
-        Congrats!
+        Congrats {userName}!
       </h2>
       You have completed the {conditionTitle.charAt(0).toUpperCase()}{conditionTitle.slice(1).toLowerCase()} section
     </div>
   );
 }
 
-const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
+const Congratulations = ({ image, alt, buttonLink, conditionTitle, userName }) => {
   const orientation = useOrientation();
   const [numPieces, setNumPieces] = useState(150);
 
@@ -52,12 +52,12 @@ const Congratulations = ({ image, alt, buttonLink, conditionTitle }) => {
         <div className='inner-container congratulations-image-container'>
           <CongratulationsImage image={image} alt={alt}/>
         </div>
-        <CongratulationsExplanation conditionTitle={conditionTitle} orientation={orientation}/>
-        <div className='inner-container summary-button-container' style={{
-          fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
-        }}>
-          <LinkButton text={<div><Share />  Share Results</div>} buttonLink='' stylingClass='share-button' uponClick='none'/>
-        </div>
+        <CongratulationsExplanation conditionTitle={conditionTitle} orientation={orientation} userName={userName}/>
+        {/*<div className='inner-container summary-button-container' style={{*/}
+        {/*  fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,*/}
+        {/*}}>*/}
+        {/*  <LinkButton text={<div><Share />  Share Results</div>} buttonLink='' stylingClass='share-button' uponClick='none'/>*/}
+        {/*</div>*/}
         <div className='inner-container summary-button-container' style={{
           fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.04 : 0.025))}px`,
           fontWeight: 'bold',

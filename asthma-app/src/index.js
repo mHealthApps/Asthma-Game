@@ -81,6 +81,8 @@ function App() {
     console.log(`re-render triggered. --vh: ${verticalHeight}`);
   }, [verticalHeight])
 
+  const [userName, setUserName] = useState('');
+
   return (
     <HashRouter>
       <Routes>
@@ -90,7 +92,7 @@ function App() {
         <Route path="/resources" element={<Resources />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/sound-choice" element={<SoundChoice />} />
-        <Route path="/asthma-list" element={<AsthmaList />} />
+        <Route path="/asthma-list" element={<AsthmaList setUserName={setUserName} />} />
         <Route path="/stacked-demo" element={<DemoStacked />} />
         <Route path="/quiz-demo" element={<DemoQuiz />} />
         <Route path="/summary-demo" element={<DemoSummary />} />
@@ -102,7 +104,7 @@ function App() {
         <Route path="/asthma-management" element={<AsthmaManagement />} />
         <Route path="/first-aid" element={<FirstAid />} />
         <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
-        <Route path="/congratulations" element={<CongratulationsPage />} />
+        <Route path="/congratulations" element={<CongratulationsPage userName={userName} />} />
       </Routes>
     </HashRouter>
   );
