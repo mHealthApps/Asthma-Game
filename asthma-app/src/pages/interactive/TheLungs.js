@@ -13,14 +13,20 @@ import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
 import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
 import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Animation.mp4';
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
-import templateBeep from '../../assets/audio/template-beep.mp3';
-import templateConversation from '../../assets/audio/template-conversation.mp3';
+import AudioFile1 from '../../assets/audio/Audio File #1.mp3';
+import AudioFile2 from '../../assets/audio/Audio File #2.mp3';
+import AudioFile3 from '../../assets/audio/Audio File #3.mp3';
+import AudioFile4 from '../../assets/audio/Audio File #4.mp3';
+import AudioFile5 from '../../assets/audio/Audio File #5.mp3';
+import AudioFile6 from '../../assets/audio/Audio File #6.mp3';
+import AudioFile7 from '../../assets/audio/Audio File #7.mp3';
+import AudioFile8 from '../../assets/audio/Audio File #8.mp3';
 import ReactGA from 'react-ga4';
 
 
 const lungsCards = [
   {
-    audio: templateConversation,
+    audio: AudioFile1,
     image: Lungs_Anatomy_25,
     alt: 'lungs',
     text: <div>
@@ -34,7 +40,7 @@ const lungsCards = [
 
   },
   {
-    audio: templateBeep,
+    audio: AudioFile2,
     image: WhiteShirt_Girl_Lungs_10,
     alt: 'template',
     header: 'THE LUNGS',
@@ -47,7 +53,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile3,
     image: Lungs_Text_1_26,
     alt: 'lungs',
     header: 'THE LUNGS',
@@ -56,7 +62,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile4,
     image: Lungs_Text_2_27,
     alt: 'lungs',
     header: 'THE LUNGS',
@@ -65,7 +71,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile5,
     image: Lung_Tree_31,
     alt: 'wide lungs',
     header: 'THE LUNGS',
@@ -74,7 +80,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile6,
     image: Lung_Tree_31,
     alt: 'wideLungs',
     header: 'THE LUNGS',
@@ -83,7 +89,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile7,
     image: 'animation',
     animation: Lungs_Oxygen_Animation_29,
     alt: 'lungs',
@@ -93,7 +99,7 @@ const lungsCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile8,
     image: 'animation',
     animation: Lungs_Oxygen_Animation_30,
     alt: 'lungs',
