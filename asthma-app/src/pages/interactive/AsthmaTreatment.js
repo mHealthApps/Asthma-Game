@@ -144,7 +144,7 @@ const treatmentCards = [
   {
     audio: templateBeep,
     image: '',
-    video: 'https://www.youtube.com/embed/u31qwQUeGuM?si=I-hCQvF4DvIkFf2K',
+    video: 'https://www.youtube.com/embed/sQUUJHzO-XQ?si=SzyaNjA0gb3vpP5Z',
     text: '',
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
