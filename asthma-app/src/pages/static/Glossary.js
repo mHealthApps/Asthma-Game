@@ -37,7 +37,7 @@ const Glossary = () => {
             <div className='glossary-content-title'>Alveoli</div> - tiny air sacs in the lungs which allows for gaseous exchange
           </div>
           <div className='glossary-item'>
-            <div className='glossary-content-title'>Lungs</div> -a major organ of the respiratory system, located in the rib cage and allows the exchange of oxygen and carbon dioxide through the bloodstream
+            <div className='glossary-content-title'>Lungs</div> - a major organ of the respiratory system, located in the rib cage and allows the exchange of oxygen and carbon dioxide through the bloodstream
           </div>
           <br/>
           <div className='glossary-item'>
