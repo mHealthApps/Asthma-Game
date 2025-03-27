@@ -28,6 +28,8 @@ const Resources = () => {
           <a href='https://www.lung.org/' target='_blank' rel="noreferrer">American Lung Assocition</a>
           <a href='https://www.cdc.gov/asthma/about/index.html' target='_blank' rel="noreferrer">Centers for Disease Control and Prevention- Asthma</a>
           <a href='https://www.mayoclinic.org/diseases-conditions/asthma/symptoms-causes/syc-20369653' target='_blank' rel="noreferrer">MayoClinic- Asthma</a>
+          <a href='https://aafa.org/asthma/asthma-treatment/asthma-treatment-action-plan/' target='_blank' rel="noreferrer">Asthma Action Plans</a>
+          <a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Asthma Medication Types</a>
 
           <br/>
           <h5>Oahu</h5>
