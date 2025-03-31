@@ -12,13 +12,25 @@ import Fruits_34 from '../../assets/images/34_Fruits.jpg';
 import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
 import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
 import WhiteShirt_Girl_Toddler_9 from '../../assets/images/9_WhiteShirt_Girl_Toddler.jpg';
-import templateBeep from '../../assets/audio/template-beep.mp3';
+import AudioFile55 from '../../assets/audio/Audio-File-55.mp3';
+import AudioFile56 from '../../assets/audio/Audio-File-56.mp3';
+import AudioFile57 from '../../assets/audio/Audio-File-57.mp3';
+import AudioFile58 from '../../assets/audio/Audio-File-58.mp3';
+import AudioFile59 from '../../assets/audio/Audio-File-59.mp3';
+import AudioFile60 from '../../assets/audio/Audio-File-60.mp3';
+import AudioFile61 from '../../assets/audio/Audio-File-61.mp3';
+import AudioFile61a from '../../assets/audio/Audio-File-61a.mp3';
+import AudioFile61b from '../../assets/audio/Audio-File-61b.mp3';
+import AudioFile62 from '../../assets/audio/Audio-File-62.mp3';
+import AudioFile62a from '../../assets/audio/Audio-File-62a.mp3';
+import AudioFile62b from '../../assets/audio/Audio-File-62b.mp3';
+import AudioFile63 from '../../assets/audio/Audio-File-63.mp3';
 import ReactGA from 'react-ga4';
 
 
 const healthyLifestyleCards = [
   {
-    audio: templateBeep,
+    audio: AudioFile55,
     image: OrgShirt_Girl_Sitting_5,
     alt: 'lungs',
     text: <div>
@@ -31,7 +43,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile56,
     image: Toddler_Doctor_17,
     alt: 'template',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
@@ -43,7 +55,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile57,
     image: All_Inhalers_23,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD'S LUNGS HEALTHY`,
@@ -55,7 +67,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile58,
     image: Fruits_34,
     alt: 'lungs',
     header: `KEEPING YOUR CHILD WELL`,
@@ -69,7 +81,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile59,
     image: Asthma_Action_Plan_33,
     alt: 'wide lungs',
     header: `DON'T LET ASTHMA CONTROL YOUR CHILD'S LIFE`,
@@ -82,7 +94,7 @@ const healthyLifestyleCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile60,
     image: OrgShirt_Girl_Sitting_2Smokers_6,
     alt: 'wideLungs',
     text: '',
@@ -145,11 +157,11 @@ const HealthyLifestyle = () => {
       case 0:
         return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' audios={[AudioFile61, AudioFile61b, AudioFile61a]} />
       case 2:
-        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' />
+        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' audios={[AudioFile62, AudioFile62b, AudioFile62a]} />
       case 3:
-        return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list"/>
+        return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list" audio={AudioFile63} />
       default:
         return <div>Error: rendering failed</div>
     }

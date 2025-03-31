@@ -12,13 +12,28 @@ import Paper_Meh_39 from '../../assets/images/39_Paper_Meh.jpg';
 import Paper_Bad_40 from '../../assets/images/40_Paper_Bad.jpg';
 import Toddler_16 from '../../assets/images/16_Toddler.jpg';
 import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler_v2.jpg';
-import templateBeep from '../../assets/audio/template-beep.mp3';
+import AudioFile35 from '../../assets/audio/Audio-File-35.mp3';
+import AudioFile36 from '../../assets/audio/Audio-File-36.mp3';
+import AudioFile37 from '../../assets/audio/Audio-File-37.mp3';
+import AudioFile38 from '../../assets/audio/Audio-File-38.mp3';
+import AudioFile39 from '../../assets/audio/Audio-File-39.mp3';
+import AudioFile40 from '../../assets/audio/Audio-File-40.mp3';
+import AudioFile41 from '../../assets/audio/Audio-File-41.mp3';
+import AudioFile42 from '../../assets/audio/Audio-File-42.mp3';
+import AudioFile43 from '../../assets/audio/Audio-File-43.mp3';
+import AudioFile44 from '../../assets/audio/Audio-File-44.mp3';
+import AudioFile44a from '../../assets/audio/Audio-File-44a.mp3'
+import AudioFile44b from '../../assets/audio/Audio-File-44b.mp3';
+import AudioFile44c from '../../assets/audio/Audio-File-44c.mp3';
+import AudioFile44d from '../../assets/audio/Audio-File-44d.mp3';
+import AudioFile44e from '../../assets/audio/Audio-File-44e.mp3';
+import AudioFile45 from '../../assets/audio/Audio-File-45.mp3';
 import ReactGA from 'react-ga4';
 
 
 const managementCards = [
   {
-    audio: templateBeep,
+    audio: AudioFile35,
     image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     text: <div>
@@ -31,7 +46,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile36,
     image: OrgShirt_Girl_Bending_2,
     alt: 'template',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
@@ -46,7 +61,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile37,
     image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
@@ -59,7 +74,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile38,
     image: Paper_Good_38,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -71,7 +86,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile39,
     image: Paper_Meh_39,
     alt: 'wide lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -84,7 +99,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile40,
     image: Paper_Meh_39,
     alt: 'wideLungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -96,7 +111,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile41,
     image: Paper_Bad_40,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -109,7 +124,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile42,
     image: Paper_Bad_40,
     alt: 'lungs',
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
@@ -123,7 +138,7 @@ const managementCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile43,
     image: Toddler_16,
     alt: 'wideLungs',
     text: '',
@@ -190,11 +205,11 @@ const AsthmaManagement = () => {
       case 0:
         return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={managementQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={managementQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44, AudioFile44a, AudioFile44b]} />
       case 2:
-        return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44c, AudioFile44d, AudioFile44e]} />
       case 3:
-        return <Summary image={TealShirt_Girl_Coughing_4} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list"/>
+        return <Summary image={TealShirt_Girl_Coughing_4} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list" audio={AudioFile45} />
       default:
         return <div>Error: rendering failed</div>
     }

@@ -17,13 +17,25 @@ import Heart_14 from '../../assets/images/14_Heart.jpg';
 import Kidney_15 from '../../assets/images/15_Kidney.jpg';
 import Lung_32 from '../../assets/images/32_Lung.jpg';
 import WhiteShirt_Girl_Lungs_Tube_Animation_12 from '../../assets/videos/12_WhiteShirt_Breathing Tube_Animation.mp4';
-import templateBeep from '../../assets/audio/template-beep.mp3';
+import AudioFile11 from '../../assets/audio/Audio-File-11.mp3';
+import AudioFile12 from '../../assets/audio/Audio-File-12.mp3';
+import AudioFile13 from '../../assets/audio/Audio-File-13.mp3';
+import AudioFile14 from '../../assets/audio/Audio-File-14.mp3';
+import AudioFile15 from '../../assets/audio/Audio-File-15.mp3';
+import AudioFile16 from '../../assets/audio/Audio-File-16.mp3';
+import AudioFile17 from '../../assets/audio/Audio-File-17.mp3';
+import AudioFile18 from '../../assets/audio/Audio-File-18.mp3';
+import AudioFile19 from '../../assets/audio/Audio-File-19.mp3';
+import AudioFile20 from '../../assets/audio/Audio-File-20.mp3';
+import AudioFile20a from '../../assets/audio/Audio-File-20a.mp3';
+import AudioFile20b from '../../assets/audio/Audio-File-20b.mp3';
+import AudioFile21 from '../../assets/audio/Audio-File-21.mp3';
 import ReactGA from 'react-ga4';
 
 
 const aboutAsthmaCards = [
   {
-    audio: templateBeep,
+    audio: AudioFile11,
     image: OrgShirt_Girl_Bending_2,
     alt: 'lungs',
     text: <div>
@@ -37,7 +49,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile12,
     image: WhiteShirt_Girl_Lungs_10,
     alt: 'template',
     header: 'WHAT IS ASTHMA?',
@@ -50,7 +62,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile13,
     image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     header: 'WHAT CAUSES ASTHMA?',
@@ -64,7 +76,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile14,
     image: WhiteShirt_Lungs_Tube_11,
     alt: 'lungs',
     header: 'A NORMAL BREATHING TUBE',
@@ -75,7 +87,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile15,
     animation: WhiteShirt_Girl_Lungs_Tube_Animation_12,
     alt: 'wide lungs',
     header: 'ASTHMA BREATHING TUBE',
@@ -86,7 +98,7 @@ const aboutAsthmaCards = [
     </div>
   },
   {
-    audio: templateBeep,
+    audio: AudioFile16,
     image: OrgShirt_Girl_Bending_2,
     alt: 'wideLungs',
     header: 'SIGNS AND SYMPTOMS OF ASTHMA',
@@ -100,7 +112,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile17,
     image: Dog_Weather_Cleaning_24,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
@@ -114,7 +126,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile18,
     image: Smoker_FastFood_Vog_Pollen_7,
     alt: 'lungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
@@ -127,7 +139,7 @@ const aboutAsthmaCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile19,
     image: TealShirt_Girl_Sports_Mites_18,
     alt: 'wideLungs',
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
@@ -191,9 +203,9 @@ const AboutAsthma = () => {
       case 0:
         return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' />
+        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile20, AudioFile20a, AudioFile20b]} />
       case 2:
-        return <Summary image={Lung_32} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list"/>
+        return <Summary image={Lung_32} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list" audio={AudioFile21} />
       default:
         return <div>Error: rendering failed</div>
     }

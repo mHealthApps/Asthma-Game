@@ -13,14 +13,18 @@ import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
 import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
 import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Animation.mp4';
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
-import AudioFile1 from '../../assets/audio/Audio File #1.mp3';
-import AudioFile2 from '../../assets/audio/Audio File #2.mp3';
-import AudioFile3 from '../../assets/audio/Audio File #3.mp3';
-import AudioFile4 from '../../assets/audio/Audio File #4.mp3';
-import AudioFile5 from '../../assets/audio/Audio File #5.mp3';
-import AudioFile6 from '../../assets/audio/Audio File #6.mp3';
-import AudioFile7 from '../../assets/audio/Audio File #7.mp3';
-import AudioFile8 from '../../assets/audio/Audio File #8.mp3';
+import AudioFile1 from '../../assets/audio/Audio-File-1.mp3';
+import AudioFile2 from '../../assets/audio/Audio-File-2.mp3';
+import AudioFile3 from '../../assets/audio/Audio-File-3.mp3';
+import AudioFile4 from '../../assets/audio/Audio-File-4.mp3';
+import AudioFile5 from '../../assets/audio/Audio-File-5.mp3';
+import AudioFile6 from '../../assets/audio/Audio-File-6.mp3';
+import AudioFile7 from '../../assets/audio/Audio-File-7.mp3';
+import AudioFile8 from '../../assets/audio/Audio-File-8.mp3';
+import AudioFile9 from '../../assets/audio/Audio-File-9.mp3';
+import AudioFile9a from '../../assets/audio/Audio-File-9a.mp3';
+import AudioFile9b from '../../assets/audio/Audio-File-9b.mp3';
+import AudioFile10 from '../../assets/audio/Audio-File-10.mp3';
 import ReactGA from 'react-ga4';
 
 
@@ -147,9 +151,9 @@ const TheLungs = () => {
       case 0:
         return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' animation={Lungs_Oxygen_Animation_30} alt='lungs' />
+        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' animation={Lungs_Oxygen_Animation_30} alt='lungs' audios={[AudioFile9, AudioFile9a, AudioFile9b]} />
       case 2:
-        return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" />
+        return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" audio={AudioFile10} />
       default:
         return <div>Error: rendering failed</div>
     }

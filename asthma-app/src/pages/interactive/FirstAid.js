@@ -12,13 +12,32 @@ import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
-import templateBeep from '../../assets/audio/template-beep.mp3';
+import AudioFile46 from '../../assets/audio/Audio-File-46.mp3';
+import AudioFile47 from '../../assets/audio/Audio-File-47.mp3';
+import AudioFile48 from '../../assets/audio/Audio-File-48.mp3';
+import AudioFile49 from '../../assets/audio/Audio-File-49.mp3';
+import AudioFile50 from '../../assets/audio/Audio-File-50.mp3';
+import AudioFile51 from '../../assets/audio/Audio-File-51.mp3';
+import AudioFile52 from '../../assets/audio/Audio-File-52.mp3';
+import AudioFile53 from '../../assets/audio/Audio-File-53.mp3';
+import AudioFile53a from '../../assets/audio/Audio-File-53a.mp3';
+import AudioFile53b from '../../assets/audio/Audio-File-53b.mp3';
+import AudioFile53c from '../../assets/audio/Audio-File-53c.mp3';
+import AudioFile53d from '../../assets/audio/Audio-File-53d.mp3';
+import AudioFile53e from '../../assets/audio/Audio-File-53e.mp3';
+import AudioFile53f from '../../assets/audio/Audio-File-53f.mp3';
+import AudioFile53g from '../../assets/audio/Audio-File-53g.mp3';
+import AudioFile53h from '../../assets/audio/Audio-File-53h.mp3';
+import AudioFile53i from '../../assets/audio/Audio-File-53i.mp3';
+import AudioFile53j from '../../assets/audio/Audio-File-53j.mp3';
+import AudioFile53k from '../../assets/audio/Audio-File-53k.mp3';
+import AudioFile54 from '../../assets/audio/Audio-File-54.mp3';
 import ReactGA from 'react-ga4';
 
 
 const firstAidCards = [
   {
-    audio: templateBeep,
+    audio: AudioFile46,
     image: TealShirt_Girl_Coughing_4,
     alt: 'lungs',
     text: <div>
@@ -31,7 +50,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile47,
     image: OrgShirt_Girl_Sitting_5,
     alt: 'template',
     header: 'FIRST AID EMERGENCY: STEP 1',
@@ -44,7 +63,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile48,
     image: BlueShirt_Boy_Spacer_3,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 2',
@@ -63,7 +82,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile49,
     image: Clock_35,
     alt: 'lungs',
     header: 'FIRST AID EMERGENCY: STEP 3',
@@ -75,7 +94,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile50,
     image: Ambulance_36,
     alt: 'wide lungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
@@ -87,7 +106,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile51,
     image: Ambulance_36,
     alt: 'wideLungs',
     header: 'FIRST AID EMERGENCY: STEP 4',
@@ -99,7 +118,7 @@ const firstAidCards = [
     </div>,
   },
   {
-    audio: templateBeep,
+    audio: AudioFile52,
     image: OrgShirt_Girl_Sitting_5,
     alt: 'lungs',
     text: '',
@@ -198,15 +217,15 @@ const FirstAid = () => {
       case 0:
         return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
       case 1:
-        return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} />
+        return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} audios={[AudioFile53, AudioFile53b, AudioFile53a]} />
       case 2:
-        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} />
+        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} audios={[AudioFile53c, AudioFile53e, AudioFile53d]}/>
       case 3:
-        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} />
+        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} audios={[AudioFile53f, AudioFile53h, AudioFile53g]} />
       case 4:
-        return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} />
+        return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} audios={[AudioFile53i, AudioFile53k, AudioFile53j]} />
       case 5:
-        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list"/>
+        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list" audio={AudioFile54} />
       default:
         return <div>Error: rendering failed</div>
     }

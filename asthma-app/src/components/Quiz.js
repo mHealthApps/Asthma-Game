@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import TopBar from './TopBar';
@@ -123,7 +123,7 @@ const AnswerPopup = ({ result, reset, orientation }) => {
   );
 }
 
-const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation }) => {
+const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation, audios }) => {
   /* Handling screen orientation */
   const orientation = useOrientation();
   const [answerQuestion, setAnswerQuestion] = useState('none');
@@ -135,25 +135,78 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation }) =
     setAnswerQuestion('incorrect');
   }
 
+  // Audio Setup
+  const [soundOff, setSoundOff] = useState(0);
+  const audioRefs = useRef([new Audio(), new Audio(), new Audio()]);
+  const [initAudio, setInitAudio] = useState(false);
+
+  const playAudio = useCallback((index) => {
+    if (soundOff === 0) {
+      console.log(`play quiz #${index} audio`);
+      if (audioRefs.current[index]) {
+        audioRefs.current[index].currentTime = 0;
+        audioRefs.current[index].play();
+      }
+    } else {
+      console.log('sound disabled');
+    }
+  }, [soundOff]);
+
   const reset = useCallback(() => {
+    if (soundOff === 0) {
+      audioRefs.current[1].pause();
+      audioRefs.current[2].pause();
+    }
     if (uponCompletion !== 'none' && answerQuestion === 'correct') {
       setAnswerQuestion('none');
       uponCompletion();
     } else {
+      if (soundOff === 0) {
+        playAudio(0);
+      }
       setAnswerQuestion('none');
     }
     console.log('quiz reset');
-  }, [answerQuestion, uponCompletion]);
+  }, [answerQuestion, playAudio, soundOff, uponCompletion]);
+
+  useEffect(() => {
+    let tempSoundOff = localStorage.getItem('soundOff');
+    if (tempSoundOff !== null) {
+      console.log(`reading in sound choice: ${tempSoundOff}`)
+      setSoundOff(Number(tempSoundOff));
+    }
+
+    if (!initAudio) {
+      if (audios !== undefined) {
+        for (let i = 0; i < audioRefs.current.length; i++) {
+          audioRefs.current[i].src = audios[i];
+        }
+      }
+
+      setInitAudio(true);
+      if (tempSoundOff === null || Number(tempSoundOff) === 0) {
+        playAudio(0);
+      }
+    }
+  }, [audios, initAudio, playAudio])
 
   useEffect(() => {
     if (answerQuestion !== 'none') {
+      if (soundOff === 0) {
+        audioRefs.current[0].pause();
+        if (answerQuestion === 'correct') {
+          playAudio(1);
+        } else {
+          playAudio(2);
+        }
+      }
       const timer = setTimeout(() => {
         reset();
-      }, 1500);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
-  }, [answerQuestion, reset]);
+  }, [answerQuestion, playAudio, reset, soundOff]);
 
   return (
     <div className="quiz-module">
