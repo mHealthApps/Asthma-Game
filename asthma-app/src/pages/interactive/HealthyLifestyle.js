@@ -159,7 +159,7 @@ const HealthyLifestyle = () => {
       case 1:
         return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' audios={[AudioFile61, AudioFile61b, AudioFile61a]} />
       case 2:
-        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' audios={[AudioFile62, AudioFile62b, AudioFile62a]} />
+        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' audios={[AudioFile62, AudioFile62a, AudioFile62b]} />
       case 3:
         return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list" audio={AudioFile63} />
       default:

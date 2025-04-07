@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../style.css';
 import LinkButton from './LinkButton';
@@ -30,9 +30,45 @@ const CongratulationsExplanation = ({ conditionTitle, orientation, userName }) =
   );
 }
 
-const Congratulations = ({ image, alt, buttonLink, conditionTitle, userName }) => {
+const Congratulations = ({ image, alt, buttonLink, conditionTitle, userName, audio }) => {
   const orientation = useOrientation();
   const [numPieces, setNumPieces] = useState(150);
+
+  // Audio Setup
+  const [soundOff, setSoundOff] = useState(0);
+  const audioRef = useRef(new Audio());
+  const [initAudio, setInitAudio] = useState(false);
+
+  const playAudio = useCallback(() => {
+    if (soundOff === 0) {
+      console.log(`play summary audio`);
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current.play();
+      }
+    } else {
+      console.log('sound disabled');
+    }
+  }, [soundOff]);
+
+  useEffect(() => {
+    let tempSoundOff = localStorage.getItem('soundOff');
+    if (tempSoundOff !== null) {
+      console.log(`reading in sound choice: ${tempSoundOff}`)
+      setSoundOff(Number(tempSoundOff));
+    }
+
+    if (!initAudio) {
+      if (audio !== undefined) {
+        audioRef.current.src = audio;
+      }
+
+      setInitAudio(true);
+      if (tempSoundOff === null || Number(tempSoundOff) === 0) {
+        playAudio();
+      }
+    }
+  }, [initAudio, audio, playAudio])
 
   useEffect(() => {
     const key = conditionTitle.toLowerCase() + 'Congrats';

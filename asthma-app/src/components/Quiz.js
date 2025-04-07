@@ -159,6 +159,7 @@ const Quiz = ({ quiz, uponCompletion, conditionTitle, image, alt, animation, aud
     }
     if (uponCompletion !== 'none' && answerQuestion === 'correct') {
       setAnswerQuestion('none');
+      setInitAudio(false);
       uponCompletion();
     } else {
       if (soundOff === 0) {

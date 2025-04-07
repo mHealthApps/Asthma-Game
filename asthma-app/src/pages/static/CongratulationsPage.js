@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import Congratulations from '../../components/Congratulations';
 import Lungs_Anatomy_25 from '../../assets/images/25_Lungs_Anatomy.jpg';
 import ReactGA from 'react-ga4';
+import AudioFile64 from '../../assets/audio/Audio-File-64.mp3';
 
 
 const CongratulationsPage = ({ userName }) => {
@@ -15,7 +16,7 @@ const CongratulationsPage = ({ userName }) => {
 
   return (
     <div className="asthma-background">
-      <Congratulations image={Lungs_Anatomy_25} alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" userName={userName} />
+      <Congratulations image={Lungs_Anatomy_25} alt="lungs-wide"  buttonLink="/asthma-list" conditionTitle="ASTHMA" userName={userName} audio={AudioFile64} />
     </div>
   );
 }

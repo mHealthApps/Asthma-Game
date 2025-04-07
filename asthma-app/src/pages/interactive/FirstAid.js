@@ -219,9 +219,9 @@ const FirstAid = () => {
       case 1:
         return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} audios={[AudioFile53, AudioFile53b, AudioFile53a]} />
       case 2:
-        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} audios={[AudioFile53c, AudioFile53e, AudioFile53d]}/>
+        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} audios={[AudioFile53c, AudioFile53d, AudioFile53e]}/>
       case 3:
-        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} audios={[AudioFile53f, AudioFile53h, AudioFile53g]} />
+        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} audios={[AudioFile53f, AudioFile53g, AudioFile53h]} />
       case 4:
         return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} audios={[AudioFile53i, AudioFile53k, AudioFile53j]} />
       case 5:
