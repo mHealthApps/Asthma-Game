@@ -73,27 +73,33 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
   // Audio functionality
   const [soundOff, setSoundOff] = useState(0);
   const audioRefs = useRef(cards.map(() => new Audio()));
+  const videoAudioRef = useRef(new Audio());
   const [initAudio, setInitAudio] = useState(false);
 
   const playAudio = useCallback((index) => {
     if (soundOff === 0) {
       console.log(`play card #${index} audio`);
-      if (audioRefs.current[index]) {
+      if (index >= audioRefs.current.length) {
+        videoAudioRef.current.currentTime = 0;
+        videoAudioRef.current.play();
+      } else if (audioRefs.current[index]) {
         audioRefs.current[index].play();
       }
     } else {
       console.log('sound disabled');
     }
   }, [soundOff]);
-  const pauseAudio = (index) => {
+  const pauseAudio = useCallback((index) => {
     if (soundOff === 0) {
       console.log(`pause card #${index} audio`);
-      if (audioRefs.current[index]) {
+      if (index >= audioRefs.current.length) {
+        videoAudioRef.current.pause();
+      } else if (audioRefs.current[index]) {
         audioRefs.current[index].pause();
       }
       // currentAudio.current.pause();
     }
-  };
+  }, [soundOff]);
 
   const pauseCurrent = () => {
     console.log(`user requests pause card #${cardNum} audio`);
@@ -117,6 +123,10 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
       for (let i = 0; i < audioRefs.current.length; i++) {
         audioRefs.current[i].src = cards[i].audio;
         console.log(`card #${i} audio src: ${audioRefs.current[i].src}`);
+        if (videoAudioRef.current.src === '' && cards[i].videoAudio !== undefined) {
+          videoAudioRef.current.src = cards[i].videoAudio;
+          console.log(`after video audio src: ${videoAudioRef.current.src}`);
+        }
       }
       setInitAudio(true);
       if (tempSoundOff === null || Number(tempSoundOff) === 0) {
@@ -124,6 +134,41 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
       }
     }
   }, [cards, initAudio, playAudio]);
+
+  const onPlayerStateChange = useCallback((event) => {
+    console.log('Player state change detected');
+    if (event.data === window.YT.PlayerState.PLAYING) {
+      // Not working
+      console.log("Video is playing");
+      // Your function to handle when the video starts playing
+    }
+    if (window.YT !== undefined) {
+      if (event.data === window.YT.PlayerState.ENDED) {
+        console.log('Video ended!');
+        playAudio(cards.length);
+      }
+    }
+  }, [cards.length, playAudio]);
+
+  useEffect(() => {
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
+    // When API is ready, this global function will be called
+    window.onYouTubeIframeAPIReady = () => {
+      console.log(window.YT);
+      new window.YT.Player('yt-player', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    };
+
+    return () => {
+      delete window.onYouTubeIframeAPIReady;
+    }
+  }, [onPlayerStateChange]);
 
   // useEffect(() => {
   //   audioPlayingRef.current = audioPlaying;
@@ -160,6 +205,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
         });
       }
       if (gone.size === cards.length) {
+        pauseAudio(cards.length);
         if (uponCompletion === 'none') {
           setTimeout(() => {
             gone.clear()
@@ -279,7 +325,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                             width: '100%',
                           }}/> :
                           (cards[cards.length - i - 1].video !== undefined) ?
-                            <iframe className="card-video" src={cards[cards.length - i - 1].video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
+                            <iframe className="card-video" id="yt-player" src={`${cards[cards.length - i - 1].video}&enablejsapi=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
                               width: '100%',
                               height: (i === 0) ? `${(window.innerHeight * 0.38)}px` : `${(window.innerHeight * 0.5)}px`,
                             }}/> :
@@ -330,7 +376,7 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
                           width: '100%',
                           height: '82%',
                         }}>
-                        <iframe className="card-video" src={cards[cards.length - i - 1].video} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
+                        <iframe className="card-video" id="yt-player" src={`${cards[cards.length - i - 1].video}&enablejsapi=1`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen style={{
                           width: '100%',
                           height: `${(window.innerWidth * 0.304)}px`,
                           maxHeight: '100%',

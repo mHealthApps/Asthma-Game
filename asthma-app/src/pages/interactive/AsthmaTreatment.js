@@ -22,7 +22,7 @@ import AudioFile28 from '../../assets/audio/Audio-File-28.mp3';
 import AudioFile29 from '../../assets/audio/Audio-File-29.mp3';
 import AudioFile30 from '../../assets/audio/Audio-File-30.mp3';
 import AudioFile31 from '../../assets/audio/Audio-File-31.mp3';
-// import AudioFile32 from '../../assets/audio/Audio-File-32.mp3';
+import AudioFile32 from '../../assets/audio/Audio-File-32.mp3';
 import AudioFile33a from '../../assets/audio/Audio-File-33a.mp3';
 import AudioFile33b from '../../assets/audio/Audio-File-33b.mp3';
 import AudioFile33c from '../../assets/audio/Audio-File-33c.mp3';
@@ -165,6 +165,7 @@ const treatmentCards = [
     audio: AudioFile31,
     image: '',
     video: 'https://www.youtube.com/embed/sQUUJHzO-XQ?si=SzyaNjA0gb3vpP5Z',
+    videoAudio: AudioFile32,
     text: '',
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
