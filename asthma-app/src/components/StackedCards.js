@@ -100,6 +100,19 @@ const StackedCards = ({ cards, title, uponCompletion, conditionTitle }) => {
       // currentAudio.current.pause();
     }
   }, [soundOff]);
+  const pauseAllAudio = useCallback(() => {
+    for (let i = 0; i < audioRefs.current.length; i++) {
+      pauseAudio(i);
+    }
+  }, [pauseAudio]);
+
+  useEffect(() => {
+    // Kill Audios when unmounted
+    return () => {
+      console.log('Stacked cards unmounted');
+      pauseAllAudio();
+    }
+  }, [pauseAllAudio]);
 
   const pauseCurrent = () => {
     console.log(`user requests pause card #${cardNum} audio`);
