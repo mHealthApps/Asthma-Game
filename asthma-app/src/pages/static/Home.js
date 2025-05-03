@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
-import { Lungs, CardList, Book, InfoCircle } from 'react-bootstrap-icons';
+import { LungsFill, CardList, Book, InfoCircle } from 'react-bootstrap-icons';
 import { useNavigate } from 'react-router-dom';
 import ReactGA from 'react-ga4';
 import useOrientation from '../../hooks/useOrientation';
 
 const linkItems = [
   {
-    text: 'Health Information',
+    text: 'Asthma Education',
     link: '/sound-choice',
-    icon: <Lungs />
+    icon: <LungsFill />
   },
   {
     text: 'Glossary',
