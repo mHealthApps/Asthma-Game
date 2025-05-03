@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import TopBar from '../../components/TopBar';
 import useOrientation from '../../hooks/useOrientation';
+import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
+import Asthma_First_Aid from '../../assets/images/Asthma_First_Aid.jpg';
 import ReactGA from 'react-ga4';
 
 
@@ -24,6 +26,14 @@ const Resources = () => {
         <div className='resources-content' style={{
           fontSize: window.innerHeight * 0.022,
         }}>
+          <h5>Asthma Action Plan</h5>
+          <img src={Asthma_Action_Plan_33} alt='Asthma Action Plan' width='90%' />
+
+          <br/>
+          <h5>Asthma First Aid</h5>
+          <img src={Asthma_First_Aid} alt='Asthma First Aid' width='90%' />
+
+          <br/>
           <h5>General</h5>
           <a href='https://www.lung.org/' target='_blank' rel="noreferrer">American Lung Assocition</a>
           <a href='https://www.cdc.gov/asthma/about/index.html' target='_blank' rel="noreferrer">Centers for Disease Control and Prevention- Asthma</a>
