@@ -23,9 +23,7 @@ const AboutUs = () => {
       <div className='home-gray-container padding-5'>
         <p style={{
           fontSize: window.innerHeight * 0.022,
-        }}>Originally developed by a team of Australian lung researcher at Menzies University to improve lung health knowledge among
-          Aboriginal and Torres Strait Island communities, Dr. Palakiko worked with Dr. Gabrielle McCallum to adapt the original Lung
-          Health Tool to Hawaii and the greater Pacific.
+        }}>Originally developed by a team of Australian lung researchers at Menzies School of Health Research to improve lung health knowledge among Aboriginal and Torres Strait Island communities, Assistant Professor Donna-Marie Palakiko worked with Associate Professor Gabrielle McCallum to adapt the original Lung Health Tool to Hawaii and the greater Pacific.
         </p>
       </div>
     </div>
