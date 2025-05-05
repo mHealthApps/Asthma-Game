@@ -72,7 +72,7 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
                 incorrect();
               }
             }} style={{
-              gridTemplateColumns: (image !== '') ? (text !== '') ? '1fr 0.1fr 1fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
+              gridTemplateColumns: (image !== '') ? (text !== '') ? (orientation === 'landscape') ? '1fr 0.1fr 1fr' : '1fr 0.1fr 2fr': '1fr 0fr 0fr' : '0fr 0fr 1fr',
               backgroundColor: cardColor,
             }}>
               <div className="grid-item click-through">
@@ -83,8 +83,8 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
                 }
               </div>
               <div className="grid-item click-through"/>
-              <div className="grid-item click-through">
-                <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? (image !== '') ? window.innerWidth * 0.02 : window.innerWidth * 0.06 : (image !== '') ? window.innerHeight * 0.022 : window.innerHeight * 0.066} center={true} />
+              <div className="grid-item grid-left click-through">
+                <ResponsiveText text={text} height='100%' initialSize={(orientation === 'landscape') ? (image !== '') ? window.innerWidth * 0.040 : window.innerWidth * 0.07 : (image !== '') ? window.innerHeight * 0.032 : window.innerHeight * 0.076} center={true} />
               </div>
             </div>
           </div>
