@@ -82,7 +82,8 @@ const treatmentCards = [
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
-      <h3 className='card-header-small'>Relievers</h3>
+      <h3 className='card-sub-header-small'>Relievers</h3>
+      <h3 className='card-treatment-sub-header'>Short-Acting Bronchodilators (SABA)</h3>
       <ul>
         <li className='grid-left'>Work fast</li>
         <li className='grid-left'>Help short breath, cough, and wheeze</li>
@@ -96,7 +97,8 @@ const treatmentCards = [
     alt: 'wide lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
-      <h3 className='card-header-small'>Preventers</h3>
+      <h3 className='card-sub-header-small'>Preventers</h3>
+      <h3 className='card-treatment-sub-header'>Inhaled Corticosteroids (ICS)</h3>
       <ul>
         <li className='grid-left'>Makes breathing tubes less sensitive</li>
         <li className='grid-left'>Reduces swelling in breathing tubes.</li>

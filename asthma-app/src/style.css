@@ -395,6 +395,11 @@
   font-size: 120%;
 }
 
+.card-treatment-sub-header {
+  font-size: 100%;
+  margin-bottom: calc(var(--vh, 1vh) * 1.0);
+}
+
 .card-header-tiny {
   font-size: 60%;
   margin-top: calc(var(--vh, 1vh) * -1.5);
