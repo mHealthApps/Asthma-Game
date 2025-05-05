@@ -26,6 +26,7 @@ import AudioFile62a from '../../assets/audio/Audio-File-62a.mp3';
 import AudioFile62b from '../../assets/audio/Audio-File-62b.mp3';
 import AudioFile63 from '../../assets/audio/Audio-File-63.mp3';
 import ReactGA from 'react-ga4';
+import { Link } from 'react-router-dom';
 
 
 const healthyLifestyleCards = [
@@ -88,7 +89,7 @@ const healthyLifestyleCards = [
     text: <div>
       <ul>
         <li className='grid-left'>Anyone can have asthma at any age</li>
-        <li className='grid-left'>If your child has asthma, it can be well controlled by following your child’s Asthma Action Plan</li>
+        <li className='grid-left'>If your child has asthma, it can be well controlled by following your child’s <Link to='/resources'>Asthma Action Plan</Link></li>
         <li className='grid-left'>Talk story with your health care provider</li>
       </ul>
     </div>,

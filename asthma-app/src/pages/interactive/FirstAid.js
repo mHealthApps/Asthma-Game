@@ -33,6 +33,7 @@ import AudioFile53j from '../../assets/audio/Audio-File-53j.mp3';
 import AudioFile53k from '../../assets/audio/Audio-File-53k.mp3';
 import AudioFile54 from '../../assets/audio/Audio-File-54.mp3';
 import ReactGA from 'react-ga4';
+import { Link } from 'react-router-dom';
 
 
 const firstAidCards = [
@@ -225,7 +226,9 @@ const FirstAid = () => {
       case 4:
         return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} audios={[AudioFile53i, AudioFile53k, AudioFile53j]} />
       case 5:
-        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={`It's important to know the Asthma First Aid Emergency steps`} buttonLink="/asthma-list" audio={AudioFile54} />
+        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={<div>
+          It's important to know the <Link to='/resources'>Asthma First Aid Emergency</Link> steps
+        </div>} buttonLink="/asthma-list" audio={AudioFile54} />
       default:
         return <div>Error: rendering failed</div>
     }

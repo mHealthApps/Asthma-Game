@@ -7,6 +7,7 @@ import LinkButton from './LinkButton';
 import useOrientation from '../hooks/useOrientation';
 import BulletPointText from './BulletPointText';
 import { useNavigate } from 'react-router-dom';
+import ResponsiveText from './ResponsiveText';
 
 
 const SummaryText = () => {
@@ -33,7 +34,7 @@ const SummaryExplanation = ({ text, orientation }) => {
     <div className="inner-container summary-explanation-container" style={{
       fontSize: `${(window.innerHeight * ((orientation === 'landscape') ? 0.034 : 0.030))}px`
     }}>
-      <BulletPointText text={text} />
+      {(typeof text === 'string') ? <BulletPointText text={text} /> : <ResponsiveText text={text} />}
     </div>
   );
 }
