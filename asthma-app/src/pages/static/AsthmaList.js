@@ -5,7 +5,7 @@ import TopBar from '../../components/TopBar'
 import ListGrid from '../../components/ListGrid';
 import useOrientation from '../../hooks/useOrientation';
 import ReactGA from 'react-ga4';
-import Lungs_Anatomy_25 from '../../assets/images/25_Lungs_Anatomy.jpg';
+import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending.jpg';
 import All_Inhalers_23 from '../../assets/images/23_All Inhalers_v2.jpg';
 import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
@@ -15,7 +15,7 @@ import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting
 
 const items = [
   {
-    image: Lungs_Anatomy_25,
+    image: WhiteShirt_Girl_Lungs_10,
     alt: 'lungs',
     text: 'The Lungs',
     link: '/the-lungs',
