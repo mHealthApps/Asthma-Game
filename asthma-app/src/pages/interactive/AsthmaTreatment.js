@@ -82,12 +82,13 @@ const treatmentCards = [
     alt: 'lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
-      <h3 className='card-sub-header-small'>Relievers</h3>
+      <h3 className='card-sub-header-small'><a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Relievers</a></h3>
       <h3 className='card-treatment-sub-header'>Short-Acting Bronchodilators (SABA)</h3>
       <ul>
         <li className='grid-left'>Work fast</li>
         <li className='grid-left'>Help short breath, cough, and wheeze</li>
         <li className='grid-left'>Always carry your blue inhaler and spacer with you</li>
+        <li className='grid-left'>Example - Albuterol, ProAir</li>
       </ul>
     </div>,
   },
@@ -97,7 +98,7 @@ const treatmentCards = [
     alt: 'wide lungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
-      <h3 className='card-sub-header-small'>Preventers</h3>
+      <h3 className='card-sub-header-small'><a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Preventers</a></h3>
       <h3 className='card-treatment-sub-header'>Inhaled Corticosteroids (ICS)</h3>
       <ul>
         <li className='grid-left'>Makes breathing tubes less sensitive</li>
@@ -111,11 +112,12 @@ const treatmentCards = [
     alt: 'wideLungs',
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
-      <h3 className='card-header-small'>Preventers</h3>
+      <h3 className='card-header-small'><a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Preventers</a></h3>
       <ul>
         <li className='grid-left'>Needs to be taken every day</li>
         <li className='grid-left'>Works best when taken for a long time</li>
         <li className='grid-left'>Rinse, gargle, and spit after taking the inhaler</li>
+        <li className='grid-left'>Example - Alvesco</li>
       </ul>
     </div>,
   },
@@ -126,7 +128,7 @@ const treatmentCards = [
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
       <div className='card-header-small'>
-        <h3 className='card-sub-header-small'>Combination medications</h3>
+        <h3 className='card-sub-header-small'><a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Combination medications</a></h3>
         <div className='card-header-tiny'>(Two medicines mixed together)</div>
       </div>
       <ul>
@@ -142,13 +144,14 @@ const treatmentCards = [
     header: 'HOW DOES ASTHMA MEDICATION WORK?',
     text: <div>
       <div className='card-header-small'>
-        <h3 className='card-sub-header-small'>Combination medications</h3>
+        <h3 className='card-sub-header-small'><a href='https://www.lung.org/getmedia/e6be8c67-a793-44a8-bd7c-96629e57c20d/respiratory-medication-chart.pdf' target='_blank' rel="noreferrer">Combination medications</a></h3>
         <div className='card-header-tiny'>(Two medicines mixed together)</div>
       </div>
       <ul>
         <li className='grid-left'>Needs to be taken every day</li>
         <li className='grid-left'>Works best when taken for a long time</li>
         <li className='grid-left'>Rinse, gargle, and spit after taking the inhaler</li>
+        <li className='grid-left'>Example - Advair, BREO</li>
       </ul>
     </div>,
   },
