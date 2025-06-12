@@ -121,7 +121,6 @@ const aboutAsthmaCards = [
         <li className='grid-left'>Animal hair (dogs and cats)</li>
         <li className='grid-left'>Some cleaning products and strong smells</li>
         <li className='grid-left'>Cold night air or weather changes.</li>
-        <li className='grid-left'>VOG</li>
       </ul>
     </div>,
   },
@@ -132,6 +131,7 @@ const aboutAsthmaCards = [
     header: 'TRIGGERS FOR ASTHMA IN CHILDREN',
     text: <div>
       <ul>
+        <li className='grid-left'>VOG</li>
         <li className='grid-left'>Pollen from trees, plants and flower</li>
         <li className='grid-left'>Too much takeaway food</li>
         <li className='grid-left'>Cigarette smoke / campfire / BBQ smoke / smoke from fireworks and firecrackers</li>

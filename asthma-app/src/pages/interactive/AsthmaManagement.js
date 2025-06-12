@@ -51,7 +51,7 @@ const managementCards = [
     alt: 'template',
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
-      <h3 className='card-header-small'>When he / she</h3>
+      <h3 className='card-header-small'>When the child</h3>
       <ul>
         <li className='grid-left'>Has lots of short breaths</li>
         <li className='grid-left'>Has lots of coughing or wheezing</li>
@@ -67,8 +67,8 @@ const managementCards = [
     header: 'WHEN SHOULD YOU TAKE YOUR CHILD TO THE DOCTOR OR CLINIC?',
     text: <div>
       <ul>
-        <li className='grid-left'>If he / she needs to use the blue inhaler more than 2 times a week (except for exercise)</li>
-        <li className='grid-left'>If he / she misses school because of asthma</li>
+        <li className='grid-left'>If the child needs to use the blue inhaler more than 2 times a week (except for exercise)</li>
+        <li className='grid-left'>If the child misses school because of asthma</li>
         <li className='grid-left'>For regular check-ups</li>
       </ul>
     </div>,
@@ -80,8 +80,8 @@ const managementCards = [
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
       <ul>
-        <li className='grid-left'>If he / she doesn’t need the blue inhaler more than 2 times a week (except for exercise)</li>
-        <li className='grid-left'>If he / she isn’t waking up coughing or wheezing</li>
+        <li className='grid-left'>If the child doesn’t need the blue inhaler more than 2 times a week (except for exercise)</li>
+        <li className='grid-left'>If the child isn’t waking up coughing or wheezing</li>
       </ul>
     </div>,
   },
@@ -92,9 +92,9 @@ const managementCards = [
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
       <ul>
-        <li className='grid-left'>If he / she finds it hard to breathe</li>
-        <li className='grid-left'>If he /she uses more of the blue reliever inhaler to help with asthma</li>
-        <li className='grid-left'>If he / she has lots of coughing</li>
+        <li className='grid-left'>If the child finds it hard to breathe</li>
+        <li className='grid-left'>If the child uses more of the blue reliever inhaler to help with asthma</li>
+        <li className='grid-left'>If the child has lots of coughing</li>
       </ul>
     </div>,
   },
@@ -105,8 +105,8 @@ const managementCards = [
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
       <ul>
-        <li className='grid-left'>If he / she may have some wheeze</li>
-        <li className='grid-left'>If he / she may find it a little harder to talk or cry</li>
+        <li className='grid-left'>If the child may have some wheeze</li>
+        <li className='grid-left'>If the child may find it a little harder to talk or cry</li>
       </ul>
     </div>,
   },
@@ -118,8 +118,8 @@ const managementCards = [
     text: <div>
       <ul>
         <li className='grid-left'><b>Call ambulance 9-1-1 OR go straight to the hospital / emergency department</b></li>
-        <li className='grid-left'>If he / she finds it very hard to breathe</li>
-        <li className='grid-left'>If he / she has more coughing</li>
+        <li className='grid-left'>If the child finds it very hard to breathe</li>
+        <li className='grid-left'>If the child has more coughing</li>
       </ul>
     </div>,
   },
@@ -130,10 +130,10 @@ const managementCards = [
     header: `HOW BAD IS YOUR CHILD'S ASTHMA?`,
     text: <div>
       <ul>
-        <li className='grid-left'><b>If he / she has sucking in at the neck and chest or have blue lips</b></li>
-        <li className='grid-left'>If he / she is using a lot more of the blue reliever inhaler</li>
-        <li className='grid-left'>If he / she may have a loud wheeze</li>
-        <li className='grid-left'>If he / she finds it hard to talk or cry</li>
+        <li className='grid-left'><b>If the child has sucking in at the neck and chest or have blue lips</b></li>
+        <li className='grid-left'>If the child is using a lot more of the blue reliever inhaler</li>
+        <li className='grid-left'>If the child may have a loud wheeze</li>
+        <li className='grid-left'>If the child finds it hard to talk or cry</li>
       </ul>
     </div>,
   },

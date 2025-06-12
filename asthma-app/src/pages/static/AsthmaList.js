@@ -10,7 +10,7 @@ import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending
 import All_Inhalers_23 from '../../assets/images/23_All Inhalers_v2.jpg';
 import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
-import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
+import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
 
 
 const items = [
@@ -45,7 +45,7 @@ const items = [
     link: '/first-aid',
   },
   {
-    image: OrgShirt_Girl_Sitting_5,
+    image: Toddler_Doctor_17,
     alt: 'Orange Shirt Girl Sitting',
     text: 'Keeping a healthy lifestyle',
     link: '/healthy-lifestyle',
