@@ -20,6 +20,7 @@ import AsthmaManagement from './pages/interactive/AsthmaManagement';
 import FirstAid from './pages/interactive/FirstAid';
 import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 import CongratulationsPage from './pages/static/CongratulationsPage';
+import DemoPixiGame from "./pages/DemoPixiGame";
 
 
 const storageData = [
@@ -98,6 +99,7 @@ function App() {
         <Route path="/summary-demo" element={<DemoSummary />} />
         <Route path="/congratulations-demo" element={<DemoCongratulations />} />
         <Route path="/sound-demo" element={<DemoSound />} />
+        <Route path="/game-demo" element={<DemoPixiGame />} />
         <Route path="/the-lungs" element={<TheLungs />} />
         <Route path="/about-asthma" element={<AboutAsthma />} />
         <Route path="/asthma-treatment" element={<AsthmaTreatment />} />
