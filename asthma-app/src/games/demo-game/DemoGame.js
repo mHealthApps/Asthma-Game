@@ -36,12 +36,13 @@ export class DemoGame extends BaseGame {
         // Center the bunny sprites in local container coordinates
         container.pivot.x = container.width / 2;
         container.pivot.y = container.height / 2;
+        container.rotation = 0;
 
         // Listen for animate update
-        this.app.ticker.add((time) => {
+        this.app.ticker.add(() => {
             // Continuously rotate the container!
             // * use delta to create frame-independent transform *
-            container.rotation -= 0.01 * time.deltaTime;
+            container.rotation -= 0.01;
         });
     }
 
