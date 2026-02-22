@@ -1,5 +1,6 @@
-import { Application, Assets, Container, Sprite } from 'pixi.js';
+import { Application, Container, Text } from 'pixi.js';
 import { BaseGame } from '../shared/BaseGame';
+import FallingObject from './entities/FallingObject';
 
 export class DemoGame extends BaseGame {
     async start() {
@@ -13,36 +14,45 @@ export class DemoGame extends BaseGame {
         this.container.appendChild(this.app.canvas);
 
         // Create and add a container to the stage
-        const container = new Container();
+        this.mainContainer = new Container();
 
-        this.app.stage.addChild(container);
+        this.app.stage.addChild(this.mainContainer);
 
-        // Load the bunny texture
-        const texture = await Assets.load('https://pixijs.com/assets/bunny.png');
-
-        // Create a 5x5 grid of bunnies in the container
-        for (let i = 0; i < 25; i++) {
-            const bunny = new Sprite(texture);
-
-            bunny.x = (i % 5) * 40;
-            bunny.y = Math.floor(i / 5) * 40;
-            container.addChild(bunny);
+        // Initialization of score and text
+        this.score = 0;
+        const changeScore = (increment) => {
+            this.score += increment;
         }
 
-        // Move the container to the center
-        container.x = this.app.screen.width / 2;
-        container.y = this.app.screen.height / 2;
+        const scoreText = new Text({
+            text: 'Score: 0',
+            style: {
+                fill: '#ffffff',
+                fontSize: 36,
+                fontFamily: 'sans-serif',
+            },
+            anchor: (0, 0),
+            x: 20,
+            y: this.app.screen.height * 0.78
+        });
+        this.mainContainer.addChild(scoreText);
 
-        // Center the bunny sprites in local container coordinates
-        container.pivot.x = container.width / 2;
-        container.pivot.y = container.height / 2;
-        container.rotation = 0;
+        // Initialization of the instances of FallingObject
+        const fallingObjects = [];
+        for (let i = 0; i < 3; i++) {
+            fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, -60, i * 120, changeScore));
+            this.mainContainer.addChild(fallingObjects[i].view);
+        }
+
 
         // Listen for animate update
         this.app.ticker.add(() => {
-            // Continuously rotate the container!
-            // * use delta to create frame-independent transform *
-            container.rotation -= 0.01;
+            // Call the update functions of the fallingObjects
+            for (let i = 0; i < fallingObjects.length; i++) {
+                fallingObjects[i].update(this.app.screen.width, this.app.screen.height);
+            }
+            // Update the text score
+            scoreText.text = `Score: ${this.score}`;
         });
     }
 
