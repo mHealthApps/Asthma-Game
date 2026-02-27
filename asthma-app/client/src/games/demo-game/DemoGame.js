@@ -23,12 +23,15 @@ export class DemoGame extends BaseGame {
         this.setScene(new GameScene(this.app));        
 
 
+        this.completionTime = 0;
         // Listen for animate update
-        this.app.ticker.add(() => {
+        this.app.ticker.add((time) => {
+            this.completionTime += time.elapsedMS;
             if (this.currentScene) {
                 this.currentScene.update();
-                if (this.currentScene.score && this.currentScene.score >= 100) {
-                    this.setScene(new WinScene(this.app));
+                if (this.currentScene.score && this.currentScene.score >= 30) {
+                    console.log(this.completionTime);
+                    this.setScene(new WinScene(this.app, this.completionTime));
                 }
             }
         });
