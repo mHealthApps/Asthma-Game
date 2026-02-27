@@ -1,6 +1,7 @@
-import { Application, Container, Text } from 'pixi.js';
+import { Application, Container } from 'pixi.js';
 import { BaseGame } from '../shared/BaseGame';
-import FallingObject from './entities/FallingObject';
+import { GameScene } from '../demo-game/scenes/GameScene';
+import { WinScene } from '../demo-game/scenes/WinScene';
 
 export class DemoGame extends BaseGame {
     async start() {
@@ -18,42 +19,30 @@ export class DemoGame extends BaseGame {
 
         this.app.stage.addChild(this.mainContainer);
 
-        // Initialization of score and text
-        this.score = 0;
-        const changeScore = (increment) => {
-            this.score += increment;
-        }
-
-        const scoreText = new Text({
-            text: 'Score: 0',
-            style: {
-                fill: '#ffffff',
-                fontSize: 36,
-                fontFamily: 'sans-serif',
-            },
-            anchor: (0, 0),
-            x: 20,
-            y: this.app.screen.height * 0.78
-        });
-        this.mainContainer.addChild(scoreText);
-
-        // Initialization of the instances of FallingObject
-        const fallingObjects = [];
-        for (let i = 0; i < 3; i++) {
-            fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, -60, i * 120, changeScore));
-            this.mainContainer.addChild(fallingObjects[i].view);
-        }
+        // Set the initial scene
+        this.setScene(new GameScene(this.app));        
 
 
         // Listen for animate update
         this.app.ticker.add(() => {
-            // Call the update functions of the fallingObjects
-            for (let i = 0; i < fallingObjects.length; i++) {
-                fallingObjects[i].update(this.app.screen.width, this.app.screen.height);
+            if (this.currentScene) {
+                this.currentScene.update();
+                if (this.currentScene.score && this.currentScene.score >= 100) {
+                    this.setScene(new WinScene(this.app));
+                }
             }
-            // Update the text score
-            scoreText.text = `Score: ${this.score}`;
         });
+    }
+
+    // Method to change the scene, pass in an instance of a child of BaseScene
+    setScene(scene) {
+        if (this.currentScene) {
+            this.mainContainer.removeChildAt(this.currentScene.container);
+            this.currentScene.destroy();
+        }
+
+        this.currentScene = scene;
+        this.mainContainer.addChild(this.currentScene.container);
     }
 
     destroy() {
