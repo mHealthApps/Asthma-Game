@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react';
 
-const GameHost = ({ GameClass }) => {
+const GameHost = ({ GameClass, events }) => {
     const ref = useRef(null);
 
     useEffect(() => {
-        // TODO: create eventBus
-        const events = null;
         const game = new GameClass({
             container: ref.current,
             events,
+            /*  Pass events as object of event functions 
+                This allows passing multiple functions into the Pixi App which can be called in-game
+                The main event that must be passed is uponCompletion to move the game on after its done */
         })
 
         game.start();
@@ -17,6 +18,7 @@ const GameHost = ({ GameClass }) => {
             game.destroy();
         }
     })
+
 
     return (
         <div ref={ref} className='pixijs-app-container' />

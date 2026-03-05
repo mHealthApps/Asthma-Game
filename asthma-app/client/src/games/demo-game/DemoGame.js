@@ -20,7 +20,7 @@ export class DemoGame extends BaseGame {
         this.app.stage.addChild(this.mainContainer);
 
         // Set the initial scene
-        this.setScene(new GameScene(this.app));        
+        this.setScene(new GameScene(this.app));
 
 
         this.completionTime = 0;
@@ -30,7 +30,9 @@ export class DemoGame extends BaseGame {
             if (this.currentScene) {
                 this.currentScene.update();
                 if (this.currentScene.score && this.currentScene.score >= 30) {
-                    console.log(this.completionTime);
+                    // console.log(this.completionTime);
+                    this.events.setScore(this.completionTime);
+                    this.events.uponCompletion();
                     this.setScene(new WinScene(this.app, this.completionTime));
                 }
             }
