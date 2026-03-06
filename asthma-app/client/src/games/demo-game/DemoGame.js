@@ -1,5 +1,7 @@
-import { Application, Assets, Container, Sprite } from 'pixi.js';
+import { Application, Container } from 'pixi.js';
 import { BaseGame } from '../shared/BaseGame';
+import { GameScene } from '../demo-game/scenes/GameScene';
+import { WinScene } from '../demo-game/scenes/WinScene';
 
 export class DemoGame extends BaseGame {
     async start() {
@@ -13,37 +15,39 @@ export class DemoGame extends BaseGame {
         this.container.appendChild(this.app.canvas);
 
         // Create and add a container to the stage
-        const container = new Container();
+        this.mainContainer = new Container();
 
-        this.app.stage.addChild(container);
+        this.app.stage.addChild(this.mainContainer);
 
-        // Load the bunny texture
-        const texture = await Assets.load('https://pixijs.com/assets/bunny.png');
+        // Set the initial scene
+        this.setScene(new GameScene(this.app));
 
-        // Create a 5x5 grid of bunnies in the container
-        for (let i = 0; i < 25; i++) {
-            const bunny = new Sprite(texture);
 
-            bunny.x = (i % 5) * 40;
-            bunny.y = Math.floor(i / 5) * 40;
-            container.addChild(bunny);
+        this.completionTime = 0;
+        // Listen for animate update
+        this.app.ticker.add((time) => {
+            this.completionTime += time.elapsedMS;
+            if (this.currentScene) {
+                this.currentScene.update();
+                if (this.currentScene.score && this.currentScene.score >= 30) {
+                    // console.log(this.completionTime);
+                    this.events.setScore(this.completionTime);
+                    this.events.uponCompletion();
+                    this.setScene(new WinScene(this.app, this.completionTime));
+                }
+            }
+        });
+    }
+
+    // Method to change the scene, pass in an instance of a child of BaseScene
+    setScene(scene) {
+        if (this.currentScene) {
+            this.mainContainer.removeChildAt(this.currentScene.container);
+            this.currentScene.destroy();
         }
 
-        // Move the container to the center
-        container.x = this.app.screen.width / 2;
-        container.y = this.app.screen.height / 2;
-
-        // Center the bunny sprites in local container coordinates
-        container.pivot.x = container.width / 2;
-        container.pivot.y = container.height / 2;
-        container.rotation = 0;
-
-        // Listen for animate update
-        this.app.ticker.add(() => {
-            // Continuously rotate the container!
-            // * use delta to create frame-independent transform *
-            container.rotation -= 0.01;
-        });
+        this.currentScene = scene;
+        this.mainContainer.addChild(this.currentScene.container);
     }
 
     destroy() {
