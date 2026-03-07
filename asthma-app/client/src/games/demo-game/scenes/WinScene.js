@@ -1,11 +1,13 @@
 import { BaseScene } from '../../shared/BaseScene';
 import { Text } from 'pixi.js';
+import PixiButton from '../../shared/PixiButton';
 
 export class WinScene extends BaseScene {
-    constructor(app, completionTime) {
+    constructor(app, completionTime, uponCompletion) {
         super(app);
         this.completionTime = completionTime;
-        this.displayTime();
+        this.uponCompletion = uponCompletion;
+        this.displayMore();
     }
 
     build() {
@@ -19,13 +21,13 @@ export class WinScene extends BaseScene {
             },
             anchor: 0.5,
             x: this.app.screen.width / 2,
-            y: this.app.screen.height / 2.5
+            y: this.app.screen.height / 2 - 75
         });
-        this.app.renderer.background.color = 'black';
+        this.app.renderer.background.color = 0xddc79a;
         this.container.addChild(this.winText);
     }
 
-    displayTime() {
+    displayMore() {
         this.timeText = new Text({
             text: `Completion Time: ${Math.ceil(this.completionTime / 10) / 100} sec`,
             style: {
@@ -35,9 +37,17 @@ export class WinScene extends BaseScene {
             },
             anchor: 0.5,
             x: this.app.screen.width / 2,
-            y: this.app.screen.height / 2.5 + 75,
+            y: this.app.screen.height / 2,
         });
         this.container.addChild(this.timeText);
+
+        // Completion button
+        this.completionButton = new PixiButton(this.app.screen.width / 2, this.app.screen.height / 2 + 90, 350, "Exit Game", this.uponCompletion);
+        this.container.addChild(this.completionButton.view);
+    }
+
+    update() {
+        this.completionButton.update();
     }
 
 }

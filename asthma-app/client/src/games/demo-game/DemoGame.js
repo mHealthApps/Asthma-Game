@@ -3,6 +3,12 @@ import { BaseGame } from '../shared/BaseGame';
 import { GameScene } from '../demo-game/scenes/GameScene';
 import { WinScene } from '../demo-game/scenes/WinScene';
 
+/*  
+Events used in this game:
+setScore(score): score recorded at the end of the game
+uponCompletion(): called at the end of the game for completion
+*/
+
 export class DemoGame extends BaseGame {
     async start() {
         // Create a new application
@@ -32,8 +38,7 @@ export class DemoGame extends BaseGame {
                 if (this.currentScene.score && this.currentScene.score >= 30) {
                     // console.log(this.completionTime);
                     this.events.setScore(this.completionTime);
-                    this.events.uponCompletion();
-                    this.setScene(new WinScene(this.app, this.completionTime));
+                    this.setScene(new WinScene(this.app, this.completionTime, this.events.uponCompletion));
                 }
             }
         });

@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
+import GameHost from '../../components/GameHost';
+import { DemoGame } from '../../games/demo-game/DemoGame';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
@@ -153,15 +155,35 @@ const HealthyLifestyle = () => {
     setScene(scene + 1);
   }
 
+  // Setting the events to be passed to the game
+  const uponCompletion = () => {
+    // Would be a real function in the other pages such as nextScene()
+    console.log("React page acknowledges game completion");
+    nextScene();
+  }
+
+  const setScore = (score) => {
+    console.log(`React page receives game score: ${score}`);
+  }
+
+  const healthyLifestyleEvents = {
+    uponCompletion,
+    setScore
+  }
+
   const renderScene = () => {
     switch (scene) {
       case 0:
         return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
+      // case 1:
+      //   return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' audios={[AudioFile61, AudioFile61b, AudioFile61a]} />
+      // case 2:
+      //   return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' audios={[AudioFile62, AudioFile62a, AudioFile62b]} />
+      // case 3:
+      //   return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list" audio={AudioFile63} />
       case 1:
-        return <Quiz quiz={healthyLifestyleQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_2Smokers_6} alt='lungs' audios={[AudioFile61, AudioFile61b, AudioFile61a]} />
+        return <GameHost GameClass={DemoGame} events={healthyLifestyleEvents} />
       case 2:
-        return <Quiz quiz={healthyLifestyleQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Fruits_34} alt='lungs' audios={[AudioFile62, AudioFile62a, AudioFile62b]} />
-      case 3:
         return <Summary image={WhiteShirt_Girl_Toddler_9} alt="lungs-wide" explanation={`Keep your child's lungs healthy. Don't let asthma control your child's life`} buttonLink="/asthma-list" audio={AudioFile63} />
       default:
         return <div>Error: rendering failed</div>
