@@ -1,5 +1,6 @@
 from .extensions import db
 
+#user information
 class User(db.Model):
     #required information
     id = db.Column(db.Integer, primary_key=True)
@@ -16,3 +17,14 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.username}>"
+
+#information on what modules the user has completed
+class Completion(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    module_id = db.Column(db.Integer, nullable=False)
+    completed = db.Column(db.Boolean, default=False)
+
+    user = db.relationship("User", backref="completions")
+
