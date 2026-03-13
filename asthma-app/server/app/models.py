@@ -28,3 +28,10 @@ class Completion(db.Model):
 
     user = db.relationship("User", backref="completions")
 
+#information on the settings of a user
+class Settings(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+    enabled_sound = db.Column(db.Boolean, default=False)
+    game_mode = db.Column(db.Boolean, default=True)
