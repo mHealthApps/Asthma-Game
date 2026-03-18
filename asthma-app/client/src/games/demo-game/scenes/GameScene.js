@@ -19,7 +19,7 @@ export class GameScene extends BaseScene {
             },
             anchor: (0, 0),
             x: 20,
-            y: this.app.screen.height * 0.78
+            y: this.app.screen.height - 60
         });
         this.container.addChild(this.scoreText);
 
