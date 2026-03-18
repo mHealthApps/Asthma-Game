@@ -4,6 +4,7 @@ import '../../style.css';
 import TopBar from '../../components/TopBar';
 import ReactGA from 'react-ga4';
 import useOrientation from '../../hooks/useOrientation';
+import LoginForm from '../../components/LoginForm';
 
 const Login = () => {
   // GA Login pageview
@@ -19,7 +20,14 @@ const Login = () => {
         <TopBar oneLine='Login' orientation={orientation}/>
       </div>
 
-      <h1>Login page</h1>
+      <div className='home-gray-container padding-5'>
+        <div className='resources-content' style={{
+          fontSize: window.innerHeight * 0.022,
+        }}>
+            <LoginForm />
+
+        </div>
+      </div>
     </div>
   );
 }
