@@ -150,12 +150,12 @@ const HealthyLifestyle = () => {
   }, [])
   // useSendPageview('Content: Keeping a Healthy Lifestyle');
 
-  const [isGameMode, setIsGameMode] = useIsGameMode();
+  const [isGameMode] = useIsGameMode();
 
   // Dev: forces gameMode to be set on
-  useEffect(() => {
-    setIsGameMode(true);
-  }, [isGameMode, setIsGameMode])
+  // useEffect(() => {
+  //   setIsGameMode(true);
+  // }, [isGameMode, setIsGameMode])
 
   const [scene, setScene] = useState(0);
 

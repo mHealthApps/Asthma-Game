@@ -779,8 +779,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(var(--vh, 1vh) * 11.0);
-  font-size: calc(var(--vh, 1vh) * 2.5);
+  height: calc(var(--vh, 1vh) * 9.0);
+  font-size: calc(var(--vh, 1vh) * 2.4);
+}
+
+.sound-card-inner-container-short {
+  margin: calc(var(--vh, 1vh) * 2.0) 0 calc(var(--vh, 1vh) * -1.0) 0;
+  height: calc(var(--vh, 1vh) * 3.8);
+  color: rgb(50, 50, 50);
 }
 
 .reset-text-container {
