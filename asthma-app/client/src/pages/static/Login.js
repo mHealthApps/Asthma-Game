@@ -20,13 +20,10 @@ const Login = () => {
         <TopBar oneLine='Login' orientation={orientation}/>
       </div>
 
-      <div className='home-gray-container padding-5'>
-        <div className='resources-content' style={{
-          fontSize: window.innerHeight * 0.022,
-        }}>
-            <LoginForm />
+      <div className='login-header-container'>
+        
+        <LoginForm />
 
-        </div>
       </div>
     </div>
   );

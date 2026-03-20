@@ -15,7 +15,7 @@ const LoginForm = () => {
     };
 
     return (
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form onSubmit={handleSubmit} className="login-form">
       <InputField
         label="Email"
         type="email"
@@ -34,14 +34,5 @@ const LoginForm = () => {
     </form>
     );
 }
-
-const styles = {
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-    width: "300px",
-  },
-};
 
 export default LoginForm;

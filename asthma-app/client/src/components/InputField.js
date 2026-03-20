@@ -2,26 +2,15 @@ import React from "react";
 
 export default function InputField({ label, type, value, onChange }) {
   return (
-    <div style={styles.container}>
+    <div style={styles.container} className="input-field-container">
       <label>{label}</label>
       <input
         type={type}
         value={value}
         onChange={onChange}
-        style={styles.input}
         required
+        className="input-field"
       />
     </div>
   );
 }
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  input: {
-    padding: "8px",
-    fontSize: "16px",
-  },
-};

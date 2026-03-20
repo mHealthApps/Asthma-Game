@@ -875,3 +875,32 @@ body, html {
   overflow: hidden;
 }
 
+.login-header-container {
+  align-content: center;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+
+.login-button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(250, 75, 10);
+}
+
+.input-field-container {
+    display: flex;
+    flex-direction: column;
+}
+  
+.input-field {
+  padding: 8px;
+  font-size: 16px;
+}
