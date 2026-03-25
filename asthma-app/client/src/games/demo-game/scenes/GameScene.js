@@ -21,6 +21,7 @@ export class GameScene extends BaseScene {
             x: 20,
             y: this.app.screen.height - 60
         });
+        this.app.renderer.background.color = 0x1099bb;
         this.container.addChild(this.scoreText);
 
         // Initialization of the instances of FallingObject
