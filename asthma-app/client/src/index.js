@@ -22,6 +22,7 @@ import HealthyLifestyle from './pages/interactive/HealthyLifestyle';
 import CongratulationsPage from './pages/static/CongratulationsPage';
 import DemoPixiGame from "./pages/DemoPixiGame";
 import Login from "./pages/static/Login";
+import Signup from "./pages/static/Signup";
 
 
 const storageData = [
@@ -109,6 +110,7 @@ function App() {
         <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
         <Route path="/congratulations" element={<CongratulationsPage userName={userName} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </HashRouter>
   );
