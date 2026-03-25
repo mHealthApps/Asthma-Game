@@ -21,8 +21,11 @@ const Login = () => {
       </div>
 
       <div className='login-header-container'>
-        
-        <LoginForm />
+        <div className="sound-card">
+          <div className="sound-card-inner-container">
+            <LoginForm />
+          </div>
+        </div>
 
       </div>
     </div>

@@ -891,6 +891,10 @@ body, html {
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
+  border: none;
+}
+
+.login-button:hover {
   color: white;
   background-color: rgb(250, 75, 10);
 }
