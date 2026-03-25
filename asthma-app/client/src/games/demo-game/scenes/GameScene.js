@@ -21,12 +21,14 @@ export class GameScene extends BaseScene {
             x: 20,
             y: this.app.screen.height - 60
         });
+        this.app.renderer.background.color = 0x1099bb;
         this.container.addChild(this.scoreText);
 
         // Initialization of the instances of FallingObject
         this.fallingObjects = [];
         for (let i = 0; i < 3; i++) {
             this.fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, -60, i * 120, changeScore));
+            // this.fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, 50, i * 120, changeScore));
             this.container.addChild(this.fallingObjects[i].view);
         }
 

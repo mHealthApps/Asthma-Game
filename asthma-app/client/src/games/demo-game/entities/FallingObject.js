@@ -1,14 +1,23 @@
-import { Container, Graphics } from 'pixi.js';
+import { Container, Graphics, Sprite, Assets } from 'pixi.js';
+import Fruits_34 from '../../../assets/images/34_Fruits.jpg';
+import OrgShirt_Girl_Sitting_2Smokers_6 from '../../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
+import Smoker_FastFood_Vog_Pollen_7 from '../../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
+
+
 const objectTypes = [
   { 
     points: 10,
-    color: 0xffffff
+    color: 0xffffff,
+    imageIndices: [0]
   },
   {
     points: -10,
-    color: 0xee0000
+    color: 0xee0000,
+    imageIndices: [1, 2]
   }
 ]
+
+const images = [Fruits_34, OrgShirt_Girl_Sitting_2Smokers_6, Smoker_FastFood_Vog_Pollen_7];
 
 export default class FallingObject {
   constructor(x, y, wait, changeScore) {
@@ -25,7 +34,7 @@ export default class FallingObject {
 
     this.circle = new Graphics();
     this.draw = function() {
-      this.circle.circle(0, 0, 30);
+      this.circle.circle(0, 0, 50);
       this.circle.fill(this.type.color);
     }
     this.draw();
@@ -41,6 +50,23 @@ export default class FallingObject {
     });
 
     this.view.addChild(this.circle);
+    this.generateSprite();
+  }
+
+  async loadTextures () {
+    this.textures = await Promise.all(
+      images.map(image => Assets.load(image))
+    );
+  }
+
+  async generateSprite () {
+    // Image rendering for the falling objects
+    await this.loadTextures();
+    this.objectSprite = new Sprite(this.textures[this.type.imageIndices[Math.floor(Math.random() * this.type.imageIndices.length)]]);
+    this.objectSprite.anchor.set(0.5);
+    /* For image scaling, if using preset images in assets: those are 1500x1500 */
+    this.objectSprite.scale.set(0.067);
+    this.view.addChild(this.objectSprite);
   }
 
   update (appWidth, appHeight) {
@@ -59,6 +85,7 @@ export default class FallingObject {
         this.type = objectTypes[Math.floor(Math.random() * 1.5)];
         this.circle.clear();
         this.draw();
+        this.objectSprite.texture = this.textures[this.type.imageIndices[Math.floor(Math.random() * this.type.imageIndices.length)]];
       }
       if (!this.dead) {
         this.view.x = this.x;

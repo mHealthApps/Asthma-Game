@@ -4,24 +4,27 @@ import '../style.css';
 import TopBar from './TopBar';
 import useOrientation from '../hooks/useOrientation';
 import LinkButton from './LinkButton';
+import useIsGameMode from '../hooks/useIsGameMode';
 import { useNavigate } from 'react-router-dom';
 
 
-const SoundButton = ({ index, text, soundOff, setSoundOff }) => {
+const SoundButton = ({ index, text, toggleOff, setToggleOff }) => {
   const handleClick = () => {
-    setSoundOff(index);
+    setToggleOff(index);
   }
 
   return (
     <button onClick={handleClick} className='sound-button' style={{
-      color: (soundOff === index) ? '#fd7647' : 'rgba(155, 155, 155, 0.6)',
-      borderColor: (soundOff === index) ? '#fd7647' : 'rgba(155, 155, 155, 0.6)',
+      color: (toggleOff === index) ? '#fd7647' : 'rgba(155, 155, 155, 0.6)',
+      borderColor: (toggleOff === index) ? '#fd7647' : 'rgba(155, 155, 155, 0.6)',
     }}>{text}</button>
   );
 }
 
 const SoundCard = ({ storageKey, buttonLink }) => {
   const [soundOff, setSoundOff] = useState(0);
+  const [gameModeOff, setGameModeOff] = useState(0);
+  const [isGameMode] = useIsGameMode();
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -32,6 +35,14 @@ const SoundCard = ({ storageKey, buttonLink }) => {
     }
   }, [storageKey])
 
+  useEffect(() => {
+    if (isGameMode) {
+      setGameModeOff(0);
+    } else {
+      setGameModeOff(1);
+    }
+  }, [isGameMode])
+
 
   const continueClick = () => {
     updateStorage();
@@ -39,8 +50,13 @@ const SoundCard = ({ storageKey, buttonLink }) => {
   }
 
   const updateStorage = () => {
-    console.log(`save users choice of soundOff: ${soundOff} with key: ${storageKey}`);
+    // console.log(`save users choice of soundOff: ${soundOff} with key: ${storageKey}`);
     localStorage.setItem(storageKey, soundOff.toString());
+    if (gameModeOff === 0) {
+      localStorage.setItem("gameMode", "true");
+    } else {
+      localStorage.setItem("gameMode", "false");
+    }
   }
 
   return (
@@ -51,11 +67,26 @@ const SoundCard = ({ storageKey, buttonLink }) => {
         height: '100%'
       }}>
         <div className='sound-card'>
-          <div className='sound-card-inner-container'>
-            <SoundButton index={0} text='Play with voice ever' soundOff={soundOff} setSoundOff={setSoundOff} />
+          <div className='sound-card-inner-container sound-card-inner-container-short'>
+            <h3 className='reset-text'>Voice Over Option</h3>
           </div>
           <div className='sound-card-inner-container'>
-            <SoundButton index={1} text={`Don't play with voice over`} soundOff={soundOff} setSoundOff={setSoundOff} />
+            <SoundButton index={0} text='Play with voice ever' toggleOff={soundOff} setToggleOff={setSoundOff} />
+          </div>
+          <div className='sound-card-inner-container'>
+            <SoundButton index={1} text={`Don't play with voice over`} toggleOff={soundOff} setToggleOff={setSoundOff} />
+          </div>
+          <div className='sound-card-inner-container sound-card-inner-container-short'>
+            
+          </div>
+          <div className='sound-card-inner-container sound-card-inner-container-short'>
+            <h3 className='reset-text'>Game Mode Option</h3>
+          </div>
+          <div className='sound-card-inner-container'>
+            <SoundButton index={0} text='Learn with interactive games' toggleOff={gameModeOff} setToggleOff={setGameModeOff} />
+          </div>
+          <div className='sound-card-inner-container'>
+            <SoundButton index={1} text={`Learn with games disabled`} toggleOff={gameModeOff} setToggleOff={setGameModeOff} />
           </div>
           <div className='sound-card-inner-container'>
             <LinkButton text='Continue' stylingClass='final-card-button' uponClick={continueClick} />

@@ -1,7 +1,8 @@
 import { Application, Container } from 'pixi.js';
 import { BaseGame } from '../shared/BaseGame';
-import { GameScene } from '../demo-game/scenes/GameScene';
-import { WinScene } from '../demo-game/scenes/WinScene';
+import { InstructionScene } from './scenes/InstructionScene'
+import { GameScene } from './scenes/GameScene';
+import { WinScene } from './scenes/WinScene';
 
 /*  
 Events used in this game:
@@ -26,22 +27,27 @@ export class DemoGame extends BaseGame {
 
         this.app.stage.addChild(this.mainContainer);
 
+        this.playGame = () => {
+            this.setScene(new GameScene(this.app));
+        }
         // Set the initial scene
-        this.setScene(new GameScene(this.app));
+        this.setScene(new InstructionScene(this.app, this.playGame));
 
 
         this.completionTime = 0;
         // Listen for animate update
         this.app.ticker.add((time) => {
-            this.completionTime += time.elapsedMS;
             if (this.currentScene) {
                 this.currentScene.update();
-                // Detecs winning the game in the game scene
-                if (this.currentScene.score && this.currentScene.score >= 30) {
-                    // console.log(this.completionTime);
-                    this.events.setScore(this.completionTime);
-                    this.events.updateStorage();
-                    this.setScene(new WinScene(this.app, this.completionTime, this.events.uponCompletion));
+                if (this.currentScene.score) {
+                    this.completionTime += time.elapsedMS;
+                    // detects winning the game in the game scene
+                    if (this.currentScene.score >= 30) {
+                        // console.log(this.completionTime);
+                        this.events.setScore(this.completionTime);
+                        this.events.updateStorage();
+                        this.setScene(new WinScene(this.app, this.completionTime, this.events.uponCompletion));
+                    }
                 }
             }
         });
