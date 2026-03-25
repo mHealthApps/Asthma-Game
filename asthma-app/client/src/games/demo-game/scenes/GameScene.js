@@ -28,6 +28,7 @@ export class GameScene extends BaseScene {
         this.fallingObjects = [];
         for (let i = 0; i < 3; i++) {
             this.fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, -60, i * 120, changeScore));
+            // this.fallingObjects.push(new FallingObject(Math.random() * (this.app.screen.width - 60) + 30, 50, i * 120, changeScore));
             this.container.addChild(this.fallingObjects[i].view);
         }
 
