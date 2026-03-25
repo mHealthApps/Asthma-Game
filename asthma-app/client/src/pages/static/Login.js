@@ -15,6 +15,7 @@ const Login = () => {
   const orientation = useOrientation();
 
   return (
+    
     <div className="asthma-background menu-module">
       <div className="asthma-red menu-navbar">
         <TopBar oneLine='Login' orientation={orientation}/>
@@ -29,6 +30,7 @@ const Login = () => {
 
       </div>
     </div>
+
   );
 }
 

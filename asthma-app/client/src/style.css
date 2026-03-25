@@ -878,6 +878,7 @@ body, html {
 .login-header-container {
   align-content: center;
   text-align: center;
+  height: 100%;
 }
 
 .login-form {
