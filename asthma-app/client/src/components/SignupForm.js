@@ -5,6 +5,8 @@ import Button from "./Button";
 const SignupForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -16,22 +18,36 @@ const SignupForm = () => {
 
     return (
       <form onSubmit={handleSubmit} className="login-form">
-      <InputField
-        label="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <InputField
+            label="First Name"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+        />
 
-      <InputField
-        label="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <InputField
+            label="Last Name"
+            type="text"
+            value={lastName}
+            onChange={(e) => setFirstName(e.target.value)}
+        />
+        
+        <InputField
+            label="Email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <Button text="Create Account" />
-    </form>
+        <InputField
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <Button text="Create Account" />
+      </form>
     );
 }
 
