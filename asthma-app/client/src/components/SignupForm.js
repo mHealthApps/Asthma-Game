@@ -10,6 +10,8 @@ const SignupForm = () => {
 
     const handleSubmit = (e) => {
       e.preventDefault();
+      console.log("First Name:", firstName);
+      console.log("Last Name:", lastName);
       console.log("Email:", email);
       console.log("Password:", password);
 
@@ -29,7 +31,7 @@ const SignupForm = () => {
             label="Last Name"
             type="text"
             value={lastName}
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
         />
         
         <InputField
