@@ -1,0 +1,33 @@
+import { BaseGame } from '../shared/BaseGame';
+import { SimpleInstructionScene } from '../shared/SimpleInstructionScene';
+import { MemoryScene } from './scenes/MemoryScene';
+
+/*  
+Events used in this game:
+setScore(score): score recorded at the end of the game
+uponCompletion(): called at the end of the game for completion
+updateStorage(): called when you win the game to update module completion
+*/
+
+export class MemoryGame extends BaseGame {
+    async run() {
+        // Function to begin MemoryScene
+        this.playGame = () => {
+            this.setScene(new MemoryScene(this.app));
+        }
+        // Set the initial scene
+        this.setScene(new SimpleInstructionScene(this.app, 'Asthma Memory Game', 'In this game you must find the pairs of asthma-related objects. If you find a pair, you score points and the pair disapears. Collect all pairs to win.', this.playGame));
+
+
+        // Listen for animate update
+        this.app.ticker.add((time) => {
+            if (this.currentScene) {
+                this.currentScene.update();
+                // Detection of win condition
+                if (this.currentScene.score) {
+                    
+                }
+            }
+        });
+    }
+}

@@ -1,6 +1,5 @@
-import { Application, Container } from 'pixi.js';
 import { BaseGame } from '../shared/BaseGame';
-import { InstructionScene } from './scenes/InstructionScene'
+import { SimpleInstructionScene } from '../shared/SimpleInstructionScene';
 import { GameScene } from './scenes/GameScene';
 import { WinScene } from './scenes/WinScene';
 
@@ -12,26 +11,13 @@ updateStorage(): called when you win the game to update module completion
 */
 
 export class DemoGame extends BaseGame {
-    async start() {
-        // Create a new application
-        this.app = new Application();
-
-        // Initialize the application
-        await this.app.init({ background: '#1099bb', resizeTo: window });
-
-        // Append the application canvas to the document body
-        this.container.appendChild(this.app.canvas);
-
-        // Create and add a container to the stage
-        this.mainContainer = new Container();
-
-        this.app.stage.addChild(this.mainContainer);
-
+    async run() {
+        // Function to begin GameScene
         this.playGame = () => {
             this.setScene(new GameScene(this.app));
         }
         // Set the initial scene
-        this.setScene(new InstructionScene(this.app, this.playGame));
+        this.setScene(new SimpleInstructionScene(this.app, 'Healthy Lungs Game', 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.', this.playGame));
 
 
         this.completionTime = 0;
@@ -42,7 +28,7 @@ export class DemoGame extends BaseGame {
                 if (this.currentScene.score) {
                     this.completionTime += time.elapsedMS;
                     // detects winning the game in the game scene
-                    if (this.currentScene.score >= 30) {
+                    if (this.currentScene.score >= 100) {
                         // console.log(this.completionTime);
                         this.events.setScore(this.completionTime);
                         this.events.updateStorage();
@@ -51,20 +37,5 @@ export class DemoGame extends BaseGame {
                 }
             }
         });
-    }
-
-    // Method to change the scene, pass in an instance of a child of BaseScene
-    setScene(scene) {
-        if (this.currentScene) {
-            this.mainContainer.removeChildAt(this.currentScene.container);
-            this.currentScene.destroy();
-        }
-
-        this.currentScene = scene;
-        this.mainContainer.addChild(this.currentScene.container);
-    }
-
-    destroy() {
-        this.app.destroy(true, { container: true });
     }
 }
