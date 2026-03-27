@@ -7,6 +7,6 @@ main = Blueprint("main", __name__)
 def health():
     return jsonify({"status": "ok"})
 
-@app.route('/api/test', methods=['GET'])
+@main.route('/api/test', methods=['GET'])
 def test():
     return {"message": "Flask is working!"}

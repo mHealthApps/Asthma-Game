@@ -1,9 +1,13 @@
 import os
 from flask import Flask
 from .extensions import db, migrate
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
+
+    # allows the flask server to accept HTTP requests from localhost 3000
+    CORS(app, origins=["http://localhost:3000"])
 
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
