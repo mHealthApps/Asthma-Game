@@ -43,4 +43,8 @@ export default class MemoryCard {
     update() {
         
     }
+
+    remove() {
+        this.card.destroy();
+    }
 }

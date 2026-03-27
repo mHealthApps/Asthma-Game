@@ -25,7 +25,7 @@ export class MemoryScene extends BaseScene {
         this.container.addChild(this.scoreText);
 
         // Initialization of the memory board
-        this.board = new MemoryBoard(this.app.screen.width / 2, this.app.screen.height / 2, Math.min(this.app.screen.width, this.app.screen.height) * 0.80);
+        this.board = new MemoryBoard(this.app.screen.width / 2, this.app.screen.height / 2, Math.min(this.app.screen.width, this.app.screen.height) * 0.80, changeScore);
         this.container.addChild(this.board.view);
     }
 
