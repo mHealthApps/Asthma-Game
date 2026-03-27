@@ -23,6 +23,7 @@ import CongratulationsPage from './pages/static/CongratulationsPage';
 import DemoPixiGame from "./pages/DemoPixiGame";
 import Login from "./pages/static/Login";
 import Signup from "./pages/static/Signup";
+import FlaskTest from "./pages/FlaskTest";
 
 
 const storageData = [
@@ -111,6 +112,7 @@ function App() {
         <Route path="/congratulations" element={<CongratulationsPage userName={userName} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/flasktest" element={<FlaskTest />} />
       </Routes>
     </HashRouter>
   );
