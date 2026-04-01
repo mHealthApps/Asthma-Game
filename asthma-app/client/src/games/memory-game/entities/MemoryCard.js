@@ -13,6 +13,13 @@ export default class MemoryCard {
         this.card.anchor.set(0.5);
         this.card.scale.set(width * 0.01);
 
+        this.shadow = new Graphics();
+        this.draw = function() {
+            this.shadow.roundRect(-(width / 2.4), -(width / 2.4), width, width, width * 0.095);
+            this.shadow.fill({ color: 'black', alpha: 0.3 });
+        }
+        this.draw();
+
         // Enable interaction
         this.card.eventMode = 'static';
         this.card.cursor = 'pointer';
@@ -31,6 +38,7 @@ export default class MemoryCard {
             .fill(0xffffff);
         this.card.mask = this.mask;
 
+        this.view.addChild(this.shadow);
         this.view.addChild(this.mask);
         this.view.addChild(this.card);
     }
@@ -46,5 +54,7 @@ export default class MemoryCard {
 
     remove() {
         this.card.destroy();
+        this.mask.destroy();
+        this.shadow.destroy();
     }
 }
