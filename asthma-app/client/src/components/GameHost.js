@@ -55,7 +55,7 @@ const GameHost = ({ GameClass, storageIndex }) => {
             events,
             /*  Pass events as object of event functions 
                 This allows passing multiple functions into the Pixi App which can be called in-game
-                The main event that must be passed is uponCompletion to move the game on after its done */
+                The main events that must be passed are uponCompletion, setScore, updateStorage */
         })
 
         game.start();

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
+import GameHost from '../../components/GameHost';
+import { MemoryGame } from '../../games/memory-game/MemoryGame';
 import Quiz from '../../components/Quiz';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
@@ -35,6 +37,7 @@ import AudioFile33i from '../../assets/audio/Audio-File-33i.mp3';
 import AudioFile34 from '../../assets/audio/Audio-File-34.mp3';
 import ReactGA from 'react-ga4';
 import { Link } from 'react-router-dom';
+import useIsGameMode from '../../hooks/useIsGameMode';
 
 
 const treatmentCards = [
@@ -239,6 +242,8 @@ const AsthmaTreatment = () => {
   }, [])
   // useSendPageview('Content: Asthma Treatment');
 
+  const [isGameMode] = useIsGameMode();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {
@@ -246,19 +251,30 @@ const AsthmaTreatment = () => {
   }
 
   const renderScene = () => {
-    switch (scene) {
-      case 0:
-        return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
-      case 1:
-        return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Blue_Inhaler_21} alt='reliever' audios={[AudioFile33a, AudioFile33b, AudioFile33c]} />
-      case 2:
-        return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Red_Inhaler_20} alt='preventer' audios={[AudioFile33d, AudioFile33e, AudioFile33f]} />
-      case 3:
-        return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Purple_Inhaler_22} alt='combination' audios={[AudioFile33g, AudioFile33h, AudioFile33i]} />
-      case 4:
-        return <Summary image={All_Inhalers_23} alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list" audio={AudioFile34} />
-      default:
-        return <div>Error: rendering failed</div>
+    if (isGameMode) {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
+        case 1:
+          return <GameHost GameClass={MemoryGame} storageIndex={2} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
+    } else {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
+        case 1:
+          return <Quiz quiz={treatmentQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Blue_Inhaler_21} alt='reliever' audios={[AudioFile33a, AudioFile33b, AudioFile33c]} />
+        case 2:
+          return <Quiz quiz={treatmentQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Red_Inhaler_20} alt='preventer' audios={[AudioFile33d, AudioFile33e, AudioFile33f]} />
+        case 3:
+          return <Quiz quiz={treatmentQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Purple_Inhaler_22} alt='combination' audios={[AudioFile33g, AudioFile33h, AudioFile33i]} />
+        case 4:
+          return <Summary image={All_Inhalers_23} alt="lungs-wide" explanation={`*Relievers help short wind\n*Preventers and combination puffers help reduce swelling and sensitivity in the breathing tubes`} buttonLink="/asthma-list" audio={AudioFile34} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
     }
   }
 

@@ -220,8 +220,8 @@ const ListGrid = ({ items, conditionTitle, orientation, setUserName }) => {
     } else {
       // Temporary reset of all completed upon completion of all
       // if (!tempCompletedLists.includes('0')) {
-      //   tempCompletedLists = setDefaultCompleted();
-      //   localStorage.setItem(key, tempCompletedLists);
+        // tempCompletedLists = setDefaultCompleted();
+        // localStorage.setItem(key, tempCompletedLists);
       // }
       setCompletedLists(tempCompletedLists);
       // Checks if all decks have been completed and the user has not seen the congratulations page yet, and then navigates them there if so

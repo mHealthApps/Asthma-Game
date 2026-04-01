@@ -4,6 +4,8 @@ import MemoryBoard from '../entities/MemoryBoard';
 
 export class MemoryScene extends BaseScene {
     build() {
+        // Game checks if this variable exists to know what scene it is
+        this.isGame = true;
         // Initialization of score and text
         this.score = 0;
         const changeScore = (increment) => {

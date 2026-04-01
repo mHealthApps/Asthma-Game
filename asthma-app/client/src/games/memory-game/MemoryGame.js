@@ -1,6 +1,7 @@
 import { BaseGame } from '../shared/BaseGame';
 import { SimpleInstructionScene } from '../shared/SimpleInstructionScene';
 import { MemoryScene } from './scenes/MemoryScene';
+import { MemoryWinScene } from './scenes/MemoryWinScene';
 
 /*  
 Events used in this game:
@@ -24,8 +25,11 @@ export class MemoryGame extends BaseGame {
             if (this.currentScene) {
                 this.currentScene.update();
                 // Detection of win condition
-                if (this.currentScene.score) {
-                    
+                if (this.currentScene.isGame && this.currentScene.score >= 160) {
+                    // TODO: change next scene condition so that dynamic score
+                    this.events.setScore(this.completionTime);
+                    this.events.updateStorage();
+                    this.setScene(new MemoryWinScene(this.app, this.currentScene.score, this.events.uponCompletion));
                 }
             }
         });
