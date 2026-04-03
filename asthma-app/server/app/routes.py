@@ -25,9 +25,16 @@ def create_token():
     password = data.get("password")
 
     # TEMP TEST LOGIN (replace later with DB)
-    if email != "test" or password != "test":
+    if email != "test@gmail.com" or password != "test":
         return {"msg": "Wrong email or password"}, 401
 
     access_token = create_access_token(identity=email)
 
     return {"access_token": access_token}
+
+# Logout Route
+@main.route('/api/logout', methods=["POST"])
+def logout():
+    response = jsonify({"msg": "logout successful"})
+    unset_jwt_cookies(response)
+    return response
