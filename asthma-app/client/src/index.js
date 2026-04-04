@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga4';
 import Home from './pages/static/Home';
@@ -24,6 +24,8 @@ import DemoPixiGame from "./pages/DemoPixiGame";
 import Login from "./pages/static/Login";
 import Signup from "./pages/static/Signup";
 import FlaskTest from "./pages/FlaskTest";
+import ProtectedRoute from "./components/ProtectedRoute";
+import useToken from "./components/useToken";
 
 
 const storageData = [
@@ -87,34 +89,41 @@ function App() {
 
   const [userName, setUserName] = useState('');
 
+  const { token } = useToken();
+
   return (
-    <HashRouter>
+    <Router>
       <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/glossary" element={<Glossary />} />
-        <Route path="/resources" element={<Resources />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/sound-choice" element={<SoundChoice />} />
-        <Route path="/asthma-list" element={<AsthmaList setUserName={setUserName} />} />
-        <Route path="/stacked-demo" element={<DemoStacked />} />
-        <Route path="/quiz-demo" element={<DemoQuiz />} />
-        <Route path="/summary-demo" element={<DemoSummary />} />
-        <Route path="/congratulations-demo" element={<DemoCongratulations />} />
-        <Route path="/sound-demo" element={<DemoSound />} />
-        <Route path="/game-demo" element={<DemoPixiGame />} />
-        <Route path="/the-lungs" element={<TheLungs />} />
-        <Route path="/about-asthma" element={<AboutAsthma />} />
-        <Route path="/asthma-treatment" element={<AsthmaTreatment />} />
-        <Route path="/asthma-management" element={<AsthmaManagement />} />
-        <Route path="/first-aid" element={<FirstAid />} />
-        <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
-        <Route path="/congratulations" element={<CongratulationsPage userName={userName} />} />
+        // Public Routes
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/flasktest" element={<FlaskTest />} />
+
+        // Protected Routes
+        <Route element={<ProtectedRoute isAuthenticated={token} />}>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/glossary" element={<Glossary />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/sound-choice" element={<SoundChoice />} />
+          <Route path="/asthma-list" element={<AsthmaList setUserName={setUserName} />} />
+          <Route path="/stacked-demo" element={<DemoStacked />} />
+          <Route path="/quiz-demo" element={<DemoQuiz />} />
+          <Route path="/summary-demo" element={<DemoSummary />} />
+          <Route path="/congratulations-demo" element={<DemoCongratulations />} />
+          <Route path="/sound-demo" element={<DemoSound />} />
+          <Route path="/game-demo" element={<DemoPixiGame />} />
+          <Route path="/the-lungs" element={<TheLungs />} />
+          <Route path="/about-asthma" element={<AboutAsthma />} />
+          <Route path="/asthma-treatment" element={<AsthmaTreatment />} />
+          <Route path="/asthma-management" element={<AsthmaManagement />} />
+          <Route path="/first-aid" element={<FirstAid />} />
+          <Route path="/healthy-lifestyle" element={<HealthyLifestyle />} />
+          <Route path="/congratulations" element={<CongratulationsPage userName={userName} />} />
+        </Route>
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
 
