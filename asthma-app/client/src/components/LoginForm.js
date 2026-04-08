@@ -12,7 +12,7 @@ const LoginForm = ({ setToken }) => {
       console.log("Email:", email);
       console.log("Password:", password);
 
-      // Add API call here later
+      // API call
       axios.post("http://127.0.0.1:5000/api/token", {
         email: email,
         password: password,

@@ -7,8 +7,11 @@ import Nav from 'react-bootstrap/Nav';
 import { HouseFill, PauseCircle } from 'react-bootstrap-icons';
 import ArrowReplay from '../assets/images/arrow-replay.svg';
 import { Col } from 'react-bootstrap';
+import useToken from './useToken';
 
 const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent, oneLine }) => {
+  const { removeToken } = useToken();
+
   const handlePauseClick = () => {
     console.log('pause click');
     pauseCurrent();
@@ -17,6 +20,11 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
   const handleReplayClick = () => {
     console.log('replay click');
     replayCurrent();
+  }
+
+  const handleLogout = () => {
+    console.log('logout');
+    removeToken();
   }
 
   return (
@@ -49,15 +57,24 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
           ''
         }
       </div>
-      {(pauseCurrent !== undefined || replayCurrent !== undefined) ?
+      
         <Container className="grid-item">
           <Nav className='grid-right audio-control-container'>
-            <div onClick={handlePauseClick}><PauseCircle className={`nav-icon nav-icon-${orientation}`}/></div>
-            <div onClick={handleReplayClick}><img src={ArrowReplay} className={`nav-icon nav-icon-${orientation} replay-icon`} style={{width: '1.2em', height: '1.2em'}} alt='replay icon'/></div>
+            {pauseCurrent !== undefined && (
+              <div onClick={handlePauseClick}><PauseCircle className={`nav-icon nav-icon-${orientation}`}/></div>
+              )}
+            {replayCurrent !== undefined && (
+              <div onClick={handleReplayClick}><img src={ArrowReplay} className={`nav-icon nav-icon-${orientation} replay-icon`} style={{width: '1.2em', height: '1.2em'}} alt='replay icon'/></div>
+            )}
             {/*<div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation} replay-icon`} style={{ transform: 'scaleY(-1)' }}/></div>*/}
+            
+            <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
+              Logout
+            </button>
+          
           </Nav>
-        </Container> : ''
-      }
+        </Container>
+      
 
     </Navbar>
   );
