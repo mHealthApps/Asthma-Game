@@ -25,6 +25,7 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
   const handleLogout = () => {
     console.log('logout');
     removeToken();
+    window.location.href = "#/login";
   }
 
   return (

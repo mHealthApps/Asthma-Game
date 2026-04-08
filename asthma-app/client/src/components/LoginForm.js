@@ -19,6 +19,7 @@ const LoginForm = ({ setToken }) => {
       })
       .then((response) => {
         setToken(response.data.token);
+        window.location.href = '#/home';
       })
       .catch((error) => {
         console.error(error);
