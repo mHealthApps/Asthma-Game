@@ -5,6 +5,7 @@ import TopBar from '../../components/TopBar';
 import ReactGA from 'react-ga4';
 import useOrientation from '../../hooks/useOrientation';
 import LoginForm from '../../components/LoginForm';
+import useToken from '../../components/useToken';
 
 const Login = () => {
   // GA Login pageview
@@ -13,6 +14,7 @@ const Login = () => {
   }, [])
 
   const orientation = useOrientation();
+  const { setToken } = useToken();
 
   return (
     
@@ -24,7 +26,7 @@ const Login = () => {
       <div className='login-header-container'>
         <div className="sound-card">
           <div className="sound-card-inner-container">
-            <LoginForm />
+            <LoginForm setToken={setToken} />
           </div>
         </div>
 
