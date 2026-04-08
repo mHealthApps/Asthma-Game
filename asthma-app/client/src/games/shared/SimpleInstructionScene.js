@@ -1,19 +1,25 @@
-import { BaseScene } from '../../shared/BaseScene';
+import { BaseScene } from './BaseScene';
 import { Text } from 'pixi.js';
-import PixiButton from '../../shared/PixiButton';
+import PixiButton from './PixiButton';
 
-export class InstructionScene extends BaseScene {
-    constructor(app, nextScene) {
+export class SimpleInstructionScene extends BaseScene {
+    constructor(app, gameTitle, instructions, nextScene) {
         super(app);
+        this.gameTitle = gameTitle;
+        this.instructions = instructions;
         this.nextScene = nextScene;
         this.displayMore();
     }
 
     build() {
+        
+    }
+
+    displayMore() {
         // Initialization of headers and instruction text
         /* Game Title Text */
         this.titleText = new Text({
-            text: 'Healthy Lungs Game',
+            text: this.gameTitle,
             style: {
                 fontSize: this.app.screen.width * 0.07,
                 fontFamily: 'Chewy, system-ui',
@@ -48,7 +54,7 @@ export class InstructionScene extends BaseScene {
 
         /* Instructions Text */
         this.instructionText = new Text({
-            text: 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.',
+            text: this.instructions,
             style: {
                 fill: '#ffffff',
                 fontSize: this.app.screen.width * 0.032,
@@ -66,9 +72,7 @@ export class InstructionScene extends BaseScene {
         this.container.addChild(this.titleText);
         this.container.addChild(this.instructionHeaderText);
         this.container.addChild(this.instructionText);
-    }
 
-    displayMore() {
         // Play game button
         this.playButton = new PixiButton(this.app.screen.width / 2, this.app.screen.height * 0.80, 350, "Play Game", this.nextScene);
         this.container.addChild(this.playButton.view);
