@@ -1,15 +1,21 @@
-import { Container, Graphics, Sprite, Assets, Text } from 'pixi.js';
+import { Container, Sprite, Texture, Text } from 'pixi.js';
 
 class Gate {
     constructor(x, size, text, image) {
         this.size = size;
 
         this.view = new Container();
-        this.view.x = x;
 
-        this.gateSprite = new Sprite(image);
+        /* Initializing variables for depth effect */
+        this.gateX = x;
+        this.centerX = 0;
+        this.baseSpeed = 0.000015;
+        this.z = 4.5;
+
+        this.gateSprite = new Sprite(Texture.from(image));
         this.gateSprite.anchor.set(0.5);
         this.gateSprite.width = size * 0.75;
+        this.gateSprite.height = size * 0.75;
 
         this.gateText = new Text({
             text: text,
@@ -25,6 +31,27 @@ class Gate {
 
         this.view.addChild(this.gateSprite);
         this.view.addChild(this.gateText);
+        this.depthPosition();
+    }
+
+    update(appHeight) {
+      this.depthPosition(appHeight);
+
+      // Change depth, move the gates closer
+      if (this.z > 1) {
+        this.z -= this.baseSpeed * appHeight * this.scale;
+      }
+      
+    }
+
+    depthPosition(appHeight) {
+      // Display based on this.z which is depth
+      this.scale = 1 / this.z;
+      this.view.scale.set(this.scale);
+      this.horizonY = -(appHeight * 0.28);
+
+      this.view.x = this.centerX + this.gateX * this.scale;
+      this.view.y = this.horizonY + ((appHeight * 0.85) - this.horizonY) * this.scale;
     }
 }
 
@@ -56,19 +83,9 @@ export default class Gates {
   }
 
   update (appHeight) {
-    if (this.wait > 0) {
-      this.wait--;
-    } else {
-      // this.yVel += appHeight / 17000;
-      this.y += 5;
-      if (this.y > appHeight + 30) {
-        // Resets objects position at the top of the screen and randomly sets a random type
-      }
-      if (!this.dead) {
-        this.view.x = this.x;
-        this.view.y = this.y;
-      }
-    }
+    this.gates.forEach((gate) => {
+      gate.update(appHeight);
+    });
   }
 
   tempDie () {

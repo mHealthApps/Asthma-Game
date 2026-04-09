@@ -100,8 +100,10 @@ export class GateScene extends BaseScene {
     }
 
     update() {
-        // Update the board
-        
+        // Update the Question Entity
+        if (this.questionEntity) {
+            this.questionEntity.update();
+        }
         // Update the text score
         this.scoreText.text = `Score: ${this.score}`;
     }

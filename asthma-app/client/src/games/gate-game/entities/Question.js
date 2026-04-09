@@ -38,6 +38,6 @@ export default class Question {
     }
 
     update() {
-        
+        this.gates.update(this.app.screen.height);
     }
 }
