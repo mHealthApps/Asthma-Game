@@ -16,6 +16,19 @@ const SignupForm = () => {
       console.log("Password:", password);
 
       // Add API call here later
+      axios.post("http://127.0.0.1:5000/api/signup", {
+        email,
+        password,
+        firstName,
+        lastName
+      })
+      .then(() => {
+        alert("Signup successful!");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Signup failed");
+      });
     };
 
     return (
