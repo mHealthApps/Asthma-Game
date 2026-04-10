@@ -27,10 +27,26 @@ def create_token():
     password = data.get("password")
 
     # TEMP TEST LOGIN (replace later with DB)
-    if email != "test@gmail.com" or password != "test":
-        return {"msg": "Wrong email or password"}, 401
+    # if email != "test@gmail.com" or password != "test":
+    #    return {"msg": "Wrong email or password"}, 401
 
-    access_token = create_access_token(identity=email)
+    # 1. Validate input
+    if not email or not password:
+        return jsonify({"msg": "Missing email or password"}), 400
+
+    # 2. Look up user in database
+    user = User.query.filter_by(email=email).first()
+
+    # 3. Check if user exists
+    if not user:
+        return jsonify({"msg": "Invalid email or password"}), 401
+
+    # 4. Check password hash
+    if not bcrypt.check_password_hash(user.password, password):
+        return jsonify({"msg": "Invalid email or password"}), 401
+
+    # 5. Create JWT token
+    access_token = create_access_token(identity=user.email)
 
     return {"access_token": access_token}
 
