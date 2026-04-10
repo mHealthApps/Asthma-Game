@@ -1,6 +1,8 @@
 import { BaseScene } from '../../shared/BaseScene';
 import { Text, Assets } from 'pixi.js';
 import Question from '../entities/Question';
+import Player from '../entities/Player';
+import Controller from '../systems/Controller';
 import Background_1 from '../../../assets/images/1_Background.jpg';
 import Lung_32 from '../../../assets/images/32_Lung.jpg';
 import Kidney_15 from '../../../assets/images/15_Kidney.jpg'
@@ -69,6 +71,9 @@ export class GateScene extends BaseScene {
         this.container.addChild(this.scoreText);
 
         this.generateQuestionEntities();
+        this.player = new Player(this.app, this.changeScore);
+        this.controller =  new Controller(this.app, this.player.view);
+        this.container.addChild(this.player.view);
     }
 
     async generateQuestionEntities() {
@@ -103,6 +108,9 @@ export class GateScene extends BaseScene {
         // Update the Question Entity
         if (this.questionEntity) {
             this.questionEntity.update();
+        }
+        if (this.controller) {
+            this.controller.update();
         }
         // Update the text score
         this.scoreText.text = `Score: ${this.score}`;

@@ -21,16 +21,17 @@ class Gate {
             text: text,
             style: {
                 fill: '#ffffff',
-                fontSize: 24,
+                fontSize: size * 0.1,
                 fontFamily: 'sans-serif',
             },
             anchor: 0.5,
             x: 0,
-            y: 0
+            y: size / 2
         });
 
         this.view.addChild(this.gateSprite);
         this.view.addChild(this.gateText);
+        this.view.alpha = 0.8;
         this.depthPosition();
     }
 
@@ -40,6 +41,9 @@ class Gate {
       // Change depth, move the gates closer
       if (this.z > 1) {
         this.z -= this.baseSpeed * appHeight * this.scale;
+      } else if (this.view.visible) {
+        // collision logic
+        this.view.visible = false;
       }
       
     }
