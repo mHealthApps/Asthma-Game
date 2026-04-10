@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
                                unset_jwt_cookies, jwt_required, JWTManager
 from flask_bcrypt import Bcrypt
+from .models import User, db
 
 main = Blueprint("main", __name__)
 bcrypt = Bcrypt()
@@ -41,14 +42,14 @@ def logout():
     return response
 
 # Signup Route
-@api.route("api/signup", methods=["POST"])
+@main.route("/api/signup", methods=["POST"])
 def signup():
     data = request.get_json()
 
     email = data.get("email")
     password = data.get("password")
-    firstname = data.get("firstname")
-    lastname = data.get("lastname")
+    firstname = data.get("firstName")
+    lastname = data.get("lastName")
 
     # Check if user exists
     if User.query.filter_by(email=email).first():
