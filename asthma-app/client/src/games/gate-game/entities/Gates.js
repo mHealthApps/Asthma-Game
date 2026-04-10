@@ -32,7 +32,8 @@ class Gate {
         this.view.addChild(this.gateSprite);
         this.view.addChild(this.gateText);
         this.view.alpha = 0.8;
-        this.depthPosition();
+        this.depthPosition(1024);
+        console.log(this.view.y);
     }
 
     update(appHeight) {
@@ -43,6 +44,7 @@ class Gate {
         this.z -= this.baseSpeed * appHeight * this.scale;
       } else if (this.view.visible) {
         // collision logic
+        console.log(this.view.y);
         this.view.visible = false;
       }
       
@@ -80,7 +82,7 @@ export default class Gates {
     this.gates = [];
     for (let i = 0; i < this.options.length; i++) {
         const gate = new Gate((-1 + (2 * (i + 0.5)) / this.options.length) * (this.width / 2), this.width / this.options.length, this.options[i].text, this.options[i].image);
-        console.log(gate);
+        // console.log(gate);
         this.gates.push(gate);
         this.view.addChild(gate.view);
     }

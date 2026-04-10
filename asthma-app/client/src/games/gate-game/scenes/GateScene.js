@@ -1,5 +1,5 @@
 import { BaseScene } from '../../shared/BaseScene';
-import { Text, Assets } from 'pixi.js';
+import { Text, Assets, Graphics } from 'pixi.js';
 import Question from '../entities/Question';
 import Player from '../entities/Player';
 import Controller from '../systems/Controller';
@@ -68,6 +68,14 @@ export class GateScene extends BaseScene {
             y: this.app.screen.height - 60
         });
         this.app.renderer.background.color = 0x1099bb;
+        this.path = new Graphics();
+        this.draw = function() {
+            this.path.poly([this.app.screen.width * 0.15, this.app.screen.height, this.app.screen.width * 0.85, this.app.screen.height, this.app.screen.width * 0.57, this.app.screen.height * 0.12, this.app.screen.width * 0.43, this.app.screen.height * 0.12]);
+            this.path.fill('#B0B0B0');
+        }
+        this.draw();
+        this.container.addChild(this.path);
+
         this.container.addChild(this.scoreText);
 
         this.generateQuestionEntities();
