@@ -3,6 +3,7 @@ import { Text, Assets, Graphics } from 'pixi.js';
 import Question from '../entities/Question';
 import Player from '../entities/Player';
 import Controller from '../systems/Controller';
+// import PathLine from '../entities/PathLine';
 import Background_1 from '../../../assets/images/1_Background.jpg';
 import Lung_32 from '../../../assets/images/32_Lung.jpg';
 import Kidney_15 from '../../../assets/images/15_Kidney.jpg'
@@ -52,6 +53,10 @@ export class GateScene extends BaseScene {
         this.isGame = true;
         // Initialization of score and text
         this.score = 0;
+        this.player = new Player(this.app, this.changeScore);
+        this.playerX = (numPartitions) => {
+            return Math.floor((this.player.view.x / this.app.screen.width) * numPartitions);
+        }
         this.changeScore = (increment) => {
             this.score += increment;
         }
@@ -67,6 +72,7 @@ export class GateScene extends BaseScene {
             x: 20,
             y: this.app.screen.height - 60
         });
+
         this.app.renderer.background.color = 0x1099bb;
         this.path = new Graphics();
         this.draw = function() {
@@ -76,10 +82,12 @@ export class GateScene extends BaseScene {
         this.draw();
         this.container.addChild(this.path);
 
+        // this.line = new PathLine(this.app, 0);
+        // this.container.addChild(this.line.view);
+
         this.container.addChild(this.scoreText);
 
         this.generateQuestionEntities();
-        this.player = new Player(this.app, this.changeScore);
         this.controller =  new Controller(this.app, this.player.view);
         this.container.addChild(this.player.view);
     }
@@ -87,7 +95,7 @@ export class GateScene extends BaseScene {
     async generateQuestionEntities() {
         await this.preload();
 
-        this.questionEntity = new Question(this.app, this.changeScore, questions);
+        this.questionEntity = new Question(this.app, this.changeScore, questions, this.playerX);
         this.container.addChild(this.questionEntity.view);
     }
 
@@ -114,10 +122,9 @@ export class GateScene extends BaseScene {
 
     update() {
         // Update the Question Entity
-        if (this.questionEntity) {
+        if (this.questionEntity && this.controller) {
+            // this.line.update();
             this.questionEntity.update();
-        }
-        if (this.controller) {
             this.controller.update();
         }
         // Update the text score

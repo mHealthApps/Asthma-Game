@@ -3,11 +3,12 @@ import Gates from './Gates';
 
 
 export default class Question {
-    constructor(app, changeScore, questions) {
+    constructor(app, changeScore, questions, playerX) {
         this.view = new Container();
         this.app = app;
         this.changeScore = changeScore;
         this.questions = questions;
+        this.playerX = playerX;
 
         this.questionText = new Text({
             text: '',
@@ -27,7 +28,7 @@ export default class Question {
     generateQuestion() {
         this.pickRandomQuestion();
         // console.log(this.app.screen.width);
-        this.gates = new Gates(this.app.screen.width / 2, this.app.screen.height / 8, this.app.screen.width, this.chosenQuestion.options, this.changeScore);
+        this.gates = new Gates(this.app.screen.width / 2, this.app.screen.height / 8, this.app.screen.width, this.chosenQuestion.options, this.changeScore, this.playerX);
         this.questionText.text = this.chosenQuestion.text;
         this.view.addChild(this.gates.view);
     }
@@ -38,6 +39,6 @@ export default class Question {
     }
 
     update() {
-        this.gates.update(this.app.screen.height);
+        this.gates.update(this.app.screen.width, this.app.screen.height);
     }
 }
