@@ -19,7 +19,7 @@ const LoginForm = ({ setToken }) => {
       })
       .then((response) => {
         setToken(response.data.token);
-        window.location.href = '#/home';
+        window.location.hash = "/home";
       })
       .catch((error) => {
         console.error(error);
