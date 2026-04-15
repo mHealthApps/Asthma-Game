@@ -14,10 +14,10 @@ export class GateGame extends BaseGame {
     async run() {
         // Function to begin GameScene
         this.playGame = () => {
-            this.setScene(new GateScene(this.app));
+            this.setScene(new GateScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, 'Asthma Questions Gate Game', 'In this game you must move your character so that they walk through the gate which contains the proper answer to the question.', this.playGame));
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Asthma Questions Gate Game', 'In this game you must move your character so that they walk through the gate which contains the proper answer to the question.', this.playGame));
 
 
         // Listen for animate update
@@ -30,7 +30,7 @@ export class GateGame extends BaseGame {
                         // console.log(this.completionTime);
                         this.events.setScore(this.completionTime);
                         this.events.updateStorage();
-                        this.setScene(new GateWinScene(this.app, this.completionTime, this.events.uponCompletion));
+                        this.setScene(new GateWinScene(this.app, this.content, this.completionTime, this.events.uponCompletion));
                     }
                 }
             }

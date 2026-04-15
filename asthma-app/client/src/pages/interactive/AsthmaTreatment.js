@@ -256,7 +256,7 @@ const AsthmaTreatment = () => {
         case 0:
           return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={MemoryGame} storageIndex={2} />
+          return <GameHost GameClass={MemoryGame} content='asthma treatment content placeholder' storageIndex={2} />
         default:
           return <div>Error: rendering failed</div>
       }

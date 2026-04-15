@@ -3,8 +3,8 @@ import { Text } from 'pixi.js';
 import PixiButton from './PixiButton';
 
 export class SimpleInstructionScene extends BaseScene {
-    constructor(app, gameTitle, instructions, nextScene) {
-        super(app);
+    constructor(app, content, gameTitle, instructions, nextScene) {
+        super(app, content);
         this.gameTitle = gameTitle;
         this.instructions = instructions;
         this.nextScene = nextScene;

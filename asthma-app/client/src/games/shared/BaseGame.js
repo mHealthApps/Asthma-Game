@@ -2,8 +2,9 @@ import { Application, Container } from "pixi.js";
 
 // Base class which contains each Pixi games basic structure that React will interact with
 export class BaseGame {
-    constructor({ container, events }) {
+    constructor({ container, content, events }) {
         this.container = container;
+        this.content = content;
         this.events = events;
     }
 
@@ -22,6 +23,7 @@ export class BaseGame {
     
             this.app.stage.addChild(this.mainContainer);
 
+            console.log(this.content);
             this.run();
     }
 

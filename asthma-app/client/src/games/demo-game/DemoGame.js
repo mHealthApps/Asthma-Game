@@ -14,10 +14,10 @@ export class DemoGame extends BaseGame {
     async run() {
         // Function to begin GameScene
         this.playGame = () => {
-            this.setScene(new GameScene(this.app));
+            this.setScene(new GameScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, 'Healthy Lungs Game', 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.', this.playGame));
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Healthy Lungs Game', 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.', this.playGame));
 
 
         this.completionTime = 0;
@@ -32,7 +32,7 @@ export class DemoGame extends BaseGame {
                         // console.log(this.completionTime);
                         this.events.setScore(this.completionTime);
                         this.events.updateStorage();
-                        this.setScene(new WinScene(this.app, this.completionTime, this.events.uponCompletion));
+                        this.setScene(new WinScene(this.app, this.content, this.completionTime, this.events.uponCompletion));
                     }
                 }
             }

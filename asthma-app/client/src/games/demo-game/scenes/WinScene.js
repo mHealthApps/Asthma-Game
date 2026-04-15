@@ -3,8 +3,8 @@ import { Text } from 'pixi.js';
 import PixiButton from '../../shared/PixiButton';
 
 export class WinScene extends BaseScene {
-    constructor(app, completionTime, uponCompletion) {
-        super(app);
+    constructor(app, content, completionTime, uponCompletion) {
+        super(app, content);
         this.completionTime = completionTime;
         this.uponCompletion = uponCompletion;
         this.displayMore();

@@ -169,7 +169,7 @@ const HealthyLifestyle = () => {
         case 0:
           return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={DemoGame} storageIndex={5} />
+          return <GameHost GameClass={DemoGame} content='healthy lifestyle content placeholder' storageIndex={5} />
         default:
           return <div>Error: rendering failed</div>
       }

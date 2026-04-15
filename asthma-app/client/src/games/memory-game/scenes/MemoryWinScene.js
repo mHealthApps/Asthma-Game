@@ -3,8 +3,8 @@ import { Text } from 'pixi.js';
 import PixiButton from '../../shared/PixiButton';
 
 export class MemoryWinScene extends BaseScene {
-    constructor(app, score, uponCompletion) {
-        super(app);
+    constructor(app, content, score, uponCompletion) {
+        super(app, content);
         this.score = score;
         this.uponCompletion = uponCompletion;
         this.displayMore();

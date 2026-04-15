@@ -224,7 +224,7 @@ const FirstAid = () => {
         case 0:
           return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={DemoGame} storageIndex={4} />
+          return <GameHost GameClass={DemoGame} content='first aid content placeholder' storageIndex={4} />
         default:
           return <div>Error: rendering failed</div>
       }

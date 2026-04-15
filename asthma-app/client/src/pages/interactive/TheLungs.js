@@ -157,7 +157,7 @@ const TheLungs = () => {
         case 0:
           return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={GateGame} storageIndex={0} />
+          return <GameHost GameClass={GateGame} content='the lungs content placeholder' storageIndex={0} />
         default:
           return <div>Error: rendering failed</div>
       }

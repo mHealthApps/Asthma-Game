@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const GameHost = ({ GameClass, storageIndex }) => {
+const GameHost = ({ GameClass, content, storageIndex }) => {
     const ref = useRef(null);
 
     // Creating events to pass into the Pixi game
@@ -27,19 +27,19 @@ const GameHost = ({ GameClass, storageIndex }) => {
     const conditionTitle = 'ASTHMA'
     const updateStorage = () => {
         if (conditionTitle !== undefined) {
-        console.log(`conditionTitle: ${conditionTitle}`);
-        const key = conditionTitle.toLowerCase() + 'List';
-        let completedLists = localStorage.getItem(key);
-        console.log(`completedList: ${completedLists}`);
-        if (completedLists === null) {
-            console.log('error: no storage detected');
+            console.log(`conditionTitle: ${conditionTitle}`);
+            const key = conditionTitle.toLowerCase() + 'List';
+            let completedLists = localStorage.getItem(key);
+            console.log(`completedList: ${completedLists}`);
+            if (completedLists === null) {
+                console.log('error: no storage detected');
+            } else {
+                completedLists = completedLists.substring(0, storageIndex) + '1' + completedLists.substring(storageIndex + 1, completedLists.length);
+                console.log(`new storage data: ${completedLists}`)
+                localStorage.setItem(key, completedLists);
+            }
         } else {
-            completedLists = completedLists.substring(0, storageIndex) + '1' + completedLists.substring(storageIndex + 1, completedLists.length);
-            console.log(`new storage data: ${completedLists}`)
-            localStorage.setItem(key, completedLists);
-        }
-        } else {
-        console.log('conditionTitle failure');
+            console.log('conditionTitle failure');
         }
     }
 
@@ -52,6 +52,7 @@ const GameHost = ({ GameClass, storageIndex }) => {
     useEffect(() => {
         const game = new GameClass({
             container: ref.current,
+            content, // specific images, text, etc. to be included in the game
             events,
             /*  Pass events as object of event functions 
                 This allows passing multiple functions into the Pixi App which can be called in-game
