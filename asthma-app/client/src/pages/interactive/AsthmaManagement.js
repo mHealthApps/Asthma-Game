@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
+import GameHost from '../../components/GameHost';
+import { MemoryGame } from '../../games/memory-game/MemoryGame';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
@@ -29,6 +31,7 @@ import AudioFile44d from '../../assets/audio/Audio-File-44d.mp3';
 import AudioFile44e from '../../assets/audio/Audio-File-44e.mp3';
 import AudioFile45 from '../../assets/audio/Audio-File-45.mp3';
 import ReactGA from 'react-ga4';
+import useIsGameMode from '../../hooks/useIsGameMode';
 
 
 const managementCards = [
@@ -194,6 +197,8 @@ const AsthmaManagement = () => {
   }, [])
   // useSendPageview('Content: Asthma Management');
 
+  const [isGameMode] = useIsGameMode();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {
@@ -201,17 +206,28 @@ const AsthmaManagement = () => {
   }
 
   const renderScene = () => {
-    switch (scene) {
-      case 0:
-        return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
-      case 1:
-        return <Quiz quiz={managementQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44, AudioFile44a, AudioFile44b]} />
-      case 2:
-        return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44c, AudioFile44d, AudioFile44e]} />
-      case 3:
-        return <Summary image={TealShirt_Girl_Coughing_4} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list" audio={AudioFile45} />
-      default:
-        return <div>Error: rendering failed</div>
+    if (isGameMode) {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
+        case 1:
+          return <GameHost GameClass={MemoryGame} storageIndex={3} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
+    } else {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
+        case 1:
+          return <Quiz quiz={managementQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44, AudioFile44a, AudioFile44b]} />
+        case 2:
+          return <Quiz quiz={managementQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile44c, AudioFile44d, AudioFile44e]} />
+        case 3:
+          return <Summary image={TealShirt_Girl_Coughing_4} alt="lungs-wide" explanation={`Your child's asthma is under control if:\n*You don't need to use blue reliever puffer more than 2 times a week\n*Not waking up coughing or wheezing`} buttonLink="/asthma-list" audio={AudioFile45} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
     }
   }
 

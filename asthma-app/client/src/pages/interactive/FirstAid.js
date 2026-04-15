@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
+import GameHost from '../../components/GameHost';
+import { DemoGame } from '../../games/demo-game/DemoGame';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
@@ -34,6 +36,7 @@ import AudioFile53k from '../../assets/audio/Audio-File-53k.mp3';
 import AudioFile54 from '../../assets/audio/Audio-File-54.mp3';
 import ReactGA from 'react-ga4';
 import { Link } from 'react-router-dom';
+import useIsGameMode from '../../hooks/useIsGameMode';
 
 
 const firstAidCards = [
@@ -207,6 +210,8 @@ const FirstAid = () => {
   }, [])
   // useSendPageview('Content: First Aid Emergency');
 
+  const [isGameMode] = useIsGameMode();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {
@@ -214,24 +219,36 @@ const FirstAid = () => {
   }
 
   const renderScene = () => {
-    switch (scene) {
-      case 0:
-        return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
-      case 1:
-        return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} audios={[AudioFile53, AudioFile53b, AudioFile53a]} />
-      case 2:
-        return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} audios={[AudioFile53c, AudioFile53d, AudioFile53e]}/>
-      case 3:
-        return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} audios={[AudioFile53f, AudioFile53g, AudioFile53h]} />
-      case 4:
-        return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} audios={[AudioFile53i, AudioFile53k, AudioFile53j]} />
-      case 5:
-        return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={<div>
-          It's important to know the <Link to='/resources'>Asthma First Aid Emergency</Link> steps
-        </div>} buttonLink="/asthma-list" audio={AudioFile54} />
-      default:
-        return <div>Error: rendering failed</div>
+    if (isGameMode) {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
+        case 1:
+          return <GameHost GameClass={DemoGame} storageIndex={4} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
+    } else {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
+        case 1:
+          return <Quiz quiz={firstAidQuizOne} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Ambulance_36} audios={[AudioFile53, AudioFile53b, AudioFile53a]} />
+        case 2:
+          return <Quiz quiz={firstAidQuizTwo} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Spacer_19} audios={[AudioFile53c, AudioFile53d, AudioFile53e]}/>
+        case 3:
+          return <Quiz quiz={firstAidQuizThree} uponCompletion={nextScene} conditionTitle='ASTHMA' image={Clock_35} audios={[AudioFile53f, AudioFile53g, AudioFile53h]} />
+        case 4:
+          return <Quiz quiz={firstAidQuizFour} uponCompletion={nextScene} conditionTitle='ASTHMA' image={OrgShirt_Girl_Sitting_5} audios={[AudioFile53i, AudioFile53k, AudioFile53j]} />
+        case 5:
+          return <Summary image={WhiteShirt_Girl_Lungs_10} alt="lungs-wide" explanation={<div>
+            It's important to know the <Link to='/resources'>Asthma First Aid Emergency</Link> steps
+          </div>} buttonLink="/asthma-list" audio={AudioFile54} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
     }
+    
   }
 
   return (

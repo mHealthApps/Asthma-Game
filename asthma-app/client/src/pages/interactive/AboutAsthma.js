@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
+import GameHost from '../../components/GameHost';
+import { GateGame } from '../../games/gate-game/GateGame';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending.jpg';
@@ -31,6 +33,7 @@ import AudioFile20a from '../../assets/audio/Audio-File-20a.mp3';
 import AudioFile20b from '../../assets/audio/Audio-File-20b.mp3';
 import AudioFile21 from '../../assets/audio/Audio-File-21.mp3';
 import ReactGA from 'react-ga4';
+import useIsGameMode from '../../hooks/useIsGameMode';
 
 
 const aboutAsthmaCards = [
@@ -192,6 +195,8 @@ const AboutAsthma = () => {
   }, [])
   // useSendPageview('Content: About Asthma');
 
+  const [isGameMode] = useIsGameMode();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {
@@ -199,15 +204,26 @@ const AboutAsthma = () => {
   }
 
   const renderScene = () => {
-    switch (scene) {
-      case 0:
-        return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
-      case 1:
-        return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile20, AudioFile20a, AudioFile20b]} />
-      case 2:
-        return <Summary image={Lung_32} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list" audio={AudioFile21} />
-      default:
-        return <div>Error: rendering failed</div>
+    if (isGameMode) {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
+        case 1:
+          return <GameHost GameClass={GateGame} storageIndex={1} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
+    } else {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
+        case 1:
+          return <Quiz quiz={aboutAsthmaQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' audios={[AudioFile20, AudioFile20a, AudioFile20b]} />
+        case 2:
+          return <Summary image={Lung_32} alt="lungs-wide" explanation={`*Asthma is a chronic lung sickness\n*In Asthma, your breathing tubes are sensitive\n*Different triggers cause Asthma`} buttonLink="/asthma-list" audio={AudioFile21} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
     }
   }
 

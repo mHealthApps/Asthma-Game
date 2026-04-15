@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../style.css';
 import StackedCards from '../../components/StackedCards';
 import Quiz from '../../components/Quiz';
+import GameHost from '../../components/GameHost';
+import { GateGame } from '../../games/gate-game/GateGame';
 import Summary from '../../components/Summary';
 import IntroCardFooter from '../../components/IntroCardFooter';
 import Lungs_Anatomy_25 from '../../assets/images/25_Lungs_Anatomy.jpg';
@@ -26,6 +28,7 @@ import AudioFile9a from '../../assets/audio/Audio-File-9a.mp3';
 import AudioFile9b from '../../assets/audio/Audio-File-9b.mp3';
 import AudioFile10 from '../../assets/audio/Audio-File-10.mp3';
 import ReactGA from 'react-ga4';
+import useIsGameMode from '../../hooks/useIsGameMode';
 
 
 const lungsCards = [
@@ -140,6 +143,8 @@ const TheLungs = () => {
   }, [])
   // useSendPageview('Content: The Lungs');
 
+  const [isGameMode] = useIsGameMode();
+
   const [scene, setScene] = useState(0);
 
   const nextScene = () => {
@@ -147,16 +152,28 @@ const TheLungs = () => {
   }
 
   const renderScene = () => {
-    switch (scene) {
-      case 0:
-        return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
-      case 1:
-        return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' animation={Lungs_Oxygen_Animation_30} alt='lungs' audios={[AudioFile9, AudioFile9a, AudioFile9b]} />
-      case 2:
-        return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" audio={AudioFile10} />
-      default:
-        return <div>Error: rendering failed</div>
+    if (isGameMode) {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
+        case 1:
+          return <GameHost GameClass={GateGame} storageIndex={0} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
+    } else {
+      switch (scene) {
+        case 0:
+          return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
+        case 1:
+          return <Quiz quiz={lungsQuiz} uponCompletion={nextScene} conditionTitle='ASTHMA' animation={Lungs_Oxygen_Animation_30} alt='lungs' audios={[AudioFile9, AudioFile9a, AudioFile9b]} />
+        case 2:
+          return <Summary image={Lungs_Oxygen_28} alt="lungs-wide" explanation="Oxygen helps our body to function properly. We need around 432 litres of oxygen per day." buttonLink="/asthma-list" audio={AudioFile10} />
+        default:
+          return <div>Error: rendering failed</div>
+      }
     }
+    
   }
 
   return (
