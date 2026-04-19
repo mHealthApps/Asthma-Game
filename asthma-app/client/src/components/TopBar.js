@@ -7,10 +7,12 @@ import Nav from 'react-bootstrap/Nav';
 import { HouseFill, PauseCircle } from 'react-bootstrap-icons';
 import ArrowReplay from '../assets/images/arrow-replay.svg';
 import { Col } from 'react-bootstrap';
-import useToken from './useToken';
+import { useAuth } from "./AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCurrent, oneLine }) => {
-  const { removeToken } = useToken();
+  const { removeToken, token } = useAuth();
+  const navigate = useNavigate();
 
   const handlePauseClick = () => {
     console.log('pause click');
@@ -25,7 +27,7 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
   const handleLogout = () => {
     console.log('logout');
     removeToken();
-    window.location.href = "#/login";
+    navigate("/login");
   }
 
   return (
@@ -69,9 +71,11 @@ const TopBar = ({ barWidth, conditionTitle, orientation, pauseCurrent, replayCur
             )}
             {/*<div onClick={handleReplayClick}><ArrowRepeat className={`nav-icon nav-icon-${orientation} replay-icon`} style={{ transform: 'scaleY(-1)' }}/></div>*/}
             
-            <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
-              Logout
-            </button>
+            {token && (
+              <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
+                Logout
+              </button>
+            )}
           
           </Nav>
         </Container>

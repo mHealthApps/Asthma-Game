@@ -27,6 +27,7 @@ import FlaskTest from "./pages/FlaskTest";
 import ProtectedRoute from "./components/ProtectedRoute";
 import useToken from "./components/useToken";
 import GuestRoute from "./components/GuestRoute";
+import { AuthProvider } from "./components/AuthContext";
 
 
 const storageData = [
@@ -133,4 +134,8 @@ function App() {
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);
