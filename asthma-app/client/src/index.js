@@ -25,7 +25,6 @@ import Login from "./pages/static/Login";
 import Signup from "./pages/static/Signup";
 import FlaskTest from "./pages/FlaskTest";
 import ProtectedRoute from "./components/ProtectedRoute";
-import useToken from "./components/useToken";
 import GuestRoute from "./components/GuestRoute";
 import { AuthProvider } from "./components/AuthContext";
 
@@ -91,13 +90,11 @@ function App() {
 
   const [userName, setUserName] = useState('');
 
-  const { token } = useToken();
-
   return (
     <Router>
       <Routes>
         // Guest Routes
-        <Route element={<GuestRoute token={token} />}>
+        <Route element={<GuestRoute />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
@@ -106,7 +103,7 @@ function App() {
         <Route path="/flasktest" element={<FlaskTest />} />
 
         // Protected Routes
-        <Route element={<ProtectedRoute isAuthenticated={token} />}>
+        <Route element={<ProtectedRoute />}>
           <Route exact path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/glossary" element={<Glossary />} />
