@@ -26,6 +26,7 @@ import Signup from "./pages/static/Signup";
 import FlaskTest from "./pages/FlaskTest";
 import ProtectedRoute from "./components/ProtectedRoute";
 import useToken from "./components/useToken";
+import GuestRoute from "./components/GuestRoute";
 
 
 const storageData = [
@@ -94,9 +95,13 @@ function App() {
   return (
     <Router>
       <Routes>
+        // Guest Routes
+        <Route element={<GuestRoute token={token} />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+
         // Public Routes
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/flasktest" element={<FlaskTest />} />
 
         // Protected Routes

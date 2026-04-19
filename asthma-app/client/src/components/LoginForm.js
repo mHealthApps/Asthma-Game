@@ -18,7 +18,10 @@ const LoginForm = ({ setToken }) => {
         password: password,
       })
       .then((response) => {
-        setToken(response.data.token);
+        const token = response.data.token;
+        localStorage.setItem("token", token);
+        setToken(token);
+
         window.location.hash = "/home";
       })
       .catch((error) => {
