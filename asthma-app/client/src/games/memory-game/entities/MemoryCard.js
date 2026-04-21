@@ -26,7 +26,7 @@ export default class MemoryCard {
 
         this.card.on('pointerdown', () => {
             if (onClick(index)) {
-                this.card.texture = Texture.from(this.type);
+                this.card.texture = Texture.from(this.type.alias);
                 this.card.width = width;
                 this.card.height = width;
             }

@@ -11,6 +11,53 @@ import All_Inhalers_23 from '../../../assets/images/23_All Inhalers_v2.jpg';
 import Toddler_Doctor_17 from '../../../assets/images/17_Toddler_Doctor.jpg';
 import Asthma_Action_Plan_33 from '../../../assets/images/33_Asthma Action Plan.jpg';
 
+const pairContent = [
+    {
+        alias: 'blue-inhaler',
+        src: Blue_Inhaler_v2_21,
+        hint: 'This type of inhaler works fast, helping with short breath, coughes, and wheezing'
+    }, 
+    {
+        alias: 'lungs',
+        src: Lung_32,
+        hint: 'The part of the body that asthma occurs in'
+    },
+    {
+        alias: 'teal-cough', 
+        src: TealShirt_Girl_Coughing_4,
+        hint: 'This girl is experiencing some asthma symptoms'
+    },
+    {
+        alias: 'red-inhaler', 
+        src: Red_Inhaler_20,
+        hint: 'This type of inhaler is designed to be taken every day to reduce swelling in the breathing tubes'
+    },
+    {
+        alias: 'purple-inhaler', 
+        src: Purple_Inhaler_22,
+        hint: 'Is a combination medication designed to be taken every day'
+    },
+    {
+        alias: 'spacer', 
+        src: Spacer_19,
+        hint: 'Tool designed to be used with an inhaler so medicines get into the breathing tubes'
+    },
+    {
+        alias: 'all-inhalers', 
+        src: All_Inhalers_23,
+        hint: 'Find the collection of different inhaler types'
+    },
+    {
+        alias: 'toddler-doctor', 
+        src: Toddler_Doctor_17,
+        hint: 'It is important to take your child for regular check-ups with your doctor or health clinic'
+    },
+    {
+        alias: 'asthma-action-plan',
+        src: Asthma_Action_Plan_33,
+        hint: 'A doctor written plan that helps you to know what to do every day, and when asthma is becoming worse'
+    }
+];
 
 export default class MemoryBoard {
     constructor(x, y, size, changeScore) {
@@ -42,16 +89,13 @@ export default class MemoryBoard {
         // Create an array of asset data to load.
         this.assets = [
             { alias: 'card-top', src: Background_1 },
-            { alias: 'blue-inhaler', src: Blue_Inhaler_v2_21 },
-            { alias: 'lungs', src: Lung_32},
-            { alias: 'teal-cough', src: TealShirt_Girl_Coughing_4},
-            { alias: 'red-inhaler', src: Red_Inhaler_20},
-            { alias: 'purple-inhaler', src: Purple_Inhaler_22},
-            { alias: 'spacer', src: Spacer_19},
-            { alias: 'all-inhalers', src: All_Inhalers_23},
-            { alias: 'toddler-doctor', src: Toddler_Doctor_17},
-            { alias: 'asthma-action-plan', src: Asthma_Action_Plan_33},
         ];
+        for (let i = 0; i < pairContent.length; i++) {
+            this.assets.push(
+                { alias: pairContent[i].alias, src: pairContent[i].src }
+            );
+        }
+        // console.log(this.assets);
 
         // Load the assets defined above.
         await Assets.load(this.assets);
@@ -62,18 +106,14 @@ export default class MemoryBoard {
         for (let i = 0; i < 16; i++) {
             pairOptions.push(i);
         }
-        const imageOptions = ['blue-inhaler', 'lungs', 'teal-cough', 'red-inhaler', 'purple-inhaler', 'spacer', 'all-inhalers', 'toddler-doctor', 'asthma-action-plan'];
+        const imageOptions = pairContent;
         for (let i = 0; i < 8; i++) {
             const imageOption = imageOptions.splice(Math.floor(Math.random() * imageOptions.length), 1)[0];
             this.imageSequence[pairOptions.splice(Math.floor(Math.random() * (pairOptions.length - 1)), 1)[0]] = imageOption;
             this.imageSequence[pairOptions.pop()] = imageOption;
-            console.log(pairOptions);
-            console.log(this.imageSequence);
+            // console.log(pairOptions);
+            // console.log(this.imageSequence);
         }
-
-    }
-
-    selectRandomImage() {
 
     }
 
@@ -82,7 +122,6 @@ export default class MemoryBoard {
             return false;
         }
         if (this.activeCard > -1) {
-            // TODO: Check if pair
             this.timeoutInteraction(index);
         } else {
             this.activeCard = index;
