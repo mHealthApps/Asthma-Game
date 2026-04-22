@@ -48,10 +48,6 @@ export default class MemoryCard {
         this.card.scale.set(this.width * 0.01);
     }
 
-    update() {
-        
-    }
-
     remove() {
         this.card.destroy();
         this.mask.destroy();

@@ -60,17 +60,20 @@ const pairContent = [
 ];
 
 export default class MemoryBoard {
-    constructor(x, y, size, changeScore) {
+    constructor(x, y, size, changeHintText, changeScore) {
         this.view = new Container();
         this.view.x = x;
         this.view.y = y;
         this.size = size;
+        this.changeHintText = changeHintText;
         this.changeScore = changeScore;
         this.removedPairs = 0;
         this.activeCard = -1;
         this.allowInteraction = true;
+        this.chosenHint = '';
         this.imageSequence = [];
         this.cards = [];
+        this.remainingCards = [];
 
         this.generateCards();
     }
@@ -83,6 +86,8 @@ export default class MemoryBoard {
             this.cards.push(card);
             this.view.addChild(card.view);
         }
+        this.remainingCards = this.cards.slice();
+        this.chooseHint();
     }
 
     async preload() {
@@ -117,6 +122,12 @@ export default class MemoryBoard {
 
     }
 
+    chooseHint() {
+        this.chosenHint = this.remainingCards[Math.floor(Math.random() * this.remainingCards.length)].type.hint;
+        this.changeHintText(this.chosenHint);
+        console.log('Chosen hint: ' + this.chosenHint);
+    }
+
     handleCardClick = function(index) {
         if (!this.allowInteraction || this.activeCard === index) {
             return false;
@@ -133,9 +144,17 @@ export default class MemoryBoard {
         this.allowInteraction = false;
         setTimeout(() => {
             // Check if user found a pair then score or reset if not a pair
-            if (this.cards[index].type === this.cards[this.activeCard].type) {
-                this.changeScore(20);
+            if (this.cards[index].type.alias === this.cards[this.activeCard].type.alias) {
+                if (this.cards[index].type.hint === this.chosenHint) {
+                    this.changeScore(30);
+                    this.remainingCards.splice(index, 1);
+                    this.remainingCards.splice(this.activeCard, 1);
+                    this.chooseHint();
+                } else {
+                    this.changeScore(20);
+                }
                 this.removedPairs++;
+                
                 this.cards[index].remove();
                 this.cards[this.activeCard].remove();
             } else {
@@ -146,10 +165,5 @@ export default class MemoryBoard {
             this.activeCard = -1;
         }, 1500);
     }
-
-    update() {
-        this.cards.forEach((card) => {
-            card.update();
-        })
-    }
+    
 }
