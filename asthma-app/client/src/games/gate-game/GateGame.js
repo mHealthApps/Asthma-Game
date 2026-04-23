@@ -26,11 +26,13 @@ export class GateGame extends BaseGame {
                 this.currentScene.update();
                 if (this.currentScene.isGame) {
                     // detects winning condition
-                    if (this.currentScene.score >= 100) {
-                        // console.log(this.completionTime);
-                        this.events.setScore(this.completionTime);
-                        this.events.updateStorage();
-                        this.setScene(new GateWinScene(this.app, this.content, this.completionTime, this.events.uponCompletion));
+                    if (this.currentScene.score >= 30) {
+                        setTimeout(() => {
+                            // console.log(this.completionTime);
+                            this.events.setScore(this.currentScene.score);
+                            this.events.updateStorage();
+                            this.setScene(new GateWinScene(this.app, this.content, this.currentScene.score, this.events.uponCompletion));
+                        }, 500)
                     }
                 }
             }

@@ -54,8 +54,18 @@ export class GateScene extends BaseScene {
         // Initialization of score and text
         this.score = 0;
         this.player = new Player(this.app, this.changeScore);
+        this.gateTimeout = false;
         this.playerX = (numPartitions) => {
+            if (this.gateTimeout) {
+                return null;
+            }
             return Math.floor((this.player.view.x / this.app.screen.width) * numPartitions);
+        }
+        this.setTimeout = () => {
+            this.gateTimeout = true;
+            setTimeout(() => {
+                this.gateTimeout = false;
+            }, 1000)
         }
         this.changeScore = (increment) => {
             this.score += increment;
@@ -95,7 +105,7 @@ export class GateScene extends BaseScene {
     async generateQuestionEntities() {
         await this.preload();
 
-        this.questionEntity = new Question(this.app, this.changeScore, questions, this.playerX);
+        this.questionEntity = new Question(this.app, this.changeScore, questions, this.playerX, this.setTimeout);
         this.container.addChild(this.questionEntity.view);
     }
 

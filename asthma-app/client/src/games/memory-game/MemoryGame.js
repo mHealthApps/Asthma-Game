@@ -27,7 +27,7 @@ export class MemoryGame extends BaseGame {
                 // Detection of win condition
                 if (this.currentScene.isGame && this.currentScene.board && this.currentScene.board.removedPairs >= 8) {
                     // TODO: change next scene condition so that dynamic score
-                    this.events.setScore(this.completionTime);
+                    this.events.setScore(this.currentScene.score);
                     this.events.updateStorage();
                     this.setScene(new MemoryWinScene(this.app, this.content, this.currentScene.score, this.events.uponCompletion));
                 }
