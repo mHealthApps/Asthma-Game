@@ -14,6 +14,8 @@ import Paper_Meh_39 from '../../assets/images/39_Paper_Meh.jpg';
 import Paper_Bad_40 from '../../assets/images/40_Paper_Bad.jpg';
 import Toddler_16 from '../../assets/images/16_Toddler.jpg';
 import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler_v2.jpg';
+import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
+import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
 import AudioFile35 from '../../assets/audio/Audio-File-35.mp3';
 import AudioFile36 from '../../assets/audio/Audio-File-36.mp3';
 import AudioFile37 from '../../assets/audio/Audio-File-37.mp3';
@@ -189,6 +191,49 @@ const managementQuizTwo = {
   index: 3,
 }
 
+const managementGameContent = [
+    {
+        alias: 'blue-inhaler',
+        src: Blue_Inhaler_21,
+        hint: 'If your child uses this more than twice a week you should take them to the doctor'
+    }, 
+    {
+        alias: 'org-shirt',
+        src: OrgShirt_Girl_Bending_2,
+        hint: 'This girl is experiencing some asthma symptoms'
+    },
+    {
+        alias: 'teal-cough', 
+        src: TealShirt_Girl_Coughing_4,
+        hint: 'This girl is experiencing some asthma symptoms'
+    },
+    {
+        alias: 'paper-good', 
+        src: Paper_Good_38,
+        hint: `If the child doesn't need the blue inhaler more than 2 times a week and isn't waking up coughing or wheezing`
+    },
+    {
+        alias: 'paper-meh', 
+        src: Paper_Meh_39,
+        hint: 'If the child uses more of the blue reliever inhaler to help with asthma and has lots of coughing'
+    },
+    {
+        alias: 'paper-bad', 
+        src: Paper_Bad_40,
+        hint: 'If the child finds it very hard to breathe or has sucking in at the neck and chest or have blue lips'
+    },
+    {
+        alias: 'smoker-triggers', 
+        src: Smoker_FastFood_Vog_Pollen_7,
+        hint: 'These things can be asthma triggers for the child'
+    },
+    {
+        alias: 'toddler-doctor', 
+        src: Toddler_Doctor_17,
+        hint: 'It is important to take your child for regular check-ups with your doctor or health clinic'
+    },
+];
+
 
 const AsthmaManagement = () => {
   // GA Management pageview
@@ -211,7 +256,7 @@ const AsthmaManagement = () => {
         case 0:
           return <StackedCards cards={managementCards} title="Management of asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={MemoryGame} content='asthma management content placeholder' storageIndex={3} />
+          return <GameHost GameClass={MemoryGame} content={managementGameContent} storageIndex={3} />
         default:
           return <div>Error: rendering failed</div>
       }
