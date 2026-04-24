@@ -1,7 +1,7 @@
 import { BaseGame } from '../shared/BaseGame';
 import { SimpleInstructionScene } from '../shared/SimpleInstructionScene';
-import { GameScene } from './scenes/GameScene';
-import { WinScene } from './scenes/WinScene';
+import { GateScene } from './scenes/GateScene';
+import { GateWinScene } from './scenes/GateWinScene';
 
 /*  
 Events used in this game:
@@ -10,29 +10,27 @@ uponCompletion(): called at the end of the game for completion
 updateStorage(): called when you win the game to update module completion
 */
 
-export class DemoGame extends BaseGame {
+export class GateGame extends BaseGame {
     async run() {
         // Function to begin GameScene
         this.playGame = () => {
-            this.setScene(new GameScene(this.app, this.content));
+            this.setScene(new GateScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Healthy Lungs Game', 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.', this.playGame));
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Asthma Questions Gate Game', 'In this game you must move your character so that they walk through the gate which contains the proper answer to the question.', this.playGame));
 
 
-        this.completionTime = 0;
         // Listen for animate update
         this.app.ticker.add((time) => {
             if (this.currentScene) {
                 this.currentScene.update();
-                if (this.currentScene.score) {
-                    this.completionTime += time.elapsedMS;
-                    // detects winning the game in the game scene
+                if (this.currentScene.isGame) {
+                    // detects winning condition
                     if (this.currentScene.score >= 100) {
                         // console.log(this.completionTime);
                         this.events.setScore(this.completionTime);
                         this.events.updateStorage();
-                        this.setScene(new WinScene(this.app, this.content, this.completionTime, this.events.uponCompletion));
+                        this.setScene(new GateWinScene(this.app, this.content, this.completionTime, this.events.uponCompletion));
                     }
                 }
             }

@@ -13,6 +13,8 @@ import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg
 import Blue_Inhaler_21 from '../../assets/images/21_Blue Inhaler_v2.jpg';
 import Red_Inhaler_20 from '../../assets/images/20_Red Inhaler.jpg';
 import Purple_Inhaler_22 from '../../assets/images/22_Purple Inhaler.jpg';
+import Lung_32 from '../../assets/images/32_Lung.jpg';
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import AudioFile22 from '../../assets/audio/Audio-File-22.mp3';
 import AudioFile23 from '../../assets/audio/Audio-File-23.mp3';
@@ -234,6 +236,54 @@ const treatmentQuizThree = {
   index: 2,
 }
 
+const treatmentGameContent = [
+    {
+        alias: 'blue-inhaler',
+        src: Blue_Inhaler_21,
+        hint: 'This type of inhaler works fast, helping with short breath, coughes, and wheezing'
+    }, 
+    {
+        alias: 'lungs',
+        src: Lung_32,
+        hint: 'The part of the body that asthma occurs in'
+    },
+    {
+        alias: 'teal-cough', 
+        src: TealShirt_Girl_Coughing_4,
+        hint: 'This girl is experiencing some asthma symptoms'
+    },
+    {
+        alias: 'red-inhaler', 
+        src: Red_Inhaler_20,
+        hint: 'This type of inhaler is designed to be taken every day to reduce swelling in the breathing tubes'
+    },
+    {
+        alias: 'purple-inhaler', 
+        src: Purple_Inhaler_22,
+        hint: 'Is a combination medication designed to be taken every day'
+    },
+    {
+        alias: 'spacer', 
+        src: Spacer_19,
+        hint: 'Tool designed to be used with an inhaler so medicines get into the breathing tubes'
+    },
+    {
+        alias: 'all-inhalers', 
+        src: All_Inhalers_23,
+        hint: 'Find the collection of different inhaler types'
+    },
+    {
+        alias: 'toddler-doctor', 
+        src: Toddler_Doctor_17,
+        hint: 'It is important to take your child for regular check-ups with your doctor or health clinic'
+    },
+    {
+        alias: 'asthma-action-plan',
+        src: Asthma_Action_Plan_33,
+        hint: 'A doctor written plan that helps you to know what to do every day, and when asthma is becoming worse'
+    }
+];
+
 
 const AsthmaTreatment = () => {
   // GA Treatment pageview
@@ -256,7 +306,7 @@ const AsthmaTreatment = () => {
         case 0:
           return <StackedCards cards={treatmentCards} title="Treatment of asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={MemoryGame} storageIndex={2} />
+          return <GameHost GameClass={MemoryGame} content={treatmentGameContent} storageIndex={2} />
         default:
           return <div>Error: rendering failed</div>
       }

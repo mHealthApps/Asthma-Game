@@ -2,7 +2,7 @@ import { BaseScene } from '../../shared/BaseScene';
 import { Text } from 'pixi.js';
 import PixiButton from '../../shared/PixiButton';
 
-export class MemoryWinScene extends BaseScene {
+export class GateWinScene extends BaseScene {
     constructor(app, content, score, uponCompletion) {
         super(app, content);
         this.score = score;

@@ -14,10 +14,10 @@ export class MemoryGame extends BaseGame {
     async run() {
         // Function to begin MemoryScene
         this.playGame = () => {
-            this.setScene(new MemoryScene(this.app));
+            this.setScene(new MemoryScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, 'Asthma Memory Game', 'In this game you must find the pairs of asthma-related objects. If you find a pair, you score points and the pair disapears. Collect all pairs to win.', this.playGame));
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Asthma Memory Game', 'In this game you must find the pairs of asthma-related objects. If you find a pair, you score points and the pair disapears. Collect all pairs to win. To score bonus points find the object that relates to the hint.', this.playGame));
 
 
         // Listen for animate update
@@ -25,11 +25,11 @@ export class MemoryGame extends BaseGame {
             if (this.currentScene) {
                 this.currentScene.update();
                 // Detection of win condition
-                if (this.currentScene.isGame && this.currentScene.score >= 160) {
+                if (this.currentScene.isGame && this.currentScene.board && this.currentScene.board.removedPairs >= 8) {
                     // TODO: change next scene condition so that dynamic score
                     this.events.setScore(this.completionTime);
                     this.events.updateStorage();
-                    this.setScene(new MemoryWinScene(this.app, this.currentScene.score, this.events.uponCompletion));
+                    this.setScene(new MemoryWinScene(this.app, this.content, this.currentScene.score, this.events.uponCompletion));
                 }
             }
         });

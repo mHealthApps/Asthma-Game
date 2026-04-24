@@ -2,8 +2,9 @@ import { Container } from 'pixi.js';
 
 // Base scene class which is the core for all scenes in multiple
 export class BaseScene {
-    constructor(app) {
+    constructor(app, content) {
         this.app = app;
+        this.content = content;
         this.container = new Container();
         this.build();
     }

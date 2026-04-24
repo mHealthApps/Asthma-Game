@@ -16,24 +16,41 @@ export class MemoryScene extends BaseScene {
             text: 'Score: 0',
             style: {
                 fill: '#ffffff',
-                fontSize: 36,
+                fontSize: Math.floor(this.app.screen.height * 0.035),
                 fontFamily: 'sans-serif',
             },
             anchor: (0, 0),
             x: 20,
-            y: this.app.screen.height - 60
+            y: this.app.screen.height * 0.95
         });
         this.app.renderer.background.color = '#409d7e';
         this.container.addChild(this.scoreText);
 
+        this.hintText = new Text({
+            text: '',
+            style: {
+                fill: '#ffffff',
+                fontSize: Math.floor(this.app.screen.height * Math.log(this.app.screen.width) * 0.0040),
+                fontFamily: 'sans-serif',
+                wordWrap: true,
+                wordWrapWidth: this.app.screen.width - 40,
+            },
+            
+            anchor: (0, 0),
+            x: 20,
+            y: this.app.screen.height * 0.87
+        });
+        this.container.addChild(this.hintText);
+        const changeHintText = (newText) => {
+            this.hintText.text = 'Hint for Bonus Points: ' + newText;
+        }
+
         // Initialization of the memory board
-        this.board = new MemoryBoard(this.app.screen.width / 2, this.app.screen.height / 2, Math.min(this.app.screen.width, this.app.screen.height) * 0.80, changeScore);
+        this.board = new MemoryBoard(this.app.screen.width / 2, this.app.screen.height * 0.45, Math.min(this.app.screen.width * 0.80, this.app.screen.height * 0.75), this.content, changeHintText, changeScore);
         this.container.addChild(this.board.view);
     }
 
     update() {
-        // Update the board
-        
         // Update the text score
         this.scoreText.text = `Score: ${this.score}`;
     }
