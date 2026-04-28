@@ -187,6 +187,42 @@ const aboutAsthmaQuiz = {
   index: 1,
 }
 
+const aboutAsthmaGameContent = {
+    questions: [
+      {
+          text: 'What is asthma?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Lung Condition',
+                  image: 'lungs',
+              },
+              {
+                  text: 'Kidney Condition',
+                  image: 'kidneys',
+              },
+          ],
+      },
+      // {
+      //     text: `How do I know my child’s asthma is under control?` ,
+      //     options: [
+      //     {
+      //         text: 'May have loud wheeze. They may have sucking\n in at the neck and chest and blue lips',
+      //         image: 'blue-inhaler'
+      //     },
+      //     {
+      //         text: 'Not waking up coughing or wheezing',
+      //         image: 'orgshirt-sitting'
+      //     },
+      //     ],
+      // },
+  ],
+  assets: [
+    { alias: 'lungs', src: Lung_32},
+    { alias: 'kidneys', src: Kidney_15},
+  ]
+};
+
 
 const AboutAsthma = () => {
   // GA AboutAsthma pageview
@@ -209,7 +245,7 @@ const AboutAsthma = () => {
         case 0:
           return <StackedCards cards={aboutAsthmaCards} title="About asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={GateGame} content='about asthma content placeholder' storageIndex={1} />
+          return <GameHost GameClass={GateGame} content={aboutAsthmaGameContent} storageIndex={1} />
         default:
           return <div>Error: rendering failed</div>
       }

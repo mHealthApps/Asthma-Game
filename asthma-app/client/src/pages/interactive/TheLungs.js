@@ -15,6 +15,8 @@ import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
 import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
 import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Animation.mp4';
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
+import Lung_32 from '../../assets/images/32_Lung.jpg';
+import Kidney_15 from '../../assets/images/15_Kidney.jpg'
 import AudioFile1 from '../../assets/audio/Audio-File-1.mp3';
 import AudioFile2 from '../../assets/audio/Audio-File-2.mp3';
 import AudioFile3 from '../../assets/audio/Audio-File-3.mp3';
@@ -135,6 +137,42 @@ const lungsQuiz = {
   index: 0,
 }
 
+const lungsGameContent = {
+    questions: [
+      {
+          text: 'What is asthma?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Lung Condition',
+                  image: 'lungs',
+              },
+              {
+                  text: 'Kidney Condition',
+                  image: 'kidneys',
+              },
+          ],
+      },
+      // {
+      //     text: `How do I know my child’s asthma is under control?` ,
+      //     options: [
+      //     {
+      //         text: 'May have loud wheeze. They may have sucking\n in at the neck and chest and blue lips',
+      //         image: 'blue-inhaler'
+      //     },
+      //     {
+      //         text: 'Not waking up coughing or wheezing',
+      //         image: 'orgshirt-sitting'
+      //     },
+      //     ],
+      // },
+  ],
+  assets: [
+    { alias: 'lungs', src: Lung_32},
+    { alias: 'kidneys', src: Kidney_15},
+  ]
+};
+
 
 const TheLungs = () => {
   // GA Lungs pageview
@@ -157,7 +195,7 @@ const TheLungs = () => {
         case 0:
           return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={GateGame} content='the lungs content placeholder' storageIndex={0} />
+          return <GameHost GameClass={GateGame} content={lungsGameContent} storageIndex={0} />
         default:
           return <div>Error: rendering failed</div>
       }
