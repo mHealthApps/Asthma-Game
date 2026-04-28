@@ -11,6 +11,7 @@ import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting
 import Toddler_Doctor_17 from '../../assets/images/17_Toddler_Doctor.jpg';
 import All_Inhalers_23 from '../../assets/images/23_All Inhalers_v2.jpg';
 import Fruits_34 from '../../assets/images/34_Fruits.jpg';
+import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
 import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
 import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
 import WhiteShirt_Girl_Toddler_9 from '../../assets/images/9_WhiteShirt_Girl_Toddler.jpg';
@@ -142,6 +143,26 @@ const healthyLifestyleQuizTwo = {
   index: 5,
 }
 
+const healthyLifestyleGameContent = {
+  objectTypes: [
+    { 
+      points: 10,
+      color: 0xffffff,
+      imageAliases: ['fruits']
+    },
+    {
+      points: -10,
+      color: 0xee0000,
+      imageAliases: ['org-shirt-smokers', 'smoker-fastfood']
+    }
+  ],
+  assets: [
+    { alias: 'fruits', src: Fruits_34 }, 
+    { alias: 'org-shirt-smokers', src: OrgShirt_Girl_Sitting_2Smokers_6 }, 
+    { alias: 'smoker-fastfood', src: Smoker_FastFood_Vog_Pollen_7 }
+  ]
+};
+
 
 const HealthyLifestyle = () => {
   // GA Lifestyle pageview
@@ -169,7 +190,7 @@ const HealthyLifestyle = () => {
         case 0:
           return <StackedCards cards={healthyLifestyleCards} title="Keeping a Healthy Lifestyle" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={DemoGame} content='healthy lifestyle content placeholder' storageIndex={5} />
+          return <GameHost GameClass={DemoGame} content={healthyLifestyleGameContent} storageIndex={5} />
         default:
           return <div>Error: rendering failed</div>
       }

@@ -14,6 +14,9 @@ import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
+import Fruits_34 from '../../assets/images/34_Fruits.jpg';
+import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
+import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
 import AudioFile46 from '../../assets/audio/Audio-File-46.mp3';
 import AudioFile47 from '../../assets/audio/Audio-File-47.mp3';
 import AudioFile48 from '../../assets/audio/Audio-File-48.mp3';
@@ -202,6 +205,26 @@ const firstAidQuizFour = {
   index: 4,
 }
 
+const firstAidGameContent = {
+  objectTypes: [
+    { 
+      points: 10,
+      color: 0xffffff,
+      imageAliases: ['fruits']
+    },
+    {
+      points: -10,
+      color: 0xee0000,
+      imageAliases: ['org-shirt-smokers', 'smoker-fastfood']
+    }
+  ],
+  assets: [
+    { alias: 'fruits', src: Fruits_34 }, 
+    { alias: 'org-shirt-smokers', src: OrgShirt_Girl_Sitting_2Smokers_6 }, 
+    { alias: 'smoker-fastfood', src: Smoker_FastFood_Vog_Pollen_7 }
+  ]
+};
+
 
 const FirstAid = () => {
   // GA FirstAid pageview
@@ -224,7 +247,7 @@ const FirstAid = () => {
         case 0:
           return <StackedCards cards={firstAidCards} title="First Aid Emergency for asthma" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={DemoGame} content='first aid content placeholder' storageIndex={4} />
+          return <GameHost GameClass={DemoGame} content={firstAidGameContent} storageIndex={4} />
         default:
           return <div>Error: rendering failed</div>
       }

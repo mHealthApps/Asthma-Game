@@ -1,30 +1,13 @@
-import { Container, Graphics, Sprite, Assets } from 'pixi.js';
-import Fruits_34 from '../../../assets/images/34_Fruits.jpg';
-import OrgShirt_Girl_Sitting_2Smokers_6 from '../../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
-import Smoker_FastFood_Vog_Pollen_7 from '../../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
+import { Container, Graphics, Sprite, Texture } from 'pixi.js';
 
-
-const objectTypes = [
-  { 
-    points: 10,
-    color: 0xffffff,
-    imageIndices: [0]
-  },
-  {
-    points: -10,
-    color: 0xee0000,
-    imageIndices: [1, 2]
-  }
-]
-
-const images = [Fruits_34, OrgShirt_Girl_Sitting_2Smokers_6, Smoker_FastFood_Vog_Pollen_7];
 
 export default class FallingObject {
-  constructor(x, y, wait, changeScore) {
+  constructor(x, y, wait, objectTypes, changeScore) {
     this.x = x;
     this.y = y;
     this.yVel = 0;
     this.wait = wait;
+    this.objectTypes = objectTypes;
     this.dead = false;
     this.type = objectTypes[Math.floor(Math.random() * 1.5)];
 
@@ -53,16 +36,9 @@ export default class FallingObject {
     this.generateSprite();
   }
 
-  async loadTextures () {
-    this.textures = await Promise.all(
-      images.map(image => Assets.load(image))
-    );
-  }
-
   async generateSprite () {
     // Image rendering for the falling objects
-    await this.loadTextures();
-    this.objectSprite = new Sprite(this.textures[this.type.imageIndices[Math.floor(Math.random() * this.type.imageIndices.length)]]);
+    this.objectSprite = Sprite.from(this.type.imageAliases[Math.floor(Math.random() * this.type.imageAliases.length)]);
     this.objectSprite.anchor.set(0.5);
     /* For image scaling, if using preset images in assets: those are 1500x1500 */
     this.objectSprite.scale.set(0.067);
@@ -82,10 +58,10 @@ export default class FallingObject {
         this.dead = false;
         this.view.visible = true;
         this.yVel = 0;
-        this.type = objectTypes[Math.floor(Math.random() * 1.5)];
+        this.type = this.objectTypes[Math.floor(Math.random() * 1.5)];
         this.circle.clear();
         this.draw();
-        this.objectSprite.texture = this.textures[this.type.imageIndices[Math.floor(Math.random() * this.type.imageIndices.length)]];
+        this.objectSprite.texture = new Texture.from(this.type.imageAliases[Math.floor(Math.random() * this.type.imageAliases.length)]);
       }
       if (!this.dead) {
         this.view.x = this.x;
