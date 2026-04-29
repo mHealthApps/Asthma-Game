@@ -14,9 +14,8 @@ import Clock_35 from '../../assets/images/35_Clock.jpg';
 import Ambulance_36 from '../../assets/images/36_Ambulance.jpg';
 import WhiteShirt_Girl_Lungs_10 from '../../assets/images/10_WhiteShirt_Girl_Lungs.jpg';
 import Spacer_19 from '../../assets/images/19_Spacer.jpg';
-import Fruits_34 from '../../assets/images/34_Fruits.jpg';
-import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_Vog_Pollen.jpg';
-import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
+import OrgShirt_Girl_Bending_2 from '../../assets/images/2_OrgShirt_Girl_Bending.jpg';
+import Sign_37 from '../../assets/images/37_Sign.jpg';
 import AudioFile46 from '../../assets/audio/Audio-File-46.mp3';
 import AudioFile47 from '../../assets/audio/Audio-File-47.mp3';
 import AudioFile48 from '../../assets/audio/Audio-File-48.mp3';
@@ -210,18 +209,20 @@ const firstAidGameContent = {
     { 
       points: 10,
       color: 0xffffff,
-      imageAliases: ['fruits']
+      imageAliases: ['org-shirt', 'spacer', 'clock']
     },
     {
-      points: -10,
-      color: 0xee0000,
-      imageAliases: ['org-shirt-smokers', 'smoker-fastfood']
+      points: 10,
+      color: 0xffffff,
+      imageAliases: ['ambulance', 'sign']
     }
   ],
   assets: [
-    { alias: 'fruits', src: Fruits_34 }, 
-    { alias: 'org-shirt-smokers', src: OrgShirt_Girl_Sitting_2Smokers_6 }, 
-    { alias: 'smoker-fastfood', src: Smoker_FastFood_Vog_Pollen_7 }
+    { alias: 'org-shirt', src: OrgShirt_Girl_Bending_2 }, 
+    { alias: 'spacer', src: Spacer_19 }, 
+    { alias: 'clock', src: Clock_35 },
+    { alias: 'ambulance', src: Ambulance_36 },
+    { alias: 'sign', src:  Sign_37},
   ]
 };
 

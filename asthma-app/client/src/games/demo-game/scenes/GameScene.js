@@ -54,7 +54,6 @@ export class GameScene extends BaseScene {
     update() {
         // Call the update functions of the fallingObjects
         if (this.fallingObjects && this.fallingObjects.length > 0) {
-            console.log(this.fallingObjects);
             for (let i = 0; i < this.fallingObjects.length; i++) {
                 if (this.fallingObjects[i]) {
                     this.fallingObjects[i].update(this.app.screen.width, this.app.screen.height);

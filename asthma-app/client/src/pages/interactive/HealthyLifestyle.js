@@ -15,6 +15,7 @@ import Smoker_FastFood_Vog_Pollen_7 from '../../assets/images/7_Smoker_FastFood_
 import Asthma_Action_Plan_33 from '../../assets/images/33_Asthma Action Plan.jpg';
 import OrgShirt_Girl_Sitting_2Smokers_6 from '../../assets/images/6_OrgShirt_Girl_Sitting_2Smokers.jpg';
 import WhiteShirt_Girl_Toddler_9 from '../../assets/images/9_WhiteShirt_Girl_Toddler.jpg';
+import Spacer_19 from '../../assets/images/19_Spacer.jpg';
 import AudioFile55 from '../../assets/audio/Audio-File-55.mp3';
 import AudioFile56 from '../../assets/audio/Audio-File-56.mp3';
 import AudioFile57 from '../../assets/audio/Audio-File-57.mp3';
@@ -148,7 +149,7 @@ const healthyLifestyleGameContent = {
     { 
       points: 10,
       color: 0xffffff,
-      imageAliases: ['fruits']
+      imageAliases: ['fruits', 'spacer', 'asthma-action-plan']
     },
     {
       points: -10,
@@ -158,6 +159,8 @@ const healthyLifestyleGameContent = {
   ],
   assets: [
     { alias: 'fruits', src: Fruits_34 }, 
+    { alias: 'spacer', src: Spacer_19 }, 
+    { alias: 'asthma-action-plan', src: Asthma_Action_Plan_33 }, 
     { alias: 'org-shirt-smokers', src: OrgShirt_Girl_Sitting_2Smokers_6 }, 
     { alias: 'smoker-fastfood', src: Smoker_FastFood_Vog_Pollen_7 }
   ]
