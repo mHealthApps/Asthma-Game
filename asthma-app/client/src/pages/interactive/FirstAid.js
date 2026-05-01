@@ -205,6 +205,7 @@ const firstAidQuizFour = {
 }
 
 const firstAidGameContent = {
+  instructions: 'In this game you must click the falling objects that are images of actions of what you should do in an emergency situation.',
   objectTypes: [
     { 
       points: 10,

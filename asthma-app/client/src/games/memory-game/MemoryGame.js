@@ -17,7 +17,11 @@ export class MemoryGame extends BaseGame {
             this.setScene(new MemoryScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Asthma Memory Game', 'In this game you must find the pairs of asthma-related objects. If you find a pair, you score points and the pair disapears. Collect all pairs to win. To score bonus points find the object that relates to the hint.', this.playGame));
+        let instructions = 'In this game you must find the pairs of asthma-related objects. If you find a pair, you score points and the pair disapears. Collect all pairs to win. To score bonus points find the object that relates to the hint.';
+        if (this.content.instructions !== undefined) {
+            instructions = this.content.instructions;
+        }
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Asthma Memory Game', instructions, this.playGame));
 
 
         // Listen for animate update
