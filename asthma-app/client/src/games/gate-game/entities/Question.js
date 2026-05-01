@@ -43,8 +43,8 @@ export default class Question {
     }
 
     pickRandomQuestion() {
-        // Maybe make question choice not be completely random
-        if (!this.questionIndex) {
+        // Picks random to begin then cycles through until game ends
+        if (this.questionIndex === undefined) {
             this.questionIndex = Math.floor(Math.random() * this.questions.length);
         } else {
             this.questionIndex = (this.questionIndex + 1) % this.questions.length;

@@ -19,6 +19,10 @@ import Heart_14 from '../../assets/images/14_Heart.jpg';
 import Kidney_15 from '../../assets/images/15_Kidney.jpg';
 import Lung_32 from '../../assets/images/32_Lung.jpg';
 import WhiteShirt_Girl_Lungs_Tube_Animation_12 from '../../assets/videos/12_WhiteShirt_Breathing Tube_Animation.mp4';
+import Fruits_34 from '../../assets/images/34_Fruits.jpg';
+import OrgShirt_Girl_Sitting_5 from '../../assets/images/5_OrgShirt_Girl_Sitting.jpg';
+import WhiteShirt_Girl_8 from '../../assets/images/8_WhiteShirt_Girl.jpg';
+import Toddler_16 from '../../assets/images/16_Toddler.jpg';
 import AudioFile11 from '../../assets/audio/Audio-File-11.mp3';
 import AudioFile12 from '../../assets/audio/Audio-File-12.mp3';
 import AudioFile13 from '../../assets/audio/Audio-File-13.mp3';
@@ -203,23 +207,58 @@ const aboutAsthmaGameContent = {
               },
           ],
       },
-      // {
-      //     text: `How do I know my child’s asthma is under control?` ,
-      //     options: [
-      //     {
-      //         text: 'May have loud wheeze. They may have sucking\n in at the neck and chest and blue lips',
-      //         image: 'blue-inhaler'
-      //     },
-      //     {
-      //         text: 'Not waking up coughing or wheezing',
-      //         image: 'orgshirt-sitting'
-      //     },
-      //     ],
-      // },
+      {
+          text: 'Asthma causes shortness of breath?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Yes',
+                  image: 'org-shirt',
+              },
+              {
+                  text: 'No',
+                  image: 'toddler',
+              },
+          ],
+      },
+      {
+          text: 'What can trigger asthma?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Common triggers in Hawaii',
+                  image: 'smoker-fastfood',
+              },
+              {
+                  text: 'Fruits',
+                  image: 'fruits',
+              },
+          ],
+      },
+      {
+          text: 'How do you feel when you have asthma?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Not good',
+                  image: 'org-shirt-sitting',
+              },
+              {
+                  text: 'Good',
+                  image: 'white-shirt',
+              },
+          ],
+      },
   ],
   assets: [
-    { alias: 'lungs', src: Lung_32},
-    { alias: 'kidneys', src: Kidney_15},
+    { alias: 'lungs', src: Lung_32 },
+    { alias: 'kidneys', src: Kidney_15 },
+    { alias: 'org-shirt', src: OrgShirt_Girl_Bending_2 },
+    { alias: 'toddler', src: Toddler_16 },
+    { alias: 'smoker-fastfood', src: Smoker_FastFood_Vog_Pollen_7 },
+    { alias: 'fruits', src: Fruits_34 },
+    { alias: 'org-shirt-sitting', src: OrgShirt_Girl_Sitting_5 },
+    { alias: 'white-shirt', src: WhiteShirt_Girl_8 },
   ]
 };
 

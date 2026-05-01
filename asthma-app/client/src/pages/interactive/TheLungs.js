@@ -17,6 +17,9 @@ import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Anim
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
 import Lung_32 from '../../assets/images/32_Lung.jpg';
 import Kidney_15 from '../../assets/images/15_Kidney.jpg'
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
+import Heart_14 from '../../assets/images/14_Heart.jpg';
+import WhiteShirt_Lungs_Tube_11 from '../../assets/images/11_WhiteShirt_Girl_Lungs_Tube.jpg';
 import AudioFile1 from '../../assets/audio/Audio-File-1.mp3';
 import AudioFile2 from '../../assets/audio/Audio-File-2.mp3';
 import AudioFile3 from '../../assets/audio/Audio-File-3.mp3';
@@ -153,23 +156,73 @@ const lungsGameContent = {
               },
           ],
       },
-      // {
-      //     text: `How do I know my child’s asthma is under control?` ,
-      //     options: [
-      //     {
-      //         text: 'May have loud wheeze. They may have sucking\n in at the neck and chest and blue lips',
-      //         image: 'blue-inhaler'
-      //     },
-      //     {
-      //         text: 'Not waking up coughing or wheezing',
-      //         image: 'orgshirt-sitting'
-      //     },
-      //     ],
-      // },
+      {
+          text: `Where do your lungs sit?` ,
+          options: [
+            {
+                text: 'In your chest',
+                image: 'white-shirt-lungs'
+            },
+            {
+                text: 'In your throat',
+                image: 'teal-shirt'
+            },
+          ],
+      },
+      {
+          text: 'What do lungs look like?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Upside down tree',
+                  image: 'lung-tree',
+              },
+              {
+                  text: 'Like this',
+                  image: 'heart',
+              },
+          ],
+      },
+      {
+          text: 'Where is the windpipe?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'The long tube that goes from your mouth to the lungs',
+                  image: 'lungs-text-2',
+              },
+              {
+                  text: 'Small tubes within the lungs',
+                  image: 'white-shirt-lungs-tube',
+              },
+          ],
+      },
+      {
+          text: 'What do we breathe in?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Oxygen',
+                  image: 'lungs-oxygen',
+              },
+              {
+                  text: 'Carbon Dioxide',
+                  image: 'lungs-oxygen',
+              },
+          ],
+      },
+      
   ],
   assets: [
-    { alias: 'lungs', src: Lung_32},
-    { alias: 'kidneys', src: Kidney_15},
+    { alias: 'lungs', src: Lung_32 },
+    { alias: 'kidneys', src: Kidney_15 },
+    { alias: 'white-shirt-lungs', src: WhiteShirt_Girl_Lungs_10 },
+    { alias: 'teal-shirt', src: TealShirt_Girl_Coughing_4 },
+    { alias: 'lung-tree', src: Lung_Tree_31 },
+    { alias: 'heart', src: Heart_14 },
+    { alias: 'white-shirt-lungs-tube', src: WhiteShirt_Lungs_Tube_11 },
+    { alias: 'lungs-text-2', src: Lungs_Text_2_27 },
+    { alias: 'lungs-oxygen', src: Lungs_Oxygen_28 },
   ]
 };
 

@@ -12,6 +12,7 @@ export class GateScene extends BaseScene {
         this.isGame = true;
         // Initialization of score and text
         this.score = 0;
+        this.attempts = 0;
         this.player = new Player(this.app, this.changeScore);
         this.gateTimeout = false;
         this.playerX = (numPartitions) => {
@@ -28,6 +29,12 @@ export class GateScene extends BaseScene {
         }
         this.changeScore = (increment) => {
             this.score += increment;
+            if (this.attempts === undefined) {
+                this.attempts = 1;
+            } else {
+                this.attempts++;
+            }
+            console.log(this.attempts);
         }
 
         this.scoreText = new Text({

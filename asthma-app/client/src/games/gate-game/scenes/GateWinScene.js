@@ -6,6 +6,7 @@ export class GateWinScene extends BaseScene {
     constructor(app, content, score, uponCompletion) {
         super(app, content);
         this.score = score;
+        console.log('win: ' + this.score);
         this.uponCompletion = uponCompletion;
         this.displayMore();
     }
