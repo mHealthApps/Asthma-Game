@@ -26,16 +26,19 @@ class Gate {
         this.gateSprite.width = size * 0.75;
         this.gateSprite.height = size * 0.75;
 
+        console.log(text.length);
         this.gateText = new Text({
             text: text,
             style: {
                 fill: '#ffffff',
                 fontSize: size * 0.1,
                 fontFamily: 'sans-serif',
+                wordWrap: true,
+                wordWrapWidth: size * 0.8,
             },
             anchor: 0.5,
             x: 0,
-            y: size / 2
+            y: (text.length < 45) ? size / 2 : size * 0.65
         });
 
         this.view.addChild(this.gateSprite);

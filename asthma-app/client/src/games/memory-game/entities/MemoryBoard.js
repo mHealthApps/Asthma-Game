@@ -114,6 +114,7 @@ export default class MemoryBoard {
             this.allowInteraction = true;
             this.activeCard = -1;
         }, 1500);
+        console.log(this.removedPairs);
     }
     
 }
