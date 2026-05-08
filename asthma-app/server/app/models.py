@@ -16,7 +16,7 @@ class User(db.Model):
 
 
     def __repr__(self):
-        return f"<User {self.username}>"
+        return f"<User {self.email}>"
 
 #information on what modules the user has completed
 class Completion(db.Model):
