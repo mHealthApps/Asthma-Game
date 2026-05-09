@@ -93,3 +93,41 @@ def signup():
     db.session.commit()
 
     return jsonify({"message": "User created successfully"}), 201
+
+# Get Completion Route
+@main.route("/api/completion", methods=["GET"])
+@jwt_required()
+def get_completion():
+    user_id = get_jwt_identity()
+
+    completions = Completion.query.filter_by(user_id=user_id).all()
+
+    return jsonify([
+        {
+            "module_id": c.module_id,
+            "completed": c.completed
+        }
+        for c in completions
+    ]), 200
+
+# Update Completion Route
+@main.route("/api/completion", methods=["PUT"])
+def update_completion():
+    data = request.get_json()
+
+    user_id = data.get("user_id")
+    module_id = data.get("module_id")
+    completed = data.get("completed", True)
+
+    completion = Completion.query.filter_by(
+        user_id=user_id,
+        module_id=module_id
+    ).first()
+
+    if not completion:
+        return jsonify({"message": "Completion record not found"}), 404
+
+    completion.completed = completed
+    db.session.commit()
+
+    return jsonify({"message": "Completion updated"}), 200
