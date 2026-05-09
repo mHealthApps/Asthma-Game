@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
                                unset_jwt_cookies, jwt_required, JWTManager
 from flask_bcrypt import Bcrypt
-from .models import User, db
+from .models import User, Completion, Settings, db
 
 main = Blueprint("main", __name__)
 bcrypt = Bcrypt()
@@ -78,6 +78,18 @@ def signup():
     new_user = User(email=email, password=hashed_password, firstname=firstname, lastname=lastname)
 
     db.session.add(new_user)
+    db.session.commit()
+
+    # Initialize module completions
+    for module_id in range(1, 7):
+        completion = Completion(
+            user_id=new_user.id,
+            module_id=module_id,
+            completed=False
+        )
+
+        db.session.add(completion)
+
     db.session.commit()
 
     return jsonify({"message": "User created successfully"}), 201

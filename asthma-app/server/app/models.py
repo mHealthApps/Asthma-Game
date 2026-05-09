@@ -28,6 +28,14 @@ class Completion(db.Model):
 
     user = db.relationship("User", backref="completions")
 
+    __table_args__ = (
+        db.UniqueConstraint(
+            'user_id',
+            'module_id',
+            name='unique_user_module'
+        ),
+    )
+
 #information on the settings of a user
 class Settings(db.Model):
     id = db.Column(db.Integer, primary_key=True)
