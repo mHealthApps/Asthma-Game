@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import InputField from "./InputField";
 import Button from "./Button";
+import axios from "axios";
 
 const SignupForm = () => {
     const [email, setEmail] = useState("");
@@ -16,6 +17,19 @@ const SignupForm = () => {
       console.log("Password:", password);
 
       // Add API call here later
+      axios.post("http://127.0.0.1:5000/api/signup", {
+        email,
+        password,
+        firstName,
+        lastName
+      })
+      .then(() => {
+        alert("Signup successful!");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("Signup failed");
+      });
     };
 
     return (
