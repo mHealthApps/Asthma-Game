@@ -15,6 +15,11 @@ import Lung_Tree_31 from '../../assets/images/31_Lung_Tree.jpg';
 import Lungs_Oxygen_28 from '../../assets/images/28_Lungs_Oxygen.jpg';
 import Lungs_Oxygen_Animation_29 from '../../assets/videos/29_Lungs_O + CO2_Animation.mp4';
 import Lungs_Oxygen_Animation_30 from '../../assets/videos/30_Lungs_Oxygen_Animation.mp4';
+import Lung_32 from '../../assets/images/32_Lung.jpg';
+import Kidney_15 from '../../assets/images/15_Kidney.jpg'
+import TealShirt_Girl_Coughing_4 from '../../assets/images/4_TealShirt_Girl_Coughing.jpg';
+import Heart_14 from '../../assets/images/14_Heart.jpg';
+import WhiteShirt_Lungs_Tube_11 from '../../assets/images/11_WhiteShirt_Girl_Lungs_Tube.jpg';
 import AudioFile1 from '../../assets/audio/Audio-File-1.mp3';
 import AudioFile2 from '../../assets/audio/Audio-File-2.mp3';
 import AudioFile3 from '../../assets/audio/Audio-File-3.mp3';
@@ -135,6 +140,92 @@ const lungsQuiz = {
   index: 0,
 }
 
+const lungsGameContent = {
+    questions: [
+      {
+          text: 'What is asthma?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Lung Condition',
+                  image: 'lungs',
+              },
+              {
+                  text: 'Kidney Condition',
+                  image: 'kidneys',
+              },
+          ],
+      },
+      {
+          text: `Where do your lungs sit?` ,
+          options: [
+            {
+                text: 'In your chest',
+                image: 'white-shirt-lungs'
+            },
+            {
+                text: 'In your throat',
+                image: 'teal-shirt'
+            },
+          ],
+      },
+      {
+          text: 'What do lungs look like?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Upside down tree',
+                  image: 'lung-tree',
+              },
+              {
+                  text: 'Like this',
+                  image: 'heart',
+              },
+          ],
+      },
+      {
+          text: 'Where is the windpipe?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'The long tube that goes from your mouth to the lungs',
+                  image: 'lungs-text-2',
+              },
+              {
+                  text: 'Small tubes within the lungs',
+                  image: 'white-shirt-lungs-tube',
+              },
+          ],
+      },
+      {
+          text: 'What do we breathe in?',
+          /* The first option is the correct one, in the Gate entity the answers are shuffled */
+          options: [
+              {
+                  text: 'Oxygen',
+                  image: 'lungs-oxygen',
+              },
+              {
+                  text: 'Carbon Dioxide',
+                  image: 'lungs-oxygen',
+              },
+          ],
+      },
+      
+  ],
+  assets: [
+    { alias: 'lungs', src: Lung_32 },
+    { alias: 'kidneys', src: Kidney_15 },
+    { alias: 'white-shirt-lungs', src: WhiteShirt_Girl_Lungs_10 },
+    { alias: 'teal-shirt', src: TealShirt_Girl_Coughing_4 },
+    { alias: 'lung-tree', src: Lung_Tree_31 },
+    { alias: 'heart', src: Heart_14 },
+    { alias: 'white-shirt-lungs-tube', src: WhiteShirt_Lungs_Tube_11 },
+    { alias: 'lungs-text-2', src: Lungs_Text_2_27 },
+    { alias: 'lungs-oxygen', src: Lungs_Oxygen_28 },
+  ]
+};
+
 
 const TheLungs = () => {
   // GA Lungs pageview
@@ -157,7 +248,7 @@ const TheLungs = () => {
         case 0:
           return <StackedCards cards={lungsCards} title="The Lungs" uponCompletion={nextScene} />
         case 1:
-          return <GameHost GameClass={GateGame} content='the lungs content placeholder' storageIndex={0} />
+          return <GameHost GameClass={GateGame} content={lungsGameContent} storageIndex={0} />
         default:
           return <div>Error: rendering failed</div>
       }

@@ -46,6 +46,7 @@ export default class MemoryCard {
     resetFlip() {
         this.card.texture = Texture.from('card-top');
         this.card.scale.set(this.width * 0.01);
+        // console.log(this.card.scale);
     }
 
     remove() {

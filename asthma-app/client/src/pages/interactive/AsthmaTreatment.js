@@ -240,7 +240,7 @@ const treatmentGameContent = [
     {
         alias: 'blue-inhaler',
         src: Blue_Inhaler_21,
-        hint: 'This type of inhaler works fast, helping with short breath, coughes, and wheezing'
+        hint: 'This type of inhaler works fast, helping with short breath, coughs, and wheezing'
     }, 
     {
         alias: 'lungs',

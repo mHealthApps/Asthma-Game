@@ -17,7 +17,11 @@ export class DemoGame extends BaseGame {
             this.setScene(new GameScene(this.app, this.content));
         }
         // Set the initial scene
-        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Healthy Lungs Game', 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.', this.playGame));
+        let instructions = 'In this game you must click the falling objects that are good for your lungs, while avoiding the things that may trigger asthma flare ups.';
+        if (this.content.instructions !== undefined) {
+            instructions = this.content.instructions;
+        }
+        this.setScene(new SimpleInstructionScene(this.app, this.content, 'Healthy Lungs Game', instructions, this.playGame));
 
 
         this.completionTime = 0;

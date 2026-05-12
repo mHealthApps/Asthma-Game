@@ -1,5 +1,5 @@
 import { BaseScene } from './BaseScene';
-import { Text } from 'pixi.js';
+import { Text, Graphics, FillGradient } from 'pixi.js';
 import PixiButton from './PixiButton';
 
 export class SimpleInstructionScene extends BaseScene {
@@ -12,7 +12,28 @@ export class SimpleInstructionScene extends BaseScene {
     }
 
     build() {
-        
+        this.background = new Graphics();
+
+        const radialGradient = new FillGradient({
+            type: 'radial',
+            center: { x: 0.5, y: 0.5 },
+            innerRadius: 0,
+            outerCenter: { x: 0.5, y: 0.5 },
+            outerRadius: 0.5,
+            colorStops: [
+                { offset: 0, color: 0xEDD5A5 }, // Center color
+                { offset: 1, color: 0xB8A580 }   // Edge color
+                // { offset: 0, color: 'green' }, // Center color
+                // { offset: 1, color: 'yellow' }   // Edge color
+            ],
+            // Use normalized coordinate system where (0,0) is the top-left and (1,1) is the bottom-right of the shape
+            textureSpace: 'local'
+        });
+
+        this.background.rect(0, 0, this.app.screen.width, this.app.screen.height);
+        this.background.fill(radialGradient);
+
+        this.container.addChild(this.background);
     }
 
     displayMore() {
