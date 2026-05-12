@@ -12,17 +12,18 @@ const LoginForm = () => {
     const navigate = useNavigate();
     const { saveToken } = useAuth();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
       console.log("Email:", email);
       console.log("Password:", password);
 
-      // API call
-      axios.post("http://127.0.0.1:5000/api/token", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
+      try {
+        // API call
+        const response = await axios.post("http://127.0.0.1:5000/api/token", {
+          email: email,
+          password: password,
+        });
+      
         const token = response.data.access_token;
         console.log("LOGIN RESPONSE:", response.data);
 
@@ -31,15 +32,14 @@ const LoginForm = () => {
         }
         
         saveToken(token);
-        fetchCompletion(token);
+        await fetchCompletion(token);
 
         console.log("LOGIN SUCCESS");
         navigate("/home");
-      })
-      .catch((error) => {
+      } catch(error) {
         console.error(error);
         alert("Login failed");
-      });
+      }
     };
 
     const fetchCompletion = async (token) => {
@@ -52,11 +52,30 @@ const LoginForm = () => {
           },
         });
 
-        
+        const completionData = res.data;
         console.log("COMPLETION:", res.data);
 
-        // optional: store globally later (context)
-        return res.data;
+        // 1. Define how many modules you have (match your ListGrid items length)
+        const totalModules = 6; 
+        let bitString = "";
+
+        // 2. Build the bit-string
+        for (let i = 0; i < totalModules; i++) {
+          // Check if the server has a 'completed: true' record for this index
+          // We match 'i' against the 'module_id' stored in your DB
+          const isDone = completionData.some(
+            (record) => Number(record.module_id) === i && record.completed === true
+          );
+          
+          bitString += isDone ? "1" : "0";
+        }
+
+        // 3. Save to localStorage using the key ListGrid expects
+        // If conditionTitle is "Asthma", the key is "asthmalist"
+        localStorage.setItem("asthmaList", bitString);
+        
+        console.log("BIT-STRING GENERATED:", bitString);
+        return bitString;
       } catch (err) {
         console.error("fetchCompletion error:", err);
       }

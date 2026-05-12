@@ -22,7 +22,7 @@ def test():
 # Login Route
 @main.route('/api/token', methods=['POST'])
 def create_token():
-    print("LOGIN SECRET:", current_app.config["JWT_SECRET_KEY"])
+    #print("LOGIN SECRET:", current_app.config["JWT_SECRET_KEY"])
     data = request.get_json()
 
     email = data.get("email")
@@ -83,7 +83,7 @@ def signup():
     db.session.commit()
 
     # Initialize module completions
-    for module_id in range(1, 7):
+    for module_id in range(0, 6):
         completion = Completion(
             user_id=new_user.id,
             module_id=module_id,
@@ -100,8 +100,8 @@ def signup():
 @main.route("/api/completion", methods=["GET"])
 @jwt_required()
 def get_completion():
-    print("AUTH HEADER:", request.headers.get("Authorization"))
-    print("COMPLETION SECRET:", current_app.config["JWT_SECRET_KEY"])
+    #print("AUTH HEADER:", request.headers.get("Authorization"))
+    #print("COMPLETION SECRET:", current_app.config["JWT_SECRET_KEY"])
     user_id = get_jwt_identity()
 
     completions = Completion.query.filter_by(user_id=user_id).all()
@@ -120,7 +120,7 @@ def get_completion():
 def update_completion():
     data = request.get_json()
 
-    user_id = data.get("user_id")
+    user_id = get_jwt_identity()
     module_id = data.get("module_id")
     completed = data.get("completed", True)
 

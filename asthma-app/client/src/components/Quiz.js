@@ -6,6 +6,7 @@ import useOrientation from '../hooks/useOrientation';
 import { Col } from 'react-bootstrap';
 import ResponsiveText from './ResponsiveText';
 import { CheckCircleFill, XCircleFill } from 'react-bootstrap-icons';
+import axios from 'axios';
 
 
 const QuestionText = ({ text, name }) => {
@@ -35,7 +36,7 @@ const QuizMedia = ({ image, alt, animation }) => {
 const QuestionCards = ({ options, answer, orientation, correct, incorrect, storageIndex, conditionTitle, containerHeight, cardColor }) => {
   //console.log(orientation);
 
-  const updateStorage = () => {
+  const updateStorage = async () => {
     if (conditionTitle !== undefined) {
       console.log(`conditionTitle: ${conditionTitle}`);
       const key = conditionTitle.toLowerCase() + 'List';
@@ -48,9 +49,28 @@ const QuestionCards = ({ options, answer, orientation, correct, incorrect, stora
         console.log(`new storage data: ${completedLists}`)
         localStorage.setItem(key, completedLists);
       }
+
+      // sync to backend
+      const token = localStorage.getItem("token"); // Retrieve the JWT
+      if (token) {
+        try {
+          await axios.put("http://127.0.0.1:5000/api/completion", {
+            // We use storageIndex as the module_id to match your bit-string position
+            module_id: storageIndex.toString(), 
+            completed: true
+          }, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          console.log("Backend sync successful");
+        } catch (err) {
+          console.error("Backend sync failed:", err);
+        }
+      }
     } else {
       console.log('conditionTitle failure');
     }
+
+
   }
 
   return (
