@@ -31,6 +31,7 @@ const LoginForm = () => {
         }
         
         saveToken(token);
+        fetchCompletion(token);
 
         console.log("LOGIN SUCCESS");
         navigate("/home");
@@ -39,6 +40,26 @@ const LoginForm = () => {
         console.error(error);
         alert("Login failed");
       });
+    };
+
+    const fetchCompletion = async (token) => {
+      console.log("TOKEN:", token);
+
+      try {
+        const res = await axios.get("http://127.0.0.1:5000/api/completion", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        
+        console.log("COMPLETION:", res.data);
+
+        // optional: store globally later (context)
+        return res.data;
+      } catch (err) {
+        console.error("fetchCompletion error:", err);
+      }
     };
 
     return (

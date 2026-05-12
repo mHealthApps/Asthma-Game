@@ -3,12 +3,13 @@ import json
 from flask import Flask, request, Blueprint, jsonify
 from datetime import datetime, timedelta, timezone
 from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, \
-                               unset_jwt_cookies, jwt_required, JWTManager
-from flask_bcrypt import Bcrypt
+                               unset_jwt_cookies, jwt_required
 from .models import User, Completion, Settings, db
+from flask import request
+from flask import current_app
+from .extensions import bcrypt
 
 main = Blueprint("main", __name__)
-bcrypt = Bcrypt()
 
 @main.route("/api/health")
 def health():
@@ -21,6 +22,7 @@ def test():
 # Login Route
 @main.route('/api/token', methods=['POST'])
 def create_token():
+    print("LOGIN SECRET:", current_app.config["JWT_SECRET_KEY"])
     data = request.get_json()
 
     email = data.get("email")
@@ -46,7 +48,7 @@ def create_token():
         return jsonify({"msg": "Invalid email or password"}), 401
 
     # 5. Create JWT token
-    access_token = create_access_token(identity=user.email)
+    access_token = create_access_token(identity=str(user.id))
 
     return {"access_token": access_token}
 
@@ -98,6 +100,8 @@ def signup():
 @main.route("/api/completion", methods=["GET"])
 @jwt_required()
 def get_completion():
+    print("AUTH HEADER:", request.headers.get("Authorization"))
+    print("COMPLETION SECRET:", current_app.config["JWT_SECRET_KEY"])
     user_id = get_jwt_identity()
 
     completions = Completion.query.filter_by(user_id=user_id).all()
@@ -112,6 +116,7 @@ def get_completion():
 
 # Update Completion Route
 @main.route("/api/completion", methods=["PUT"])
+@jwt_required()
 def update_completion():
     data = request.get_json()
 
