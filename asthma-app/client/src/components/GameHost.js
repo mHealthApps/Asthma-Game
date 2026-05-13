@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const GameHost = ({ GameClass, content, storageIndex }) => {
     const ref = useRef(null);
@@ -25,7 +26,7 @@ const GameHost = ({ GameClass, content, storageIndex }) => {
 
     // TODO: this is duplicate code from QuizCards (both change for backend)
     const conditionTitle = 'ASTHMA'
-    const updateStorage = () => {
+    const updateStorage = async () => {
         if (conditionTitle !== undefined) {
             console.log(`conditionTitle: ${conditionTitle}`);
             const key = conditionTitle.toLowerCase() + 'List';
@@ -37,6 +38,23 @@ const GameHost = ({ GameClass, content, storageIndex }) => {
                 completedLists = completedLists.substring(0, storageIndex) + '1' + completedLists.substring(storageIndex + 1, completedLists.length);
                 console.log(`new storage data: ${completedLists}`)
                 localStorage.setItem(key, completedLists);
+            }
+
+            // sync to backend
+            const token = localStorage.getItem("token"); // Retrieve the JWT
+            if (token) {
+                try {
+                await axios.put("http://127.0.0.1:5000/api/completion", {
+                    // We use storageIndex as the module_id to match your bit-string position
+                    module_id: storageIndex.toString(), 
+                    completed: true
+                }, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                console.log("Backend sync successful");
+                } catch (err) {
+                console.error("Backend sync failed:", err);
+                }
             }
         } else {
             console.log('conditionTitle failure');
