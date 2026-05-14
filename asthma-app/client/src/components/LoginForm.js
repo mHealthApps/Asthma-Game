@@ -19,7 +19,7 @@ const LoginForm = () => {
 
       try {
         // API call
-        const response = await axios.post("http://127.0.0.1:5000/api/token", {
+        const response = await axios.post("/api/token", {
           email: email,
           password: password,
         });
@@ -46,7 +46,7 @@ const LoginForm = () => {
       console.log("TOKEN:", token);
 
       try {
-        const res = await axios.get("http://127.0.0.1:5000/api/completion", {
+        const res = await axios.get("/api/completion", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

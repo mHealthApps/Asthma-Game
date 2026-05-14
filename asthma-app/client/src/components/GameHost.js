@@ -44,7 +44,7 @@ const GameHost = ({ GameClass, content, storageIndex }) => {
             const token = localStorage.getItem("token"); // Retrieve the JWT
             if (token) {
                 try {
-                await axios.put("http://127.0.0.1:5000/api/completion", {
+                await axios.put("/api/completion", {
                     // We use storageIndex as the module_id to match your bit-string position
                     module_id: storageIndex.toString(), 
                     completed: true
