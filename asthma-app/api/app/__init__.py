@@ -25,6 +25,9 @@ def create_app():
     # syncs database to migrations when app starts
     with app.app_context():
         try:
+            # goes up from /api/app/ to /api/
+            migrations_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'migrations'))
+
             upgrade() # Applies all migrations in your /migrations folder
             print("Database successfully migrated.")
         except Exception as e:
