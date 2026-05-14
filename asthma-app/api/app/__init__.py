@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_migrate import upgrade
 from .extensions import db, migrate, jwt, bcrypt
 from flask_cors import CORS
 
