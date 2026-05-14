@@ -11,16 +11,16 @@ from .extensions import bcrypt
 
 main = Blueprint("main", __name__)
 
-@main.route("/health")
+@main.route("/api/health")
 def health():
     return jsonify({"status": "ok"})
 
-@main.route('/test', methods=['GET'])
+@main.route('/api/test', methods=['GET'])
 def test():
     return {"message": "Flask is working!"}
 
 # Login Route
-@main.route('/token', methods=['POST'])
+@main.route('/api/token', methods=['POST'])
 def create_token():
     #print("LOGIN SECRET:", current_app.config["JWT_SECRET_KEY"])
     data = request.get_json()
@@ -53,14 +53,14 @@ def create_token():
     return {"access_token": access_token}
 
 # Logout Route
-@main.route('/logout', methods=["POST"])
+@main.route('/api/logout', methods=["POST"])
 def logout():
     response = jsonify({"msg": "logout successful"})
     unset_jwt_cookies(response)
     return response
 
 # Signup Route
-@main.route("/signup", methods=["POST"])
+@main.route("/api/signup", methods=["POST"])
 def signup():
     data = request.get_json()
 
@@ -97,7 +97,7 @@ def signup():
     return jsonify({"message": "User created successfully"}), 201
 
 # Get Completion Route
-@main.route("/completion", methods=["GET"])
+@main.route("/api/completion", methods=["GET"])
 @jwt_required()
 def get_completion():
     #print("AUTH HEADER:", request.headers.get("Authorization"))
@@ -115,7 +115,7 @@ def get_completion():
     ]), 200
 
 # Update Completion Route
-@main.route("/completion", methods=["PUT"])
+@main.route("/api/completion", methods=["PUT"])
 @jwt_required()
 def update_completion():
     data = request.get_json()
