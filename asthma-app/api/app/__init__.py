@@ -21,6 +21,14 @@ def create_app():
     jwt.init_app(app)
     bcrypt.init_app(app)
 
+    # syncs database to migrations when app starts
+    with app.app_context():
+        try:
+            upgrade() # Applies all migrations in your /migrations folder
+            print("Database successfully migrated.")
+        except Exception as e:
+            print(f"Migration skipped or failed: {e}")
+
     from . import models
     from .routes import main
     app.register_blueprint(main)
