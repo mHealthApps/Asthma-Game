@@ -28,7 +28,8 @@ def create_app():
             # goes up from /api/app/ to /api/
             migrations_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'migrations'))
 
-            upgrade() # Applies all migrations in your /migrations folder
+            print(f"Attempting migration at: {migrations_dir}")
+            upgrade(directory=migrations_dir)
             print("Database successfully migrated.")
         except Exception as e:
             print(f"Migration skipped or failed: {e}")
