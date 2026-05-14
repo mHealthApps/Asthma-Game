@@ -9,7 +9,9 @@ def create_app():
     app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 
     # allows the flask server to accept HTTP requests from localhost 3000
-    CORS(app, origins=["http://localhost:3000"])
+    #CORS(app, origins=["http://localhost:3000"])
+    #allows any origin for deployment testing
+    CORS(app)
 
     app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
