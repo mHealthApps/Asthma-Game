@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import ReactDOM from 'react-dom';
 import ReactGA from 'react-ga4';
 import Home from './pages/static/Home';
@@ -8,11 +8,6 @@ import AboutUs from './pages/static/AboutUs';
 import Resources from './pages/static/Resources';
 import SoundChoice from './pages/interactive/SoundChoice';
 import AsthmaList from "./pages/static/AsthmaList";
-import DemoStacked from './pages/DemoStacked';
-import DemoQuiz from './pages/DemoQuiz';
-import DemoSummary from './pages/DemoSummary';
-import DemoCongratulations from './pages/DemoCongratulations';
-import DemoSound from './pages/DemoSound';
 import TheLungs from './pages/interactive/TheLungs';
 import AboutAsthma from './pages/interactive/AboutAsthma';
 import AsthmaTreatment from './pages/interactive/AsthmaTreatment';
@@ -93,16 +88,16 @@ function App() {
   return (
     <Router>
       <Routes>
-        // Guest Routes
+        [ Guest Routes ]
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
 
-        // Public Routes
+        [ Public Routes ]
         <Route path="/flasktest" element={<FlaskTest />} />
 
-        // Protected Routes
+        [ Protected Routes ]
         <Route element={<ProtectedRoute />}>
           <Route exact path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -111,11 +106,6 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/sound-choice" element={<SoundChoice />} />
           <Route path="/asthma-list" element={<AsthmaList setUserName={setUserName} />} />
-          <Route path="/stacked-demo" element={<DemoStacked />} />
-          <Route path="/quiz-demo" element={<DemoQuiz />} />
-          <Route path="/summary-demo" element={<DemoSummary />} />
-          <Route path="/congratulations-demo" element={<DemoCongratulations />} />
-          <Route path="/sound-demo" element={<DemoSound />} />
           <Route path="/game-demo" element={<DemoPixiGame />} />
           <Route path="/the-lungs" element={<TheLungs />} />
           <Route path="/about-asthma" element={<AboutAsthma />} />
