@@ -3,12 +3,15 @@ import InputField from "./InputField";
 import Button from "./Button";
 import axios from "axios";
 import Nav from 'react-bootstrap/Nav';
+import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -26,6 +29,7 @@ const SignupForm = () => {
       })
       .then(() => {
         alert("Signup successful!");
+        navigate("/login");
       })
       .catch((err) => {
         console.error(err);
