@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import InputField from "./InputField";
 import Button from "./Button";
 import axios from "axios";
-import Nav from 'react-bootstrap/Nav';
 import { useNavigate } from "react-router-dom";
 
 const SignupForm = () => {

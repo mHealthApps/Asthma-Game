@@ -4,7 +4,6 @@ import InputField from "./InputField";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import Nav from 'react-bootstrap/Nav';
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
