@@ -27,7 +27,7 @@ const SignupForm = () => {
         lastName
       })
       .then(() => {
-        alert("Signup successful!");
+        alert("Signup successful! Proceed to Login");
         navigate("/login");
       })
       .catch((err) => {
