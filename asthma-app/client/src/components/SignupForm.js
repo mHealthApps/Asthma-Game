@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InputField from "./InputField";
 import Button from "./Button";
 import axios from "axios";
+import Nav from 'react-bootstrap/Nav';
 
 const SignupForm = () => {
     const [email, setEmail] = useState("");
@@ -63,6 +64,10 @@ const SignupForm = () => {
         />
 
         <Button text="Create Account" />
+
+        <div className="form-footer">
+          <p>Already have an account? <a href="/Asthma-WebApp#/login" class="login-link">Login</a></p>
+        </div>
       </form>
     );
 }

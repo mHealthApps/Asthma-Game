@@ -768,10 +768,6 @@
   transition: 0.1s;
 }
 
-.sound-link-button {
-
-}
-
 .sound-card-inner-container {
   margin-top: calc(var(--vh, 1vh) * 2.0);
   width: 100%;
@@ -787,6 +783,10 @@
   margin: calc(var(--vh, 1vh) * 2.0) 0 calc(var(--vh, 1vh) * -1.0) 0;
   height: calc(var(--vh, 1vh) * 3.8);
   color: rgb(50, 50, 50);
+}
+
+#sound-card-inner-signup {
+  height: calc(var(--vh, 1vh) * 65.0);
 }
 
 .reset-text-container {
@@ -914,4 +914,9 @@ body, html {
 .input-field {
   padding: 8px;
   font-size: 16px;
+}
+
+.login-link {
+  color: #0056b3;
+  display: inline;
 }

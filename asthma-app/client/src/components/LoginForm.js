@@ -4,6 +4,7 @@ import InputField from "./InputField";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
+import Nav from 'react-bootstrap/Nav';
 
 const LoginForm = () => {
     const [email, setEmail] = useState("");
@@ -83,22 +84,26 @@ const LoginForm = () => {
 
     return (
       <form onSubmit={handleSubmit} className="login-form">
-      <InputField
-        label="Email"
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <InputField
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-      <InputField
-        label="Password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <InputField
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <Button text="Login" />
-    </form>
+        <Button text="Login" />
+
+        <div className="form-footer">
+          <p>Don't have an account? <a href="/Asthma-WebApp#/signup" class="login-link">Sign up</a></p>
+        </div>
+      </form>
     );
 }
 

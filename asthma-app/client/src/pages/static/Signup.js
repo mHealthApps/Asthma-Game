@@ -23,7 +23,7 @@ const Signup = () => {
 
       <div className='login-header-container'>
         <div className="sound-card">
-          <div className="sound-card-inner-container">
+          <div className="sound-card-inner-container" id="sound-card-inner-signup">
             <SignupForm />
           </div>
         </div>
